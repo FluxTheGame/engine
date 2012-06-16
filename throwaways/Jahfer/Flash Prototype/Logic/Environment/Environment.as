@@ -14,7 +14,7 @@ package Logic.Environment {
 
 		public function update():void {
 			
-			trace("> Environment #"+this.id+" updated");
+			trace("[LOGIC]\tEnvironment #"+this.id+" updated");
 		}
 
 		public function getState():String {

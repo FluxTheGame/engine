@@ -18,7 +18,7 @@ package Logic.Environment {
 		}
 		
 		public function load(e:EnvironmentEvent):void {
-			trace("└── Climate #"+this.id+" updated");
+			trace("\t[LOGIC]\tClimate #"+this.id+" updated");
 		}
 
 		public function update():void {

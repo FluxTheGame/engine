@@ -1,12 +1,14 @@
 package Screen {
 	public class Environment implements IScreenObject {
 
-		public function Environment() {
-			
+		public var id:int;
+		
+		public function Environment(pid:int) {
+			this.id = pid;
 		}
-
-		public function update(e:EnvironmentEvent):void {
-			
+		
+		public function update():void {
+			trace("[SCREEN]\tEnvironment updated");
 		}
 
 		public function draw():void {

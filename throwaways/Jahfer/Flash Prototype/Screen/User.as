@@ -23,20 +23,20 @@
 		
 		public function releaseElement():void {
 			// fire event listener
-			trace("> " + this._selectedElement + " released");
+			trace("[SCREEN]\t" + this._selectedElement + " released");
 		}
 		
 		public function setSelectedElement(e:UserEvent):void {
 			//this._selectedElement = element;
-			trace("└── Selected element is now " + this._selectedElement);
+			trace("\t[SCREEN]\tUser #"+this.id+" selected element is now " + this._selectedElement);
 		}
 		
 		public function updatePosition(e:UserEvent):void {
-			trace("└── User #"+this.id+" position updated to ("+this.x+", "+this.y+")");
+			trace("\t[SCREEN]\tUser #"+this.id+" position updated to ("+this.x+", "+this.y+")");
 		}
 
 		public function update():void {
-			trace("> User #"+this.id+" @ ("+this.x+", "+this.y+")");
+			trace("[SCREEN]\tUser #"+this.id+" @ ("+this.x+", "+this.y+")");
 		}
 
 		public function draw():void {
