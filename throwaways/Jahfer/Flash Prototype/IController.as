@@ -1,5 +1,5 @@
 package {
 	public interface IController {
-		function getInternalStates():void;
+		function run():void;
 	}
 }
