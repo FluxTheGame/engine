@@ -2,7 +2,6 @@ package Logic.Environment {
 	
 	import Logic.ILogicObject;
 	import Events.EnvironmentEvent;
-	import EventManager;
 
 	public class Climate implements ILogicObject {
 		

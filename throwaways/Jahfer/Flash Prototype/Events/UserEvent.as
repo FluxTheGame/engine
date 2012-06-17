@@ -6,6 +6,7 @@ package Events {
 
 		public static const SELECT_ELEMENT:String = "UserEvent.Select_Element";
 		public static const UPDATE_POSITION:String = "UserEvent.Update_Position";
+		public static const PLANT_SEEDED:String = "UserEvent.Plant_Seeded";
 
 		public var args:*;
 

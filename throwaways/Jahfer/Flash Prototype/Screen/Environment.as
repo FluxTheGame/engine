@@ -1,5 +1,8 @@
 package Screen {
-	public class Environment implements IScreenObject {
+
+	import flash.display.MovieClip;
+
+	public class Environment extends MovieClip implements IScreenObject {
 
 		public var id:int;
 		
@@ -8,11 +11,11 @@ package Screen {
 		}
 		
 		public function update():void {
-			trace("[SCREEN]\tEnvironment updated");
+			trace("[SCREEN]\tEnvironment #"+this.id+" updated");
 		}
 
 		public function draw():void {
-
+			trace("[SCREEN]\tEnvironment #"+this.id+" drawn");
 		}
 
 		public function getState():String {

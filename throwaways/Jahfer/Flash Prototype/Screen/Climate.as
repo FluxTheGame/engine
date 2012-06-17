@@ -1,5 +1,8 @@
 package Screen {
-	public class Climate implements IScreenObject {
+
+	import flash.display.MovieClip;
+
+	public class Climate extends MovieClip implements IScreenObject {
 
 		public var id:int;
 		
@@ -8,11 +11,11 @@ package Screen {
 		}
 
 		public function update():void {
-			trace("[SCREEN]\tClimate updated");
+			trace("[SCREEN]\tClimate #"+this.id+" updated");
 		}
 
 		public function draw():void {
-
+			trace("[SCREEN]\tClimate #"+this.id+" drawn");
 		}
 
 		public function getState():String {

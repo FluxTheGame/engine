@@ -1,8 +1,6 @@
 package Logic {
 	
-	import Screen.User;
 	import Events.*;
-	import EventManager;
 	
 	public class Communication implements ILogicObject {
 
@@ -12,10 +10,24 @@ package Logic {
 		
 		public function update():void {
 			trace("[LOGIC]\tRetrieved data from server");
-			EventManager.dispatchEvent(new UserEvent(UserEvent.SELECT_ELEMENT));
-			EventManager.dispatchEvent(new UserEvent(UserEvent.UPDATE_POSITION));
+
+			var elementInfo:Object = {
+				userid: 0,
+				selectedElement: "Wind"
+			};
+
+			var coords:Object = {
+				userid: 0,
+				x: 400,
+				y: 50,
+				screenLocation: 3
+			};
+
+			EventManager.dispatchEvent(new UserEvent(UserEvent.SELECT_ELEMENT, elementInfo));
+			EventManager.dispatchEvent(new UserEvent(UserEvent.UPDATE_POSITION, coords));
 			EventManager.dispatchEvent(new EnvironmentEvent(EnvironmentEvent.UPDATE_CLIMATE));
 			EventManager.dispatchEvent(new EnvironmentEvent(EnvironmentEvent.UPDATE_SCENE));
+			EventManager.dispatchEvent(new UserEvent(UserEvent.PLANT_SEEDED));
 		}
 
 		public function getState():String {
