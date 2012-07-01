@@ -10,11 +10,16 @@
 Ext.application({
     name: 'GC',
 
+    settings: {
+        'server' : 'localhost',
+        'port' : '8000'
+    },
+
     requires: [
         'Ext.MessageBox'
     ],
 
-    controllers: ['Game'],
+    controllers: ['Game', 'Socket'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -35,12 +40,12 @@ Ext.application({
     },
 
     initialize: function() {
-        console.log('app initialize');
+        console.log('App initialize');
         this.callParent();
     },
 
     launch: function() {
-        console.log('app launch');
+        console.log('App launch');
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 

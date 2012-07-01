@@ -20,13 +20,13 @@ Ext.define('GC.controller.Game', {
 			'#firstButton' : {
 				tap: function() {
             		Ext.Msg.alert('First button tapped!');
-            		console.log('> [controller/Game] First button tapped!');
+            		console.log('[controller/Game] First button tapped!');
 				}
 			},
 			'#secondButton' : {
 				tap: function() {
             		Ext.Msg.alert('Second button tapped!');
-            		console.log('> [controller/Game] Second button tapped!');
+            		console.log('[controller/Game] Second button tapped!');
 				}
 			}
 		}

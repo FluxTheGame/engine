@@ -2,7 +2,7 @@
     /**
      * The application's namespace, used by Sencha Command to generate classes
      */
-    "name": "GS",
+    "name": "GC",
 
     /**
      * The file path to this application's front HTML document, relative to this app.json file
@@ -34,6 +34,10 @@
     "js": [
         {
             "path": "sdk/sencha-touch.js"
+        },
+        {
+            "path": "http://localhost:8000/socket.io/socket.io.js",
+            "update": "delta"
         },
         {
             "path": "app.js",

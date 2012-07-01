@@ -66,7 +66,7 @@ Ext.define('GC.view.TouchReader', {
 
 					if (eventName.match("drag")) {
 						// e contains all the info for positioning
-						console.log("> [view/TouchReader]", eventName, e.deltaX, e.deltaY);
+						console.log("[view/TouchReader]", eventName, e.deltaX, e.deltaY);
 					}
 				}
 			}
