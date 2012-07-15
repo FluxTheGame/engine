@@ -107,8 +107,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animal.cs" />
     <Compile Include="AnimalManager.cs" />
+    <Compile Include="Biome.cs" />
     <Compile Include="BiomeManager.cs" />
+    <Compile Include="Plant.cs" />
     <Compile Include="PlantManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

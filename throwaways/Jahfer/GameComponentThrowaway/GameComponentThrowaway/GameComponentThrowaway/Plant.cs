@@ -7,31 +7,29 @@ using Microsoft.Xna.Framework;
 
 namespace GameComponentThrowaway {
 
-    public enum Element {
-        FIRE,
-        WATER,
-        WIND,
-        ICE
-    };
-
     /// <summary>
     /// 
     /// </summary>
-    class User {
+    class Plant {
+
+        /// <summary>
+        /// The current "state" of the <c>Plant</c>. The feeding state can be of
+        /// the following types: attack, graze, drink; the type depends on the nature
+        /// of the animal.
+        /// </summary>
+        public enum PlantState { BIRTH, DEATH };
 
         // Constructor
-        public User() {
+        public Plant() {
             this.ID = getID();
-            this._selectedElement = Element.FIRE;
+            this.State = PlantState.BIRTH;
         }
-
 
         // Properties
         public int ID { get; private set; }
-
+        public PlantState State { get; private set; }
 
         // Variables
-        private Element _selectedElement;
         private Point _position;
 
 
@@ -41,10 +39,6 @@ namespace GameComponentThrowaway {
 
 
         // Methods
-        public void releaseSelectedElement() {
-            Point x = this._position;
-        }
-
         public void update() {
             //Console.WriteLine("User {0} has been updated!", this.ID);
         }

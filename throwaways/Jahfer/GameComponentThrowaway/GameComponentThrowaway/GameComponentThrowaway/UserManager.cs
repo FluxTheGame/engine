@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +8,7 @@ using Microsoft.Xna.Framework;
 namespace GameComponentThrowaway {
     public class UserManager : DrawableGameComponent {
 
-        ArrayList userList = new ArrayList();
+        List<User> userList = new List<User>();
 
         public UserManager(Game g)
             : base(g) {

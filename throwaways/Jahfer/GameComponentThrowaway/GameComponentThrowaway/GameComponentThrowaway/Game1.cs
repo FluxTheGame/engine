@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+
 namespace GameComponentThrowaway {
     /// <summary>
     /// This is the main type for your game
@@ -74,8 +75,9 @@ namespace GameComponentThrowaway {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
             userManager.createNewUser();
+            plantManager.createNewPlant();
+            animalManager.createNewAnimal();
 
             base.Update(gameTime);
         }
