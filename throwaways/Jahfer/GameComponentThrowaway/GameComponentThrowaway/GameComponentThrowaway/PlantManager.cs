@@ -6,48 +6,40 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 
 namespace GameComponentThrowaway {
-    public class PlantManager : DrawableGameComponent {
+    public class PlantManager {
 
         List<Plant> plantList = new List<Plant>();
+        Game game;
 
-        public PlantManager(Game g)
-            : base(g) {
-            g.Components.Add(this);
+        public PlantManager(Game g) {
+            game = g;
         }
 
-        public override void Initialize() {
-            Console.WriteLine("PlantManager has been initialized!");
-            base.Initialize();
+        public void Initialize() {
+            //Console.WriteLine("PlantManager has been initialized!");
         }
 
-        protected override void LoadContent() {
-            Console.WriteLine("PlantManager has loaded its content!");
-            base.LoadContent();
+        protected void LoadContent() {
+            //Console.WriteLine("PlantManager has loaded its content!");
         }
 
-        public override void Update(GameTime gameTime) {
-            Console.WriteLine("PlantManager has been updated!");
-
+        public void Update(GameTime gameTime) {
+            //Console.WriteLine("PlantManager has been updated!");
             foreach (Plant plant in plantList) {
                 plant.update();
             }
-
-            base.Update(gameTime);
         }
 
-        public override void Draw(GameTime gameTime) {
-            Console.WriteLine("PlantManager has been drawn!");
-
+        public void Draw(GameTime gameTime) {
+            //Console.WriteLine("PlantManager has been drawn!");
             foreach (Plant plant in plantList) {
                 plant.update();
             }
-
-            base.Draw(gameTime);
         }
 
         public bool createNewPlant() {
-            this.plantList.Add( new Plant() );
-            Console.WriteLine("PlantManager has added a new Plant!");
+            this.plantList.Add( new Plant(game.Content) );
+            //Console.WriteLine("PlantManager has added a new Plant!");
             return true;
         }
 

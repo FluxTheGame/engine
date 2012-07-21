@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 
 namespace GameComponentThrowaway {
 
@@ -20,7 +21,7 @@ namespace GameComponentThrowaway {
         public enum PlantState { BIRTH, DEATH };
 
         // Constructor
-        public Plant() {
+        public Plant(ContentManager content) {
             this.ID = getID();
             this.State = PlantState.BIRTH;
         }

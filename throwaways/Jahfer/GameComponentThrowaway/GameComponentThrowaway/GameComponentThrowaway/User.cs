@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 
 namespace GameComponentThrowaway {
 
@@ -20,7 +21,7 @@ namespace GameComponentThrowaway {
     class User {
 
         // Constructor
-        public User() {
+        public User(ContentManager content) {
             this.ID = getID();
             this._selectedElement = Element.FIRE;
         }
