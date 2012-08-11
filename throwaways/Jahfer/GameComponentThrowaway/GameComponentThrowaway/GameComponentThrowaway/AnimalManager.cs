@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 namespace GameComponentThrowaway {
     public class AnimalManager {
 
+        public event GenericEvent AnimalCreatedEvent;
+
         List<Animal> animalList = new List<Animal>();
         Game game;
         Effect effect;
@@ -50,7 +52,9 @@ namespace GameComponentThrowaway {
         }
 
         public bool createNewAnimal() {
-            this.animalList.Add( new Animal(game.Content) );
+            animalList.Add( new Animal(game.Content) );
+            if (AnimalCreatedEvent != null)
+                AnimalCreatedEvent(this, animalList[animalList.Count-1]);
             //Console.WriteLine("AnimalManager has added a new Animal!");
             return true;
         }

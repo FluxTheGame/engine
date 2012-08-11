@@ -111,6 +111,7 @@
     <Compile Include="AnimalManager.cs" />
     <Compile Include="Biome.cs" />
     <Compile Include="BiomeManager.cs" />
+    <Compile Include="ObjectDumper.cs" />
     <Compile Include="Plant.cs" />
     <Compile Include="PlantManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

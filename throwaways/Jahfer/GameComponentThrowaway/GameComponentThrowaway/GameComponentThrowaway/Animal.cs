@@ -20,7 +20,7 @@ namespace GameComponentThrowaway {
     /// <summary>
     /// 
     /// </summary>
-    class Animal {
+    class Animal: EventArgs {
 
         /// <summary>
         /// The current "state" of the <c>Animal</c>. The feeding state can be of

@@ -14,13 +14,14 @@ using Microsoft.Xna.Framework.Media;
 
 namespace GameComponentThrowaway {
 
+    public delegate void GenericEvent(object sender, EventArgs e);
+
     public class Game1 : Microsoft.Xna.Framework.Game {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         Matrix world, view, projection;
         Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 5000.0f);
-        Vector4 vecEye;
 
         // Object Managers
         UserManager     userManager;
@@ -44,8 +45,15 @@ namespace GameComponentThrowaway {
 
         protected override void Initialize() {
 
+            animalManager.AnimalCreatedEvent += new GenericEvent(AnimalCreatedCallback);
 
             base.Initialize();
+        }
+
+        // TESTING PURPOSES ONLY
+        public void AnimalCreatedCallback(object sender, EventArgs e) {
+            Console.WriteLine("> New Animal created...");
+            Console.WriteLine(ObjectDumper.Dump(e));
         }
 
 
