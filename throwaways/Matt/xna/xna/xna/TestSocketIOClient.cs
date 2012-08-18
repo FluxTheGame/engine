@@ -17,14 +17,15 @@ namespace xna
 		{
 			Console.WriteLine("Connecting...");
 
-			socket = new Client("http://127.0.0.1:3000/"); // url to the nodejs / socket.io instance
+			socket = new Client("http://127.0.0.1:8000/"); // url to the nodejs / socket.io instance
+  
 
 			// register for 'connect' event with io server
 			socket.On("connect", (fn) =>
 			{
-				Console.WriteLine("\r\nConnected...\r\n");
-
-                socket.Emit("hello", new { msg = "mom" });
+				Console.WriteLine("\r\nConnected.\r\n");
+                socket.Emit("gameapp", new { secret = "abc123" });
+                
 			});
 
 			// register for 'hi' events - message is a json 'Part' object
@@ -42,7 +43,7 @@ namespace xna
 
         public void Send()
         {
-            socket.Emit("hello", new { msg = "mom" });
+            socket.Emit("touch", new { x = 100, y= -38 });
         }
 
 

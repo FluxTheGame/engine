@@ -7,8 +7,8 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>G:\Senior Project\Development\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\bin\x86\Debug\Content\shader.xnb</Output>
-      <Time>2012-08-09T21:07:32-04:00</Time>
+      <Output>C:\Users\Matt\Desktop\SeniorProjectDevelopment\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\bin\x86\Debug\Content\shader.xnb</Output>
+      <Time>2012-08-18T17:32:51.9466765+01:00</Time>
     </Item>
     <Item>
       <Source>Models\p1_wedge.fbx</Source>
@@ -16,13 +16,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>G:\Senior Project\Development\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\bin\x86\Debug\Content\Models\p1_wedge.xnb</Output>
-      <Time>2012-07-20T23:53:02-04:00</Time>
+      <Output>C:\Users\Matt\Desktop\SeniorProjectDevelopment\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\bin\x86\Debug\Content\Models\p1_wedge.xnb</Output>
+      <Time>2012-08-18T17:32:51.9154765+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\p1_wedge_0.xml</Key>
-        <Value>2012-07-20T23:53:38-04:00</Value>
+        <Value>2012-08-18T17:33:31.6512361+01:00</Value>
       </Dependency>
-      <Request>G:\Senior Project\Development\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Request>
+      <Request>C:\Users\Matt\Desktop\SeniorProjectDevelopment\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Request>
     </Item>
     <Item>
       <Source>Textures\wedge_p1_diff_v1.tga</Source>
@@ -30,15 +30,15 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>G:\Senior Project\Development\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb</Output>
-      <Time>2012-07-20T23:53:18-04:00</Time>
+      <Output>C:\Users\Matt\Desktop\SeniorProjectDevelopment\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb</Output>
+      <Time>2012-08-18T17:32:51.9154765+01:00</Time>
     </Item>
     <Item>
       <Source>Models\p1_wedge.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\p1_wedge_0.xml</Output>
-      <Time>2012-07-20T23:53:02-04:00</Time>
+      <Time>2012-08-18T17:32:51.9154765+01:00</Time>
     </Item>
     <Item>
       <Source>textures\wedge_p1_diff_v1.tga</Source>
@@ -53,8 +53,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>G:\Senior Project\Development\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Output>
-      <Time>2012-07-20T23:53:18-04:00</Time>
+      <Output>C:\Users\Matt\Desktop\SeniorProjectDevelopment\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Output>
+      <Time>2012-08-18T17:32:51.9154765+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -62,39 +62,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>G:\Senior Project\Development\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowawayContent\</RootDirectory>
-      <LoggerRootDirectory>G:\Senior Project\Development\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\</LoggerRootDirectory>
-      <IntermediateDirectory>G:\Senior Project\Development\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowawayContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>G:\Senior Project\Development\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Matt\Desktop\SeniorProjectDevelopment\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowawayContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Matt\Desktop\SeniorProjectDevelopment\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Matt\Desktop\SeniorProjectDevelopment\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowawayContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Matt\Desktop\SeniorProjectDevelopment\throwaways\Jahfer\GameComponentThrowaway\GameComponentThrowaway\GameComponentThrowaway\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-04:00</Value>
+        <Value>2010-08-23T17:41:18+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-04:00</Value>
+        <Value>2010-08-23T17:41:18+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-04:00</Value>
+        <Value>2010-08-23T17:41:18+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-04:00</Value>
+        <Value>2010-08-23T17:41:18+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-04:00</Value>
+        <Value>2010-08-23T17:41:18+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-04:00</Value>
+        <Value>2010-08-23T17:41:18+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-05-19T22:43:20.4158318-04:00</Value>
+        <Value>2012-06-07T19:14:56.9905047+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
