@@ -29,6 +29,10 @@ namespace GameComponentThrowaway {
         AnimalManager   animalManager;
         PlantManager    plantManager;
 
+        //SocketIO/node
+        NodeClient client;
+
+
         public Game1() {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -46,6 +50,9 @@ namespace GameComponentThrowaway {
         protected override void Initialize() {
 
             animalManager.AnimalCreatedEvent += new GenericEvent(AnimalCreatedCallback);
+
+            client = new NodeClient(); //Create client instance
+            client.Execute(); //Connect to node.js server
 
             base.Initialize();
         }
@@ -93,6 +100,8 @@ namespace GameComponentThrowaway {
             animalManager.Update(gameTime);
             plantManager.Update(gameTime);
             biomeManager.Update(gameTime);
+
+            client.Send(); //Just send some pretend data to show that it works
 
             base.Update(gameTime);
         }

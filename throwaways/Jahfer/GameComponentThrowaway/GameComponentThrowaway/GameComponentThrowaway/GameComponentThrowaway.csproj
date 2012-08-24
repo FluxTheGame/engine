@@ -90,6 +90,9 @@
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\SocketIO\packages\Newtonsoft.Json.4.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
@@ -105,6 +108,9 @@
     <Reference Include="System.Net">
       <Private>False</Private>
     </Reference>
+    <Reference Include="WebSocket4Net">
+      <HintPath>..\SocketIO\Reference\websocket4net\net40\WebSocket4Net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animal.cs" />
@@ -117,6 +123,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="NodeClient.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserManager.cs" />
   </ItemGroup>
@@ -128,6 +135,10 @@
     <ProjectReference Include="..\GameComponentThrowawayContent\GameComponentThrowawayContent.contentproj">
       <Name>GameComponentThrowawayContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+    <ProjectReference Include="..\SocketIO\SocketIO\SocketIOClient.csproj">
+      <Project>{352C9BC1-F74C-4741-A09D-7227BC60C057}</Project>
+      <Name>SocketIOClient</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
