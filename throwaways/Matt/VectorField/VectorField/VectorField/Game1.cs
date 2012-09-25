@@ -16,12 +16,19 @@ namespace VectorField
     {
         GraphicsDeviceManager graphics;
         MouseState mouseState;
-        Vector2 mousePos;
         SpriteBatch spriteBatch;
         VectorField vf;
 
+        Vector2 mousePos;
+        Vector2 objectPos;
+
         Texture2D icon;
         Texture2D mouseIcon;
+        Texture2D objectIcon;
+
+        SpriteFont font;
+
+
 
         public Game1()
         {
@@ -37,8 +44,14 @@ namespace VectorField
             vf = new VectorField(
                 GraphicsDevice.Viewport.Width,
                 GraphicsDevice.Viewport.Height,
-                25, 25
+                50, 50
             );
+
+            objectPos = new Vector2(
+                GraphicsDevice.Viewport.Width / 2, 
+                GraphicsDevice.Viewport.Height / 2
+            );
+
             base.Initialize();
         }
 
@@ -48,6 +61,9 @@ namespace VectorField
             spriteBatch = new SpriteBatch(GraphicsDevice);
             icon = Content.Load<Texture2D>("box");
             mouseIcon = Content.Load<Texture2D>("mouse");
+            objectIcon = Content.Load<Texture2D>("object");
+
+            font = Content.Load<SpriteFont>("font");
         }
 
       
@@ -67,10 +83,18 @@ namespace VectorField
             mousePos = new Vector2(mouseState.X, mouseState.Y);
 
             KeyboardState keyState = Keyboard.GetState();
-            if (keyState.IsKeyDown(Keys.Down)) vf.addForceCircle(mousePos, 80.0f, 3.0f, true);
-            if (keyState.IsKeyDown(Keys.Up))   vf.addForceCircle(mousePos, 80.0f, 3.0f, false);
+            if (keyState.IsKeyDown(Keys.Down))
+            {
+                vf.addForceCircle(mousePos, 80.0f, 0.2f, true);
+            } if (keyState.IsKeyDown(Keys.Up))
+            {
+                vf.addForceCircle(mousePos, 80.0f, 0.2f, false);
+            }
 
             vf.Update();
+
+            Vector2 force = vf.getForceAtPosition(objectPos);
+            objectPos = Vector2.Add(objectPos, Vector2.Divide(force, 5.0f));
 
             base.Update(gameTime);
         }
@@ -81,9 +105,16 @@ namespace VectorField
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
-            vf.Draw(spriteBatch, icon);
+            vf.Draw(spriteBatch, font);
 
             spriteBatch.Draw(mouseIcon, mousePos, Color.White);
+            spriteBatch.Draw(objectIcon, objectPos, Color.White);
+
+            Vector2 force = vf.getForceAtPosition(mousePos);
+            string output = Math.Round(force.X).ToString() + " " + Math.Round(force.Y).ToString();
+            Vector2 outputSize = font.MeasureString(output);
+            Vector2 fontPos = new Vector2(GraphicsDevice.Viewport.Width - 10 - outputSize.X, GraphicsDevice.Viewport.Height - outputSize.Y);
+            spriteBatch.DrawString(font, output, fontPos, Color.CornflowerBlue);
 
             spriteBatch.End();
 
