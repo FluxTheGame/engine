@@ -13,7 +13,8 @@ namespace VectorField
         List<Vector2> field = new List<Vector2>();
 
         Vector2 fieldSize;
-        Vector2 externalSize; 
+        Vector2 externalSize;
+        Vector2 scaleFieldToScreen;
 
         int fieldLength;
 
@@ -25,6 +26,8 @@ namespace VectorField
             fieldSize.X = fieldX;
             fieldSize.Y = fieldY;
             fieldLength = fieldX * fieldY;
+
+            scaleFieldToScreen = Vector2.Divide(externalSize, fieldSize);
 
             for (int i = 0; i < fieldLength; i++)
             {
@@ -49,13 +52,7 @@ namespace VectorField
                 for (int j = (int)range[0].Y; j < range[1].Y; j++) {
 
                     int index = j * (int)fieldSize.X + i;
-
-                    float distance = (float)Math.Sqrt(
-                        (fieldPos.X-i) * (fieldPos.X-i) +
-                        (fieldPos.Y-j) * (fieldPos.Y-j)
-                    );
-
-                    if (distance < 0.0001) distance = 0.0001f;
+                    float distance = calculateFieldDistance(fieldPos, i, j);
 
                     if (distance < fieldRadius)
                     {
@@ -77,15 +74,99 @@ namespace VectorField
         } //end addForceCircle()
 
 
+        public Vector2 getForceAtPosition(Vector2 pos, float sampleRadius)
+        {
+            Vector2 force = Vector2.Zero;
+            float fieldRadius = convertScreenToFieldRadius(sampleRadius);
+            Vector2 fieldPos = convertScreenToFieldPos(pos);
+            Vector2[] range = getRangeFromRadius(fieldPos, fieldRadius);
+
+            for (int i = (int)range[0].X; i < range[1].X; i++) {
+                for (int j = (int)range[0].Y; j < range[1].Y; j++) {
+
+                    int index = j * (int)fieldSize.X + i;
+
+                    Vector2 screenPos = convertFieldToScreenPos(i, j);
+                    float distance = calculateScreenDistance(screenPos, pos);
+
+                    if (distance < sampleRadius)
+                    {
+                        float strength = 1.0f - (distance / sampleRadius);
+                        Vector2 influence = Vector2.Multiply(field[index], strength);
+                        force = Vector2.Add(force, influence);
+                    }
+                }
+            }
+
+            return force;
+
+           // int index = (int)fieldPos.Y * (int)fieldSize.X + (int)fieldPos.X;
+
+           // return field[index];
+        } //end getForceAtPosition()
+
+
+
+
+
+        public void Update()
+        {
+            for (int i = 0; i < fieldSize.X; i++) {
+                for (int j = 0; j < fieldSize.Y; j++) {
+
+                    int index = j * (int)fieldSize.X + i; //Position in array
+                    field[index] = Vector2.Multiply(field[index], 0.995f);
+                }
+            }
+        } //end Update()
+
+
+        public void Draw(SpriteBatch spriteBatch, SpriteFont font)
+        {
+            
+            for (int i=0; i<fieldSize.X; i++) {
+                for (int j=0; j<fieldSize.Y; j++) {
+
+                    int index = j * (int)fieldSize.X + i; //Position in array
+                    //Vector2 pos = new Vector2(scale.X * i + field[index].X, scale.Y * j + field[index].Y);
+                    Vector2 pos = convertFieldToScreenPos(i, j);
+
+                    //spriteBatch.Draw(icon, pos, Color.White);
+                    spriteBatch.DrawString(font, Math.Round(field[index].X).ToString(), pos, Color.CornflowerBlue);
+                    //spriteBatch.DrawString(font, index.ToString()+" "+Math.Round(field[index].X+field[index].Y).ToString(), pos, Color.CornflowerBlue);
+                    //spriteBatch.DrawString(font, index.ToString(), pos, Color.CornflowerBlue);
+                }
+            }
+        } //end Draw()
+
+
+
+
+
+
+
+
+
         /*
-         * Converts screen coordinates to fieldPos coordinates
-         */
-        private Vector2 convertScreenToFieldPos(Vector2 screenPos) 
+        * Converts screen coordinates to fieldPos coordinates
+        */
+        private Vector2 convertScreenToFieldPos(Vector2 screenPos)
         {
             Vector2 scale = Vector2.Divide(screenPos, externalSize);
             Vector2 fieldPos = Vector2.Multiply(scale, fieldSize);
+
+            fieldPos.X = Math.Max(0, Math.Min(fieldPos.X, fieldSize.X - 1));
+            fieldPos.Y = Math.Max(0, Math.Min(fieldPos.Y, fieldSize.Y - 1));
+
             return fieldPos;
         } //end convertScreenToFieldPos()
+
+
+        private Vector2 convertFieldToScreenPos(int i, int j)
+        {
+            Vector2 pos = new Vector2(scaleFieldToScreen.X * i, scaleFieldToScreen.Y * j);
+            return pos;
+        } //end convertFieldToScreenPos()
 
 
         /*
@@ -96,13 +177,33 @@ namespace VectorField
             float radiusScale = radius / externalSize.X;
             float fieldRadius = (float)(radiusScale * fieldSize.X);
             return fieldRadius;
-        } //end convertScreenToFieldRadius()
+        } //end convertScreenToFieldRadius(
 
+        /*
+         * Calculate the distance in a loop away from a given fieldPos
+         */
+        private float calculateFieldDistance(Vector2 fieldPos, int i, int j)
+        {
+            float distance = (float)Math.Sqrt(
+                (fieldPos.X - i) * (fieldPos.X - i) +
+                (fieldPos.Y - j) * (fieldPos.Y - j)
+            );
+
+            if (distance < 0.0001) distance = 0.0001f;
+            return distance;
+        } //end calculateFieldDistance()
+
+        private float calculateScreenDistance(Vector2 pos1, Vector2 pos2)
+        {
+            float distance = Vector2.Distance(pos1, pos2);
+            if (distance < 0.0001) distance = 0.0001f;
+            return distance;
+        } //end calculateScreenDistance()
 
         /*
          * Gets the start and end field positions given a fieldPos and radius
          */
-        private Vector2[] getRangeFromRadius(Vector2 fieldPos, float fieldRadius) 
+        private Vector2[] getRangeFromRadius(Vector2 fieldPos, float fieldRadius)
         {
 
             Vector2[] range = new Vector2[2];
@@ -119,59 +220,6 @@ namespace VectorField
 
             return range;
         } //end getRangeFromRadius
-
-
-        public Vector2 getForceAtPosition(Vector2 pos)
-        {
-            Vector2 scale = Vector2.Divide(pos, externalSize);
-            Vector2 force = Vector2.Zero;
-
-            if (scale.X < 0 || scale.X > 1 || scale.Y < 0 || scale.Y > 1)
-            {
-                return force;
-            }
-
-            Vector2 fieldPos = Vector2.Multiply(scale, fieldSize);
-
-            fieldPos.X = Math.Max(0, Math.Min(fieldPos.X, fieldSize.X - 1));
-            fieldPos.Y = Math.Max(0, Math.Min(fieldPos.Y, fieldSize.Y - 1));
-
-            int index = (int)fieldPos.Y * (int)fieldSize.X + (int)fieldPos.X;
-
-            return field[index];
-        } //end getForceAtPosition()
-
-
-        public void Update()
-        {
-            for (int i = 0; i < fieldSize.X; i++) {
-                for (int j = 0; j < fieldSize.Y; j++) {
-
-                    int index = j * (int)fieldSize.X + i; //Position in array
-                    field[index] = Vector2.Multiply(field[index], 0.999f);
-                }
-            }
-        } //end Update()
-
-
-        public void Draw(SpriteBatch spriteBatch, SpriteFont font)
-        {
-            Vector2 scale = Vector2.Divide(externalSize, fieldSize);
-            
-            for (int i=0; i<fieldSize.X; i++) {
-                for (int j=0; j<fieldSize.Y; j++) {
-
-                    int index = j * (int)fieldSize.X + i; //Position in array
-                    //Vector2 pos = new Vector2(scale.X * i + field[index].X, scale.Y * j + field[index].Y);
-                    Vector2 pos = new Vector2(scale.X * i, scale.Y * j);
-
-                    //spriteBatch.Draw(icon, pos, Color.White);
-                    spriteBatch.DrawString(font, Math.Round(field[index].X).ToString(), pos, Color.CornflowerBlue);
-                    //spriteBatch.DrawString(font, index.ToString()+" "+Math.Round(field[index].X+field[index].Y).ToString(), pos, Color.CornflowerBlue);
-                    //spriteBatch.DrawString(font, index.ToString(), pos, Color.CornflowerBlue);
-                }
-            }
-        } //end Draw()
 
 
     }
