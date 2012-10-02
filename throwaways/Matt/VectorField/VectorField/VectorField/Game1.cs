@@ -17,19 +17,16 @@ namespace VectorField
         GraphicsDeviceManager graphics;
         MouseState mouseState;
         SpriteBatch spriteBatch;
-        VectorField vf;
+
+        GridObjectController gridObjectController;
 
         Vector2 mousePos;
-        Vector2 objectPos;
-
-        GravityObject box;
 
         Texture2D icon;
         Texture2D mouseIcon;
-        Texture2D objectIcon;
-
         SpriteFont font;
 
+        VectorField vf;
 
 
         public Game1()
@@ -46,15 +43,11 @@ namespace VectorField
             vf = new VectorField(
                 GraphicsDevice.Viewport.Width,
                 GraphicsDevice.Viewport.Height,
-                50, 50
+                100, 100
             );
 
-            objectPos = new Vector2(
-                GraphicsDevice.Viewport.Width / 2, 
-                GraphicsDevice.Viewport.Height / 2
-            );
-
-            box = new GravityObject(this);
+            gridObjectController = new GridObjectController(this);
+            Components.Add(gridObjectController);
 
             base.Initialize();
         }
@@ -65,8 +58,6 @@ namespace VectorField
             spriteBatch = new SpriteBatch(GraphicsDevice);
             icon = Content.Load<Texture2D>("box");
             mouseIcon = Content.Load<Texture2D>("mouse");
-            objectIcon = Content.Load<Texture2D>("object");
-
             font = Content.Load<SpriteFont>("font");
         }
 
@@ -97,9 +88,6 @@ namespace VectorField
 
             vf.Update();
 
-            Vector2 force = vf.getForceAtPosition(objectPos, 100.0f);
-            objectPos = Vector2.Add(objectPos, Vector2.Divide(force, 5.0f));
-
             base.Update(gameTime);
         }
 
@@ -112,13 +100,6 @@ namespace VectorField
             vf.Draw(spriteBatch, font);
 
             spriteBatch.Draw(mouseIcon, mousePos, Color.White);
-            spriteBatch.Draw(objectIcon, objectPos, Color.White);
-
-            /*Vector2 force = vf.getForceAtPosition(mousePos, 10.0f);
-            string output = Math.Round(force.X).ToString() + " " + Math.Round(force.Y).ToString();
-            Vector2 outputSize = font.MeasureString(output);
-            Vector2 fontPos = new Vector2(GraphicsDevice.Viewport.Width - 10 - outputSize.X, GraphicsDevice.Viewport.Height - outputSize.Y);
-            spriteBatch.DrawString(font, output, fontPos, Color.CornflowerBlue);*/
 
             spriteBatch.End();
 

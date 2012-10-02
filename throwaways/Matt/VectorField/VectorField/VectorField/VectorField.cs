@@ -128,20 +128,13 @@ namespace VectorField
                 for (int j=0; j<fieldSize.Y; j++) {
 
                     int index = j * (int)fieldSize.X + i; //Position in array
-                    //Vector2 pos = new Vector2(scale.X * i + field[index].X, scale.Y * j + field[index].Y);
-                    Vector2 pos = convertFieldToScreenPos(i, j);
-
-                    //spriteBatch.Draw(icon, pos, Color.White);
+                    Vector2 pos = new Vector2(scaleFieldToScreen.X * i + field[index].X, scaleFieldToScreen.Y * j + field[index].Y);
+                    
                     spriteBatch.DrawString(font, Math.Round(field[index].X).ToString(), pos, Color.CornflowerBlue);
-                    //spriteBatch.DrawString(font, index.ToString()+" "+Math.Round(field[index].X+field[index].Y).ToString(), pos, Color.CornflowerBlue);
-                    //spriteBatch.DrawString(font, index.ToString(), pos, Color.CornflowerBlue);
+                    
                 }
             }
         } //end Draw()
-
-
-
-
 
 
 
