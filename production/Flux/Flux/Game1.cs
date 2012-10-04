@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace VectorField
+namespace Flux
 {
 
     public class Game1 : Microsoft.Xna.Framework.Game

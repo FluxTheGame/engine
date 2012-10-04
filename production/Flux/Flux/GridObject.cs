@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 
 
-namespace VectorField
+namespace Flux
 {
     class GridObject
     {
