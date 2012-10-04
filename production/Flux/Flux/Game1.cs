@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+
 namespace Flux
 {
 
@@ -49,7 +50,15 @@ namespace Flux
             gridObjectController = new GridObjectController(this, vf);
             Components.Add(gridObjectController);
 
+            EventController.NewGridObjectEvent += onNewGridObject;
+
             base.Initialize();
+        }
+
+
+        public void onNewGridObject()
+        {
+            Console.Write("onNewGridObject()\n");
         }
 
       
@@ -106,5 +115,6 @@ namespace Flux
 
             base.Draw(gameTime);
         }
+
     }
 }

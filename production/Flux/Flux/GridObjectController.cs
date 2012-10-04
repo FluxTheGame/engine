@@ -35,6 +35,12 @@ namespace Flux
             base.Initialize();
         }
 
+
+        public void onNewGridObject()
+        {
+            Console.Write("New Grid Object Event\n");
+        }
+
       
         public override void Update(GameTime gameTime)
         {
@@ -53,11 +59,14 @@ namespace Flux
             spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
             objectIcon = Game.Content.Load<Texture2D>("object");
 
-            objects.Add(
-                new GridObject(objectIcon, 
-                    new Vector2(
-                        GraphicsDevice.Viewport.Width / 2, 
-                        GraphicsDevice.Viewport.Height / 2), vf));
+            for (int i = 0; i < 10; i++)
+            {
+                objects.Add(
+                    new GridObject(objectIcon,
+                        new Vector2(
+                            GraphicsDevice.Viewport.Width / 2,
+                            GraphicsDevice.Viewport.Height / 2), vf));
+            }
 
             base.LoadContent();
         }
