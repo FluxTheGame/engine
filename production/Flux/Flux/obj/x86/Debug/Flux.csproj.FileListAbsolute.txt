@@ -8,3 +8,12 @@ C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debu
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.pdb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.exe
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.pdb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Newtonsoft.Json.dll
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\SocketIOClient.dll
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\WebSocket4Net.dll
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\SuperSocket.ClientEngine.dll
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Newtonsoft.Json.pdb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Newtonsoft.Json.xml
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\SocketIOClient.pdb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\WebSocket4Net.pdb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.exe.config

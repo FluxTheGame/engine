@@ -13,3 +13,6 @@ C:\Users\Matt\Desktop\Hello\Hello\bin\Debug\WebSocket4Net.pdb
 C:\Users\Matt\Desktop\Hello\Hello\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Matt\Desktop\Hello\Hello\obj\Debug\Hello.exe
 C:\Users\Matt\Desktop\Hello\Hello\obj\Debug\Hello.pdb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\throwaways\Matt\Hello\Hello\bin\Debug\Hello.exe.config
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\throwaways\Matt\Hello\Hello\obj\Debug\Hello.exe
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\throwaways\Matt\Hello\Hello\obj\Debug\Hello.pdb

@@ -19,6 +19,8 @@ namespace Flux
         MouseState mouseState;
         SpriteBatch spriteBatch;
 
+        NodeClient nodeClient;
+
         GridObjectController gridObjectController;
 
         Vector2 mousePos;
@@ -52,13 +54,15 @@ namespace Flux
 
             EventController.NewGridObjectEvent += onNewGridObject;
 
+            nodeClient = new NodeClient();
+
             base.Initialize();
         }
 
 
         public void onNewGridObject()
         {
-            Console.Write("onNewGridObject()\n");
+            //Console.Write("onNewGridObject()\n");
         }
 
       
