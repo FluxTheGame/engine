@@ -86,10 +86,13 @@
             <para>All message payloads are sent as strings</para>
             </summary>
         </member>
-        <member name="P:SocketIOClient.SocketIOHandshake.HeartbeatInterval">
+        <member name="T:SocketIOClient.Messages.DisconnectMessage">
             <summary>
-            The HearbeatInterval will be approxamately 20% faster than the Socket.IO service indicated was required
+            Signals disconnection. If no endpoint is specified, disconnects the entire socket.
             </summary>
+            <remarks>Disconnect a socket connected to the /test endpoint:
+            	0::/test
+            </remarks>
         </member>
         <member name="T:SocketIOClient.Messages.ConnectMessage">
             <summary>
@@ -98,6 +101,26 @@
             <remarks>If the client is trying to connect to the endpoint /test, a message like this will be delivered:
             	'1::' [path] [query]
             </remarks>
+        </member>
+        <member name="P:SocketIOClient.SocketIOHandshake.HeartbeatInterval">
+            <summary>
+            The HearbeatInterval will be approxamately 20% faster than the Socket.IO service indicated was required
+            </summary>
+        </member>
+        <member name="M:SocketIOClient.Eventing.RegistrationManager.InvokeOnEvent(SocketIOClient.Messages.IMessage)">
+            <summary>
+            If eventName is found, Executes Action delegate<typeparamref name="T"/> asynchronously
+            </summary>
+            <param name="eventName"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SocketIOClient.Messages.ErrorMessage.Deserialize(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="rawMesage">'7::' [endpoint] ':' [reason] '+' [advice]</param>
+            <returns>ErrorMessage</returns>
         </member>
         <member name="T:SocketIOClient.IClient">
             <summary>
@@ -224,33 +247,10 @@
             Connection state of websocket client: None, Connecting, Open, Closing, Closed
             </summary>
         </member>
-        <member name="M:SocketIOClient.Eventing.RegistrationManager.InvokeOnEvent(SocketIOClient.Messages.IMessage)">
-            <summary>
-            If eventName is found, Executes Action delegate<typeparamref name="T"/> asynchronously
-            </summary>
-            <param name="eventName"></param>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
         <member name="T:SocketIOClient.Messages.NoopMessage">
             <summary>
             Defined as No operation. Used for example to close a poll after the polling duration times out.
             </summary>
-        </member>
-        <member name="T:SocketIOClient.Messages.DisconnectMessage">
-            <summary>
-            Signals disconnection. If no endpoint is specified, disconnects the entire socket.
-            </summary>
-            <remarks>Disconnect a socket connected to the /test endpoint:
-            	0::/test
-            </remarks>
-        </member>
-        <member name="M:SocketIOClient.Messages.ErrorMessage.Deserialize(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="rawMesage">'7::' [endpoint] ':' [reason] '+' [advice]</param>
-            <returns>ErrorMessage</returns>
         </member>
     </members>
 </doc>

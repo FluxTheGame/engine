@@ -30,3 +30,11 @@ C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\bin\debug\SocketI
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\SocketIO\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\SocketIO\obj\Debug\SocketIOClient.dll
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\SocketIO\obj\Debug\SocketIOClient.pdb
+C:\Users\Jahfer\Documents\Flux\production\Flux\bin\debug\SocketIOClient.xml
+C:\Users\Jahfer\Documents\Flux\production\Flux\bin\debug\SocketIOClient.dll
+C:\Users\Jahfer\Documents\Flux\production\Flux\bin\debug\SocketIOClient.pdb
+C:\Users\Jahfer\Documents\Flux\production\Flux\bin\debug\SocketIOClient.dll.CodeAnalysisLog.xml
+C:\Users\Jahfer\Documents\Flux\production\Flux\bin\debug\SocketIOClient.dll.lastcodeanalysissucceeded
+C:\Users\Jahfer\Documents\Flux\production\Flux\SocketIO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jahfer\Documents\Flux\production\Flux\SocketIO\obj\Debug\SocketIOClient.dll
+C:\Users\Jahfer\Documents\Flux\production\Flux\SocketIO\obj\Debug\SocketIOClient.pdb

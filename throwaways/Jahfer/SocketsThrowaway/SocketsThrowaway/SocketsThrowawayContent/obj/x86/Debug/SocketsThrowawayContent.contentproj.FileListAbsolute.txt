@@ -1,0 +1,1 @@
+c:\users\jahfer\documents\visual studio 2010\Projects\SocketsThrowaway\SocketsThrowaway\SocketsThrowawayContent\obj\x86\Debug\ResolveAssemblyReference.cache
