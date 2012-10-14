@@ -13,6 +13,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Text;
+using System.Diagnostics;
 
 namespace SocketsThrowaway
 {
@@ -25,6 +26,8 @@ namespace SocketsThrowaway
         SpriteBatch spriteBatch;
         Server server;
 
+        Stopwatch sw;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -35,19 +38,14 @@ namespace SocketsThrowaway
         {
 
             EventManager.Initialize();
-
-            //EventManager.NewEvent += onNewEvent;
-            EventManager.On("update", (o) => 
-            {
-                Console.WriteLine("UPDATING");
-            });
-
-            EventManager.On("update", (o) =>
-            {
-                Console.WriteLine("UPDATING AGAIN");
-            });
-
             server = new Server();
+
+            sw = Stopwatch.StartNew();
+
+            EventManager.On("data", (o) =>
+            {
+                Console.WriteLine(sw.Elapsed.ToString());
+            });
 
             base.Initialize();
         }
@@ -71,9 +69,9 @@ namespace SocketsThrowaway
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            EventManager.Emit("update", new object { });
-
-            //EventManager.NewEvent();
+            //EventManager.Emit("update", new object { });
+            sw = Stopwatch.StartNew();
+            server.send("Hello");
 
             base.Update(gameTime);
         }

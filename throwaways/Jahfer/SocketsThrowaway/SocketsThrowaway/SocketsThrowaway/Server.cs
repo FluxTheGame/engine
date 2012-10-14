@@ -28,23 +28,19 @@ namespace SocketsThrowaway
         public Server()
         {
             tcpClient = new TcpClient();
-            tcpClient.Connect("127.0.0.1", 8000);
-
-            Thread clientThread = new Thread(new ParameterizedThreadStart(HandleClientComm));
-            clientThread.Start(tcpClient);
-
-            this.send("Connected!\n");
-
-
-            /*TimeSpan maxDuration = TimeSpan.FromMinutes(10);
-            Stopwatch sw = Stopwatch.StartNew();
-            bool DoneWithWork = false;
-
-            while (sw.Elapsed < maxDuration && !DoneWithWork)
+            try
             {
-                this.send("XNA Heartbeat");
-                Thread.Sleep(100);
-            }*/
+                tcpClient.Connect("127.0.0.1", 8000);
+
+                Thread clientThread = new Thread(new ParameterizedThreadStart(HandleClientComm));
+                clientThread.Start(tcpClient);
+
+                this.send("Hello from XNA!");
+            }
+            catch
+            {
+                Console.WriteLine("Could not connect to TCP server!");
+            }
         }
 
 
@@ -83,7 +79,10 @@ namespace SocketsThrowaway
                     break;
                 }
 
-                Console.WriteLine(Encoding.ASCII.GetString(message, 0, bytesRead));
+                string data = Encoding.ASCII.GetString(message, 0, bytesRead);
+
+                Console.WriteLine(data);
+                EventManager.Emit("data", (object)data);
             }
 
             tcpClient.Close();

@@ -5,7 +5,7 @@ var tcp_server = net.createServer(function (c) {
 	var start = Date.now();
 
 	console.log('<-- server connected');
-	c.write("Connected!\n");
+	c.write("Hello from Node.js!\n");
 
 	c.on('end', function() {
 		console.log('<-- server disconnected');
@@ -16,13 +16,6 @@ var tcp_server = net.createServer(function (c) {
 		console.log('<-- sending heartbeat');
 		c.write('Heartbeat ~ ' + (Date.now() - start));
 	});
-
-
-
-	/*setTimeout(function() {
-		console.log('< sending heartbeat')
-		c.write('Heartbeat ~ ' + (Date.now() - start));
-	}, 1000);*/
 
 });
 
