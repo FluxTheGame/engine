@@ -31,6 +31,8 @@ namespace Flux
 
         VectorField vf;
 
+        Server server;
+
 
         public Game1()
         {
@@ -48,6 +50,8 @@ namespace Flux
                 GraphicsDevice.Viewport.Height,
                 100, 100
             );
+
+            EventManager.Initialize();
 
             gridObjectController = new GridObjectController(this, vf);
             Components.Add(gridObjectController);

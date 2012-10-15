@@ -1,6 +1,0 @@
-c:\users\jahfer\documents\visual studio 2010\Projects\SocketsThrowaway\SocketsThrowaway\SocketsThrowaway\bin\x86\Debug\SocketsThrowaway.exe
-c:\users\jahfer\documents\visual studio 2010\Projects\SocketsThrowaway\SocketsThrowaway\SocketsThrowaway\bin\x86\Debug\SocketsThrowaway.pdb
-c:\users\jahfer\documents\visual studio 2010\Projects\SocketsThrowaway\SocketsThrowaway\SocketsThrowaway\obj\x86\Debug\ResolveAssemblyReference.cache
-c:\users\jahfer\documents\visual studio 2010\Projects\SocketsThrowaway\SocketsThrowaway\SocketsThrowaway\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-c:\users\jahfer\documents\visual studio 2010\Projects\SocketsThrowaway\SocketsThrowaway\SocketsThrowaway\obj\x86\Debug\SocketsThrowaway.exe
-c:\users\jahfer\documents\visual studio 2010\Projects\SocketsThrowaway\SocketsThrowaway\SocketsThrowaway\obj\x86\Debug\SocketsThrowaway.pdb
