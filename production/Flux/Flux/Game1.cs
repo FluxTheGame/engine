@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -18,8 +19,6 @@ namespace Flux
         GraphicsDeviceManager graphics;
         MouseState mouseState;
         SpriteBatch spriteBatch;
-
-        NodeClient nodeClient;
 
         GridObjectController gridObjectController;
 
@@ -53,20 +52,17 @@ namespace Flux
 
             EventManager.Initialize();
 
+            EventManager.On("user:touch", (o) =>
+            {
+                Console.Write("on user:touch, args: ");
+                Console.WriteLine((Double)o["x"]+26);
+            });
+            server = new Server();
+
             gridObjectController = new GridObjectController(this, vf);
             Components.Add(gridObjectController);
 
-            EventController.NewGridObjectEvent += onNewGridObject;
-
-            nodeClient = new NodeClient();
-
             base.Initialize();
-        }
-
-
-        public void onNewGridObject()
-        {
-            //Console.Write("onNewGridObject()\n");
         }
 
       

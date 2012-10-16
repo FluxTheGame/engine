@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 
@@ -7,7 +8,7 @@ namespace Flux
 {
     class EventManager
     {
-        public delegate void Callback(Object o);
+        public delegate void Callback(OrderedDictionary o);
         private static Dictionary<string, Callback> _e;
 
         public static void Initialize()
@@ -41,7 +42,7 @@ namespace Flux
             }
         }
 
-        public static void Emit(string evt, object data)
+        public static void Emit(string evt, OrderedDictionary data)
         {
             if (_e.ContainsKey(evt))
             {

@@ -22,7 +22,6 @@ namespace Flux
             position = pos;
             icon = ico;
             vf = vectorField;
-            EventController.NewGridObjectEvent();
         }
 
         public void Update()

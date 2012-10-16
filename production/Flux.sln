@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flux", "Flux\Flux\Flux.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluxContent", "Flux\FluxContent\FluxContent.contentproj", "{024E11DE-813F-48D7-B0CA-9F0C3B09E065}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketIOClient", "Flux\SocketIO\SocketIOClient.csproj", "{352C9BC1-F74C-4741-A09D-7227BC60C057}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,26 +53,6 @@ Global
 		{024E11DE-813F-48D7-B0CA-9F0C3B09E065}.ReleaseILMerge|Any CPU.ActiveCfg = Release|x86
 		{024E11DE-813F-48D7-B0CA-9F0C3B09E065}.ReleaseILMerge|Mixed Platforms.ActiveCfg = Release|x86
 		{024E11DE-813F-48D7-B0CA-9F0C3B09E065}.ReleaseILMerge|x86.ActiveCfg = Release|x86
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.DebugILMerge|Any CPU.ActiveCfg = DebugILMerge|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.DebugILMerge|Any CPU.Build.0 = DebugILMerge|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.DebugILMerge|Mixed Platforms.ActiveCfg = DebugILMerge|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.DebugILMerge|Mixed Platforms.Build.0 = DebugILMerge|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.DebugILMerge|x86.ActiveCfg = DebugILMerge|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.Release|Any CPU.Build.0 = Release|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.Release|x86.ActiveCfg = Release|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.ReleaseILMerge|Any CPU.ActiveCfg = ReleaseILMerge|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.ReleaseILMerge|Any CPU.Build.0 = ReleaseILMerge|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.ReleaseILMerge|Mixed Platforms.ActiveCfg = ReleaseILMerge|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.ReleaseILMerge|Mixed Platforms.Build.0 = ReleaseILMerge|Any CPU
-		{352C9BC1-F74C-4741-A09D-7227BC60C057}.ReleaseILMerge|x86.ActiveCfg = ReleaseILMerge|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

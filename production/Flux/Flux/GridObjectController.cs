@@ -59,7 +59,7 @@ namespace Flux
             spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
             objectIcon = Game.Content.Load<Texture2D>("object");
 
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 3; i++)
             {
                 objects.Add(
                     new GridObject(objectIcon,

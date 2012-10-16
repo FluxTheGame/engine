@@ -90,12 +90,6 @@
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\SocketIO\packages\Newtonsoft.Json.4.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SocketIOClient">
-      <HintPath>..\SocketIO\obj\Debug\SocketIOClient.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
@@ -111,16 +105,11 @@
     <Reference Include="System.Net">
       <Private>False</Private>
     </Reference>
-    <Reference Include="WebSocket4Net">
-      <HintPath>..\SocketIO\reference\websocket4net\net40\WebSocket4Net.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventManager.cs" />
-    <Compile Include="Events\EventController.cs" />
     <Compile Include="GridObject.cs" />
     <Compile Include="GridObjectController.cs" />
-    <Compile Include="NodeClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

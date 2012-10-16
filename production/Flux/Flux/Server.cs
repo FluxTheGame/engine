@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using System.Collections.Concurrent;
+using System.Collections.Specialized;
 using System.Text;
 using System.Net.Sockets;
 using System.Threading;
@@ -71,12 +72,40 @@ namespace Flux
                 }
 
                 string data = Encoding.ASCII.GetString(message, 0, bytesRead);
-
-                Console.WriteLine(data);
-                EventManager.Emit("data", (object)data);
+                handleReceivedMessage(data);
+                
             }
 
             tcpClient.Close();
         }
+
+
+        private void handleReceivedMessage(string data)
+        {
+            string[] items = data.Split("/".ToCharArray());
+            string eventName = items[0];
+            OrderedDictionary o = new OrderedDictionary();
+
+            foreach (string item in items)
+            {
+                if (item.Contains("="))
+                {
+                    string[] keyValue = item.Split("=".ToCharArray());
+
+                    double number;
+                    if (Double.TryParse(keyValue[1], out number))
+                    {
+                        o.Add(keyValue[0], number);
+                    }
+                    else
+                    {
+                        o.Add(keyValue[0], keyValue[1]);
+                    }
+                }
+            }
+            
+            EventManager.Emit(eventName, o);
+        }
+
     }
 }
