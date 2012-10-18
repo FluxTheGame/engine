@@ -13,25 +13,23 @@ using Microsoft.Xna.Framework.Media;
 namespace Flux
 {
     
-    public class GridObjectController : DrawableGameComponent
+    public class UserController : DrawableGameComponent
     {
 
         SpriteBatch spriteBatch;
         Texture2D icon;
-        List<GridObject> objects;
-        VectorField vf;
+        List<User> users;
 
         
-        public GridObjectController(Game game, VectorField vectorField)
+        public UserController(Game game)
             : base(game)
         {
-            vf = vectorField;
         }
 
 
         public override void Initialize()
         {
-            objects = new List<GridObject>();
+            users = new List<User>();
             base.Initialize();
         }
 
@@ -39,9 +37,9 @@ namespace Flux
         public override void Update(GameTime gameTime)
         {
 
-            foreach (GridObject go in objects)
+            foreach (User user in users)
             {
-                go.Update();
+                user.Update();
             }
 
             base.Update(gameTime);
@@ -51,16 +49,8 @@ namespace Flux
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
-            icon = Game.Content.Load<Texture2D>("object");
-
-            for (int i = 0; i < 3; i++)
-            {
-                objects.Add(
-                    new GridObject(icon,
-                        new Vector2(
-                            GraphicsDevice.Viewport.Width / 2,
-                            GraphicsDevice.Viewport.Height / 2), vf));
-            }
+            icon = Game.Content.Load<Texture2D>("mouse");
+            users.Add(new User(icon));
 
             base.LoadContent();
         }
@@ -70,9 +60,9 @@ namespace Flux
         {
             spriteBatch.Begin();
 
-            foreach (GridObject go in objects)
+            foreach (User user in users)
             {
-                go.Draw(spriteBatch);
+                user.Draw(spriteBatch);
             }
 
             spriteBatch.End();

@@ -5,7 +5,7 @@ var tcp_server = net.createServer(function (c) {
 	var start = Date.now();
 
 	console.log('<-- server connected');
-	c.write("user:touch/x=45/y=19/");
+	c.write("user:touch/x=45/y=19/username=Matt");
 
 	c.on('end', function() {
 		console.log('<-- server disconnected');

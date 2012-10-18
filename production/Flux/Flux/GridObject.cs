@@ -28,7 +28,7 @@ namespace Flux
         {
             Vector2 force = vf.getForceAtPosition(position, 100.0f);
             position = Vector2.Add(position, Vector2.Divide(force, 5.0f));
-            vf.addForceCircle(position, 40.0f, 0.1f, false);
+            vf.addForceCircle(position, 40.0f, 0.025f, false);
         }
 
         public void Draw(SpriteBatch spriteBatch)

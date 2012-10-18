@@ -21,13 +21,10 @@ namespace Flux
         SpriteBatch spriteBatch;
 
         GridObjectController gridObjectController;
-
-        Vector2 mousePos;
+        UserController userController;
 
         Texture2D icon;
-        Texture2D mouseIcon;
         SpriteFont font;
-
         VectorField vf;
 
         Server server;
@@ -51,16 +48,13 @@ namespace Flux
             );
 
             EventManager.Initialize();
-
-            EventManager.On("user:touch", (o) =>
-            {
-                Console.Write("on user:touch, args: ");
-                Console.WriteLine((Double)o["x"]+26);
-            });
             server = new Server();
 
             gridObjectController = new GridObjectController(this, vf);
             Components.Add(gridObjectController);
+
+            userController = new UserController(this);
+            Components.Add(userController);
 
             base.Initialize();
         }
@@ -70,7 +64,6 @@ namespace Flux
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             icon = Content.Load<Texture2D>("box");
-            mouseIcon = Content.Load<Texture2D>("mouse");
             font = Content.Load<SpriteFont>("font");
         }
 
@@ -87,17 +80,7 @@ namespace Flux
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            mouseState = Mouse.GetState();
-            mousePos = new Vector2(mouseState.X, mouseState.Y);
-
             KeyboardState keyState = Keyboard.GetState();
-            if (keyState.IsKeyDown(Keys.Down))
-            {
-                vf.addForceCircle(mousePos, 80.0f, 0.2f, true);
-            } if (keyState.IsKeyDown(Keys.Up))
-            {
-                vf.addForceCircle(mousePos, 80.0f, 0.2f, false);
-            }
 
             vf.Update();
 
@@ -111,9 +94,6 @@ namespace Flux
 
             spriteBatch.Begin();
             vf.Draw(spriteBatch, font);
-
-            spriteBatch.Draw(mouseIcon, mousePos, Color.White);
-
             spriteBatch.End();
 
 
