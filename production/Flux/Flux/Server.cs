@@ -22,7 +22,7 @@ namespace Flux
             tcpClient = new TcpClient();
             try
             {
-                tcpClient.Connect("127.0.0.1", 8000);
+                tcpClient.Connect("127.0.0.1", 8100);
 
                 Thread clientThread = new Thread(new ParameterizedThreadStart(HandleClientComm));
                 clientThread.Start(tcpClient);
@@ -92,12 +92,12 @@ namespace Flux
                 {
                     string[] keyValue = item.Split("=".ToCharArray());
 
-                    double number;
-                    if (Double.TryParse(keyValue[1], out number))
+                    try
                     {
+                        int number = Convert.ToInt32(keyValue[1]);
                         o.Add(keyValue[0], number);
                     }
-                    else
+                    catch
                     {
                         o.Add(keyValue[0], keyValue[1]);
                     }

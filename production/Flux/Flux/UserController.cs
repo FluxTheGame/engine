@@ -18,7 +18,7 @@ namespace Flux
 
         SpriteBatch spriteBatch;
         Texture2D icon;
-        List<User> users;
+        Dictionary<int, User> users;
 
         
         public UserController(Game game)
@@ -29,7 +29,26 @@ namespace Flux
 
         public override void Initialize()
         {
-            users = new List<User>();
+            users = new Dictionary<int, User>();
+
+            EventManager.On("user:join", (o) =>
+            {
+                int id = (int)o["id"];
+                users.Add(id, new User(icon, (string)o["username"], id));
+            });
+
+            EventManager.On("user:touch", (o) =>
+            {
+                int id = (int)o["id"];
+                users[id].setDelta((int)o["x"], (int)o["y"]);
+            });
+
+            EventManager.On("user:touchEnd", (o) =>
+            {
+                int id = (int)o["id"];
+                users[id].setDelta(0, 0);
+            });
+
             base.Initialize();
         }
 
@@ -37,9 +56,9 @@ namespace Flux
         public override void Update(GameTime gameTime)
         {
 
-            foreach (User user in users)
+            foreach (KeyValuePair<int, User> pair in users)
             {
-                user.Update();
+                users[pair.Key].Update();
             }
 
             base.Update(gameTime);
@@ -50,7 +69,6 @@ namespace Flux
         {
             spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
             icon = Game.Content.Load<Texture2D>("mouse");
-            users.Add(new User(icon));
 
             base.LoadContent();
         }
@@ -60,15 +78,14 @@ namespace Flux
         {
             spriteBatch.Begin();
 
-            foreach (User user in users)
+            foreach (KeyValuePair<int, User> pair in users)
             {
-                user.Draw(spriteBatch);
+                users[pair.Key].Draw(spriteBatch);
             }
 
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
-
     }
 }
