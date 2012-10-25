@@ -35,17 +35,6 @@ namespace Flux
         {
 
             position = Vector2.Add(position, delta);
-
-            //Perhaps send out an event for warping the grid...
-            /*if (keyState.IsKeyDown(Keys.Down))
-            {
-                vf.addForceCircle(mousePos, 80.0f, 0.05f, true);
-            } if (keyState.IsKeyDown(Keys.Up))
-            {
-                vf.addForceCircle(mousePos, 80.0f, 0.05f, false);
-            }*/
-
-
         }
 
         public void Draw(SpriteBatch spriteBatch)

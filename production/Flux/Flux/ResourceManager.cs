@@ -12,36 +12,34 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Flux
 {
-    
-    public class GridObjectController : DrawableGameComponent
+
+    public class ResourceManager : DrawableGameComponent
     {
 
         SpriteBatch spriteBatch;
         Texture2D icon;
-        List<GridObject> objects;
-        VectorField vf;
+        List<Resource> resources;
 
-        
-        public GridObjectController(Game game, VectorField vectorField)
+
+        public ResourceManager(Game game)
             : base(game)
         {
-            vf = vectorField;
         }
 
 
         public override void Initialize()
         {
-            objects = new List<GridObject>();
+            resources = new List<Resource>();
             base.Initialize();
         }
 
-      
+
         public override void Update(GameTime gameTime)
         {
 
-            foreach (GridObject go in objects)
+            foreach (Resource resource in resources)
             {
-                go.Update();
+                resource.Update();
             }
 
             base.Update(gameTime);
@@ -55,11 +53,7 @@ namespace Flux
 
             for (int i = 0; i < 3; i++)
             {
-                objects.Add(
-                    new GridObject(icon,
-                        new Vector2(
-                            GraphicsDevice.Viewport.Width / 2,
-                            GraphicsDevice.Viewport.Height / 2), vf));
+                resources.Add(new Resource());
             }
 
             base.LoadContent();
@@ -70,9 +64,9 @@ namespace Flux
         {
             spriteBatch.Begin();
 
-            foreach (GridObject go in objects)
+            foreach (Resource resource in resources)
             {
-                go.Draw(spriteBatch);
+                resource.Draw(spriteBatch);
             }
 
             spriteBatch.End();

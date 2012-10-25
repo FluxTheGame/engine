@@ -20,8 +20,9 @@ namespace Flux
         MouseState mouseState;
         SpriteBatch spriteBatch;
 
-        GridObjectController gridObjectController;
-        UserController userController;
+        GridObjectManager gridObjectManager;
+        UserManager userManager;
+        ResourceManager resourceManager;
 
         Texture2D icon;
         SpriteFont font;
@@ -50,11 +51,14 @@ namespace Flux
             EventManager.Initialize();
             server = new Server();
 
-            gridObjectController = new GridObjectController(this, vf);
-            Components.Add(gridObjectController);
+            gridObjectManager = new GridObjectManager(this, vf);
+            Components.Add(gridObjectManager);
 
-            userController = new UserController(this);
-            Components.Add(userController);
+            userManager = new UserManager(this, vf);
+            Components.Add(userManager);
+
+            resourceManager = new ResourceManager(this);
+            Components.Add(resourceManager);
 
             base.Initialize();
         }

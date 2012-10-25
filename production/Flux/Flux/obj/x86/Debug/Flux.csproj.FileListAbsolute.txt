@@ -9,3 +9,4 @@ C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debu
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.pdb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.exe
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.pdb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\wormhole.xnb

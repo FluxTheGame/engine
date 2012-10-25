@@ -13,42 +13,25 @@ using Microsoft.Xna.Framework.Media;
 namespace Flux
 {
     
-    public class UserController : DrawableGameComponent
+    public class GridObjectManager : DrawableGameComponent
     {
 
         SpriteBatch spriteBatch;
         Texture2D icon;
-        Dictionary<int, User> users;
+        List<GridObject> objects;
+        VectorField vf;
 
         
-        public UserController(Game game)
+        public GridObjectManager(Game game, VectorField vectorField)
             : base(game)
         {
+            vf = vectorField;
         }
 
 
         public override void Initialize()
         {
-            users = new Dictionary<int, User>();
-
-            EventManager.On("user:join", (o) =>
-            {
-                int id = (int)o["id"];
-                users.Add(id, new User(icon, (string)o["username"], id));
-            });
-
-            EventManager.On("user:touch", (o) =>
-            {
-                int id = (int)o["id"];
-                users[id].setDelta((int)o["x"], (int)o["y"]);
-            });
-
-            EventManager.On("user:touchEnd", (o) =>
-            {
-                int id = (int)o["id"];
-                users[id].setDelta(0, 0);
-            });
-
+            objects = new List<GridObject>();
             base.Initialize();
         }
 
@@ -56,9 +39,9 @@ namespace Flux
         public override void Update(GameTime gameTime)
         {
 
-            foreach (KeyValuePair<int, User> pair in users)
+            foreach (GridObject go in objects)
             {
-                users[pair.Key].Update();
+                go.Update();
             }
 
             base.Update(gameTime);
@@ -68,7 +51,16 @@ namespace Flux
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
-            icon = Game.Content.Load<Texture2D>("mouse");
+            icon = Game.Content.Load<Texture2D>("object");
+
+            for (int i = 0; i < 3; i++)
+            {
+                objects.Add(
+                    new GridObject(icon,
+                        new Vector2(
+                            GraphicsDevice.Viewport.Width / 2,
+                            GraphicsDevice.Viewport.Height / 2), vf));
+            }
 
             base.LoadContent();
         }
@@ -78,14 +70,15 @@ namespace Flux
         {
             spriteBatch.Begin();
 
-            foreach (KeyValuePair<int, User> pair in users)
+            foreach (GridObject go in objects)
             {
-                users[pair.Key].Draw(spriteBatch);
+                go.Draw(spriteBatch);
             }
 
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
+
     }
 }
