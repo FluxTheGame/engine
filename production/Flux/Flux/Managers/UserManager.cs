@@ -19,13 +19,11 @@ namespace Flux
         SpriteBatch spriteBatch;
         Texture2D icon;
         Dictionary<int, User> users;
-        VectorField vf;
 
         
-        public UserManager(Game game, VectorField vectorField)
+        public UserManager(Game game)
             : base(game)
         {
-            vf = vectorField;
         }
 
 
@@ -42,25 +40,25 @@ namespace Flux
             EventManager.On("user:touch", (o) =>
             {
                 int id = (int)o["id"];
-                users[id].setDelta((int)o["x"], (int)o["y"]);
+                users[id].SetDelta((int)o["x"], (int)o["y"]);
             });
 
             EventManager.On("user:touchEnd", (o) =>
             {
                 int id = (int)o["id"];
-                users[id].setDelta(0, 0);
+                users[id].SetDelta(0, 0);
             });
 
             EventManager.On("user:bloat", (o) =>
             {
                 int id = (int)o["id"];
-                vf.addForceCircle(users[id].position, 80.0f, 0.2f, false);
+                GridManager.Bloat(0, users[id].position, 80.0f, 0.2f);
             });
 
             EventManager.On("user:pinch", (o) =>
             {
                 int id = (int)o["id"];
-                vf.addForceCircle(users[id].position, 80.0f, 0.2f, true);
+                GridManager.Pinch(0, users[id].position, 80.0f, 0.2f);
             });
 
             base.Initialize();

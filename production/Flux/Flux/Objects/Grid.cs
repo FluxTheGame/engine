@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Flux
 {
-    public class VectorField
+    public class Grid
     {
 
         List<Vector2> field = new List<Vector2>();
@@ -19,7 +19,7 @@ namespace Flux
         int fieldLength;
 
 
-        public VectorField(int windowX, int windowY, int fieldX, int fieldY)
+        public Grid(int windowX, int windowY, int fieldX, int fieldY)
         {
             externalSize.X = windowX;
             externalSize.Y = windowY;
@@ -34,25 +34,23 @@ namespace Flux
                 Vector2 item = Vector2.Zero;
                 field.Add(item);
             }
-
-            
-        } //end VectorField()
+        }
 
 
         /*
          * Adds forces in the matrix within a circle
          */
-        public void addForceCircle(Vector2 pos, float radius, float strength, bool inward)
+        public void AddForceCircle(Vector2 pos, float radius, float strength, bool inward)
         {
-            float fieldRadius = convertScreenToFieldRadius(radius);
-            Vector2 fieldPos = convertScreenToFieldPos(pos);
-            Vector2[] range = getRangeFromRadius(fieldPos, radius);
+            float fieldRadius = ConvertScreenToFieldRadius(radius);
+            Vector2 fieldPos = ConvertScreenToFieldPos(pos);
+            Vector2[] range = GetRangeFromRadius(fieldPos, radius);
 
             for (int i = (int)range[0].X; i < range[1].X; i++) {
                 for (int j = (int)range[0].Y; j < range[1].Y; j++) {
 
                     int index = j * (int)fieldSize.X + i;
-                    float distance = calculateFieldDistance(fieldPos, i, j);
+                    float distance = CalculateFieldDistance(fieldPos, i, j);
 
                     if (distance < fieldRadius)
                     {
@@ -71,23 +69,23 @@ namespace Flux
                 }
             }
 
-        } //end addForceCircle()
+        }
 
 
-        public Vector2 getForceAtPosition(Vector2 pos, float sampleRadius)
+        public Vector2 GetForceAtPosition(Vector2 pos, float sampleRadius)
         {
             Vector2 force = Vector2.Zero;
-            float fieldRadius = convertScreenToFieldRadius(sampleRadius);
-            Vector2 fieldPos = convertScreenToFieldPos(pos);
-            Vector2[] range = getRangeFromRadius(fieldPos, fieldRadius);
+            float fieldRadius = ConvertScreenToFieldRadius(sampleRadius);
+            Vector2 fieldPos = ConvertScreenToFieldPos(pos);
+            Vector2[] range = GetRangeFromRadius(fieldPos, fieldRadius);
 
             for (int i = (int)range[0].X; i < range[1].X; i++) {
                 for (int j = (int)range[0].Y; j < range[1].Y; j++) {
 
                     int index = j * (int)fieldSize.X + i;
 
-                    Vector2 screenPos = convertFieldToScreenPos(i, j);
-                    float distance = calculateScreenDistance(screenPos, pos);
+                    Vector2 screenPos = ConvertFieldToScreenPos(i, j);
+                    float distance = CalculateScreenDistance(screenPos, pos);
 
                     if (distance < sampleRadius)
                     {
@@ -99,11 +97,7 @@ namespace Flux
             }
 
             return force;
-
-           // int index = (int)fieldPos.Y * (int)fieldSize.X + (int)fieldPos.X;
-
-           // return field[index];
-        } //end getForceAtPosition()
+        }
 
 
 
@@ -118,7 +112,7 @@ namespace Flux
                     field[index] = Vector2.Multiply(field[index], 0.995f);
                 }
             }
-        } //end Update()
+        }
 
 
         public void Draw(SpriteBatch spriteBatch, SpriteFont font)
@@ -134,7 +128,7 @@ namespace Flux
                     
                 }
             }
-        } //end Draw()
+        }
 
 
 
@@ -143,7 +137,7 @@ namespace Flux
         /*
         * Converts screen coordinates to fieldPos coordinates
         */
-        private Vector2 convertScreenToFieldPos(Vector2 screenPos)
+        private Vector2 ConvertScreenToFieldPos(Vector2 screenPos)
         {
             Vector2 scale = Vector2.Divide(screenPos, externalSize);
             Vector2 fieldPos = Vector2.Multiply(scale, fieldSize);
@@ -152,30 +146,30 @@ namespace Flux
             fieldPos.Y = Math.Max(0, Math.Min(fieldPos.Y, fieldSize.Y - 1));
 
             return fieldPos;
-        } //end convertScreenToFieldPos()
+        } 
 
 
-        private Vector2 convertFieldToScreenPos(int i, int j)
+        private Vector2 ConvertFieldToScreenPos(int i, int j)
         {
             Vector2 pos = new Vector2(scaleFieldToScreen.X * i, scaleFieldToScreen.Y * j);
             return pos;
-        } //end convertFieldToScreenPos()
+        } 
 
 
         /*
          * Converts screen radius to fieldRadius float
          */
-        private float convertScreenToFieldRadius(float radius)
+        private float ConvertScreenToFieldRadius(float radius)
         {
             float radiusScale = radius / externalSize.X;
             float fieldRadius = (float)(radiusScale * fieldSize.X);
             return fieldRadius;
-        } //end convertScreenToFieldRadius(
+        } 
 
         /*
          * Calculate the distance in a loop away from a given fieldPos
          */
-        private float calculateFieldDistance(Vector2 fieldPos, int i, int j)
+        private float CalculateFieldDistance(Vector2 fieldPos, int i, int j)
         {
             float distance = (float)Math.Sqrt(
                 (fieldPos.X - i) * (fieldPos.X - i) +
@@ -184,19 +178,19 @@ namespace Flux
 
             if (distance < 0.0001) distance = 0.0001f;
             return distance;
-        } //end calculateFieldDistance()
+        } 
 
-        private float calculateScreenDistance(Vector2 pos1, Vector2 pos2)
+        private float CalculateScreenDistance(Vector2 pos1, Vector2 pos2)
         {
             float distance = Vector2.Distance(pos1, pos2);
             if (distance < 0.0001) distance = 0.0001f;
             return distance;
-        } //end calculateScreenDistance()
+        } 
 
         /*
          * Gets the start and end field positions given a fieldPos and radius
          */
-        private Vector2[] getRangeFromRadius(Vector2 fieldPos, float fieldRadius)
+        private Vector2[] GetRangeFromRadius(Vector2 fieldPos, float fieldRadius)
         {
 
             Vector2[] range = new Vector2[2];
@@ -212,7 +206,7 @@ namespace Flux
             );
 
             return range;
-        } //end getRangeFromRadius
+        }
 
 
     }

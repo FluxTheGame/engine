@@ -17,7 +17,6 @@ namespace Flux
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        MouseState mouseState;
         SpriteBatch spriteBatch;
 
         GridObjectManager gridObjectManager;
@@ -26,7 +25,6 @@ namespace Flux
 
         Texture2D icon;
         SpriteFont font;
-        VectorField vf;
 
         Server server;
 
@@ -42,19 +40,18 @@ namespace Flux
        
         protected override void Initialize()
         {
-            vf = new VectorField(
-                GraphicsDevice.Viewport.Width,
-                GraphicsDevice.Viewport.Height,
-                100, 100
-            );
-
             EventManager.Initialize();
+            GridManager.Initialize(
+                GraphicsDevice.Adapter.CurrentDisplayMode.Width, 
+                GraphicsDevice.Adapter.CurrentDisplayMode.Height,
+                9
+            );
             server = new Server();
 
-            gridObjectManager = new GridObjectManager(this, vf);
+            gridObjectManager = new GridObjectManager(this);
             Components.Add(gridObjectManager);
 
-            userManager = new UserManager(this, vf);
+            userManager = new UserManager(this);
             Components.Add(userManager);
 
             resourceManager = new ResourceManager(this);
@@ -85,8 +82,7 @@ namespace Flux
                 this.Exit();
 
             KeyboardState keyState = Keyboard.GetState();
-
-            vf.Update();
+            GridManager.Update();
 
             base.Update(gameTime);
         }
@@ -97,7 +93,7 @@ namespace Flux
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
-            vf.Draw(spriteBatch, font);
+            GridManager.Draw(spriteBatch, font);
             spriteBatch.End();
 
 

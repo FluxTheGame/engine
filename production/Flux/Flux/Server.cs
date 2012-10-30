@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using System.Collections.Concurrent;
 using System.Collections.Specialized;
-using System.Text;
 using System.Net.Sockets;
 using System.Threading;
 using System.Net;
 using System.Diagnostics;
+
 
 namespace Flux
 {
@@ -72,7 +71,7 @@ namespace Flux
                 }
 
                 string data = Encoding.ASCII.GetString(message, 0, bytesRead);
-                handleReceivedMessage(data);
+                HandleMessage(data);
                 
             }
 
@@ -80,7 +79,7 @@ namespace Flux
         }
 
 
-        private void handleReceivedMessage(string data)
+        private void HandleMessage(string data)
         {
             string[] items = data.Split("/".ToCharArray());
             string eventName = items[0];

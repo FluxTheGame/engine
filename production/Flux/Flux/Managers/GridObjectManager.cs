@@ -19,13 +19,11 @@ namespace Flux
         SpriteBatch spriteBatch;
         Texture2D icon;
         List<GridObject> objects;
-        VectorField vf;
 
         
-        public GridObjectManager(Game game, VectorField vectorField)
+        public GridObjectManager(Game game)
             : base(game)
         {
-            vf = vectorField;
         }
 
 
@@ -55,11 +53,7 @@ namespace Flux
 
             for (int i = 0; i < 3; i++)
             {
-                objects.Add(
-                    new GridObject(icon,
-                        new Vector2(
-                            GraphicsDevice.Viewport.Width / 2,
-                            GraphicsDevice.Viewport.Height / 2), vf));
+                objects.Add(new GridObject(icon));
             }
 
             base.LoadContent();
