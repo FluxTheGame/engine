@@ -17,7 +17,8 @@ namespace Flux
     {
 
         SpriteBatch spriteBatch;
-        Texture2D icon;
+        Texture2D enemy;
+        Texture2D collector;
         List<GridObject> objects;
 
         
@@ -49,12 +50,15 @@ namespace Flux
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
-            icon = Game.Content.Load<Texture2D>("object");
+            enemy = Game.Content.Load<Texture2D>("enemy");
+            collector = Game.Content.Load<Texture2D>("collector");
 
             for (int i = 0; i < 3; i++)
             {
-                objects.Add(new GridObject(icon));
+                objects.Add(new Enemy(enemy));
             }
+
+            objects.Add(new Collector(collector));
 
             base.LoadContent();
         }

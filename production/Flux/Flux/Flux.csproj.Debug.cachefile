@@ -1,5 +1,7 @@
 Content\box.xnb
 Content\mouse.xnb
-Content\object.xnb
 Content\font.xnb
 Content\wormhole.xnb
+Content\enemy.xnb
+Content\collector.xnb
+Content\resource.xnb

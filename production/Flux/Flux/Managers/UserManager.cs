@@ -52,13 +52,13 @@ namespace Flux
             EventManager.On("user:bloat", (o) =>
             {
                 int id = (int)o["id"];
-                GridManager.Bloat(0, users[id].position, 80.0f, 0.2f);
+                GridManager.Bloat(0, users[id].position, 60.0f, 0.05f);
             });
 
             EventManager.On("user:pinch", (o) =>
             {
                 int id = (int)o["id"];
-                GridManager.Pinch(0, users[id].position, 80.0f, 0.2f);
+                GridManager.Pinch(0, users[id].position, 60.0f, 0.05f);
             });
 
             base.Initialize();

@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
-
 namespace Flux
 {
     class GameObject
@@ -24,7 +23,11 @@ namespace Flux
             display = 0;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Update()
+        {
+        }
+
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(icon, position, Color.White);
         }

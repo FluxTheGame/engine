@@ -26,6 +26,8 @@ namespace Flux
         Texture2D icon;
         SpriteFont font;
 
+        Vector2 initialMousePos = Vector2.Zero;
+
         Server server;
 
 
@@ -42,9 +44,9 @@ namespace Flux
         {
             EventManager.Initialize();
             GridManager.Initialize(
-                GraphicsDevice.Adapter.CurrentDisplayMode.Width, 
-                GraphicsDevice.Adapter.CurrentDisplayMode.Height,
-                9
+                GraphicsDevice.Viewport.Width, 
+                GraphicsDevice.Viewport.Height,
+                10
             );
             server = new Server();
 
@@ -66,6 +68,13 @@ namespace Flux
             spriteBatch = new SpriteBatch(GraphicsDevice);
             icon = Content.Load<Texture2D>("box");
             font = Content.Load<SpriteFont>("font");
+
+            /* For Testing */
+            OrderedDictionary o = new OrderedDictionary();
+            o.Add("id", 1);
+            o.Add("username", "Matt");
+            EventManager.Emit("user:join", o);
+            /* End for testing */
         }
 
       
@@ -82,7 +91,38 @@ namespace Flux
                 this.Exit();
 
             KeyboardState keyState = Keyboard.GetState();
+            MouseState mouseState = Mouse.GetState();
             GridManager.Update();
+
+            /* For Testing - Accepts keyboard/mouse */
+            OrderedDictionary o = new OrderedDictionary();
+            o.Add("id", 1);
+
+            if (keyState.IsKeyDown(Keys.Up)) 
+                EventManager.Emit("user:bloat", o);
+
+            if (keyState.IsKeyDown(Keys.Down))
+                EventManager.Emit("user:pinch", o);
+
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
+                if (initialMousePos.Equals(Vector2.Zero))
+                {
+                    initialMousePos = new Vector2(mouseState.X, mouseState.Y);
+                }
+                o.Add("x", (int)(mouseState.X - initialMousePos.X));
+                o.Add("y", (int)(mouseState.Y - initialMousePos.Y));
+                EventManager.Emit("user:touch", o);
+            }
+            else if (mouseState.LeftButton == ButtonState.Released)
+            {
+                if (initialMousePos.Equals(Vector2.Zero))
+                {
+                    EventManager.Emit("user:touchEnd", o);
+                }
+                initialMousePos = Vector2.Zero;
+            }
+            /* End for testing */
 
             base.Update(gameTime);
         }

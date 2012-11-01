@@ -17,7 +17,7 @@ namespace Flux
     {
 
         SpriteBatch spriteBatch;
-        Texture2D icon;
+        Texture2D resource;
         List<Resource> resources;
 
 
@@ -49,7 +49,7 @@ namespace Flux
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
-            icon = Game.Content.Load<Texture2D>("object");
+            resource = Game.Content.Load<Texture2D>("resource");
 
             for (int i = 0; i < 3; i++)
             {

@@ -109,8 +109,10 @@
   <ItemGroup>
     <Compile Include="Managers\EventManager.cs" />
     <Compile Include="Managers\GridManager.cs" />
+    <Compile Include="Objects\Enemy.cs" />
+    <Compile Include="Objects\GridObject.cs" />
     <Compile Include="Objects\GameObject.cs" />
-    <Compile Include="Objects\GridObject.cs">
+    <Compile Include="Objects\Collector.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Managers\GridObjectManager.cs">

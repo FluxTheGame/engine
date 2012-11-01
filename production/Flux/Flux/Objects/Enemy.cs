@@ -9,19 +9,17 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Flux
 {
-    class GridObject : GameObject
+    class Enemy : GridObject
     {
 
-        public GridObject(Texture2D ico)
+        public Enemy(Texture2D ico)
             : base(ico)
         {
-
         }
 
         public override void Update()
         {
-            Vector2 force = GridManager.GetForce(display, position, 100.0f);
-            position = Vector2.Add(position, force);
+            GridManager.Bloat(display, position, 40.0f, 0.05f);
             base.Update();
         }
 

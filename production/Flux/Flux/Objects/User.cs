@@ -27,9 +27,10 @@ namespace Flux
             delta = Vector2.Divide(delta, 20);
         }
 
-        public void Update()
+        public override void Update()
         {
             position = Vector2.Add(position, delta);
+            base.Update();
         }
 
 

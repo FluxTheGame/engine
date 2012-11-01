@@ -2,7 +2,6 @@ C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debu
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\box.xnb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\mouse.xnb
-C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\object.xnb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\font.xnb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.exe.config
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.exe
@@ -10,3 +9,6 @@ C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debu
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.exe
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.pdb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\wormhole.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\enemy.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\resource.xnb
