@@ -13,16 +13,16 @@ using Microsoft.Xna.Framework.Media;
 namespace Flux
 {
     
-    public class GridObjectManager : DrawableGameComponent
+    public class EnemyManager : DrawableGameComponent
     {
 
         SpriteBatch spriteBatch;
         Texture2D enemy;
-        Texture2D collector;
-        List<GridObject> objects;
+
+        List<Enemy> enemies;
 
         
-        public GridObjectManager(Game game)
+        public EnemyManager(Game game)
             : base(game)
         {
         }
@@ -30,7 +30,7 @@ namespace Flux
 
         public override void Initialize()
         {
-            objects = new List<GridObject>();
+            enemies = new List<Enemy>();
             base.Initialize();
         }
 
@@ -38,9 +38,9 @@ namespace Flux
         public override void Update(GameTime gameTime)
         {
 
-            foreach (GridObject go in objects)
+            foreach (Enemy e in enemies)
             {
-                go.Update();
+                e.Update();
             }
 
             base.Update(gameTime);
@@ -51,14 +51,12 @@ namespace Flux
         {
             spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
             enemy = Game.Content.Load<Texture2D>("enemy");
-            collector = Game.Content.Load<Texture2D>("collector");
+            
 
             for (int i = 0; i < 3; i++)
             {
-                objects.Add(new Enemy(enemy));
+                enemies.Add(new Enemy(enemy));
             }
-
-            objects.Add(new Collector(collector));
 
             base.LoadContent();
         }
@@ -68,9 +66,9 @@ namespace Flux
         {
             spriteBatch.Begin();
 
-            foreach (GridObject go in objects)
+            foreach (Enemy e in enemies)
             {
-                go.Draw(spriteBatch);
+                e.Draw(spriteBatch);
             }
 
             spriteBatch.End();

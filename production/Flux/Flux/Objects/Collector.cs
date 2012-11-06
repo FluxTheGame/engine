@@ -12,6 +12,9 @@ namespace Flux
     class Collector : GridObject
     {
 
+        public int capacity = 10;
+        public int resources = 0;
+
         public Collector(Texture2D ico)
             : base(ico)
         {

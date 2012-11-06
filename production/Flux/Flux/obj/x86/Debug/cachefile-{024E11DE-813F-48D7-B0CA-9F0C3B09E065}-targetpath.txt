@@ -3,5 +3,7 @@ Content\mouse.xnb
 Content\font.xnb
 Content\wormhole.xnb
 Content\enemy.xnb
-Content\collector.xnb
 Content\resource.xnb
+Content\collector_sm.xnb
+Content\collector_m.xnb
+Content\collector_lg.xnb

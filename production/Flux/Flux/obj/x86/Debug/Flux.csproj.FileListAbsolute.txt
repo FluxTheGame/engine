@@ -10,5 +10,7 @@ C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debu
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.pdb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\wormhole.xnb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\enemy.xnb
-C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector.xnb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\resource.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_sm.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_m.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_lg.xnb

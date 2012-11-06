@@ -77,15 +77,29 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="collector.png">
-      <Name>collector</Name>
+    <Compile Include="resource.png">
+      <Name>resource</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="resource.png">
-      <Name>resource</Name>
+    <Compile Include="collector_sm.png">
+      <Name>collector_sm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="collector_m.png">
+      <Name>collector_m</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="collector_lg.png">
+      <Name>collector_lg</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -47,15 +47,6 @@
       <Time>2012-09-17T15:31:57.3154146-08:00</Time>
     </Item>
     <Item>
-      <Source>collector.png</Source>
-      <Name>collector</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector.xnb</Output>
-      <Time>2012-10-31T20:18:36.4878507-08:00</Time>
-    </Item>
-    <Item>
       <Source>resource.png</Source>
       <Name>resource</Name>
       <Importer>TextureImporter</Importer>
@@ -63,6 +54,33 @@
       <Options>None</Options>
       <Output>C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\resource.xnb</Output>
       <Time>2012-10-31T20:20:41.3639933-08:00</Time>
+    </Item>
+    <Item>
+      <Source>collector_sm.png</Source>
+      <Name>collector_sm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_sm.xnb</Output>
+      <Time>2012-11-05T19:40:17.3197673-09:00</Time>
+    </Item>
+    <Item>
+      <Source>collector_m.png</Source>
+      <Name>collector_m</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_m.xnb</Output>
+      <Time>2012-10-31T20:18:36.4878507-08:00</Time>
+    </Item>
+    <Item>
+      <Source>collector_lg.png</Source>
+      <Name>collector_lg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_lg.xnb</Output>
+      <Time>2012-11-05T19:40:48.0830213-09:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

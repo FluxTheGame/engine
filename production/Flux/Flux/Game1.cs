@@ -19,7 +19,8 @@ namespace Flux
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        GridObjectManager gridObjectManager;
+        CollectorManager collectorManager;
+        EnemyManager enemyManager;
         UserManager userManager;
         ResourceManager resourceManager;
 
@@ -50,8 +51,11 @@ namespace Flux
             );
             server = new Server();
 
-            gridObjectManager = new GridObjectManager(this);
-            Components.Add(gridObjectManager);
+            collectorManager = new CollectorManager(this);
+            Components.Add(collectorManager);
+            
+            enemyManager = new EnemyManager(this);
+            Components.Add(enemyManager);
 
             userManager = new UserManager(this);
             Components.Add(userManager);

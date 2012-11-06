@@ -13,7 +13,7 @@ namespace Flux
 
         public Vector2 position;
         public int display;
-        protected Texture2D icon;
+        public Texture2D icon;
 
 
         public GameObject(Texture2D ico)
