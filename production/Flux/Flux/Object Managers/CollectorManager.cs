@@ -17,16 +17,10 @@ namespace Flux
     {
 
         SpriteBatch spriteBatch;
-
-        Texture2D collectorSm;
-        Texture2D collectorM;
-        Texture2D collectorLg;
-
         List<Collector> collectors;
 
         
-        public CollectorManager(Game game)
-            : base(game)
+        public CollectorManager(Game game) : base(game)
         {
         }
 
@@ -41,42 +35,39 @@ namespace Flux
         public override void Update(GameTime gameTime)
         {
 
-            foreach (Collector c in collectors)
+            for (int i = collectors.Count - 1; i >= 0; i--)
             {
-                c.Update();
-                checkMerged(c);
+                collectors[i].Update();
+                CheckMerged(collectors[i]);
             }
 
             base.Update(gameTime);
         }
 
-        private void checkMerged(Collector current)
+
+        private void CheckMerged(Collector current)
         {
-            foreach (Collector c in collectors)
+            for (int i = collectors.Count - 1; i >= 0; i--)
             {
-                if (Vector2.Distance(current.position, c.position) < 10 && current != c)
+                if (Vector2.Distance(current.position, collectors[i].position) < 10 && current != collectors[i])
                 {
-                    Console.WriteLine("Merged");
+                    current.MergeWith(collectors[i]);
+                    collectors.RemoveAt(i);
                 }
             }
         }
 
+
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
-            
-            collectorSm = Game.Content.Load<Texture2D>("collector_sm");
-            collectorM = Game.Content.Load<Texture2D>("collector_m");
-            collectorLg = Game.Content.Load<Texture2D>("collector_lg");
-
 
             for (int i = 0; i < 3; i++)
             {
-                Collector c = new Collector(collectorSm);
+                Collector c = new Collector();
                 c.position = new Vector2((i+1)*150, (i+1)*150);
                 collectors.Add(c);
             }
-
             base.LoadContent();
         }
 
@@ -84,16 +75,15 @@ namespace Flux
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
-
             foreach (Collector c in collectors)
             {
                 c.Draw(spriteBatch);
             }
 
             spriteBatch.End();
-
             base.Draw(gameTime);
         }
+
 
     }
 }

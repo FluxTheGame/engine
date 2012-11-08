@@ -11,14 +11,16 @@ namespace Flux
     {
         public string username;
         public int id;
-        Vector2 delta;
+
+        private Vector2 delta;
 
 
-        public User(Texture2D ico, string user, int identity) : base (ico)
+        public User(string user, int identity) : base ()
         {
             delta = Vector2.Zero;
             username = user;
             id = identity;
+            icon = ContentManager.user;
         }
 
         public void SetDelta(int x, int y)

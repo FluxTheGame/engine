@@ -107,10 +107,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Managers\CollectorManager.cs" />
-    <Compile Include="Managers\EnemyManager.cs" />
-    <Compile Include="Managers\EventManager.cs" />
-    <Compile Include="Managers\GridManager.cs" />
+    <Compile Include="General Managers\ContentManager.cs" />
+    <Compile Include="Helpers\Randomizer.cs" />
+    <Compile Include="Object Managers\CollectorManager.cs" />
+    <Compile Include="Object Managers\EnemyManager.cs" />
+    <Compile Include="General Managers\EventManager.cs" />
+    <Compile Include="Object Managers\GridManager.cs" />
     <Compile Include="Objects\Enemy.cs" />
     <Compile Include="Objects\GridObject.cs" />
     <Compile Include="Objects\GameObject.cs" />
@@ -121,10 +123,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Objects\Resource.cs" />
-    <Compile Include="Managers\ResourceManager.cs" />
-    <Compile Include="Server.cs" />
+    <Compile Include="Object Managers\ResourceManager.cs" />
+    <Compile Include="Server\Server.cs" />
     <Compile Include="Objects\User.cs" />
-    <Compile Include="Managers\UserManager.cs" />
+    <Compile Include="Object Managers\UserManager.cs" />
     <Compile Include="Objects\Grid.cs" />
   </ItemGroup>
   <ItemGroup>

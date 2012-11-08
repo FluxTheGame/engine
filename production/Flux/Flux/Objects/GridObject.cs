@@ -12,15 +12,16 @@ namespace Flux
     class GridObject : GameObject
     {
 
-        public GridObject(Texture2D ico)
-            : base(ico)
-        {
+        protected float drag = 1.0f;
 
+        public GridObject() : base()
+        {
         }
 
         public override void Update()
         {
             Vector2 force = GridManager.GetForce(display, position, 100.0f);
+            force = Vector2.Divide(force, drag);
             position = Vector2.Add(position, force);
             base.Update();
         }

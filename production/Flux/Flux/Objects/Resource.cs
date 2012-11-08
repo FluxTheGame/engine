@@ -13,20 +13,22 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Flux
 {
-    class Resource
+    class Resource : GameObject
     {
-        public Resource()
+        public Resource() : base()
         {
+            icon = ContentManager.resource;
+
+            int x = Randomizer.RandomInt(0, 700);
+            int y = Randomizer.RandomInt(500, 700);
+            position = new Vector2(x, y);
         }
 
-        public void Update()
+        public override void Update()
         {
 
+            base.Update();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-
-        }
     }
 }

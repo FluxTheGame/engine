@@ -16,10 +16,9 @@ namespace Flux
         public Texture2D icon;
 
 
-        public GameObject(Texture2D ico)
+        public GameObject()
         {
             position = new Vector2(350, 350);
-            icon = ico;
             display = 0;
         }
 
@@ -29,7 +28,10 @@ namespace Flux
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(icon, position, Color.White);
+            if (icon != null)
+            {
+                spriteBatch.Draw(icon, position, Color.White);
+            }
         }
 
     }

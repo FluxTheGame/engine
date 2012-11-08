@@ -12,9 +12,9 @@ namespace Flux
     class Enemy : GridObject
     {
 
-        public Enemy(Texture2D ico)
-            : base(ico)
+        public Enemy() : base()
         {
+            icon = ContentManager.enemy;
         }
 
         public override void Update()

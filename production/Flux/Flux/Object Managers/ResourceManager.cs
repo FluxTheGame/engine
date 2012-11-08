@@ -12,35 +12,32 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Flux
 {
-    
-    public class EnemyManager : DrawableGameComponent
+
+    public class ResourceManager : DrawableGameComponent
     {
 
         SpriteBatch spriteBatch;
-        Texture2D enemy;
+        List<Resource> resources;
 
-        List<Enemy> enemies;
 
-        
-        public EnemyManager(Game game)
-            : base(game)
+        public ResourceManager(Game game) : base(game)
         {
         }
 
 
         public override void Initialize()
         {
-            enemies = new List<Enemy>();
+            resources = new List<Resource>();
             base.Initialize();
         }
 
-      
+
         public override void Update(GameTime gameTime)
         {
 
-            foreach (Enemy e in enemies)
+            foreach (Resource resource in resources)
             {
-                e.Update();
+                resource.Update();
             }
 
             base.Update(gameTime);
@@ -50,12 +47,10 @@ namespace Flux
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
-            enemy = Game.Content.Load<Texture2D>("enemy");
-            
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 1000; i++)
             {
-                enemies.Add(new Enemy(enemy));
+                resources.Add(new Resource());
             }
 
             base.LoadContent();
@@ -66,9 +61,9 @@ namespace Flux
         {
             spriteBatch.Begin();
 
-            foreach (Enemy e in enemies)
+            foreach (Resource resource in resources)
             {
-                e.Draw(spriteBatch);
+                resource.Draw(spriteBatch);
             }
 
             spriteBatch.End();

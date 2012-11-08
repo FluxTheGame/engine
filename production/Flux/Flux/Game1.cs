@@ -24,7 +24,6 @@ namespace Flux
         UserManager userManager;
         ResourceManager resourceManager;
 
-        Texture2D icon;
         SpriteFont font;
 
         Vector2 initialMousePos = Vector2.Zero;
@@ -43,6 +42,7 @@ namespace Flux
        
         protected override void Initialize()
         {
+            ContentManager.Initialize(this);
             EventManager.Initialize();
             GridManager.Initialize(
                 GraphicsDevice.Viewport.Width, 
@@ -70,7 +70,6 @@ namespace Flux
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            icon = Content.Load<Texture2D>("box");
             font = Content.Load<SpriteFont>("font");
 
             /* For Testing */

@@ -17,12 +17,10 @@ namespace Flux
     {
 
         SpriteBatch spriteBatch;
-        Texture2D icon;
         Dictionary<int, User> users;
 
         
-        public UserManager(Game game)
-            : base(game)
+        public UserManager(Game game) : base(game)
         {
         }
 
@@ -34,7 +32,7 @@ namespace Flux
             EventManager.On("user:join", (o) =>
             {
                 int id = (int)o["id"];
-                users.Add(id, new User(icon, (string)o["username"], id));
+                users.Add(id, new User((string)o["username"], id));
             });
 
             EventManager.On("user:touch", (o) =>
@@ -79,8 +77,6 @@ namespace Flux
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
-            icon = Game.Content.Load<Texture2D>("mouse");
-
             base.LoadContent();
         }
 
