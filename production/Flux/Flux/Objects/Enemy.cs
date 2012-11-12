@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Flux
 {
-    class Enemy : GridObject
+    public class Enemy : GridObject
     {
 
         public Enemy() : base()

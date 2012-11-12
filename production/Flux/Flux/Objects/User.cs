@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Flux
 {
-    class User : GameObject
+    public class User : GameObject
     {
         public string username;
         public int id;

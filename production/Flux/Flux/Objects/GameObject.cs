@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Flux
 {
-    class GameObject
+    public class GameObject
     {
 
         public Vector2 position;

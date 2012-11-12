@@ -9,11 +9,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Flux
 {
-    class Collector : GridObject
+    public class Collector : GridObject
     {
 
         protected int health = 100;
-        protected int capacity = 10;
+        protected int capacity = 100;
         protected int resources = 0;
         protected int currentSize = 1; //Temporary while using sprites
 
@@ -40,6 +40,10 @@ namespace Flux
             base.Update();
         }
 
+        public int SuckRadius()
+        {
+            return (resources / capacity * 10) + 20;
+        }
 
         public void MergeWith(Collector other)
         {
@@ -53,10 +57,15 @@ namespace Flux
             health = 100;
         }
 
+        public void Collect(Resource resource)
+        {
+            resources++;
+            Console.WriteLine(resources);
+        }
 
         private void CollectResources()
         {
-
+            ResourceManager.Gather(this);
         }
 
     }

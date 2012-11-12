@@ -16,12 +16,14 @@ namespace Flux
     public class ResourceManager : DrawableGameComponent
     {
 
+        public static ResourceManager instance;
         SpriteBatch spriteBatch;
         List<Resource> resources;
 
 
         public ResourceManager(Game game) : base(game)
         {
+            ResourceManager.instance = this;
         }
 
 
@@ -69,6 +71,21 @@ namespace Flux
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+
+
+        public static void Gather(Collector collector)
+        {
+            List<Resource> resources = instance.resources;
+            for (int i = resources.Count - 1; i >= 0; i--)
+            {
+                if (Vector2.Distance(resources[i].position, collector.position) < collector.SuckRadius())
+                {
+                    collector.Collect(resources[i]);
+                    resources.RemoveAt(i);
+                }
+            }
         }
 
     }

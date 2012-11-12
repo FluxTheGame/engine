@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Flux
 {
-    class EventManager
+    public class EventManager
     {
         public delegate void Callback(OrderedDictionary o);
         private static Dictionary<string, Callback> _e;

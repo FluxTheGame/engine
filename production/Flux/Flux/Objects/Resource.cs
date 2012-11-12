@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Flux
 {
-    class Resource : GameObject
+    public class Resource : GameObject
     {
         public Resource() : base()
         {

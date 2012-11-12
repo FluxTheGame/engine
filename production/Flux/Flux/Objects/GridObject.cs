@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Flux
 {
-    class GridObject : GameObject
+    public class GridObject : GameObject
     {
 
         protected float drag = 1.0f;

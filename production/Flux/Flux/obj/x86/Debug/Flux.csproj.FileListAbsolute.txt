@@ -14,3 +14,19 @@ C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debu
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_sm.xnb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_m.xnb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_lg.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\box.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\mouse.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\enemy.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\wormhole.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\resource.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_sm.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_m.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_lg.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\font.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.exe.config
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.exe
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.pdb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\ResolveAssemblyReference.cache
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.exe
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.pdb
