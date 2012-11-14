@@ -13,63 +13,37 @@ using Microsoft.Xna.Framework.Media;
 namespace Flux
 {
     
-    public class EnemyManager : DrawableGameComponent
+    public class EnemyManager : Manager
     {
 
-        SpriteBatch spriteBatch;
+        public static EnemyManager instance;
         List<Enemy> enemies;
 
         
         public EnemyManager(Game game) : base(game)
         {
+            EnemyManager.instance = this;
         }
 
 
         public override void Initialize()
         {
             enemies = new List<Enemy>();
-            base.Initialize();
-        }
-
-      
-        public override void Update(GameTime gameTime)
-        {
-
-            foreach (Enemy e in enemies)
-            {
-                e.Update();
-            }
-
-            base.Update(gameTime);
-        }
-
-
-        protected override void LoadContent()
-        {
-            spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
-            
 
             for (int i = 0; i < 3; i++)
             {
                 enemies.Add(new Enemy());
             }
 
-            base.LoadContent();
+            base.Initialize();
         }
 
 
-        public override void Draw(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
-            spriteBatch.Begin();
-
-            foreach (Enemy e in enemies)
-            {
-                e.Draw(spriteBatch);
-            }
-
-            spriteBatch.End();
-
-            base.Draw(gameTime);
+            //Pushes list of GameObjects to parent for general processing (Update, Draw)
+            objects = enemies.Cast<GameObject>().ToList();
+            base.Update(gameTime);
         }
 
     }

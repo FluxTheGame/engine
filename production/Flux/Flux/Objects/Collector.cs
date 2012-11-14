@@ -42,7 +42,10 @@ namespace Flux
 
         public int SuckRadius()
         {
-            return (resources / capacity * 10) + 20;
+            float percent = ((float)resources / (float)capacity);
+            int radius = (int)(percent*10 + 20);
+            if (radius > 100) radius = 100;
+            return radius;
         }
 
         public void MergeWith(Collector other)
@@ -60,7 +63,6 @@ namespace Flux
         public void Collect(Resource resource)
         {
             resources++;
-            Console.WriteLine(resources);
         }
 
         private void CollectResources()

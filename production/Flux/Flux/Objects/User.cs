@@ -15,11 +15,11 @@ namespace Flux
         private Vector2 delta;
 
 
-        public User(string user, int identity) : base ()
+        public User(string user, int idNumber) : base ()
         {
             delta = Vector2.Zero;
             username = user;
-            id = identity;
+            id = idNumber;
             icon = ContentManager.user;
         }
 

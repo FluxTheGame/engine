@@ -20,7 +20,7 @@ namespace Flux
             icon = ContentManager.resource;
 
             int x = Randomizer.RandomInt(0, 700);
-            int y = Randomizer.RandomInt(500, 700);
+            int y = Randomizer.RandomInt(0, 700);
             position = new Vector2(x, y);
         }
 

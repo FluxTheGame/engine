@@ -13,86 +13,69 @@ using Microsoft.Xna.Framework.Media;
 namespace Flux
 {
     
-    public class UserManager : DrawableGameComponent
+    public class UserManager : Manager
     {
 
-        SpriteBatch spriteBatch;
-        Dictionary<int, User> users;
+        public static UserManager instance;
+        List<User> users;
 
         
         public UserManager(Game game) : base(game)
         {
+            UserManager.instance = this;
         }
 
 
         public override void Initialize()
         {
-            users = new Dictionary<int, User>();
+            users = new List<User>();
 
             EventManager.On("user:join", (o) =>
             {
                 int id = (int)o["id"];
-                users.Add(id, new User((string)o["username"], id));
+                users.Add(new User((string)o["username"], id));
             });
 
             EventManager.On("user:touch", (o) =>
             {
-                int id = (int)o["id"];
-                users[id].SetDelta((int)o["x"], (int)o["y"]);
+                User user = UserByID((int)o["id"]);
+                user.SetDelta((int)o["x"], (int)o["y"]);
             });
 
             EventManager.On("user:touchEnd", (o) =>
             {
-                int id = (int)o["id"];
-                users[id].SetDelta(0, 0);
+                User user = UserByID((int)o["id"]);
+                user.SetDelta(0, 0);
             });
 
             EventManager.On("user:bloat", (o) =>
             {
-                int id = (int)o["id"];
-                GridManager.Bloat(0, users[id].position, 60.0f, 0.05f);
+                User user = UserByID((int)o["id"]);
+                GridManager.Bloat(0, user.position, 60.0f, 0.05f);
             });
 
             EventManager.On("user:pinch", (o) =>
             {
-                int id = (int)o["id"];
-                GridManager.Pinch(0, users[id].position, 60.0f, 0.05f);
+                User user = UserByID((int)o["id"]);
+                GridManager.Pinch(0, user.position, 60.0f, 0.05f);
             });
 
             base.Initialize();
         }
-      
+
+
+        public User UserByID(int id)
+        {
+            return users.FirstOrDefault(u => u.id == id);
+        }
+
+
         public override void Update(GameTime gameTime)
         {
-
-            foreach (KeyValuePair<int, User> pair in users)
-            {
-                users[pair.Key].Update();
-            }
-
+            //Pushes list of GameObjects to parent for general processing (Update, Draw)
+            objects = users.Cast<GameObject>().ToList();
             base.Update(gameTime);
         }
-
-
-        protected override void LoadContent()
-        {
-            spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
-            base.LoadContent();
-        }
-
-
-        public override void Draw(GameTime gameTime)
-        {
-            spriteBatch.Begin();
-
-            foreach (KeyValuePair<int, User> pair in users)
-            {
-                users[pair.Key].Draw(spriteBatch);
-            }
-
-            spriteBatch.End();
-
-            base.Draw(gameTime);
-        }
+        
     }
 }

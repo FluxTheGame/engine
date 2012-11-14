@@ -112,7 +112,8 @@
     <Compile Include="Object Managers\CollectorManager.cs" />
     <Compile Include="Object Managers\EnemyManager.cs" />
     <Compile Include="General Managers\EventManager.cs" />
-    <Compile Include="Object Managers\GridManager.cs" />
+    <Compile Include="General Managers\GridManager.cs" />
+    <Compile Include="Object Managers\Manager.cs" />
     <Compile Include="Objects\Enemy.cs" />
     <Compile Include="Objects\GridObject.cs" />
     <Compile Include="Objects\GameObject.cs" />
