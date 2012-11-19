@@ -18,6 +18,7 @@ namespace Flux
             int fieldX = windowX / scale;
             int fieldY = windowY / scale;
             grid[0] = new Grid(windowX, windowY, fieldX, fieldY);
+            grid[0].display = 0;
         }
 
         public static void Update()

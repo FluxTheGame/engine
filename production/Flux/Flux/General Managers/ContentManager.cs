@@ -20,6 +20,7 @@ namespace Flux
         public static Texture2D user;
         public static Texture2D enemy;
         public static Texture2D resource;
+        public static Texture2D wormhole;
 
         public static void Initialize(Game game)
         {
@@ -29,6 +30,7 @@ namespace Flux
             user = game.Content.Load<Texture2D>("mouse");
             enemy = game.Content.Load<Texture2D>("enemy");
             resource = game.Content.Load<Texture2D>("resource");
+            wormhole = game.Content.Load<Texture2D>("wormhole");
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Flux
         Vector2 scaleFieldToScreen;
 
         int fieldLength;
+        public int display;
 
 
         public Grid(int windowX, int windowY, int fieldX, int fieldY)
@@ -49,7 +50,7 @@ namespace Flux
             for (int i = (int)range[0].X; i < range[1].X; i++) {
                 for (int j = (int)range[0].Y; j < range[1].Y; j++) {
 
-                    int index = j * (int)fieldSize.X + i;
+                    int index = ConvertCoordinatesToIndex(i, j);
                     float distance = CalculateFieldDistance(fieldPos, i, j);
 
                     if (distance < fieldRadius)
@@ -64,6 +65,8 @@ namespace Flux
                         Vector2 force = new Vector2(unit.X * strongness, unit.Y * strongness);
                         if (inward) field[index] = Vector2.Add(field[index], force);
                         else        field[index] = Vector2.Subtract(field[index], force);
+
+                        CheckForces(i, j);
                     }
 
                 }
@@ -82,7 +85,7 @@ namespace Flux
             for (int i = (int)range[0].X; i < range[1].X; i++) {
                 for (int j = (int)range[0].Y; j < range[1].Y; j++) {
 
-                    int index = j * (int)fieldSize.X + i;
+                    int index = ConvertCoordinatesToIndex(i, j);
 
                     Vector2 screenPos = ConvertFieldToScreenPos(i, j);
                     float distance = CalculateScreenDistance(screenPos, pos);
@@ -101,14 +104,12 @@ namespace Flux
 
 
 
-
-
         public void Update()
         {
             for (int i = 0; i < fieldSize.X; i++) {
                 for (int j = 0; j < fieldSize.Y; j++) {
 
-                    int index = j * (int)fieldSize.X + i; //Position in array
+                    int index = ConvertCoordinatesToIndex(i, j); //Position in array
                     field[index] = Vector2.Multiply(field[index], 0.995f);
                 }
             }
@@ -121,7 +122,7 @@ namespace Flux
             for (int i=0; i<fieldSize.X; i++) {
                 for (int j=0; j<fieldSize.Y; j++) {
 
-                    int index = j * (int)fieldSize.X + i; //Position in array
+                    int index = ConvertCoordinatesToIndex(i, j); //Position in array
                     Vector2 pos = new Vector2(scaleFieldToScreen.X * i + field[index].X, scaleFieldToScreen.Y * j + field[index].Y);
                     
                     spriteBatch.DrawString(font, Math.Round(field[index].X).ToString(), pos, Color.CornflowerBlue);
@@ -132,6 +133,43 @@ namespace Flux
 
 
 
+
+        /*
+        * Checks for wormhole potential at grid position
+        */
+        private void CheckForces(int i, int j) 
+        {
+
+            int index = ConvertCoordinatesToIndex(i, j);
+
+            if (i > 0 && i < fieldSize.X - 1)
+            {
+                Vector2 forceLeft = field[index - 1];
+                Vector2 forceRight = field[index + 1];
+
+                if (forceLeft.Length() > 4 && forceRight.Length() > 4)
+                {
+                    Vector2 position = ConvertFieldToScreenPos(i, j);
+
+                    if (forceLeft.X < 0 && forceRight.X > 0)
+                    {
+                        //Add outward wormhole
+                        WormholeManager.Add(position, false);
+
+                    } else if (forceLeft.X > 0 && forceRight.X < 0)
+                    {
+                        //Add inward wormhole
+                        WormholeManager.Add(position, true);
+                    }
+                }
+            }
+        }
+
+
+        private int ConvertCoordinatesToIndex(int i, int j)
+        {
+            return j * (int)fieldSize.X + i;
+        }
 
 
         /*

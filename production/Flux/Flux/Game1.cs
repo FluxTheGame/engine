@@ -18,15 +18,14 @@ namespace Flux
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SpriteFont font;
+        Vector2 initialMousePos = Vector2.Zero;
 
         CollectorManager collectorManager;
         EnemyManager enemyManager;
         UserManager userManager;
         ResourceManager resourceManager;
-
-        SpriteFont font;
-
-        Vector2 initialMousePos = Vector2.Zero;
+        WormholeManager wormholeManager;
 
         Server server;
 
@@ -62,6 +61,9 @@ namespace Flux
 
             resourceManager = new ResourceManager(this);
             Components.Add(resourceManager);
+
+            wormholeManager = new WormholeManager(this);
+            Components.Add(wormholeManager);
 
             base.Initialize();
         }
@@ -101,11 +103,15 @@ namespace Flux
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 1);
 
-            if (keyState.IsKeyDown(Keys.Up)) 
+            if (keyState.IsKeyDown(Keys.Up))
+            {
                 EventManager.Emit("user:bloat", o);
+            }
 
             if (keyState.IsKeyDown(Keys.Down))
+            {
                 EventManager.Emit("user:pinch", o);
+            }
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {

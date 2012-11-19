@@ -58,6 +58,8 @@ namespace Flux
             {
                 User user = UserByID((int)o["id"]);
                 GridManager.Pinch(0, user.position, 60.0f, 0.05f);
+
+                
             });
 
             base.Initialize();
