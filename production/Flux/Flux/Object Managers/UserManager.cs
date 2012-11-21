@@ -33,33 +33,31 @@ namespace Flux
             EventManager.On("user:join", (o) =>
             {
                 int id = (int)o["id"];
-                users.Add(new User((string)o["username"], id));
+                if (id > 0) users.Add(new User((string)o["username"], id));
             });
 
             EventManager.On("user:touch", (o) =>
             {
                 User user = UserByID((int)o["id"]);
-                user.SetDelta((int)o["x"], (int)o["y"]);
+                if (user != null) user.SetDelta((int)o["x"], (int)o["y"]);
             });
 
             EventManager.On("user:touchEnd", (o) =>
             {
                 User user = UserByID((int)o["id"]);
-                user.SetDelta(0, 0);
+                if (user != null) user.SetDelta(0, 0);
             });
 
             EventManager.On("user:bloat", (o) =>
             {
                 User user = UserByID((int)o["id"]);
-                GridManager.Bloat(0, user.position, 60.0f, 0.05f);
+                if (user != null) GridManager.Bloat(0, user.position, 60.0f, 0.05f);
             });
 
             EventManager.On("user:pinch", (o) =>
             {
                 User user = UserByID((int)o["id"]);
-                GridManager.Pinch(0, user.position, 60.0f, 0.05f);
-
-                
+                if (user != null) GridManager.Pinch(0, user.position, 60.0f, 0.05f);
             });
 
             base.Initialize();

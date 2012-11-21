@@ -21,7 +21,7 @@ namespace Flux
             tcpClient = new TcpClient();
             try
             {
-                tcpClient.Connect("127.0.0.1", 8100);
+                tcpClient.Connect("172.17.152.101", 8100);
 
                 Thread clientThread = new Thread(new ParameterizedThreadStart(HandleClientComm));
                 clientThread.Start(tcpClient);
@@ -49,7 +49,7 @@ namespace Flux
             TcpClient tcpClient = (TcpClient)client;
             NetworkStream clientStream = tcpClient.GetStream();
 
-            byte[] message = new byte[4096];
+            byte[] message = new byte[1024];
             int bytesRead;
 
             while (true)
@@ -58,7 +58,7 @@ namespace Flux
 
                 try
                 {
-                    bytesRead = clientStream.Read(message, 0, 4096);
+                    bytesRead = clientStream.Read(message, 0, 1024);
                 }
                 catch
                 {
@@ -71,7 +71,7 @@ namespace Flux
                 }
 
                 string data = Encoding.ASCII.GetString(message, 0, bytesRead);
-                HandleMessage(data);
+                HandleMessages(data);
                 
             }
 
@@ -79,31 +79,46 @@ namespace Flux
         }
 
 
-        private void HandleMessage(string data)
+        private void HandleMessages(string data)
         {
-            string[] items = data.Split("/".ToCharArray());
-            string eventName = items[0];
-            OrderedDictionary o = new OrderedDictionary();
 
-            foreach (string item in items)
-            {
-                if (item.Contains("="))
+            string[] messages = data.Trim().Split("$".ToCharArray());
+            
+            foreach (string message in messages) {
+
+                if (message.Length <= 3) continue; //Short message - skip
+
+                string[] items = message.Trim().Split("/".ToCharArray());
+                string eventName = items[0];
+                
+                //Create the event data object
+                OrderedDictionary o = new OrderedDictionary();
+
+                foreach (string item in items)
                 {
-                    string[] keyValue = item.Split("=".ToCharArray());
+                    if (item.Contains("="))
+                    {
+                        string[] keyValue = item.Split("=".ToCharArray());
 
-                    try
-                    {
-                        int number = Convert.ToInt32(keyValue[1]);
-                        o.Add(keyValue[0], number);
-                    }
-                    catch
-                    {
-                        o.Add(keyValue[0], keyValue[1]);
+                        try
+                        {
+                            int number = Convert.ToInt32(keyValue[1]);
+                            o.Add(keyValue[0], number);
+                        }
+                        catch
+                        {
+                            o.Add(keyValue[0], keyValue[1]);
+                        }
                     }
                 }
+
+                //Send the event
+                if (o.Contains("id")) 
+                    EventManager.Emit(eventName, o);
+                else 
+                    Console.WriteLine("Missing ID in message: " + message);
+
             }
-            
-            EventManager.Emit(eventName, o);
         }
 
     }

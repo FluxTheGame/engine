@@ -32,7 +32,7 @@ namespace Flux
 
             for (int i = 0; i < 3; i++)
             {
-                enemies.Add(new Enemy());
+                //enemies.Add(new Enemy());
             }
 
             base.Initialize();
