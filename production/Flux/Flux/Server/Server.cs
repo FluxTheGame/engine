@@ -21,8 +21,12 @@ namespace Flux
             tcpClient = new TcpClient();
             try
             {
-                tcpClient.Connect("172.17.152.101", 8100);
+                // fetch IP from hostname
+                IPAddress[] ipList = Dns.GetHostAddresses("jahfer.no-ip.org");
+                // connect TCP client to node.js server
+                tcpClient.Connect(ipList[0], 8100);
 
+                // spin off listener to new thread
                 Thread clientThread = new Thread(new ParameterizedThreadStart(HandleClientComm));
                 clientThread.Start(tcpClient);
 
@@ -49,7 +53,7 @@ namespace Flux
             TcpClient tcpClient = (TcpClient)client;
             NetworkStream clientStream = tcpClient.GetStream();
 
-            byte[] message = new byte[1024];
+            byte[] message = new byte[256];
             int bytesRead;
 
             while (true)
@@ -58,7 +62,7 @@ namespace Flux
 
                 try
                 {
-                    bytesRead = clientStream.Read(message, 0, 1024);
+                    bytesRead = clientStream.Read(message, 0, 256);
                 }
                 catch
                 {
