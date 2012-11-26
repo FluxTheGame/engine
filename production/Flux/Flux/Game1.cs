@@ -74,7 +74,7 @@ namespace Flux
             spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("font");
 
-            /* For Testing 
+            /* For Testing */
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 1);
             o.Add("username", "Matt");
@@ -99,7 +99,7 @@ namespace Flux
             MouseState mouseState = Mouse.GetState();
             GridManager.Update();
 
-            /* For Testing - Accepts keyboard/mouse 
+            /* For Testing - Accepts keyboard/mouse */
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 1);
 

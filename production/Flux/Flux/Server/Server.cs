@@ -21,7 +21,7 @@ namespace Flux
             tcpClient = new TcpClient();
             try
             {
-                tcpClient.Connect("172.17.152.101", 8100);
+                tcpClient.Connect("127.0.0.1", 8100);
 
                 Thread clientThread = new Thread(new ParameterizedThreadStart(HandleClientComm));
                 clientThread.Start(tcpClient);

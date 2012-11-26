@@ -118,20 +118,62 @@ namespace Flux
 
         public void Draw(SpriteBatch spriteBatch, SpriteFont font)
         {
-            
+
             for (int i=0; i<fieldSize.X; i++) {
                 for (int j=0; j<fieldSize.Y; j++) {
 
                     int index = ConvertCoordinatesToIndex(i, j); //Position in array
                     Vector2 pos = new Vector2(scaleFieldToScreen.X * i + field[index].X, scaleFieldToScreen.Y * j + field[index].Y);
-                    
                     spriteBatch.DrawString(font, Math.Round(field[index].X).ToString(), pos, Color.CornflowerBlue);
-                    
                 }
             }
+
+
+            LowResolution(10, spriteBatch);
         }
 
 
+        /* 
+         * Get a low resolution version of this grid for displaying
+         */
+        public List<Vector2> LowResolution(int scale, SpriteBatch spriteBatch)
+        {
+
+            Vector2 lowFieldSize = new Vector2(
+                (float)Math.Ceiling(fieldSize.X / scale),
+                (float)Math.Ceiling(fieldSize.Y / scale));
+
+            List<Vector2> lowField = new List<Vector2>();
+
+            //Loop through low resolution version
+            for (int i = 0; i < lowFieldSize.X; i++) {
+                for (int j = 0; j < lowFieldSize.Y; j++) {
+
+                    //Loop through the high resolution version, but only within the current low-res range
+                    Vector2 start = new Vector2(i*scale, j*scale);
+                    Vector2 end = new Vector2(
+                        Math.Min(start.X + scale, fieldSize.X), 
+                        Math.Min(start.Y + scale, fieldSize.Y));
+
+                    Vector2 sum = Vector2.Zero;
+
+                    for (int w = (int)start.X; w < end.X; w++) {
+                        for (int h = (int)start.Y; h < end.Y; h++) {
+                            int index = ConvertCoordinatesToIndex(w, h);
+                            sum = Vector2.Add(sum, field[index]);
+                        }
+                    }
+
+                    Vector2 pos = new Vector2(scaleFieldToScreen.X * i * scale + sum.X, scaleFieldToScreen.Y * j * scale + sum.Y);
+                    Vector2 displayOffset = new Vector2(scaleFieldToScreen.X * (scale / 2 + 1), scaleFieldToScreen.Y * (scale / 2 + 1));
+                    spriteBatch.Draw(ContentManager.enemy, Vector2.Add(pos, displayOffset), Color.White);
+
+                    lowField.Add(sum);
+                }
+            }
+
+            return lowField;
+        }
 
 
         /*
@@ -170,7 +212,6 @@ namespace Flux
         {
             return j * (int)fieldSize.X + i;
         }
-
 
         /*
         * Converts screen coordinates to fieldPos coordinates
