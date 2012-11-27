@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+using System.Diagnostics;
+
 namespace SmoothGrid
 {
     /// <summary>
@@ -23,6 +25,12 @@ namespace SmoothGrid
 
         Matrix worldTranslation = Matrix.Identity;
         Matrix worldRotation = Matrix.Identity;
+
+        List<Vector3> points = new List<Vector3>();
+        Vector3 pt1, pt2;
+        VLine line;
+
+        Stopwatch stopwatch = new Stopwatch();
 
         public Game1()
         {
@@ -40,6 +48,14 @@ namespace SmoothGrid
         {
             camera = new Camera(this, new Vector3(0, 0, 5), Vector3.Zero, Vector3.Up);
             Components.Add(camera);
+
+            pt1 = new Vector3(0,  0.66f, 0);
+            pt2 = new Vector3(0, -0.66f, 0);
+
+            points.Add(new Vector3(0, 2, 0));
+            points.Add(pt1);
+            points.Add(pt2);
+            points.Add(new Vector3(0, -2, 0));
 
             base.Initialize();
         }
@@ -76,7 +92,15 @@ namespace SmoothGrid
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            pt1.X += 0.01f;
+            pt2.X -= 0.01f;
+
+            points[1] = pt1;
+            points[2] = pt2;
+
+            line = new VLine(points, graphics.GraphicsDevice, 0.1f, 1000);
+            line.curve();
+            line.stroke();
 
             base.Update(gameTime);
         }
@@ -89,34 +113,10 @@ namespace SmoothGrid
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            //VLine line = new VLine(new Vector3(-1, 1, 0), new Vector3(0, -1, 0), graphics.GraphicsDevice, 0.01f);
-            //line.draw(camera);
+            //GraphicsDevice.RasterizerState = RasterizerState.CullNone;
 
-            Vector3 anchorA = new Vector3(0, 1, 0);
-            Vector3 anchorB = new Vector3(1, 0, 0);
-            Vector3 ptA = new Vector3(0.2f, 0.9f, 0);
-            Vector3 ptB = new Vector3(0.6f, 0.7f, 0);
-            Vector3 ptC = new Vector3(0.8f, 0.1f, 0);
-
-            Vector3 interpA = Vector3.CatmullRom(anchorA, ptA, ptB, anchorB, 0.5f);
-            Vector3 interpB = Vector3.CatmullRom(anchorA, ptB, ptC, anchorB, 0.5f);
-
-            float strokeWidth = 0.03f;
-
-            VLine a = new VLine(anchorA, ptA, graphics.GraphicsDevice, strokeWidth);
-            VLine b = new VLine(ptA, interpA, graphics.GraphicsDevice, strokeWidth);
-            VLine c = new VLine(interpA, ptB, graphics.GraphicsDevice, strokeWidth);
-            VLine d = new VLine(ptB, interpB, graphics.GraphicsDevice, strokeWidth);
-            VLine e = new VLine(interpB, ptC, graphics.GraphicsDevice, strokeWidth);
-            VLine f = new VLine(ptC, anchorB, graphics.GraphicsDevice, strokeWidth);
-
-            a.draw(camera);
-            b.draw(camera);
-            c.draw(camera);
-            d.draw(camera);
-            e.draw(camera);
-            f.draw(camera);
-
+            line.draw(camera);
+            Console.WriteLine(gameTime.IsRunningSlowly);
 
             base.Draw(gameTime);
         }
