@@ -10,13 +10,18 @@ namespace Flux
     public class Grid
     {
 
+        //Regular grid
         List<Vector2> field = new List<Vector2>();
-
         Vector2 fieldSize;
         Vector2 externalSize;
         Vector2 scaleFieldToScreen;
-
         int fieldLength;
+
+        //Low res copy
+        Vector2 lowResFieldSize;
+        int lowResScale;
+
+        
         public int display;
 
 
@@ -29,6 +34,13 @@ namespace Flux
             fieldLength = fieldX * fieldY;
 
             scaleFieldToScreen = Vector2.Divide(externalSize, fieldSize);
+
+            //Low res
+            lowResScale = 10;
+            lowResFieldSize = new Vector2(
+                (float)Math.Ceiling(fieldSize.X / lowResScale),
+                (float)Math.Ceiling(fieldSize.Y / lowResScale));
+
 
             for (int i = 0; i < fieldLength; i++)
             {
@@ -129,31 +141,25 @@ namespace Flux
             }
 
 
-            LowResolution(10, spriteBatch);
+            DrawLowResolution(spriteBatch);
         }
 
 
         /* 
          * Get a low resolution version of this grid for displaying
          */
-        public List<Vector2> LowResolution(int scale, SpriteBatch spriteBatch)
+        public void DrawLowResolution(SpriteBatch spriteBatch)
         {
-
-            Vector2 lowFieldSize = new Vector2(
-                (float)Math.Ceiling(fieldSize.X / scale),
-                (float)Math.Ceiling(fieldSize.Y / scale));
-
-            List<Vector2> lowField = new List<Vector2>();
-
+           
             //Loop through low resolution version
-            for (int i = 0; i < lowFieldSize.X; i++) {
-                for (int j = 0; j < lowFieldSize.Y; j++) {
+            for (int i = 0; i < lowResFieldSize.X; i++) {
+                for (int j = 0; j < lowResFieldSize.Y; j++) {
 
                     //Loop through the high resolution version, but only within the current low-res range
-                    Vector2 start = new Vector2(i*scale, j*scale);
+                    Vector2 start = new Vector2(i * lowResScale, j * lowResScale);
                     Vector2 end = new Vector2(
-                        Math.Min(start.X + scale, fieldSize.X), 
-                        Math.Min(start.Y + scale, fieldSize.Y));
+                        Math.Min(start.X + lowResScale, fieldSize.X),
+                        Math.Min(start.Y + lowResScale, fieldSize.Y));
 
                     Vector2 sum = Vector2.Zero;
 
@@ -164,15 +170,11 @@ namespace Flux
                         }
                     }
 
-                    Vector2 pos = new Vector2(scaleFieldToScreen.X * i * scale + sum.X, scaleFieldToScreen.Y * j * scale + sum.Y);
-                    Vector2 displayOffset = new Vector2(scaleFieldToScreen.X * (scale / 2 + 1), scaleFieldToScreen.Y * (scale / 2 + 1));
+                    Vector2 pos = new Vector2(scaleFieldToScreen.X * i * lowResScale + sum.X, scaleFieldToScreen.Y * j * lowResScale + sum.Y);
+                    Vector2 displayOffset = new Vector2(scaleFieldToScreen.X * (lowResScale / 2 + 1), scaleFieldToScreen.Y * (lowResScale / 2 + 1));
                     spriteBatch.Draw(ContentManager.enemy, Vector2.Add(pos, displayOffset), Color.White);
-
-                    lowField.Add(sum);
                 }
             }
-
-            return lowField;
         }
 
 

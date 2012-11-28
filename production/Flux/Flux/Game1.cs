@@ -76,7 +76,7 @@ namespace Flux
 
             /* For Testing */
             OrderedDictionary o = new OrderedDictionary();
-            o.Add("id", 1);
+            o.Add("id", 99);
             o.Add("username", "Matt");
             EventManager.Emit("user:join", o);
             /* End for testing */
@@ -101,7 +101,7 @@ namespace Flux
 
             /* For Testing - Accepts keyboard/mouse */
             OrderedDictionary o = new OrderedDictionary();
-            o.Add("id", 1);
+            o.Add("id", 99);
 
             if (keyState.IsKeyDown(Keys.Up))
             {

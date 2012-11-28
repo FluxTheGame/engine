@@ -32,7 +32,7 @@ namespace Flux
             base.Initialize();
         }
 
-        
+
         public override void Update(GameTime gameTime)
         {
             for (int i = objects.Count - 1; i >= 0; i--)
@@ -40,7 +40,6 @@ namespace Flux
                 objects[i].Update();
                 UpdateEach(i);
             }
-            
 
             base.Update(gameTime);
         }

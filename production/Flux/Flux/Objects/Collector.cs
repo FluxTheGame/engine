@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
@@ -16,8 +17,8 @@ namespace Flux
         protected int capacity = 100;
         protected int resources = 0;
         protected int currentSize = 1; //Temporary while using sprites
+        protected int normalCapacity;
 
-        private int normalCapacity;
 
         public Collector() : base()
         {
@@ -32,12 +33,31 @@ namespace Flux
 
             CollectResources();
 
+            if (resources >= capacity)
+                Burst();
+
+            if (health <= 0)
+                Die();
+
             //Keep collector inside screen - For demo (Temporary)
             if (position.X > 680) position.X = 680;
             if (position.Y > 680) position.Y = 680;
             if (position.X < 20) position.X = 20;
             if (position.Y < 20) position.Y = 20;
             base.Update();
+        }
+
+        public void Burst()
+        {
+            OrderedDictionary o = new OrderedDictionary();
+            o.Add("hello", "world");
+            EventManager.Emit("collector:burst", o);
+            Die();
+        }
+
+        public void Die()
+        {
+            CollectorManager.Remove(this);
         }
 
         public int SuckRadius()

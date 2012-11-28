@@ -59,6 +59,10 @@ namespace Flux
             }
         }
 
+        public static void Remove(Collector collector)
+        {
+            instance.collectors.Remove(collector);
+        }
 
         public override void Update(GameTime gameTime)
         {

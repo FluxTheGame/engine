@@ -14,12 +14,13 @@ namespace Flux
         public Vector2 position;
         public int display;
         public Texture2D icon;
-
+        protected DateTime created;
 
         public GameObject()
         {
             position = new Vector2(350, 350);
             display = 0;
+            created = DateTime.Now;
         }
 
         public virtual void Update()

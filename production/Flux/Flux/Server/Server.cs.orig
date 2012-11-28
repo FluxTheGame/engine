@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Collections.Concurrent;
+using System.Collections.Specialized;
 using System.Net.Sockets;
 using System.Threading;
 using System.Net;
@@ -14,7 +14,6 @@ namespace Flux
 {
     class Server
     {
-        private string[] gameEventNames = new string[] {"collector:burst"};
         private TcpClient tcpClient;
 
         public Server()
@@ -22,17 +21,20 @@ namespace Flux
             tcpClient = new TcpClient();
             try
             {
+<<<<<<< local
+                tcpClient.Connect("127.0.0.1", 8100);
+=======
                 // fetch IP from hostname
                 IPAddress[] ipList = Dns.GetHostAddresses("jahfer.no-ip.org");
                 // connect TCP client to node.js server
                 tcpClient.Connect(ipList[0], 8100);
- 
+>>>>>>> other
+
                 // spin off listener to new thread
                 Thread clientThread = new Thread(new ParameterizedThreadStart(HandleClientComm));
                 clientThread.Start(tcpClient);
 
-                Send("Hello from XNA!");
-                SubscribeToGameEvents();
+                this.send("Hello from XNA!");
             }
             catch
             {
@@ -40,33 +42,8 @@ namespace Flux
             }
         }
 
-        public void SendEventToServer(string eventName, OrderedDictionary o)
-        {
-            /*string toSend = eventName;
 
-            foreach (KeyValuePair<string, string> entry in o)
-            {
-                toSend += "/" + entry.Key + "=" + entry.Value;
-            }
-
-            toSend += "$";
-            Console.WriteLine(toSend);
-             * */
-            //Broken currently... Cast error :(
-        }
-
-        private void SubscribeToGameEvents()
-        {
-            foreach (string eventName in gameEventNames)
-            {
-                EventManager.On(eventName, (o) =>
-                {
-                    SendEventToServer(eventName, o);
-                });
-            }
-        }
-
-        private void Send(String str)
+        public void send(String str)
         {
             NetworkStream clientStream = tcpClient.GetStream();
             byte[] data = Encoding.ASCII.GetBytes(str);
@@ -80,7 +57,7 @@ namespace Flux
             TcpClient tcpClient = (TcpClient)client;
             NetworkStream clientStream = tcpClient.GetStream();
 
-            byte[] message = new byte[4096];
+            byte[] message = new byte[256];
             int bytesRead;
 
             while (true)
@@ -89,7 +66,7 @@ namespace Flux
 
                 try
                 {
-                    bytesRead = clientStream.Read(message, 0, 4096);
+                    bytesRead = clientStream.Read(message, 0, 256);
                 }
                 catch
                 {

@@ -39,12 +39,17 @@ namespace Flux
             {
                 if (Vector2.Distance(w.position, position) < 150) make = false;
             }
-            if (make)
-            {
-                Wormhole wormhole = new Wormhole();
+
+            if (make) {
+                Wormhole wormhole = new Wormhole(inward);
                 wormhole.position = position;
                 instance.wormholes.Add(wormhole);
             }
+        }
+
+        public static void Remove(Wormhole wormhole)
+        {
+            instance.wormholes.Remove(wormhole);
         }
 
         public override void Update(GameTime gameTime)
