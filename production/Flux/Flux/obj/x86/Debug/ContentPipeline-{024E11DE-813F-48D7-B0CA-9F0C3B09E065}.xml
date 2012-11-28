@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\box.xnb</Output>
-      <Time>2012-11-12T15:48:57.1472092-05:00</Time>
+      <Output>F:\Flux Repo\production\Flux\Flux\bin\x86\Debug\Content\box.xnb</Output>
+      <Time>2012-11-23T15:03:06-05:00</Time>
     </Item>
     <Item>
       <Source>mouse.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\mouse.xnb</Output>
-      <Time>2012-11-12T15:48:57.2252107-05:00</Time>
+      <Output>F:\Flux Repo\production\Flux\Flux\bin\x86\Debug\Content\mouse.xnb</Output>
+      <Time>2012-11-23T15:03:06-05:00</Time>
     </Item>
     <Item>
       <Source>enemy.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\enemy.xnb</Output>
-      <Time>2012-11-12T15:48:57.2096104-05:00</Time>
+      <Output>F:\Flux Repo\production\Flux\Flux\bin\x86\Debug\Content\enemy.xnb</Output>
+      <Time>2012-11-23T15:03:06-05:00</Time>
     </Item>
     <Item>
       <Source>wormhole.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\wormhole.xnb</Output>
-      <Time>2012-11-12T15:48:57.3656134-05:00</Time>
+      <Output>F:\Flux Repo\production\Flux\Flux\bin\x86\Debug\Content\wormhole.xnb</Output>
+      <Time>2012-11-23T15:03:08-05:00</Time>
     </Item>
     <Item>
       <Source>resource.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\resource.xnb</Output>
-      <Time>2012-11-12T15:48:57.3500131-05:00</Time>
+      <Output>F:\Flux Repo\production\Flux\Flux\bin\x86\Debug\Content\resource.xnb</Output>
+      <Time>2012-11-23T15:03:08-05:00</Time>
     </Item>
     <Item>
       <Source>collector_sm.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_sm.xnb</Output>
-      <Time>2012-11-12T15:48:57.1940101-05:00</Time>
+      <Output>F:\Flux Repo\production\Flux\Flux\bin\x86\Debug\Content\collector_sm.xnb</Output>
+      <Time>2012-11-23T15:03:06-05:00</Time>
     </Item>
     <Item>
       <Source>collector_m.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_m.xnb</Output>
-      <Time>2012-11-12T15:48:57.1784098-05:00</Time>
+      <Output>F:\Flux Repo\production\Flux\Flux\bin\x86\Debug\Content\collector_m.xnb</Output>
+      <Time>2012-11-23T15:03:06-05:00</Time>
     </Item>
     <Item>
       <Source>collector_lg.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_lg.xnb</Output>
-      <Time>2012-11-12T15:48:57.1628095-05:00</Time>
+      <Output>F:\Flux Repo\production\Flux\Flux\bin\x86\Debug\Content\collector_lg.xnb</Output>
+      <Time>2012-11-23T15:03:06-05:00</Time>
     </Item>
     <Item>
       <Source>font.spritefont</Source>
@@ -79,8 +79,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-11-12T15:48:57.2252107-05:00</Time>
+      <Output>F:\Flux Repo\production\Flux\Flux\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2012-11-23T15:03:06-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -89,10 +89,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\FluxContent\</RootDirectory>
-      <LoggerRootDirectory>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\</LoggerRootDirectory>
-      <IntermediateDirectory>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>F:\Flux Repo\production\Flux\FluxContent\</RootDirectory>
+      <LoggerRootDirectory>F:\Flux Repo\production\Flux\Flux\</LoggerRootDirectory>
+      <IntermediateDirectory>F:\Flux Repo\production\Flux\Flux\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>F:\Flux Repo\production\Flux\Flux\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -120,8 +120,8 @@
         <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-07-16T10:44:45.1071121-04:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-10-30T18:27:43.5856701-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
