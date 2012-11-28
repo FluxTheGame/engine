@@ -10,12 +10,25 @@ namespace SmoothGrid
     class VLine
     {
         public List<Vector3> points = new List<Vector3>();
-        BasicEffect effect;
+        public static BasicEffect Effect;
 
         public float Stroke;
         public int Resolution;
         private GraphicsDevice Graphics;
         Color color;
+
+        /*******
+         * Example:
+         * 
+         * List<Vector3> points = {new Vector3(0, 2, 0), new Vector3(0, 0, 0), new Vector3(0, -2, 0)};
+         * line = new VLine(points, graphics.GraphicsDevice, 0.1f, 5000);
+         * line.curve();
+         * line.stroke();
+         * 
+         * line.draw(camera);
+         * 
+         * */
+
 
         public VLine(List<Vector3> points, GraphicsDevice graphics, float stroke = 1f, int resolution = 1000)
         {
@@ -28,8 +41,6 @@ namespace SmoothGrid
             this.points = points;
 
             // TODO: Offset initial draw by stroke/2 to center line
-            
-            effect = new BasicEffect(graphics);
         }
 
         public void stroke()
@@ -79,10 +90,10 @@ namespace SmoothGrid
 
         public void draw(Camera camera)
         {
-            effect.World = Matrix.Identity;
-            effect.View = camera.view;
-            effect.Projection = camera.projection;
-            effect.VertexColorEnabled = true;
+            VLine.Effect.World = Matrix.Identity;
+            VLine.Effect.View = camera.view;
+            VLine.Effect.Projection = camera.projection;
+            VLine.Effect.VertexColorEnabled = true;
 
             List<VertexPositionColor> vpc = new List<VertexPositionColor>();
 
@@ -96,7 +107,7 @@ namespace SmoothGrid
                 count++;
             }
 
-            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+            foreach (EffectPass pass in VLine.Effect.CurrentTechnique.Passes)
             {
                 pass.Apply();
                 Graphics.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.TriangleStrip, vpc.ToArray(), 0, points.Count-2);
