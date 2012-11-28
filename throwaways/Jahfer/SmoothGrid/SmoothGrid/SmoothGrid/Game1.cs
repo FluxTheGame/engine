@@ -47,15 +47,18 @@ namespace SmoothGrid
         protected override void Initialize()
         {
             camera = new Camera(this, new Vector3(0, 0, 5), Vector3.Zero, Vector3.Up);
-            Components.Add(camera);
+            Components.Add(camera); 
+            //Components.Add(new FrameRateCounter(this));
+
+            VLine.Effect = new BasicEffect(GraphicsDevice);
 
             pt1 = new Vector3(0,  0.66f, 0);
             pt2 = new Vector3(0, -0.66f, 0);
 
-            points.Add(new Vector3(0, 2, 0));
+            points.Add(new Vector3(0, 1.8f, 0));
             points.Add(pt1);
             points.Add(pt2);
-            points.Add(new Vector3(0, -2, 0));
+            points.Add(new Vector3(0, -1.8f, 0));
 
             base.Initialize();
         }
@@ -94,11 +97,10 @@ namespace SmoothGrid
 
             pt1.X += 0.01f;
             pt2.X -= 0.01f;
-
             points[1] = pt1;
             points[2] = pt2;
 
-            line = new VLine(points, graphics.GraphicsDevice, 0.1f, 1000);
+            line = new VLine(points, graphics.GraphicsDevice, 0.1f, 5000);
             line.curve();
             line.stroke();
 
@@ -112,11 +114,9 @@ namespace SmoothGrid
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
             //GraphicsDevice.RasterizerState = RasterizerState.CullNone;
 
             line.draw(camera);
-            Console.WriteLine(gameTime.IsRunningSlowly);
 
             base.Draw(gameTime);
         }
