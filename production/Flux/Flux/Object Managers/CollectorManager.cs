@@ -43,7 +43,7 @@ namespace Flux
 
         public override void UpdateEach(int i)
         {
-            CheckMerged(collectors[i]);
+            //CheckMerged(collectors[i]); //Causing out of range exception
         }
 
 
@@ -55,6 +55,7 @@ namespace Flux
                 {
                     current.MergeWith(collectors[i]);
                     collectors.RemoveAt(i);
+                    objects.RemoveAt(i); //Refactor into remove function
                 }
             }
         }

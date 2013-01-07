@@ -17,8 +17,6 @@ namespace Flux
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        SpriteFont font;
         Vector2 initialMousePos = Vector2.Zero;
 
         CollectorManager collectorManager;
@@ -28,6 +26,8 @@ namespace Flux
         WormholeManager wormholeManager;
 
         Server server;
+
+        Camera camera;
 
 
         public Game1()
@@ -65,14 +65,22 @@ namespace Flux
             wormholeManager = new WormholeManager(this);
             Components.Add(wormholeManager);
 
+
+            camera = new DefaultCamera(this);
+            Components.Add(camera);
+
+            //3D Line - temporary
+            VLine.Effect = new BasicEffect(GraphicsDevice);
+            GridManager.graphics = graphics.GraphicsDevice;
+            GridManager.camera = camera;
+
+
             base.Initialize();
         }
 
       
         protected override void LoadContent()
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = Content.Load<SpriteFont>("font");
 
             /* For Testing */
             OrderedDictionary o = new OrderedDictionary();
@@ -133,6 +141,7 @@ namespace Flux
             }
             /* End for testing */
 
+            
             base.Update(gameTime);
         }
 
@@ -141,9 +150,9 @@ namespace Flux
         {
             GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin();
-            GridManager.Draw(spriteBatch, font);
-            spriteBatch.End();
+           
+            //Draw Grid
+            GridManager.Draw();
 
 
             base.Draw(gameTime);

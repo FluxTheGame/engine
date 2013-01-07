@@ -21,6 +21,9 @@ namespace Flux
         Vector2 lowResFieldSize;
         int lowResScale;
 
+        //VLine - temporary
+        VLine line;
+
         
         public int display;
 
@@ -128,29 +131,54 @@ namespace Flux
         }
 
 
-        public void Draw(SpriteBatch spriteBatch, SpriteFont font)
+        public void Draw()
         {
 
+            List<Vector2> lowRes = CalculateLowResolution();
+            List<Vector3> points = new List<Vector3>();
+            List<VLine> lines = new List<VLine>();
+
+            //Columns
+            for (int i = 0; i < lowResFieldSize.X; i++) {
+                for (int j = 0; j < lowResFieldSize.Y; j++) {
+
+                    int index = ConvertLowResCoordinatesToIndex(i, j);
+
+                    points.Add(new Vector3((lowRes[index].X-350)*0.01f, (lowRes[index].Y-350)*0.01f, 0));
+
+                    
+                    
+                }
+            }
+
+            line = new VLine(points, GridManager.graphics, 0.1f, 5000);
+            line.Curve();
+            line.Stroke();
+            line.Draw(GridManager.camera);
+             
+
+
+            //Old - Draw full resolution grid for debugging.
+            /*
             for (int i=0; i<fieldSize.X; i++) {
                 for (int j=0; j<fieldSize.Y; j++) {
 
                     int index = ConvertCoordinatesToIndex(i, j); //Position in array
                     Vector2 pos = new Vector2(scaleFieldToScreen.X * i + field[index].X, scaleFieldToScreen.Y * j + field[index].Y);
-                    spriteBatch.DrawString(font, Math.Round(field[index].X).ToString(), pos, Color.CornflowerBlue);
+                    //Optionally draw high resolution
                 }
             }
-
-
-            DrawLowResolution(spriteBatch);
+            */
         }
 
 
         /* 
          * Get a low resolution version of this grid for displaying
          */
-        public void DrawLowResolution(SpriteBatch spriteBatch)
+        public List<Vector2> CalculateLowResolution()
         {
-           
+            List<Vector2> positions = new List<Vector2>();
+
             //Loop through low resolution version
             for (int i = 0; i < lowResFieldSize.X; i++) {
                 for (int j = 0; j < lowResFieldSize.Y; j++) {
@@ -172,9 +200,11 @@ namespace Flux
 
                     Vector2 pos = new Vector2(scaleFieldToScreen.X * i * lowResScale + sum.X, scaleFieldToScreen.Y * j * lowResScale + sum.Y);
                     Vector2 displayOffset = new Vector2(scaleFieldToScreen.X * (lowResScale / 2 + 1), scaleFieldToScreen.Y * (lowResScale / 2 + 1));
-                    spriteBatch.Draw(ContentManager.enemy, Vector2.Add(pos, displayOffset), Color.White);
+                    positions.Add(Vector2.Add(pos, displayOffset));
                 }
             }
+
+            return positions;
         }
 
 
@@ -213,6 +243,11 @@ namespace Flux
         private int ConvertCoordinatesToIndex(int i, int j)
         {
             return j * (int)fieldSize.X + i;
+        }
+
+        private int ConvertLowResCoordinatesToIndex(int i, int j)
+        {
+            return j * (int)lowResFieldSize.X + i;
         }
 
         /*

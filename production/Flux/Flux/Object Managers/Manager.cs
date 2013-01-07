@@ -16,7 +16,6 @@ namespace Flux
     public abstract class Manager : DrawableGameComponent
     {
 
-        protected SpriteBatch spriteBatch;
         protected List<GameObject> objects;
 
 
@@ -28,7 +27,6 @@ namespace Flux
 
         public override void Initialize()
         {
-            spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
             base.Initialize();
         }
 
@@ -47,14 +45,12 @@ namespace Flux
 
         public override void Draw(GameTime gameTime)
         {
-            spriteBatch.Begin();
 
             foreach (GameObject obj in objects)
             {
-                obj.Draw(spriteBatch);
+                //Draw Object
             }
 
-            spriteBatch.End();
             base.Draw(gameTime);
         }
 

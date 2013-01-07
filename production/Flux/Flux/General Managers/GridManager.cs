@@ -12,6 +12,8 @@ namespace Flux
     class GridManager
     {
         public static Grid[] grid = new Grid[1]; //Array of grids
+        public static GraphicsDevice graphics;
+        public static Camera camera;
 
         public static void Initialize(int windowX, int windowY, int scale)
         {
@@ -29,11 +31,12 @@ namespace Flux
             }
         }
 
-        public static void Draw(SpriteBatch spriteBatch, SpriteFont font)
+        public static void Draw()
         {
             for (int i = 0; i < grid.Length; i++)
             {
-                grid[i].Draw(spriteBatch, font);
+                //Draw Each Grid
+                grid[i].Draw();
             }
         }
 

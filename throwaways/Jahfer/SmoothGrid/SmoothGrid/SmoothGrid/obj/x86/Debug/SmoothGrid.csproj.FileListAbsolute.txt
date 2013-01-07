@@ -1,0 +1,7 @@
+Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\SmoothGrid\SmoothGrid\SmoothGrid\bin\x86\Debug\Content\font.xnb
+Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\SmoothGrid\SmoothGrid\SmoothGrid\bin\x86\Debug\SmoothGrid.exe
+Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\SmoothGrid\SmoothGrid\SmoothGrid\bin\x86\Debug\SmoothGrid.pdb
+Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\SmoothGrid\SmoothGrid\SmoothGrid\obj\x86\Debug\ResolveAssemblyReference.cache
+Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\SmoothGrid\SmoothGrid\SmoothGrid\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\SmoothGrid\SmoothGrid\SmoothGrid\obj\x86\Debug\SmoothGrid.exe
+Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\SmoothGrid\SmoothGrid\SmoothGrid\obj\x86\Debug\SmoothGrid.pdb

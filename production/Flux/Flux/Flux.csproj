@@ -108,7 +108,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="General Managers\ContentManager.cs" />
+    <Compile Include="Graphics\Camera.cs" />
+    <Compile Include="Graphics\DefaultCamera.cs" />
     <Compile Include="Helpers\Randomizer.cs" />
+    <Compile Include="Graphics\VLine.cs" />
     <Compile Include="Object Managers\CollectorManager.cs" />
     <Compile Include="Object Managers\EnemyManager.cs" />
     <Compile Include="General Managers\EventManager.cs" />
