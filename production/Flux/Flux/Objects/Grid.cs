@@ -138,44 +138,53 @@ namespace Flux
             List<Vector3> points = new List<Vector3>();
             List<VLine> lines = new List<VLine>();
 
-            //Columns
+            //Low res Columns
             for (int i = 0; i < lowResFieldSize.X; i++) {
                 for (int j = 0; j < lowResFieldSize.Y; j++) {
 
                     int index = ConvertLowResCoordinatesToIndex(i, j);
+                    points.Add(new Vector3((lowRes[index].X - 350) * 0.01f, (lowRes[index].Y - 350) * -0.01f, 0));
 
-                    points.Add(new Vector3((lowRes[index].X-350)*0.01f, (lowRes[index].Y-350)*0.01f, 0));
-
-                    
-                    
+                    if (points.Count == (int)lowResFieldSize.Y)
+                    {
+                        line = new VLine(points, 0.05f, 5000);
+                        lines.Add(line);
+                        points = new List<Vector3>();
+                    }
                 }
             }
 
-            line = new VLine(points, GridManager.graphics, 0.1f, 5000);
-            line.Curve();
-            line.Stroke();
-            line.Draw(GridManager.camera);
-             
+            //Low res Rows
+            for (int j = 0; j < lowResFieldSize.Y; j++) {
+                for (int i = 0; i < lowResFieldSize.X; i++) {
 
+                    int index = ConvertLowResCoordinatesToIndex(i, j);
+                    points.Add(new Vector3((lowRes[index].X - 350) * 0.01f, (lowRes[index].Y - 350) * -0.01f, 0));
 
-            //Old - Draw full resolution grid for debugging.
-            /*
-            for (int i=0; i<fieldSize.X; i++) {
-                for (int j=0; j<fieldSize.Y; j++) {
-
-                    int index = ConvertCoordinatesToIndex(i, j); //Position in array
-                    Vector2 pos = new Vector2(scaleFieldToScreen.X * i + field[index].X, scaleFieldToScreen.Y * j + field[index].Y);
-                    //Optionally draw high resolution
+                    if (points.Count == (int)lowResFieldSize.X)
+                    {
+                        line = new VLine(points, 0.05f, 5000);
+                        lines.Add(line);
+                        points = new List<Vector3>();
+                    }
                 }
             }
-            */
+            
+
+            //Draw all lines
+            foreach (VLine line in lines) {
+                line.Curve();
+                line.Stroke();
+                line.Draw(display);
+            }
         }
 
+  
 
         /* 
          * Get a low resolution version of this grid for displaying
          */
-        public List<Vector2> CalculateLowResolution()
+        private List<Vector2> CalculateLowResolution()
         {
             List<Vector2> positions = new List<Vector2>();
 

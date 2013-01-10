@@ -14,7 +14,7 @@ namespace Flux
 
         public Enemy() : base()
         {
-            icon = ContentManager.enemy;
+            //icon = ContentManager.enemy;
         }
 
         public override void Update()

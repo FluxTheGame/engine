@@ -13,7 +13,7 @@ namespace Flux
 
         public Vector2 position;
         public int display;
-        public Texture2D icon;
+        public Model model;
         protected DateTime created;
 
         public GameObject()
@@ -27,12 +27,9 @@ namespace Flux
         {
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw()
         {
-            if (icon != null)
-            {
-                spriteBatch.Draw(icon, position, Color.White);
-            }
+            
         }
 
     }

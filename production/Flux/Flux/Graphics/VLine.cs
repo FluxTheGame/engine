@@ -15,7 +15,6 @@ namespace Flux
 
         public float stroke;
         public int resolution;
-        private GraphicsDevice graphics;
         Color color;
 
 
@@ -23,21 +22,20 @@ namespace Flux
          * Example:
          * 
          * List<Vector3> points = {new Vector3(0, 2, 0), new Vector3(0, 0, 0), new Vector3(0, -2, 0)};
-         * line = new VLine(points, graphics.GraphicsDevice, 0.1f, 5000);
+         * line = new VLine(points, 0.1f, 5000);
          * line.curve();
          * line.stroke();
          * 
-         * line.draw(camera);
+         * line.draw([int] display);
          * 
          * */
 
 
-        public VLine(List<Vector3> points, GraphicsDevice inGraphics, float inStroke = 1f, int inResolution = 1000)
+        public VLine(List<Vector3> points, float stroke = 1f, int resolution = 1000)
         {
-            stroke = inStroke;
-            resolution = inResolution;
-            graphics = inGraphics;
-            color = Color.Red;
+            this.stroke = stroke;
+            this.resolution = resolution;
+            color = Color.LightSteelBlue;
 
             this.points.Clear();
             this.points = points;
@@ -91,8 +89,11 @@ namespace Flux
             points = curvePts;
         }
 
-        public void Draw(Camera camera)
+        public void Draw(int display)
         {
+            Camera camera = ScreenManager.Camera(display);
+            GraphicsDevice graphics = ScreenManager.Graphics(display);
+
             VLine.Effect.World = Matrix.Identity;
             VLine.Effect.View = camera.view;
             VLine.Effect.Projection = camera.projection;
@@ -104,9 +105,6 @@ namespace Flux
 
             foreach (Vector3 point in points)
             {
-                //if (count % 3 == 0) color = Color.Red;
-                color = Color.Purple;
-
                 vpc.Add(new VertexPositionColor(point, color));
                 count++;
             }

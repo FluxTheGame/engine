@@ -17,7 +17,7 @@ namespace Flux
     {
         public Resource() : base()
         {
-            icon = ContentManager.resource;
+            //icon = ContentManager.resource;
 
             int x = Randomizer.RandomInt(0, 700);
             int y = Randomizer.RandomInt(0, 700);

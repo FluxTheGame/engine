@@ -11,9 +11,7 @@ namespace Flux
 {
     class GridManager
     {
-        public static Grid[] grid = new Grid[1]; //Array of grids
-        public static GraphicsDevice graphics;
-        public static Camera camera;
+        private static Grid[] grid = new Grid[1]; //Array of grids
 
         public static void Initialize(int windowX, int windowY, int scale)
         {
@@ -35,24 +33,23 @@ namespace Flux
         {
             for (int i = 0; i < grid.Length; i++)
             {
-                //Draw Each Grid
                 grid[i].Draw();
             }
         }
 
-        public static void Bloat(int index, Vector2 position, float addForceRadius, float strength)
+        public static void Bloat(int display, Vector2 position, float addForceRadius, float strength)
         {
-            grid[index].AddForceCircle(position, addForceRadius, strength, false);
+            grid[display].AddForceCircle(position, addForceRadius, strength, false);
         }
 
-        public static void Pinch(int index, Vector2 position, float addForceRadius, float strength)
+        public static void Pinch(int display, Vector2 position, float addForceRadius, float strength)
         {
-            grid[index].AddForceCircle(position, addForceRadius, strength, true);
+            grid[display].AddForceCircle(position, addForceRadius, strength, true);
         }
 
-        public static Vector2 GetForce(int index, Vector2 position, float getForceRadius)
+        public static Vector2 GetForce(int display, Vector2 position, float getForceRadius)
         {
-            return grid[index].GetForceAtPosition(position, getForceRadius);
+            return grid[display].GetForceAtPosition(position, getForceRadius);
         }
 
 

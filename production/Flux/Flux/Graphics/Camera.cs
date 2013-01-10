@@ -16,6 +16,7 @@ namespace Flux
     {
 
         public Matrix view, projection;
+        public int display;
 
         public Camera(Game game, Vector3 pos, Vector3 target, Vector3 up) : base(game)
         {

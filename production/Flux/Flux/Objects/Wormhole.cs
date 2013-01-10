@@ -16,7 +16,7 @@ namespace Flux
 
         public Wormhole(bool suck) : base()
         {
-            icon = ContentManager.wormhole;
+            //icon = ContentManager.wormhole;
             position = new Vector2(500, 300);
             expiry = created.AddSeconds(Randomizer.RandomInt(20, 30));
             inward = suck;

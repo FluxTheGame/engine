@@ -16,13 +16,12 @@ namespace Flux
         protected int health = 100;
         protected int capacity = 100;
         protected int resources = 0;
-        protected int currentSize = 1; //Temporary while using sprites
         protected int normalCapacity;
 
 
         public Collector() : base()
         {
-            icon = ContentManager.collectorSm;
+            //icon = ContentManager.collectorSm;
             position = new Vector2(100, 100);
             normalCapacity = capacity;
         }
@@ -72,10 +71,6 @@ namespace Flux
         {
             capacity += other.capacity;
             resources += other.resources;
-
-            currentSize += other.currentSize; //Temporary while using sprites
-            if (currentSize > 1) icon = ContentManager.collectorM;
-            if (currentSize > 2) icon = ContentManager.collectorLg;
 
             health = 100;
         }

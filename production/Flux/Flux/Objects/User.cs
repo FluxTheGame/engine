@@ -20,7 +20,7 @@ namespace Flux
             delta = Vector2.Zero;
             username = user;
             id = idNumber;
-            icon = ContentManager.user;
+            model = ContentManager.user;
         }
 
         public void SetDelta(int x, int y)

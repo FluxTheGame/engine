@@ -27,8 +27,6 @@ namespace Flux
 
         Server server;
 
-        Camera camera;
-
 
         public Game1()
         {
@@ -41,6 +39,7 @@ namespace Flux
        
         protected override void Initialize()
         {
+            ScreenManager.Initialize(this, graphics.GraphicsDevice);
             ContentManager.Initialize(this);
             EventManager.Initialize();
             GridManager.Initialize(
@@ -66,13 +65,8 @@ namespace Flux
             Components.Add(wormholeManager);
 
 
-            camera = new DefaultCamera(this);
-            Components.Add(camera);
-
-            //3D Line - temporary
+            //3D Line - temporary - consider refactoring somewhere else
             VLine.Effect = new BasicEffect(GraphicsDevice);
-            GridManager.graphics = graphics.GraphicsDevice;
-            GridManager.camera = camera;
 
 
             base.Initialize();

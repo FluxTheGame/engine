@@ -14,23 +14,23 @@ namespace Flux
     class ContentManager
     {
 
-        public static Texture2D collectorSm;
-        public static Texture2D collectorM;
-        public static Texture2D collectorLg;
-        public static Texture2D user;
-        public static Texture2D enemy;
-        public static Texture2D resource;
-        public static Texture2D wormhole;
+        public static Model collectorSm;
+        public static Model collectorM;
+        public static Model collectorLg;
+        public static Model user;
+        public static Model enemy;
+        public static Model resource;
+        public static Model wormhole;
 
         public static void Initialize(Game game)
         {
-            collectorSm = game.Content.Load<Texture2D>("collector_sm");
-            collectorM = game.Content.Load<Texture2D>("collector_m");
-            collectorLg = game.Content.Load<Texture2D>("collector_lg");
-            user = game.Content.Load<Texture2D>("mouse");
-            enemy = game.Content.Load<Texture2D>("enemy");
-            resource = game.Content.Load<Texture2D>("resource");
-            wormhole = game.Content.Load<Texture2D>("wormhole");
+            //collectorSm = game.Content.Load<Model>("collector_sm");
+            //collectorM = game.Content.Load<Model>("collector_m");
+            //collectorLg = game.Content.Load<Model>("collector_lg");
+            user = game.Content.Load<Model>(@"models/chicken");
+            //enemy = game.Content.Load<Model>("enemy");
+            //resource = game.Content.Load<Model>("resource");
+            //wormhole = game.Content.Load<Model>("wormhole");
         }
     }
 }
