@@ -31,8 +31,8 @@ namespace Flux
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 700;
-            graphics.PreferredBackBufferHeight = 700;
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 800;
             Content.RootDirectory = "Content";
         }
 
@@ -63,7 +63,6 @@ namespace Flux
 
             wormholeManager = new WormholeManager(this);
             Components.Add(wormholeManager);
-
 
             //3D Line - temporary - consider refactoring somewhere else
             VLine.Effect = new BasicEffect(GraphicsDevice);
@@ -144,10 +143,8 @@ namespace Flux
         {
             GraphicsDevice.Clear(Color.Black);
 
-           
             //Draw Grid
             GridManager.Draw();
-
 
             base.Draw(gameTime);
         }

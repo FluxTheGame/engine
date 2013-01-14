@@ -68,11 +68,7 @@ namespace Flocking_002
 
         public void render(Camera camera)
         {
-            //pos /= 10;
-            Matrix gameWorldRotation =
-                //Matrix.CreateRotationY(MathHelper.ToRadians(90.0f));
-                Matrix.CreateRotationY(MathHelper.ToRadians((float)Math.Atan2(-vel.Z, vel.X))) *
-                Matrix.CreateRotationZ(MathHelper.ToRadians((float)Math.Asin(vel.Y / vel.Length())));
+            
 
             Matrix[] transforms = new Matrix[model.Bones.Count];
             model.CopyAbsoluteBoneTransformsTo(transforms);

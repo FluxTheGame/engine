@@ -48,7 +48,7 @@ namespace Flux
 
             foreach (GameObject obj in objects)
             {
-                //Draw Object
+                obj.Draw();
             }
 
             base.Draw(gameTime);

@@ -133,7 +133,63 @@ namespace Flux
 
         public void Draw()
         {
+            DrawLowRes();
+        }
 
+        public void DrawHighRes()
+        {
+            List<Vector3> points = new List<Vector3>();
+            List<VLine> lines = new List<VLine>();
+
+            //High res Columns
+            for (int i = 0; i < fieldSize.X; i++) {
+                for (int j = 0; j < fieldSize.Y; j++) {
+
+                    int index = ConvertCoordinatesToIndex(i, j);
+                    Vector2 position = ConvertFieldToScreenPos(i, j);
+                    position = Vector2.Add(position, field[index]);
+                    points.Add(Location(position));
+
+                    if (points.Count == (int)fieldSize.Y) {
+                        line = new VLine(points, 0.01f, 1000);
+                        lines.Add(line);
+                        points = new List<Vector3>();
+                    }
+                }
+            }
+
+            //High res Rows
+            for (int j = 0; j < fieldSize.Y; j++) {
+                for (int i = 0; i < fieldSize.X; i++) {
+
+                    int index = ConvertCoordinatesToIndex(i, j);
+                    Vector2 position = ConvertFieldToScreenPos(i, j);
+                    position = Vector2.Add(position, field[index]);
+                    points.Add(Location(position));
+
+                    if (points.Count == (int)fieldSize.X)
+                    {
+                        line = new VLine(points, 0.01f, 1000);
+                        lines.Add(line);
+                        points = new List<Vector3>();
+                    }
+                }
+            }
+
+            //Draw all lines
+            foreach (VLine line in lines) {
+                line.Curve();
+                line.Stroke();
+                line.Draw(display);
+            }
+        }
+
+
+        /*
+         * Draw the grid in low resolution using VLine
+         */
+        public void DrawLowRes()
+        {
             List<Vector2> lowRes = CalculateLowResolution();
             List<Vector3> points = new List<Vector3>();
             List<VLine> lines = new List<VLine>();
@@ -143,10 +199,9 @@ namespace Flux
                 for (int j = 0; j < lowResFieldSize.Y; j++) {
 
                     int index = ConvertLowResCoordinatesToIndex(i, j);
-                    points.Add(new Vector3((lowRes[index].X - 350) * 0.01f, (lowRes[index].Y - 350) * -0.01f, 0));
+                    points.Add(Location(lowRes[index]));
 
-                    if (points.Count == (int)lowResFieldSize.Y)
-                    {
+                    if (points.Count == (int)lowResFieldSize.Y) {
                         line = new VLine(points, 0.05f, 5000);
                         lines.Add(line);
                         points = new List<Vector3>();
@@ -159,10 +214,9 @@ namespace Flux
                 for (int i = 0; i < lowResFieldSize.X; i++) {
 
                     int index = ConvertLowResCoordinatesToIndex(i, j);
-                    points.Add(new Vector3((lowRes[index].X - 350) * 0.01f, (lowRes[index].Y - 350) * -0.01f, 0));
+                    points.Add(Location(lowRes[index]));
 
-                    if (points.Count == (int)lowResFieldSize.X)
-                    {
+                    if (points.Count == (int)lowResFieldSize.X) {
                         line = new VLine(points, 0.05f, 5000);
                         lines.Add(line);
                         points = new List<Vector3>();
@@ -170,7 +224,6 @@ namespace Flux
                 }
             }
             
-
             //Draw all lines
             foreach (VLine line in lines) {
                 line.Curve();
@@ -179,7 +232,7 @@ namespace Flux
             }
         }
 
-  
+
 
         /* 
          * Get a low resolution version of this grid for displaying
@@ -207,13 +260,17 @@ namespace Flux
                         }
                     }
 
-                    Vector2 pos = new Vector2(scaleFieldToScreen.X * i * lowResScale + sum.X, scaleFieldToScreen.Y * j * lowResScale + sum.Y);
-                    Vector2 displayOffset = new Vector2(scaleFieldToScreen.X * (lowResScale / 2 + 1), scaleFieldToScreen.Y * (lowResScale / 2 + 1));
-                    positions.Add(Vector2.Add(pos, displayOffset));
+                    Vector2 pos = ConvertLowResFieldToScreenPos(i, j);
+                    positions.Add(Vector2.Add(pos, sum));
                 }
             }
 
             return positions;
+        }
+
+
+        private Vector3 Location(Vector2 position) {
+            return ScreenManager.Location(position);
         }
 
 
@@ -256,7 +313,7 @@ namespace Flux
 
         private int ConvertLowResCoordinatesToIndex(int i, int j)
         {
-            return j * (int)lowResFieldSize.X + i;
+            return i * (int)lowResFieldSize.Y + j;
         }
 
         /*
@@ -271,8 +328,17 @@ namespace Flux
             fieldPos.Y = Math.Max(0, Math.Min(fieldPos.Y, fieldSize.Y - 1));
 
             return fieldPos;
-        } 
+        }
 
+
+        private Vector2 ConvertLowResFieldToScreenPos(int i, int j)
+        {
+            Vector2 pos = ConvertFieldToScreenPos(i, j);
+            pos = Vector2.Multiply(pos, lowResScale);
+            Vector2 displayOffset = new Vector2(scaleFieldToScreen.X * (lowResScale / 2 + 1), scaleFieldToScreen.Y * (lowResScale / 2 + 1));
+            pos = Vector2.Add(pos, displayOffset);
+            return pos;
+        }
 
         private Vector2 ConvertFieldToScreenPos(int i, int j)
         {
