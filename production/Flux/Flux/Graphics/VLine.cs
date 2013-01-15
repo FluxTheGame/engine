@@ -50,7 +50,7 @@ namespace Flux
             for (int i = 0; i < points.Count; i++)
             {
                 stroked.Add(points[i]);
-
+                
                 int nextIndex = (i + 1) % points.Count;
 
                 Vector3 perp = Vector3.Cross(points[nextIndex] - points[i], new Vector3(0, 0, 1));
@@ -69,6 +69,9 @@ namespace Flux
 
             for (int i = 0; i < points.Count; i++)
             {
+                if (i + 1 >= points.Count)
+                    continue;
+
                 Vector3 p1 = points[i - 1 < 0 ? points.Count - 1 : i - 1];
                 Vector3 p2 = points[i];
                 Vector3 p3 = points[(i + 1) % points.Count];
