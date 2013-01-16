@@ -92,6 +92,8 @@ namespace Flux
        
         protected override void Update(GameTime gameTime)
         {
+
+            if (gameTime.IsRunningSlowly) Console.WriteLine("SLOWLY");
             
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();

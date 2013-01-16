@@ -17,10 +17,11 @@ namespace Flux
     {
         public Resource() : base()
         {
-            //icon = ContentManager.resource;
+            model = ContentManager.resource;
+            scale = 0.005f;
 
-            int x = Randomizer.RandomInt(0, 700);
-            int y = Randomizer.RandomInt(0, 700);
+            int x = Randomizer.RandomInt(0, (int)ScreenManager.window.X);
+            int y = Randomizer.RandomInt(0, (int)ScreenManager.window.Y);
             position = new Vector2(x, y);
         }
 

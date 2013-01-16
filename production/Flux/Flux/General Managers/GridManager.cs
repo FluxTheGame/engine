@@ -11,14 +11,17 @@ namespace Flux
 {
     class GridManager
     {
-        private static Grid[] grid = new Grid[1]; //Array of grids
+        private static Grid[] grid = new Grid[4]; //Array of grids
 
         public static void Initialize(int windowX, int windowY, int scale)
         {
             int fieldX = windowX / scale;
             int fieldY = windowY / scale;
-            grid[0] = new Grid(windowX, windowY, fieldX, fieldY);
-            grid[0].display = 0;
+
+            for (int i = 0; i < grid.Length; i++) {
+                grid[i] = new Grid(windowX, windowY, fieldX, fieldY);
+                grid[i].display = i;
+            }
         }
 
         public static void Update()
@@ -31,8 +34,7 @@ namespace Flux
 
         public static void Draw()
         {
-            for (int i = 0; i < grid.Length; i++)
-            {
+            for (int i = 0; i < grid.Length; i++) {
                 grid[i].Draw();
             }
         }

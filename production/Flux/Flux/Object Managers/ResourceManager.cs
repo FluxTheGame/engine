@@ -30,7 +30,7 @@ namespace Flux
         {
             resources = new List<Resource>();
 
-            for (int i = 0; i < 5000; i++) 
+            for (int i = 0; i < 100; i++) 
                 resources.Add(new Resource());
 
             base.Initialize();

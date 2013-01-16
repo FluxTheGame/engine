@@ -14,9 +14,7 @@ namespace Flux
     class ContentManager
     {
 
-        public static Model collectorSm;
-        public static Model collectorM;
-        public static Model collectorLg;
+        public static Model collector;
         public static Model user;
         public static Model enemy;
         public static Model resource;
@@ -24,13 +22,11 @@ namespace Flux
 
         public static void Initialize(Game game)
         {
-            //collectorSm = game.Content.Load<Model>("collector_sm");
-            //collectorM = game.Content.Load<Model>("collector_m");
-            //collectorLg = game.Content.Load<Model>("collector_lg");
+            collector = game.Content.Load<Model>(@"models/chicken");
             user = game.Content.Load<Model>(@"models/chicken");
-            //enemy = game.Content.Load<Model>("enemy");
-            //resource = game.Content.Load<Model>("resource");
-            //wormhole = game.Content.Load<Model>("wormhole");
+            enemy = game.Content.Load<Model>(@"models/chicken");
+            resource = game.Content.Load<Model>(@"models/chicken");
+            wormhole = game.Content.Load<Model>(@"models/chicken");
         }
     }
 }

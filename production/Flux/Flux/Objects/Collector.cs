@@ -21,7 +21,7 @@ namespace Flux
 
         public Collector() : base()
         {
-            //icon = ContentManager.collectorSm;
+            model = ContentManager.collector;
             position = new Vector2(100, 100);
             normalCapacity = capacity;
         }
@@ -37,12 +37,7 @@ namespace Flux
 
             if (health <= 0)
                 Die();
-
-            //Keep collector inside screen - For demo (Temporary)
-            if (position.X > 680) position.X = 680;
-            if (position.Y > 680) position.Y = 680;
-            if (position.X < 20) position.X = 20;
-            if (position.Y < 20) position.Y = 20;
+            
             base.Update();
         }
 
@@ -56,13 +51,14 @@ namespace Flux
 
         public void Die()
         {
+            Console.WriteLine("Collector Die...");
             CollectorManager.Remove(this);
         }
 
         public int SuckRadius()
         {
             float percent = ((float)resources / (float)capacity);
-            int radius = (int)(percent*10 + 20);
+            int radius = (int)(percent*10 + 50);
             if (radius > 100) radius = 100;
             return radius;
         }
@@ -78,6 +74,7 @@ namespace Flux
         public void Collect(Resource resource)
         {
             resources++;
+            scale = (float)resources / (float)capacity * 0.5f;
         }
 
         private void CollectResources()

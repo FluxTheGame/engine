@@ -10,21 +10,26 @@ namespace Flux
     public class Grid
     {
 
+        //Wormhole creation threshold
+        float wormholeThreshold = 5.0f;
+
         //Regular grid
         List<Vector2> field = new List<Vector2>();
         Vector2 fieldSize;
         Vector2 externalSize;
         Vector2 scaleFieldToScreen;
         int fieldLength;
+        int resolution = 500;
+        float thickness = 0.01f;
 
         //Low res copy
         Vector2 lowResFieldSize;
         int lowResScale;
+        int lowResResolution = 1000;
+        float lowResThickness = 0.05f;
 
-        //VLine - temporary
-        VLine line;
+        float drawDampening = 0.4f;
 
-        
         public int display;
 
 
@@ -133,6 +138,7 @@ namespace Flux
 
         public void Draw()
         {
+            //DrawHighRes();
             DrawLowRes();
         }
 
@@ -151,8 +157,7 @@ namespace Flux
                     points.Add(Location(position));
 
                     if (points.Count == (int)fieldSize.Y) {
-                        line = new VLine(points, 0.01f, 1000);
-                        lines.Add(line);
+                        lines.Add(new VLine(points, thickness, resolution));
                         points = new List<Vector3>();
                     }
                 }
@@ -169,8 +174,7 @@ namespace Flux
 
                     if (points.Count == (int)fieldSize.X)
                     {
-                        line = new VLine(points, 0.01f, 1000);
-                        lines.Add(line);
+                        lines.Add(new VLine(points, thickness, resolution));
                         points = new List<Vector3>();
                     }
                 }
@@ -202,8 +206,7 @@ namespace Flux
                     points.Add(Location(lowRes[index]));
 
                     if (points.Count == (int)lowResFieldSize.Y) {
-                        line = new VLine(points, 0.05f, 5000);
-                        lines.Add(line);
+                        lines.Add(new VLine(points, lowResThickness, lowResResolution));
                         points = new List<Vector3>();
                     }
                 }
@@ -217,8 +220,7 @@ namespace Flux
                     points.Add(Location(lowRes[index]));
 
                     if (points.Count == (int)lowResFieldSize.X) {
-                        line = new VLine(points, 0.05f, 5000);
-                        lines.Add(line);
+                        lines.Add(new VLine(points, lowResThickness, lowResResolution));
                         points = new List<Vector3>();
                     }
                 }
@@ -261,6 +263,7 @@ namespace Flux
                     }
 
                     Vector2 pos = ConvertLowResFieldToScreenPos(i, j);
+                    sum = Vector2.Multiply(sum, drawDampening);
                     positions.Add(Vector2.Add(pos, sum));
                 }
             }
@@ -270,7 +273,7 @@ namespace Flux
 
 
         private Vector3 Location(Vector2 position) {
-            return ScreenManager.Location(position);
+            return ScreenManager.Location(position, display);
         }
 
 
@@ -287,7 +290,7 @@ namespace Flux
                 Vector2 forceLeft = field[index - 1];
                 Vector2 forceRight = field[index + 1];
 
-                if (forceLeft.Length() > 4 && forceRight.Length() > 4)
+                if (forceLeft.Length() > wormholeThreshold && forceRight.Length() > wormholeThreshold)
                 {
                     Vector2 position = ConvertFieldToScreenPos(i, j);
 

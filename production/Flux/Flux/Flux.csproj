@@ -120,7 +120,8 @@
     <Compile Include="General Managers\EventManager.cs" />
     <Compile Include="Object Managers\Manager.cs" />
     <Compile Include="Object Managers\WormholeManager.cs" />
-    <Compile Include="Objects\Enemy.cs" />
+    <Compile Include="Objects\Enemies\Enemy.cs" />
+    <Compile Include="Objects\Enemies\EnemyBulger.cs" />
     <Compile Include="Objects\GridObject.cs" />
     <Compile Include="Objects\GameObject.cs" />
     <Compile Include="Objects\Collector.cs">

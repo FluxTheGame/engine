@@ -35,8 +35,8 @@ namespace Flux
         {
             for (int i = objects.Count - 1; i >= 0; i--)
             {
-                objects[i].Update();
                 UpdateEach(i);
+                objects[i].Update();
             }
 
             base.Update(gameTime);

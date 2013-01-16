@@ -11,6 +11,7 @@ namespace Flux
     public class GameObject
     {
 
+        public float scale;
         public Vector2 position;
         public int display;
         public Model model;
@@ -18,6 +19,7 @@ namespace Flux
 
         public GameObject()
         {
+            scale = 0.1f;
             position = ScreenManager.Middle();
             display = 0;
             created = DateTime.Now;
@@ -25,11 +27,15 @@ namespace Flux
 
         public virtual void Update()
         {
+            if (position.X > ScreenManager.window.X) position.X = ScreenManager.window.X;
+            if (position.Y > ScreenManager.window.Y) position.Y = ScreenManager.window.Y;
+            if (position.X < 0) position.X = 0;
+            if (position.Y < 0) position.Y = 0;
         }
 
         public virtual Vector3 Location()
         {
-            return ScreenManager.Location(position);
+            return ScreenManager.Location(position, display);
         }
 
         public virtual void Draw()
@@ -45,7 +51,7 @@ namespace Flux
                         effect.EnableDefaultLighting();
                         effect.Projection = camera.projection;
                         effect.View = camera.view;
-                        effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateScale(0.1f) * Matrix.CreateTranslation(Location());
+                        effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateScale(scale) * Matrix.CreateTranslation(Location());
                     }
                     mesh.Draw();
                 }

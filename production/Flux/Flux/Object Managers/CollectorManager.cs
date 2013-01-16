@@ -30,11 +30,11 @@ namespace Flux
         {
             collectors = new List<Collector>();
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Collector c = new Collector();
                 c.position = new Vector2((i + 1) * 150, (i + 1) * 150);
-                collectors.Add(c);
+                //collectors.Add(c);
             }
 
             base.Initialize();
@@ -43,7 +43,7 @@ namespace Flux
 
         public override void UpdateEach(int i)
         {
-            //CheckMerged(collectors[i]); //Causing out of range exception
+            CheckMerged(collectors[i]);
         }
 
 
@@ -54,8 +54,7 @@ namespace Flux
                 if (Vector2.Distance(current.position, collectors[i].position) < 10 && current != collectors[i])
                 {
                     current.MergeWith(collectors[i]);
-                    collectors.RemoveAt(i);
-                    objects.RemoveAt(i); //Refactor into remove function
+                    collectors.Remove(collectors[i]);
                 }
             }
         }

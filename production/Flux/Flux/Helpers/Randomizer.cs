@@ -17,6 +17,14 @@ namespace Flux
             return random.Next(lower, upper);
         }
 
+        public static float RandomFloat(float lower, float upper)
+        {
+            Double r = random.NextDouble();
+            r *= (upper - lower);
+            r += lower;
+            return (float)r;
+        }
+
     }
 
 }
