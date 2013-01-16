@@ -23,9 +23,11 @@ namespace Flux
             try
             {
                 // fetch IP from hostname
-                IPAddress[] ipList = Dns.GetHostAddresses("jahfer.no-ip.org");
+                //IPAddress[] ipList = Dns.GetHostAddresses("jahfer.no-ip.org");
                 // connect TCP client to node.js server
-                tcpClient.Connect(ipList[0], 8100);
+                //tcpClient.Connect(ipList[0], 8100);
+
+                tcpClient.Connect("172.17.153.60", 8100);
  
                 // spin off listener to new thread
                 Thread clientThread = new Thread(new ParameterizedThreadStart(HandleClientComm));
@@ -112,7 +114,6 @@ namespace Flux
 
         private void HandleMessages(string data)
         {
-
             string[] messages = data.Trim().Split("$".ToCharArray());
             
             foreach (string message in messages) {
@@ -120,7 +121,7 @@ namespace Flux
                 if (message.Length <= 3) continue; //Short message - skip
 
                 string[] items = message.Trim().Split("/".ToCharArray());
-                string eventName = items[0];
+                string eventName = items[1].Split("=".ToCharArray())[1];
                 
                 //Create the event data object
                 OrderedDictionary o = new OrderedDictionary();
@@ -144,7 +145,7 @@ namespace Flux
                 }
 
                 //Send the event
-                if (o.Contains("id")) 
+                if (o.Contains("id"))
                     EventManager.Emit(eventName, o);
                 else 
                     Console.WriteLine("Missing ID in message: " + message);
