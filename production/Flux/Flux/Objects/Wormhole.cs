@@ -29,9 +29,9 @@ namespace Flux
                 WormholeManager.Remove(this);
 
             if (inward) 
-                GridManager.Pinch(display, position, 100, 0.015f);
+                GridManager.Pinch(position, 100, 0.015f);
             else
-                GridManager.Bloat(display, position, 100, 0.015f);
+                GridManager.Bloat(position, 100, 0.015f);
 
             base.Update();
         }

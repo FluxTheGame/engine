@@ -11,47 +11,39 @@ namespace Flux
 {
     class GridManager
     {
-        private static Grid[] grid = new Grid[4]; //Array of grids
+        private static Grid grid;
 
         public static void Initialize(int windowX, int windowY, int scale)
         {
-            int fieldX = windowX / scale;
-            int fieldY = windowY / scale;
+            int fieldX = (int)ScreenManager.world.X / scale;
+            int fieldY = (int)ScreenManager.world.Y / scale;
 
-            for (int i = 0; i < grid.Length; i++) {
-                grid[i] = new Grid(windowX, windowY, fieldX, fieldY);
-                grid[i].display = i;
-            }
+            grid = new Grid((int)ScreenManager.world.X, (int)ScreenManager.world.Y, fieldX, fieldY);
         }
 
         public static void Update()
         {
-            for (int i = 0; i < grid.Length; i++)
-            {
-                grid[i].Update();
-            }
+            grid.Update();
         }
 
         public static void Draw()
         {
-            for (int i = 0; i < grid.Length; i++) {
-                grid[i].Draw();
-            }
+            grid.Draw();
         }
 
-        public static void Bloat(int display, Vector2 position, float addForceRadius, float strength)
+        public static void Bloat(Vector2 position, float addForceRadius, float strength)
         {
-            grid[display].AddForceCircle(position, addForceRadius, strength, false);
+            grid.AddForceCircle(position, addForceRadius, strength, false);
         }
 
-        public static void Pinch(int display, Vector2 position, float addForceRadius, float strength)
+        public static void Pinch(Vector2 position, float addForceRadius, float strength)
         {
-            grid[display].AddForceCircle(position, addForceRadius, strength, true);
+            grid.AddForceCircle(position, addForceRadius, strength, true);
         }
 
-        public static Vector2 GetForce(int display, Vector2 position, float getForceRadius)
+        public static Vector2 GetForce(Vector2 position, float getForceRadius)
         {
-            return grid[display].GetForceAtPosition(position, getForceRadius);
+            return grid.GetForceAtPosition(position, getForceRadius);
         }
 
 

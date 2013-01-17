@@ -34,7 +34,7 @@ namespace Flux
             {
                 Collector c = new Collector();
                 c.position = new Vector2((i + 1) * 150, (i + 1) * 150);
-                //collectors.Add(c);
+                collectors.Add(c);
             }
 
             base.Initialize();

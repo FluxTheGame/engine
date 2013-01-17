@@ -20,7 +20,7 @@ namespace Flux
 
         public override void Update()
         {
-            Vector2 force = GridManager.GetForce(display, position, 100.0f);
+            Vector2 force = GridManager.GetForce(position, 100.0f);
             force = Vector2.Divide(force, drag);
             position = Vector2.Add(position, force);
             base.Update();

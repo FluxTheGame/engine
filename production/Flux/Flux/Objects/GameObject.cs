@@ -27,9 +27,9 @@ namespace Flux
 
         public virtual void Update()
         {
-            if (position.X > ScreenManager.window.X) position.X = ScreenManager.window.X;
-            if (position.Y > ScreenManager.window.Y) position.Y = ScreenManager.window.Y;
-            if (position.X < 0) position.X = 0;
+            if (position.X > ScreenManager.world.X) position.X = 0;
+            if (position.X < 0) position.X = ScreenManager.world.X;
+            if (position.Y > ScreenManager.world.Y) position.Y = ScreenManager.world.Y;
             if (position.Y < 0) position.Y = 0;
         }
 

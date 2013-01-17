@@ -14,6 +14,8 @@ namespace Flux
         private static Camera[] camera = new Camera[1]; //Array of cameras
         private static GraphicsDevice graphics;
         public static Vector2 window;
+        public static Vector2 world;
+        public static int screens = 4;
 
 
         public static void Initialize(Game game, GraphicsDevice g)
@@ -23,6 +25,7 @@ namespace Flux
 
             graphics = g;
             window = new Vector2(game.Window.ClientBounds.Width, game.Window.ClientBounds.Height);
+            world = new Vector2(window.X * screens, window.Y);
         }
 
         public static Camera Camera(int display)
@@ -37,15 +40,14 @@ namespace Flux
 
         public static Vector3 Location(Vector2 position, int display)
         {
-            float displayOffset = ((window.X+100) * display);
             Vector2 mid = Middle();
-            Vector3 pos = new Vector3((position.X + displayOffset - mid.X) * 0.01f, (position.Y - mid.Y) * -0.01f, 0.0f);
+            Vector3 pos = new Vector3((position.X - mid.X) * 0.01f, (position.Y - mid.Y) * -0.01f, 0.0f);
             return pos;
         }
 
         public static Vector2 Middle()
         {
-            return Vector2.Multiply(window, 0.5f);
+            return new Vector2(window.X * 0.5f, window.Y * 0.5f);
         }
 
     }
