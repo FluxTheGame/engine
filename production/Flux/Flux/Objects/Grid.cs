@@ -24,11 +24,11 @@ namespace Flux
 
         //Low res copy
         Vector2 lowResFieldSize;
-        int lowResScale;
+        int lowResScale = 5;
         int lowResResolution = 1000;
-        float lowResThickness = 0.05f;
+        float lowResThickness = 0.025f;
 
-        float drawDampening = 0.4f;
+        float drawDampening = 0.8f;
 
         public int display;
 
@@ -44,7 +44,6 @@ namespace Flux
             scaleFieldToScreen = Vector2.Divide(externalSize, fieldSize);
 
             //Low res
-            lowResScale = 10;
             lowResFieldSize = new Vector2(
                 (float)Math.Ceiling(fieldSize.X / lowResScale),
                 (float)Math.Ceiling(fieldSize.Y / lowResScale));

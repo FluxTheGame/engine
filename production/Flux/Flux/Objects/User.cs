@@ -20,7 +20,7 @@ namespace Flux
             delta = Vector2.Zero;
             username = user;
             id = idNumber;
-            model = ContentManager.user;
+            sprite = ContentManager.user;
         }
 
         public void SetDelta(int x, int y)
@@ -35,6 +35,13 @@ namespace Flux
             base.Update();
         }
 
+        public override void Draw()
+        {
+            ScreenManager.spriteBatch.Begin();
+            ScreenManager.spriteBatch.DrawString(ContentManager.userfont, username, position, Color.White);
+            ScreenManager.spriteBatch.End();
+            base.Draw();
+        }
 
     }
 }

@@ -13,8 +13,9 @@ namespace Flux
     {
         private static Camera[] camera = new Camera[1]; //Array of cameras
         private static GraphicsDevice graphics;
-        public static Vector2 window;
-        public static Vector2 world;
+        public static SpriteBatch spriteBatch;
+        public static Vector2 window; //Size of a single window
+        public static Vector2 world; //Size of entire world (4 windows)
         public static int screens = 4;
 
 
@@ -24,6 +25,7 @@ namespace Flux
             camera[0].display = 0;
 
             graphics = g;
+            spriteBatch = new SpriteBatch(graphics);
             window = new Vector2(game.Window.ClientBounds.Width, game.Window.ClientBounds.Height);
             world = new Vector2(window.X * screens, window.Y);
         }

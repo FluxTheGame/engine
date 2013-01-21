@@ -33,6 +33,7 @@ namespace Flux
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 800;
+            graphics.PreferMultiSampling = true;
             Content.RootDirectory = "Content";
         }
 
@@ -55,14 +56,14 @@ namespace Flux
             enemyManager = new EnemyManager(this);
             Components.Add(enemyManager);
 
-            userManager = new UserManager(this);
-            Components.Add(userManager);
-
             resourceManager = new ResourceManager(this);
             Components.Add(resourceManager);
 
             wormholeManager = new WormholeManager(this);
             Components.Add(wormholeManager);
+
+            userManager = new UserManager(this);
+            Components.Add(userManager);
 
             //3D Line - temporary - consider refactoring somewhere else
             VLine.Effect = new BasicEffect(GraphicsDevice);

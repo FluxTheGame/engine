@@ -15,18 +15,23 @@ namespace Flux
     {
 
         public static Model collector;
-        public static Model user;
         public static Model enemy;
         public static Model resource;
         public static Model wormhole;
 
+        public static Texture2D user;
+        public static SpriteFont userfont;
+
+
         public static void Initialize(Game game)
         {
-            collector = game.Content.Load<Model>(@"models/chicken");
-            user = game.Content.Load<Model>(@"models/chicken");
-            enemy = game.Content.Load<Model>(@"models/chicken");
+            collector = game.Content.Load<Model>(@"models/collector");
+            enemy = game.Content.Load<Model>(@"models/enemy_bulger");
             resource = game.Content.Load<Model>(@"models/chicken");
             wormhole = game.Content.Load<Model>(@"models/chicken");
+
+            user = game.Content.Load<Texture2D>(@"sprites/cursor");
+            userfont = game.Content.Load<SpriteFont>(@"fonts/font");
         }
     }
 }

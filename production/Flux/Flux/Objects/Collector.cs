@@ -74,7 +74,7 @@ namespace Flux
         public void Collect(Resource resource)
         {
             resources++;
-            scale = (float)resources / (float)capacity * 0.5f;
+            scale = ((float)resources / (float)capacity * 0.5f) + 0.1f;
         }
 
         private void CollectResources()

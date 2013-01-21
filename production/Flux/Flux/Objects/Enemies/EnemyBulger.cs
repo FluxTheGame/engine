@@ -20,7 +20,8 @@ namespace Flux
         public EnemyBulger() : base()
         {
             model = ContentManager.enemy;
-            scale = 0.04f;
+            scale = 0.03f;
+            drag = 3.0f;
             position = new Vector2(Randomizer.RandomInt(100, 700), Randomizer.RandomInt(100, 700));
             nextBloat = created;
             AddTime();
@@ -33,7 +34,7 @@ namespace Flux
             position = Vector2.Add(position, velocity);
 
             if (DateTime.Now.CompareTo(nextBloat) > 0) {
-                GridManager.Bloat(position, 40.0f, 0.4f);
+                GridManager.Bloat(position, 100.0f, 0.4f);
                 if (DateTime.Now.CompareTo(nextBloat.AddSeconds(bloatDuration)) > 0) {
                     AddTime();
                 }

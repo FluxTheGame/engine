@@ -15,7 +15,9 @@ namespace Flux
         public Vector2 position;
         public int display;
         public Model model;
+        public Texture2D sprite;
         protected DateTime created;
+
 
         public GameObject()
         {
@@ -40,22 +42,38 @@ namespace Flux
 
         public virtual void Draw()
         {
-            if (model != null) {
+            if (model != null)
+                DrawModel();
 
-                Camera camera = ScreenManager.Camera(display);
-                Matrix[] transforms = new Matrix[model.Bones.Count];
-                model.CopyAbsoluteBoneTransformsTo(transforms);
-                
-                foreach (ModelMesh mesh in model.Meshes) {
-                    foreach (BasicEffect effect in mesh.Effects) {
-                        effect.EnableDefaultLighting();
-                        effect.Projection = camera.projection;
-                        effect.View = camera.view;
-                        effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateScale(scale) * Matrix.CreateTranslation(Location());
-                    }
-                    mesh.Draw();
+            else if (sprite != null) 
+                DrawSprite();
+        }
+
+        protected void DrawModel()
+        {
+            Camera camera = ScreenManager.Camera(display);
+            Matrix[] transforms = new Matrix[model.Bones.Count];
+            model.CopyAbsoluteBoneTransformsTo(transforms);
+
+            foreach (ModelMesh mesh in model.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.EnableDefaultLighting();
+                    effect.Projection = camera.projection;
+                    effect.View = camera.view;
+                    effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateScale(scale) * Matrix.CreateTranslation(Location());
                 }
+                mesh.Draw();
             }
+        }
+
+        protected void DrawSprite()
+        {
+            Vector2 offset = new Vector2(sprite.Bounds.Width * 0.5f, sprite.Bounds.Height * 0.5f);
+            ScreenManager.spriteBatch.Begin();
+            ScreenManager.spriteBatch.Draw(sprite, Vector2.Subtract(position, offset), Color.White);
+            ScreenManager.spriteBatch.End();
         }
 
 

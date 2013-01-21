@@ -1,2 +1,6 @@
-Content\font.xnb
 Content\models\chicken.xnb
+Content\models\enemy_bulger.xnb
+Content\models\collector.xnb
+Content\sprites\user.xnb
+Content\sprites\cursor.xnb
+Content\fonts\font.xnb
