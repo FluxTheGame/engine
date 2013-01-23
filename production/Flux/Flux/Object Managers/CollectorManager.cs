@@ -30,12 +30,17 @@ namespace Flux
         {
             collectors = new List<Collector>();
 
-            for (int i = 0; i < 5; i++)
+            EventManager.On("collector:join", (o) =>
             {
-                Collector c = new Collector();
-                c.position = new Vector2((i + 1) * 150, (i + 1) * 150);
-                collectors.Add(c);
-            }
+                int id = (int)o["id"];
+                if (id > 0) collectors.Add(new Collector(id));
+            });
+
+            EventManager.On("collector:attack", (o) =>
+            {
+                Collector collector = CollectorByID((int)o["id"]);
+                if (collector != null) collector.Attack();
+            });
 
             base.Initialize();
         }
@@ -51,12 +56,17 @@ namespace Flux
         {
             for (int i = collectors.Count - 1; i >= 0; i--)
             {
-                if (Vector2.Distance(current.position, collectors[i].position) < 10 && current != collectors[i])
+                if (Vector2.Distance(current.position, collectors[i].position) < 20 && current != collectors[i])
                 {
                     current.MergeWith(collectors[i]);
                     collectors.Remove(collectors[i]);
                 }
             }
+        }
+
+        public Collector CollectorByID(int id)
+        {
+            return collectors.FirstOrDefault(c => c.id == id);
         }
 
         public static void Remove(Collector collector)

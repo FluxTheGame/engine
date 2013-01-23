@@ -17,12 +17,14 @@ namespace Flux
         protected int capacity = 100;
         protected int resources = 0;
         protected int normalCapacity;
+        public int id;
 
 
-        public Collector() : base()
+        public Collector(int idNumber): base()
         {
+            id = idNumber;
             model = ContentManager.collector;
-            position = new Vector2(100, 100);
+            position = new Vector2(100*id, 100*id);
             normalCapacity = capacity;
         }
 
@@ -44,7 +46,7 @@ namespace Flux
         public void Burst()
         {
             OrderedDictionary o = new OrderedDictionary();
-            o.Add("hello", "world");
+            o.Add("id", id);
             EventManager.Emit("collector:burst", o);
             Die();
         }
@@ -57,8 +59,7 @@ namespace Flux
 
         public int SuckRadius()
         {
-            float percent = ((float)resources / (float)capacity);
-            int radius = (int)(percent*10 + 50);
+            int radius = (int)(capacity*0.5f + resources);
             if (radius > 100) radius = 100;
             return radius;
         }
@@ -71,10 +72,18 @@ namespace Flux
             health = 100;
         }
 
+        public void Attack()
+        {
+            if (resources > 0) {
+                resources--;
+                EnemyManager.Attack(this);
+            }
+        }
+
         public void Collect(Resource resource)
         {
             resources++;
-            scale = ((float)resources / (float)capacity * 0.5f) + 0.1f;
+            scale = ((float)capacity * 0.01f + (float)resources * 0.01f) * 0.1f;
         }
 
         private void CollectResources()

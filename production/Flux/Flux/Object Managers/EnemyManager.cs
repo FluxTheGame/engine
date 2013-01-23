@@ -38,6 +38,22 @@ namespace Flux
             base.Initialize();
         }
 
+        public static void Attack(Collector collector)
+        {
+            Enemy closest = null;
+            foreach (Enemy enemy in instance.enemies)
+            {
+                if (closest == null) closest = enemy;
+                else
+                {
+                    float distance1 = Vector2.Distance(collector.position, enemy.position);
+                    float distance2 = Vector2.Distance(collector.position, closest.position);
+                    if (distance1 < distance2) closest = enemy;
+                }
+            }
+            closest.BeAttacked();
+        }
+
 
         public override void Update(GameTime gameTime)
         {

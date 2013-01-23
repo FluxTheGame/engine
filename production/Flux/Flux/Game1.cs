@@ -77,10 +77,19 @@ namespace Flux
         {
 
             /* For Testing */
+            //Add User
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 99);
             o.Add("username", "Matt");
             EventManager.Emit("user:join", o);
+
+            //Add Collectors
+            for (int i = 1; i < 5; i++)
+            {
+                OrderedDictionary c = new OrderedDictionary();
+                c.Add("id", i);
+                EventManager.Emit("collector:join", c);
+            }
             /* End for testing */
         }
 
@@ -115,6 +124,14 @@ namespace Flux
             if (keyState.IsKeyDown(Keys.Down))
             {
                 EventManager.Emit("user:pinch", o);
+            }
+
+            //Collector attack
+            if (keyState.IsKeyDown(Keys.Space))
+            {
+                OrderedDictionary c = new OrderedDictionary();
+                c.Add("id", 1);
+                EventManager.Emit("collector:attack", c);
             }
 
             if (mouseState.LeftButton == ButtonState.Pressed)
