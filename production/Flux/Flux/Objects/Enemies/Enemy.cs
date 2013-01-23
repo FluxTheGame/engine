@@ -12,7 +12,7 @@ namespace Flux
     public class Enemy : GridObject
     {
 
-        protected int health = 100;
+        protected int health = 20;
 
         public Enemy() : base()
         {
@@ -20,12 +20,14 @@ namespace Flux
 
         public void BeAttacked()
         {
-            Console.WriteLine("I got attacked :(");
+            health --;
+            Console.WriteLine("Got attacked, health: " + health);
+            if (health <= 0) Die();
         }
 
         public void Die()
         {
-
+            EnemyManager.Remove(this);
         }
 
     }

@@ -84,7 +84,7 @@ namespace Flux
             EventManager.Emit("user:join", o);
 
             //Add Collectors
-            for (int i = 1; i < 5; i++)
+            for (int i = 1; i <= 1; i++)
             {
                 OrderedDictionary c = new OrderedDictionary();
                 c.Add("id", i);

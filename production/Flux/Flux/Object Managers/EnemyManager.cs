@@ -40,18 +40,13 @@ namespace Flux
 
         public static void Attack(Collector collector)
         {
-            Enemy closest = null;
-            foreach (Enemy enemy in instance.enemies)
-            {
-                if (closest == null) closest = enemy;
-                else
-                {
-                    float distance1 = Vector2.Distance(collector.position, enemy.position);
-                    float distance2 = Vector2.Distance(collector.position, closest.position);
-                    if (distance1 < distance2) closest = enemy;
-                }
-            }
+            Enemy closest = instance.enemies[instance.Closest(collector)];
             closest.BeAttacked();
+        }
+
+        public static void Remove(Enemy enemy)
+        {
+            instance.enemies.Remove(enemy);
         }
 
 

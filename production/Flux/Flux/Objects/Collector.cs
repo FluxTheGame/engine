@@ -17,6 +17,7 @@ namespace Flux
         protected int capacity = 100;
         protected int resources = 0;
         protected int normalCapacity;
+        public int attackRadius = 300;
         public int id;
 
 
@@ -53,7 +54,6 @@ namespace Flux
 
         public void Die()
         {
-            Console.WriteLine("Collector Die...");
             CollectorManager.Remove(this);
         }
 

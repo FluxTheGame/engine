@@ -43,6 +43,23 @@ namespace Flux
         }
 
 
+        public int Closest(GameObject target)
+        {
+            GameObject closest = null;
+            foreach (GameObject obj in objects)
+            {
+                if (closest == null) closest = obj;
+                else
+                {
+                    float distance1 = Vector2.Distance(target.position, obj.position);
+                    float distance2 = Vector2.Distance(target.position, closest.position);
+                    if (distance1 < distance2) closest = obj;
+                }
+            }
+            return objects.IndexOf(closest);
+        }
+
+
         public override void Draw(GameTime gameTime)
         {
 
