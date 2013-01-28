@@ -19,7 +19,7 @@ namespace Flux
 
         public Server()
         {
-            tcpClient = new TcpClient();
+            /*tcpClient = new TcpClient();
             try
             {
                 // fetch IP from hostname
@@ -39,7 +39,7 @@ namespace Flux
             catch
             {
                 Console.WriteLine("Could not connect to TCP server!");
-            }
+            }*/
         }
 
         public void SendEventToServer(string eventName, OrderedDictionary o)

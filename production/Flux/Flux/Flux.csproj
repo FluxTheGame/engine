@@ -115,13 +115,17 @@
     <Compile Include="Graphics\Camera.cs" />
     <Compile Include="Helpers\Randomizer.cs" />
     <Compile Include="Graphics\VLine.cs" />
+    <Compile Include="Helpers\Schedualizer.cs" />
     <Compile Include="Object Managers\CollectorManager.cs" />
     <Compile Include="Object Managers\EnemyManager.cs" />
     <Compile Include="General Managers\EventManager.cs" />
     <Compile Include="Object Managers\Manager.cs" />
     <Compile Include="Object Managers\WormholeManager.cs" />
     <Compile Include="Objects\Enemies\Enemy.cs" />
-    <Compile Include="Objects\Enemies\EnemyBulger.cs" />
+    <Compile Include="Objects\Enemies\EnemyBulger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Objects\Enemies\EnemyShooter.cs" />
     <Compile Include="Objects\GridObject.cs" />
     <Compile Include="Objects\GameObject.cs" />
     <Compile Include="Objects\Collector.cs">

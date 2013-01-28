@@ -15,7 +15,7 @@ namespace Flux
 
         protected int health = 100;
         protected int capacity = 100;
-        protected int resources = 0;
+        protected int resources = 50;
         protected int normalCapacity;
         public int attackRadius = 300;
         public int id;
@@ -76,7 +76,7 @@ namespace Flux
         {
             if (resources > 0) {
                 resources--;
-                EnemyManager.Attack(this);
+                EnemyManager.AttackClosestEnemy(this);
             }
         }
 

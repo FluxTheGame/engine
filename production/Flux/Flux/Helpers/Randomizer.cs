@@ -25,6 +25,15 @@ namespace Flux
             return (float)r;
         }
 
+        public static Vector2 RandomVelocity(float magnitude=1.0f)
+        {
+            Vector2 velocity = new Vector2(
+                Randomizer.RandomFloat(-1.0f, 1.0f), 
+                Randomizer.RandomFloat(-0.2f, 0.2f)
+            );
+            return Vector2.Multiply(velocity, magnitude);
+        }
+
     }
 
 }

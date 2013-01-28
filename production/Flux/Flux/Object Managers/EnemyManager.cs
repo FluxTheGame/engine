@@ -32,16 +32,20 @@ namespace Flux
 
             for (int i = 0; i < 3; i++)
             {
-                enemies.Add(new EnemyBulger());
+                //enemies.Add(new EnemyBulger());
+                enemies.Add(new EnemyShooter());
             }
 
             base.Initialize();
         }
 
-        public static void Attack(Collector collector)
+        public static void AttackClosestEnemy(Collector collector)
         {
             Enemy closest = instance.enemies[instance.Closest(collector)];
-            closest.BeAttacked();
+            if (GameObject.Distance(collector, closest) <= collector.attackRadius)
+            {
+                closest.BeAttacked();
+            }
         }
 
         public static void Remove(Enemy enemy)

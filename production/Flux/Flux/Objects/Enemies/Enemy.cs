@@ -13,9 +13,13 @@ namespace Flux
     {
 
         protected int health = 20;
+        protected Vector2 velocity;
+
 
         public Enemy() : base()
         {
+            velocity = Randomizer.RandomVelocity();
+            position = new Vector2(Randomizer.RandomInt(100, 700), Randomizer.RandomInt(100, 700));
         }
 
         public void BeAttacked()
@@ -28,6 +32,12 @@ namespace Flux
         public void Die()
         {
             EnemyManager.Remove(this);
+        }
+
+        public override void Update()
+        {
+            position = Vector2.Add(position, velocity);
+            base.Update();
         }
 
     }

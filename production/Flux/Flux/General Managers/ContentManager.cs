@@ -15,7 +15,8 @@ namespace Flux
     {
 
         public static Model collector;
-        public static Model enemy;
+        public static Model enemyBulger;
+        public static Model enemyShooter;
         public static Model resource;
         public static Model wormhole;
 
@@ -26,7 +27,8 @@ namespace Flux
         public static void Initialize(Game game)
         {
             collector = game.Content.Load<Model>(@"models/collector");
-            enemy = game.Content.Load<Model>(@"models/enemy_bulger");
+            enemyBulger = game.Content.Load<Model>(@"models/enemy_bulger");
+            enemyShooter = game.Content.Load<Model>(@"models/enemy_shooter");
             resource = game.Content.Load<Model>(@"models/chicken");
             wormhole = game.Content.Load<Model>(@"models/chicken");
 

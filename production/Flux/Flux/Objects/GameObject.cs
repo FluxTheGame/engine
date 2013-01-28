@@ -77,5 +77,10 @@ namespace Flux
         }
 
 
+        public static float Distance(GameObject one, GameObject two)
+        {
+            return Vector2.Distance(one.position, two.position);
+        }
+
     }
 }
