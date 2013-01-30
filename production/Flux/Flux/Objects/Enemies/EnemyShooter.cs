@@ -13,14 +13,14 @@ namespace Flux
     {
 
         protected Schedualizer shootSchedule;
-        protected Schedualizer velocitySchedule;
+        protected Schedualizer accelerationSchedule;
         protected float shootDistance = 300.0f;
 
 
         public EnemyShooter() : base()
         {
             shootSchedule = new Schedualizer(1.0f, 5, 10);
-            velocitySchedule = new Schedualizer(0.0f, 3, 6);
+            accelerationSchedule = new Schedualizer(0.0f, 3, 6);
             model = ContentManager.enemyShooter;
             scale = 0.07f;
             drag = 6.0f;
@@ -34,9 +34,9 @@ namespace Flux
                 GridManager.Bloat(position + Vector2.Normalize(velocity) * (shootDistance * phase), 80.0f*phase, 0.3f);
             }
 
-            if (velocitySchedule.IsOn())
+            if (accelerationSchedule.IsOn())
             {
-                velocity = Randomizer.RandomVelocity();
+                acceleration = Randomizer.RandomVelocity(0.01f);
             }
 
             base.Update();

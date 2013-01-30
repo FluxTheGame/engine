@@ -152,6 +152,10 @@ namespace Flux
                 }
                 initialMousePos = Vector2.Zero;
             }
+
+            //Camera update for movement
+            Camera cam = ScreenManager.Camera(0);
+            cam.Update(gameTime);
             /* End for testing */
 
             

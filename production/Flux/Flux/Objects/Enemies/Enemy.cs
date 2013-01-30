@@ -14,10 +14,14 @@ namespace Flux
 
         protected int health = 20;
         protected Vector2 velocity;
+        protected Vector2 acceleration;
+        protected float dampening = 0.999f;
+        protected int wrapBuffer = 50;
 
 
         public Enemy() : base()
         {
+            wrapY = true;
             velocity = Randomizer.RandomVelocity();
             position = new Vector2(Randomizer.RandomInt(100, 700), Randomizer.RandomInt(100, 700));
         }
@@ -36,8 +40,19 @@ namespace Flux
 
         public override void Update()
         {
+            velocity = Vector2.Add(velocity, acceleration);
+            velocity = Vector2.Multiply(velocity, dampening);
             position = Vector2.Add(position, velocity);
+
+            WrapY();
+
             base.Update();
+        }
+
+        protected void WrapY()
+        {
+            if (position.Y > ScreenManager.world.Y + wrapBuffer) position.Y = -wrapBuffer;
+            if (position.Y < -wrapBuffer) position.Y = ScreenManager.world.Y + wrapBuffer;
         }
 
     }

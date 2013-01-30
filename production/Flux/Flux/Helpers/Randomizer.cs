@@ -29,7 +29,7 @@ namespace Flux
         {
             Vector2 velocity = new Vector2(
                 Randomizer.RandomFloat(-1.0f, 1.0f), 
-                Randomizer.RandomFloat(-0.2f, 0.2f)
+                Randomizer.RandomFloat(-0.5f, 0.5f)
             );
             return Vector2.Multiply(velocity, magnitude);
         }

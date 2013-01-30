@@ -108,6 +108,26 @@
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\enemy_shooter_0.xml</Output>
       <Time>2013-01-28T11:33:29.4371691-05:00</Time>
     </Item>
+    <Item>
+      <Source>models\enemy_crazy.fbx</Source>
+      <Name>models\enemy_crazy</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\enemy_crazy.xnb</Output>
+      <Time>2013-01-30T13:45:14.4847469-05:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\enemy_crazy_0.xml</Key>
+        <Value>2013-01-30T13:47:26.6896551-05:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\enemy_crazy.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\enemy_crazy_0.xml</Output>
+      <Time>2013-01-30T13:45:14.4847469-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{024E11DE-813F-48D7-B0CA-9F0C3B09E065}</ContentProjectGUID>

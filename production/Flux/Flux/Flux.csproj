@@ -125,6 +125,7 @@
     <Compile Include="Objects\Enemies\EnemyBulger.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Objects\Enemies\EnemyCrazy.cs" />
     <Compile Include="Objects\Enemies\EnemyShooter.cs" />
     <Compile Include="Objects\GridObject.cs" />
     <Compile Include="Objects\GameObject.cs" />

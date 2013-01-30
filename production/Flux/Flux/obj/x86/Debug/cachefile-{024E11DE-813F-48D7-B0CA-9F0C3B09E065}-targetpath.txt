@@ -5,3 +5,4 @@ Content\sprites\user.xnb
 Content\sprites\cursor.xnb
 Content\fonts\font.xnb
 Content\models\enemy_shooter.xnb
+Content\models\enemy_crazy.xnb

@@ -17,6 +17,7 @@ namespace Flux
         public Model model;
         public Texture2D sprite;
         protected DateTime created;
+        protected bool wrapY = false;
 
 
         public GameObject()
@@ -29,10 +30,7 @@ namespace Flux
 
         public virtual void Update()
         {
-            if (position.X > ScreenManager.world.X) position.X = 0;
-            if (position.X < 0) position.X = ScreenManager.world.X;
-            if (position.Y > ScreenManager.world.Y) position.Y = ScreenManager.world.Y;
-            if (position.Y < 0) position.Y = 0;
+            Constrain();
         }
 
         public virtual Vector3 Location()
@@ -74,6 +72,18 @@ namespace Flux
             ScreenManager.spriteBatch.Begin();
             ScreenManager.spriteBatch.Draw(sprite, Vector2.Subtract(position, offset), Color.White);
             ScreenManager.spriteBatch.End();
+        }
+
+
+        protected void Constrain()
+        {
+            if (position.X > ScreenManager.world.X) position.X = 0;
+            if (position.X < 0) position.X = ScreenManager.world.X;
+            if (!wrapY)
+            {
+                if (position.Y > ScreenManager.world.Y) position.Y = ScreenManager.world.Y;
+                if (position.Y < 0) position.Y = 0;
+            }
         }
 
 
