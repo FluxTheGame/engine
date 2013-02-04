@@ -72,6 +72,11 @@ namespace Flux
             health = 100;
         }
 
+        public void BeAttacked(int damage)
+        {
+            health -= damage;
+        }
+
         public void Attack()
         {
             if (resources > 0) {

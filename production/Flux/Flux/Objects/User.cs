@@ -13,6 +13,7 @@ namespace Flux
         public int id;
 
         private Vector2 delta;
+        private Texture2D sprite;
 
 
         public User(string user, int idNumber) : base ()
@@ -37,10 +38,11 @@ namespace Flux
 
         public override void Draw()
         {
+            Vector2 offset = new Vector2(sprite.Bounds.Width * 0.5f, sprite.Bounds.Height * 0.5f);
             ScreenManager.spriteBatch.Begin();
+            ScreenManager.spriteBatch.Draw(sprite, Vector2.Subtract(position, offset), null, Color.White, 45.0f, Vector2.Zero, 0.7f, SpriteEffects.None, 0f);
             ScreenManager.spriteBatch.DrawString(ContentManager.userfont, username, position, Color.White);
             ScreenManager.spriteBatch.End();
-            base.Draw();
         }
 
     }

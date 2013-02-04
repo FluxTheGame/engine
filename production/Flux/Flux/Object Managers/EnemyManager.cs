@@ -45,7 +45,7 @@ namespace Flux
             Enemy closest = instance.enemies[instance.Closest(collector)];
             if (GameObject.Distance(collector, closest) <= collector.attackRadius)
             {
-                closest.BeAttacked();
+                closest.BeAttacked(1);
             }
         }
 

@@ -15,7 +15,7 @@ namespace Flux
         protected int health = 20;
         protected Vector2 velocity;
         protected Vector2 acceleration;
-        protected float dampening = 0.999f;
+        protected float dampening = 0.998f;
         protected int wrapBuffer = 50;
 
 
@@ -26,11 +26,17 @@ namespace Flux
             position = new Vector2(Randomizer.RandomInt(100, 700), Randomizer.RandomInt(100, 700));
         }
 
-        public void BeAttacked()
+        public void BeAttacked(int damage)
         {
-            health --;
+            health -= damage;
             Console.WriteLine("Got attacked, health: " + health);
             if (health <= 0) Die();
+        }
+
+        public void Kamikaze(Collector collector)
+        {
+            collector.BeAttacked(40);
+            Die();
         }
 
         public void Die()

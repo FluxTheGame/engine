@@ -12,7 +12,6 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Flux
 {
-    
     public class CollectorManager : Manager
     {
 
@@ -67,6 +66,17 @@ namespace Flux
         public Collector CollectorByID(int id)
         {
             return collectors.FirstOrDefault(c => c.id == id);
+        }
+
+        public static void CheckEnemyCollide(Enemy enemy)
+        {
+            for (int i = instance.collectors.Count - 1; i >= 0; i--)
+            {
+                if (GameObject.Collides(enemy, instance.collectors[i]))
+                {
+                    enemy.Kamikaze(instance.collectors[i]);
+                }
+            }
         }
 
         public static void Remove(Collector collector)
