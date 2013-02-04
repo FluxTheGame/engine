@@ -15,7 +15,7 @@ namespace Flux
 
         public float stroke;
         public int resolution;
-        Color color;
+        public Color color;
 
 
         /*******
@@ -35,7 +35,7 @@ namespace Flux
         {
             this.stroke = stroke;
             this.resolution = resolution;
-            color = Color.LightSteelBlue;
+            color = Color.White;
 
             this.points.Clear();
             this.points = points;
@@ -50,10 +50,10 @@ namespace Flux
             for (int i = 0; i < points.Count; i++)
             {
                 stroked.Add(points[i]);
-                
+
                 int nextIndex = (i + 1) % points.Count;
 
-                Vector3 perp = Vector3.Cross(points[nextIndex] - points[i], new Vector3(0, 0, 1));
+                Vector3 perp = Vector3.Cross(points[nextIndex] - points[i], Vector3.UnitZ);
                 perp.Normalize();
                 perp *= stroke;
 
@@ -69,13 +69,14 @@ namespace Flux
 
             for (int i = 0; i < points.Count; i++)
             {
-                if (i + 1 >= points.Count)
-                    continue;
+                int minIndex = i - 1 < 0 ? i : i - 1;
+                int midIndex = i + 1 >= points.Count ? i : i + 1;
+                int maxIndex = i + 2 >= points.Count ? midIndex : i + 2;
 
-                Vector3 p1 = points[i - 1 < 0 ? points.Count - 1 : i - 1];
+                Vector3 p1 = points[minIndex];
                 Vector3 p2 = points[i];
-                Vector3 p3 = points[(i + 1) % points.Count];
-                Vector3 p4 = points[(i + 2) % points.Count];
+                Vector3 p3 = points[midIndex];
+                Vector3 p4 = points[maxIndex];
 
                 float distance = Vector3.Distance(p2, p3);
                 int numOfIters = (int)(resolution * distance / 100.0f);
@@ -95,12 +96,18 @@ namespace Flux
         public void Draw(int display)
         {
             Camera camera = ScreenManager.Camera(display);
+
             GraphicsDevice graphics = ScreenManager.Graphics(display);
+            RasterizerState rs = new RasterizerState();
+            rs.CullMode = CullMode.None;
+            graphics.RasterizerState = rs;
+            graphics.BlendState = BlendState.AlphaBlend;
 
             VLine.Effect.World = Matrix.Identity;
             VLine.Effect.View = camera.view;
             VLine.Effect.Projection = camera.projection;
             VLine.Effect.VertexColorEnabled = true;
+            VLine.Effect.Alpha = 0.6f;
 
             List<VertexPositionColor> vpc = new List<VertexPositionColor>();
 
@@ -112,10 +119,13 @@ namespace Flux
                 count++;
             }
 
-            foreach (EffectPass pass in VLine.Effect.CurrentTechnique.Passes)
+            if (count > 0)
             {
-                pass.Apply();
-                graphics.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.TriangleStrip, vpc.ToArray(), 0, points.Count - 2);
+                foreach (EffectPass pass in VLine.Effect.CurrentTechnique.Passes)
+                {
+                    pass.Apply();
+                    graphics.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.TriangleStrip, vpc.ToArray(), 0, points.Count - 2);
+                }
             }
         }
     }
