@@ -1,8 +1,9 @@
 Content\models\chicken.xnb
 Content\models\enemy_bulger.xnb
 Content\models\collector.xnb
-Content\sprites\user.xnb
-Content\sprites\cursor.xnb
 Content\fonts\font.xnb
 Content\models\enemy_shooter.xnb
 Content\models\enemy_crazy.xnb
+Content\sprites\cursor_arrow.xnb
+Content\sprites\cursor_circle.xnb
+Content\sprites\cursor_box.xnb

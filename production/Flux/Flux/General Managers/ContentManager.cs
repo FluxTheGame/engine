@@ -23,6 +23,8 @@ namespace Flux
         public static Model enemyCrazy;
 
         public static Texture2D user;
+        public static Texture2D userPoints;
+        public static Texture2D userBox;
         public static SpriteFont userfont;
 
 
@@ -36,7 +38,9 @@ namespace Flux
             enemyShooter = game.Content.Load<Model>(@"models/enemy_shooter");
             enemyCrazy = game.Content.Load<Model>(@"models/enemy_crazy");
 
-            user = game.Content.Load<Texture2D>(@"sprites/cursor");
+            user = game.Content.Load<Texture2D>(@"sprites/cursor_arrow");
+            userPoints = game.Content.Load<Texture2D>(@"sprites/cursor_circle");
+            userBox = game.Content.Load<Texture2D>(@"sprites/cursor_box");
             userfont = game.Content.Load<SpriteFont>(@"fonts/font");
         }
     }

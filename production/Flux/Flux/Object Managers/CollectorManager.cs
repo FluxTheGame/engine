@@ -79,6 +79,13 @@ namespace Flux
             }
         }
 
+        //Used for Testing only - Remove
+        public static Collector First()
+        {
+            return instance.collectors[0];
+        }
+        //End used for testing
+
         public static void Remove(Collector collector)
         {
             instance.collectors.Remove(collector);

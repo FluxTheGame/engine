@@ -9,8 +9,10 @@ namespace Flux
 {
     public class User : GameObject
     {
+        public Collector collector;
         public string username;
         public int id;
+        public int points = 0;
 
         private Vector2 delta;
         private Texture2D sprite;
@@ -22,6 +24,7 @@ namespace Flux
             username = user;
             id = idNumber;
             sprite = ContentManager.user;
+            collector = CollectorManager.First();
         }
 
         public void SetDelta(int x, int y)
@@ -40,9 +43,27 @@ namespace Flux
         {
             Vector2 offset = new Vector2(sprite.Bounds.Width * 0.5f, sprite.Bounds.Height * 0.5f);
             ScreenManager.spriteBatch.Begin();
-            ScreenManager.spriteBatch.Draw(sprite, Vector2.Subtract(position, offset), null, Color.White, 45.0f, Vector2.Zero, 0.7f, SpriteEffects.None, 0f);
-            ScreenManager.spriteBatch.DrawString(ContentManager.userfont, username, position, Color.White);
+            ScreenManager.spriteBatch.Draw(sprite, position, null, Color.White, CollectorAngle() + Matherize.ToRadians(135f), offset, 1.0f, SpriteEffects.None, 0f);
+            DrawUsername();
             ScreenManager.spriteBatch.End();
+        }
+
+        protected void DrawUsername()
+        {
+            Vector2 offset = new Vector2(-90, -50);
+            Vector2 fontSize = ContentManager.userfont.MeasureString(username);
+            Vector2 boxSize = new Vector2(ContentManager.userBox.Width, ContentManager.userBox.Height);
+            Vector2 pos = new Vector2(position.X, position.Y);
+            pos += offset;
+
+            ScreenManager.spriteBatch.DrawString(ContentManager.userfont, username, pos - fontSize * 0.5f, Color.White);
+            ScreenManager.spriteBatch.Draw(ContentManager.userBox, pos - boxSize * 0.5f, Color.White);
+        }
+
+        protected float CollectorAngle() 
+        {
+            double radians = Math.Atan2((position.Y - collector.position.Y), (position.X - collector.position.X));
+            return (float)radians;
         }
 
     }

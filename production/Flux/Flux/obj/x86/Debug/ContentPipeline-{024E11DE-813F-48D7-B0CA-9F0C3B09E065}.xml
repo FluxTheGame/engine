@@ -62,31 +62,13 @@
       <Time>2013-01-23T10:48:19.5040916-05:00</Time>
     </Item>
     <Item>
-      <Source>sprites\user.png</Source>
-      <Name>sprites\user</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user.xnb</Output>
-      <Time>2013-01-23T10:48:19.6132937-05:00</Time>
-    </Item>
-    <Item>
-      <Source>sprites\cursor.png</Source>
-      <Name>sprites\cursor</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\cursor.xnb</Output>
-      <Time>2013-01-23T10:48:19.5976934-05:00</Time>
-    </Item>
-    <Item>
       <Source>fonts\font.spritefont</Source>
       <Name>fonts\font</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\fonts\font.xnb</Output>
-      <Time>2013-01-23T10:48:19.472891-05:00</Time>
+      <Time>2013-02-04T14:32:40.9787376-05:00</Time>
     </Item>
     <Item>
       <Source>models\enemy_shooter.fbx</Source>
@@ -127,6 +109,33 @@
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\enemy_crazy_0.xml</Output>
       <Time>2013-01-30T13:45:14.4847469-05:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\cursor_arrow.png</Source>
+      <Name>sprites\cursor_arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\cursor_arrow.xnb</Output>
+      <Time>2013-02-04T11:31:27.859451-05:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\cursor_circle.png</Source>
+      <Name>sprites\cursor_circle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\cursor_circle.xnb</Output>
+      <Time>2013-02-04T12:05:53.2200271-05:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\cursor_box.png</Source>
+      <Name>sprites\cursor_box</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\cursor_box.xnb</Output>
+      <Time>2013-02-04T14:45:57.7217322-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
