@@ -114,7 +114,7 @@
     <Compile Include="General Managers\ScreenManager.cs" />
     <Compile Include="Graphics\Camera.cs" />
     <Compile Include="Helpers\Durationizer.cs" />
-    <Compile Include="Helpers\Matherize.cs" />
+    <Compile Include="Helpers\Matherizer.cs" />
     <Compile Include="Helpers\Randomizer.cs" />
     <Compile Include="Graphics\VLine.cs" />
     <Compile Include="Helpers\Schedualizer.cs" />

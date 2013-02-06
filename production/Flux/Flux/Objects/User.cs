@@ -86,7 +86,7 @@ namespace Flux
         public override void Draw()
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(pointerSprite, position, null, Color.White, CollectorAngle() + Matherize.ToRadians(135f), pointerOffset, scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(pointerSprite, position, null, Color.White, CollectorAngle() + Matherizer.ToRadians(135f), pointerOffset, scale, SpriteEffects.None, 0f);
 
             DrawUsername();
             DrawNotifications();
