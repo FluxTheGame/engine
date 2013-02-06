@@ -8,17 +8,29 @@ namespace Flux
     public class Schedualizer
     {
         protected DateTime next;
-        public Double duration;
-        public int minInterval;
-        public int maxInterval;
+        protected Double duration;
+        protected float minInterval;
+        protected float maxInterval;
 
-        public Schedualizer(float duration, int minInterval, int maxInterval) : base()
+        /* Usage
+         * Schedualizer schedual = new Schedualizer(3.0f, 10.0f, 20.0f);
+         * if (schedual.IsOn()) {
+         *     //Do something while firing
+         * }
+         */
+
+        public Schedualizer(float duration, float minInterval, float maxInterval) : base()
         {
             this.duration = (Double)duration;
             this.minInterval = minInterval;
             this.maxInterval = maxInterval;
-            next = DateTime.Now;
+            Start();
             AddTime();
+        }
+
+        public void Start()
+        {
+            next = DateTime.Now;
         }
 
         public bool IsOn()
@@ -42,7 +54,7 @@ namespace Flux
 
         protected void AddTime()
         {
-            next = next.AddSeconds(Randomizer.RandomInt(minInterval, maxInterval));
+            next = next.AddSeconds(Randomizer.RandomFloat(minInterval, maxInterval));
         }
 
     }

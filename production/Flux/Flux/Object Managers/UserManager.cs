@@ -36,6 +36,18 @@ namespace Flux
                 if (id > 0) users.Add(new User((string)o["username"], id));
             });
 
+            EventManager.On("user:getpoints", (o) =>
+            {
+                User user = UserByID((int)o["id"]);
+                if (user != null) user.GetPoints((int)o["value"]);
+            });
+
+            EventManager.On("user:getbadge", (o) =>
+            {
+                User user = UserByID((int)o["id"]);
+                if (user != null) user.GetBadge((string)o["type"]);
+            });
+
             EventManager.On("user:touch", (o) =>
             {
                 User user = UserByID((int)o["id"]);

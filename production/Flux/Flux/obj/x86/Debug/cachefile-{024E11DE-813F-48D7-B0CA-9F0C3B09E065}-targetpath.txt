@@ -1,9 +1,10 @@
 Content\models\chicken.xnb
-Content\models\enemy_bulger.xnb
 Content\models\collector.xnb
-Content\fonts\font.xnb
+Content\fonts\user_name.xnb
+Content\models\enemy_bulger.xnb
 Content\models\enemy_shooter.xnb
 Content\models\enemy_crazy.xnb
-Content\sprites\cursor_arrow.xnb
-Content\sprites\cursor_circle.xnb
-Content\sprites\cursor_box.xnb
+Content\sprites\user_pointer.xnb
+Content\sprites\user_box1.xnb
+Content\fonts\user_points.xnb
+Content\sprites\user_badge_wet.xnb

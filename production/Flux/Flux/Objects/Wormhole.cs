@@ -16,7 +16,7 @@ namespace Flux
 
         public Wormhole(bool suck) : base()
         {
-            model = ContentManager.wormhole;
+            model = ContentManager.Model("chicken");
             position = new Vector2(500, 300);
             expiry = created.AddSeconds(Randomizer.RandomInt(20, 30));
             inward = suck;

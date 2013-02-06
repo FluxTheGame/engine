@@ -18,9 +18,9 @@ namespace Flux
 
         public EnemyBulger() : base()
         {
-            bulgeSchedule = new Schedualizer(0.5f, 5, 10);
-            accelerationSchedule = new Schedualizer(0.0f, 1, 3);
-            model = ContentManager.enemyBulger;
+            bulgeSchedule = new Schedualizer(0.5f, 5f, 10f);
+            accelerationSchedule = new Schedualizer(0.0f, 1f, 3f);
+            model = ContentManager.Model("enemy_bulger");
             scale = 0.025f;
             drag = 3.0f;
         }

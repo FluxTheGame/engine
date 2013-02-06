@@ -12,10 +12,10 @@ namespace Flux
 
         public EnemyCrazy() : base()
         {
-            model = ContentManager.enemyCrazy;
+            model = ContentManager.Model("enemy_crazy");
             scale = 0.05f;
             velocity = Randomizer.RandomVelocity(2.0f);
-            accelerationSchedule = new Schedualizer(0.0f, 0, 2);
+            accelerationSchedule = new Schedualizer(0.0f, 0f, 2f);
         }
 
         public override void Update()

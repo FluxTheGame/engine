@@ -19,9 +19,9 @@ namespace Flux
 
         public EnemyShooter() : base()
         {
-            shootSchedule = new Schedualizer(1.0f, 5, 10);
-            accelerationSchedule = new Schedualizer(0.0f, 3, 6);
-            model = ContentManager.enemyShooter;
+            shootSchedule = new Schedualizer(1.0f, 5f, 10f);
+            accelerationSchedule = new Schedualizer(0.0f, 3f, 6f);
+            model = ContentManager.Model("enemy_shooter");
             scale = 0.07f;
             drag = 6.0f;
         }
