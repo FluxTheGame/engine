@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Flux
 {
-    public class Matherize
+    public class Matherizer
     {
         public static float ToRadians(float degrees)
         {

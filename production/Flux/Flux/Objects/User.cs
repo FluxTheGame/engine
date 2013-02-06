@@ -43,7 +43,7 @@ namespace Flux
         {
             Vector2 offset = new Vector2(sprite.Bounds.Width * 0.5f, sprite.Bounds.Height * 0.5f);
             ScreenManager.spriteBatch.Begin();
-            ScreenManager.spriteBatch.Draw(sprite, position, null, Color.White, CollectorAngle() + Matherize.ToRadians(135f), offset, 1.0f, SpriteEffects.None, 0f);
+            ScreenManager.spriteBatch.Draw(sprite, position, null, Color.White, CollectorAngle() + Matherizer.ToRadians(135f), offset, 1.0f, SpriteEffects.None, 0f);
             DrawUsername();
             ScreenManager.spriteBatch.End();
         }
