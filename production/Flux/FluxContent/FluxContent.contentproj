@@ -42,10 +42,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="fonts\font.spritefont">
-      <Name>font</Name>
+    <Compile Include="fonts\user_name.spritefont">
+      <Name>user_name</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -84,22 +85,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\cursor_arrow.png">
-      <Name>cursor_arrow</Name>
+    <Compile Include="sprites\user_pointer.png">
+      <Name>user_pointer</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\cursor_circle.png">
-      <Name>cursor_circle</Name>
+    <Compile Include="sprites\user_box1.png">
+      <Name>user_box1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\cursor_box.png">
-      <Name>cursor_box</Name>
+    <Compile Include="fonts\user_points.spritefont">
+      <SubType>Designer</SubType>
+      <Name>user_points</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sprites\user_badge_wet.png">
+      <Name>user_badge_wet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

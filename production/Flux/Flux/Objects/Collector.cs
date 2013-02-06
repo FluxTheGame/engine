@@ -24,7 +24,7 @@ namespace Flux
         public Collector(int idNumber): base()
         {
             id = idNumber;
-            model = ContentManager.collector;
+            model = ContentManager.Model("collector");
             position = new Vector2(100*id, 100*id);
             normalCapacity = capacity;
         }

@@ -126,12 +126,10 @@ namespace Flux
                 EventManager.Emit("user:pinch", o);
             }
 
-            //Collector attack
             if (keyState.IsKeyDown(Keys.Space))
             {
-                OrderedDictionary c = new OrderedDictionary();
-                c.Add("id", 1);
-                EventManager.Emit("collector:attack", c);
+                o.Add("type", "wet");
+                EventManager.Emit("user:getbadge", o);
             }
 
             if (mouseState.LeftButton == ButtonState.Pressed)

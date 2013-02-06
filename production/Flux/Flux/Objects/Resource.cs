@@ -17,7 +17,7 @@ namespace Flux
     {
         public Resource() : base()
         {
-            model = ContentManager.resource;
+            model = ContentManager.Model("chicken");
             scale = 0.005f;
 
             int x = Randomizer.RandomInt(0, (int)ScreenManager.window.X);
