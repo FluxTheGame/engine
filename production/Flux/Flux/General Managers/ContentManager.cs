@@ -36,5 +36,10 @@ namespace Flux
         {
             return g.Content.Load<SpriteFont>(@"fonts/" + name);
         }
+
+        public static Effect Shader(string name)
+        {
+            return g.Content.Load<Effect>(@"shaders/" + name);
+        }
     }
 }

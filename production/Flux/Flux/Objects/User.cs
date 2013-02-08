@@ -24,6 +24,9 @@ namespace Flux
         private Texture2D pointerSprite;
         private Texture2D boxSprite;
         private Texture2D badgeSprite;
+        private Texture2D pointsSprite;
+
+        private Effect recolour;
 
         private SpriteFont usernameFont;
         private SpriteFont userpointsFont;
@@ -41,7 +44,7 @@ namespace Flux
             delta = Vector2.Zero;
             username = user;
             id = idNumber;
-            scale = 0.5f;
+            scale = 1.0f;
 
             spriteBatch = ScreenManager.spriteBatch;
             collector = CollectorManager.First(); //For testing cursor pointing
@@ -53,6 +56,11 @@ namespace Flux
             userpointsFont = ContentManager.Font("user_points");
             boxSprite = ContentManager.Sprite("user_box1");
             pointerSprite = ContentManager.Sprite("user_pointer");
+            pointsSprite = ContentManager.Sprite("user_circle");
+            recolour = ContentManager.Shader("user_points_colour");
+
+            recolour.CurrentTechnique = recolour.Techniques["Plain"];
+            recolour.Parameters["TextureSize"].SetValue(new Vector2(pointsSprite.Width, pointsSprite.Height));
 
             SetupOffsets();
         }
@@ -86,13 +94,12 @@ namespace Flux
         public override void Draw()
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(pointerSprite, position, null, Color.White, CollectorAngle() + Matherizer.ToRadians(135f), pointerOffset, scale, SpriteEffects.None, 0f);
-
-            DrawUsername();
-            DrawNotifications();
-            DrawPointsRing();
-
+                spriteBatch.Draw(pointerSprite, position, null, Color.White, CollectorAngle() + Matherizer.ToRadians(135f), pointerOffset, scale, SpriteEffects.None, 0f);
+                DrawUsername();
+                DrawNotifications();
             spriteBatch.End();
+
+            DrawPointsRing();
         }
 
         protected void DrawUsername()
@@ -112,7 +119,9 @@ namespace Flux
 
         protected void DrawPointsRing()
         {
-            
+            spriteBatch.Begin(0, BlendState.AlphaBlend, null, null, RasterizerState.CullNone, recolour);
+                spriteBatch.Draw(pointsSprite, position, Color.White);
+            spriteBatch.End();
         }
 
         protected void SetupOffsets()
