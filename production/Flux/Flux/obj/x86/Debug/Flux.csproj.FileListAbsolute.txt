@@ -48,4 +48,4 @@ Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Co
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\fonts\user_points.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_badge_wet.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_circle.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\shaders\user_points_colour.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\test_spritesheet.xnb

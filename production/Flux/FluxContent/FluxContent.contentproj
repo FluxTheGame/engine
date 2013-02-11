@@ -114,15 +114,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="shaders\user_points_colour.fx">
-      <Name>user_points_colour</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
+    <Compile Include="sprites\user_circle.png">
+      <Name>user_circle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\user_circle.png">
-      <Name>user_circle</Name>
+    <Folder Include="shaders\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sprites\test_spritesheet.png">
+      <Name>test_spritesheet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
