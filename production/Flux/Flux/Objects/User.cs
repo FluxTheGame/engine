@@ -35,13 +35,15 @@ namespace Flux
         private Vector2 badgeOffset;
         private Vector2 pointsOffset;
 
+        private AnimSprite testAnim;
+
 
         public User(string user, int idNumber) : base ()
         {
             delta = Vector2.Zero;
             username = user;
             id = idNumber;
-            scale = 0.5f;
+            scale = 1.0f;
 
             spriteBatch = ScreenManager.spriteBatch;
             collector = CollectorManager.First(); //For testing cursor pointing
@@ -53,6 +55,15 @@ namespace Flux
             userpointsFont = ContentManager.Font("user_points");
             boxSprite = ContentManager.Sprite("user_box1");
             pointerSprite = ContentManager.Sprite("user_pointer");
+
+
+            //Animation testing
+            Animation[] animations = {
+                new Animation(0, 10, 1),
+                new Animation(1, 10)
+            };
+            testAnim = new AnimSprite("test_spritesheet", new Point(45, 36), animations);
+
 
             SetupOffsets();
         }
@@ -66,6 +77,7 @@ namespace Flux
         public override void Update()
         {
             position = Vector2.Add(position, delta);
+            testAnim.Update(position);
             base.Update();
         }
 
@@ -86,12 +98,10 @@ namespace Flux
         public override void Draw()
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(pointerSprite, position, null, Color.White, CollectorAngle() + Matherizer.ToRadians(135f), pointerOffset, scale, SpriteEffects.None, 0f);
-
-            DrawUsername();
-            DrawNotifications();
-            DrawPointsRing();
-
+                spriteBatch.Draw(pointerSprite, position, null, Color.White, CollectorAngle() + Matherizer.ToRadians(135f), pointerOffset, scale, SpriteEffects.None, 0f);
+                DrawUsername();
+                DrawNotifications();
+                DrawPointsRing();
             spriteBatch.End();
         }
 
@@ -112,7 +122,7 @@ namespace Flux
 
         protected void DrawPointsRing()
         {
-            
+            testAnim.Draw();
         }
 
         protected void SetupOffsets()

@@ -112,6 +112,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="General Managers\ScreenManager.cs" />
+    <Compile Include="Graphics\Animation.cs" />
+    <Compile Include="Graphics\AnimSprite.cs" />
     <Compile Include="Graphics\Camera.cs" />
     <Compile Include="Helpers\Durationizer.cs" />
     <Compile Include="Helpers\Matherizer.cs" />
