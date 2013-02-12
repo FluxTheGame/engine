@@ -1,0 +1,9 @@
+C:\Users\Jahfer\Documents\Visual Studio 2010\Projects\Lighting\Lighting\Lighting\bin\x86\Debug\Lighting.exe
+C:\Users\Jahfer\Documents\Visual Studio 2010\Projects\Lighting\Lighting\Lighting\bin\x86\Debug\Lighting.pdb
+C:\Users\Jahfer\Documents\Visual Studio 2010\Projects\Lighting\Lighting\Lighting\obj\x86\Debug\Lighting.csprojResolveAssemblyReference.cache
+C:\Users\Jahfer\Documents\Visual Studio 2010\Projects\Lighting\Lighting\Lighting\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Jahfer\Documents\Visual Studio 2010\Projects\Lighting\Lighting\Lighting\obj\x86\Debug\Lighting.exe
+C:\Users\Jahfer\Documents\Visual Studio 2010\Projects\Lighting\Lighting\Lighting\obj\x86\Debug\Lighting.pdb
+C:\Users\Jahfer\Documents\Visual Studio 2010\Projects\Lighting\Lighting\Lighting\bin\x86\Debug\Content\Mountain.xnb
+C:\Users\Jahfer\Documents\Visual Studio 2010\Projects\Lighting\Lighting\Lighting\bin\x86\Debug\Content\lighting.xnb
+C:\Users\Jahfer\Documents\Visual Studio 2010\Projects\Lighting\Lighting\Lighting\bin\x86\Debug\Content\shadows.xnb
