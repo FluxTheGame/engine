@@ -22,14 +22,14 @@ namespace Flux
             accelerationSchedule = new Schedualizer(0.0f, 1f, 3f);
             model = ContentManager.Model("enemy_bulger");
             scale = 0.025f;
-            drag = 3.0f;
+            drag = 10.0f;
         }
 
         public override void Update()
         {
 
             if (bulgeSchedule.IsOn()) {
-                GridManager.Bloat(position, 100.0f, 0.4f);
+                GridManager.Bloat(position, 100.0f, 0.1f);
             }
 
             if (accelerationSchedule.IsOn())

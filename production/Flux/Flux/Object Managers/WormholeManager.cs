@@ -16,7 +16,7 @@ namespace Flux
     {
 
         public static WormholeManager instance;
-        protected List<Wormhole> wormholes;
+        protected List<WormholePair> wormholePairs;
 
 
         public WormholeManager(Game game) : base(game)
@@ -24,40 +24,45 @@ namespace Flux
             WormholeManager.instance = this;
         }
 
-
         public override void Initialize()
         {
-            wormholes = new List<Wormhole>();
+            wormholePairs = new List<WormholePair>();
             base.Initialize();
         }
-
 
         public static void Add(Vector2 position, bool inward)
         {
             bool make = true;
-            foreach (Wormhole w in instance.wormholes)
+            foreach (WormholePair w in instance.wormholePairs)
             {
-                if (Vector2.Distance(w.position, position) < 150) make = false;
+                make = w.Make(position);
+                if (!make) break;
             }
 
             if (make) {
-                Wormhole wormhole = new Wormhole(inward);
-                wormhole.position = position;
-                instance.wormholes.Add(wormhole);
+                WormholePair wormholePair = new WormholePair(inward, position);
+                instance.wormholePairs.Add(wormholePair);
             }
         }
 
-        public static void Remove(Wormhole wormhole)
+        public static void Suck(GameObject passenger)
         {
-            instance.wormholes.Remove(wormhole);
+            foreach (WormholePair w in instance.wormholePairs)
+            {
+                w.Suck(passenger);
+            }
+        }
+
+        public static void Remove(WormholePair wormholePair)
+        {
+            instance.wormholePairs.Remove(wormholePair);
         }
 
         public override void Update(GameTime gameTime)
         {
             //Pushes list of GameObjects to parent for general processing (Update, Draw)
-            objects = wormholes.Cast<GameObject>().ToList();
+            objects = wormholePairs.Cast<GameObject>().ToList();
             base.Update(gameTime);
         }
-
     }
 }

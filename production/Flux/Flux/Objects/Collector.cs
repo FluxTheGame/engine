@@ -95,6 +95,5 @@ namespace Flux
         {
             ResourceManager.Gather(this);
         }
-
     }
 }

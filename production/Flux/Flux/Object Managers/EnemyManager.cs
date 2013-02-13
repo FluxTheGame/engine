@@ -32,8 +32,8 @@ namespace Flux
 
             for (int i = 0; i < 5; i++)
             {
-                //enemies.Add(new EnemyBulger());
-                //enemies.Add(new EnemyShooter());
+                enemies.Add(new EnemyBulger());
+                enemies.Add(new EnemyShooter());
                 enemies.Add(new EnemyCrazy());
             }
 

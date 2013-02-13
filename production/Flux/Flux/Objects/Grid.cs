@@ -11,7 +11,7 @@ namespace Flux
     {
 
         //Wormhole creation threshold
-        float wormholeThreshold = 5.0f;
+        float wormholeThreshold = 2.2f;
 
         //Regular grid
         List<Vector2> field = new List<Vector2>();
@@ -27,8 +27,9 @@ namespace Flux
         int lowResScale = 5;
         int lowResResolution = 1000;
         float lowResThickness = 0.025f;
+        float lowResMaxForce = 20f;
 
-        float drawDampening = 0.8f;
+        float drawDampening = 2f;
 
         public int display;
 
@@ -263,6 +264,12 @@ namespace Flux
 
                     Vector2 pos = ConvertLowResFieldToScreenPos(i, j);
                     sum = Vector2.Multiply(sum, drawDampening);
+
+                    if (sum.X > lowResMaxForce) sum.X = lowResMaxForce;
+                    if (sum.X < -lowResMaxForce) sum.X = -lowResMaxForce;
+                    if (sum.Y > lowResMaxForce) sum.Y = lowResMaxForce;
+                    if (sum.Y < -lowResMaxForce) sum.Y = -lowResMaxForce;
+
                     positions.Add(Vector2.Add(pos, sum));
                 }
             }

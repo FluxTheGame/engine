@@ -13,9 +13,6 @@ namespace Flux
     {
 
         protected int health = 20;
-        protected Vector2 velocity;
-        protected Vector2 acceleration;
-        protected float dampening = 0.998f;
         protected int wrapBuffer = 50;
 
 
@@ -24,6 +21,7 @@ namespace Flux
             wrapY = true;
             velocity = Randomizer.RandomVelocity();
             position = new Vector2(Randomizer.RandomInt(100, 700), Randomizer.RandomInt(100, 700));
+            dampening = 0.985f;
         }
 
         public void BeAttacked(int damage)
@@ -46,12 +44,7 @@ namespace Flux
 
         public override void Update()
         {
-            velocity = Vector2.Add(velocity, acceleration);
-            velocity = Vector2.Multiply(velocity, dampening);
-            position = Vector2.Add(position, velocity);
-
             WrapY();
-
             base.Update();
         }
 

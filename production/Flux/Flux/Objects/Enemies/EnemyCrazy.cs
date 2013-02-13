@@ -16,6 +16,7 @@ namespace Flux
             scale = 0.05f;
             velocity = Randomizer.RandomVelocity(2.0f);
             accelerationSchedule = new Schedualizer(0.0f, 0f, 2f);
+            drag = 6f;
         }
 
         public override void Update()

@@ -23,7 +23,7 @@ namespace Flux
             accelerationSchedule = new Schedualizer(0.0f, 3f, 6f);
             model = ContentManager.Model("enemy_shooter");
             scale = 0.07f;
-            drag = 6.0f;
+            drag = 16.0f;
         }
 
         public override void Update()
@@ -31,7 +31,7 @@ namespace Flux
 
             if (shootSchedule.IsOn()) {
                 float phase = shootSchedule.Phase();
-                GridManager.Bloat(position + Vector2.Normalize(velocity) * (shootDistance * phase), 80.0f*phase, 0.3f);
+                GridManager.Bloat(position + Vector2.Normalize(velocity) * (shootDistance * phase), 80.0f*phase, 0.07f);
             }
 
             if (accelerationSchedule.IsOn())

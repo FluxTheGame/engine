@@ -136,7 +136,8 @@
     <Compile Include="Objects\Collector.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Objects\Wormhole.cs" />
+    <Compile Include="Objects\Wormhole\Wormhole.cs" />
+    <Compile Include="Objects\Wormhole\WormholePair.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
