@@ -54,6 +54,12 @@ namespace Flux
             spriteBatch.Draw(sprite, position, new Rectangle((int)frameSize.X * animation[sequence].frame, (int)frameSize.Y * sequence, frameSize.X, frameSize.Y), Color.White);
         }
 
+        public void SetFrame(int frame)
+        {
+            animation[sequence].frame = frame;
+            playing = false;
+        }
+
         public void Rewind()
         {
             animation[sequence].frame = 0;

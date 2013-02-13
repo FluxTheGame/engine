@@ -12,11 +12,14 @@ namespace Flux
     {
 
         public float scale;
-        public Vector2 position;
         public int display;
-
         public Model model;
         public BoundingSphere sphere;
+
+        public Vector2 position;
+        public Vector2 velocity;
+        public Vector2 acceleration;
+        public float dampening = 1f;
 
         protected DateTime created;
         protected bool wrapY = false;
@@ -34,6 +37,10 @@ namespace Flux
         {
             CalculateBoundingSphere();
             Constrain();
+
+            velocity = Vector2.Add(velocity, acceleration);
+            velocity = Vector2.Multiply(velocity, dampening);
+            position = Vector2.Add(position, velocity);
         }
 
         public virtual Vector3 Location()

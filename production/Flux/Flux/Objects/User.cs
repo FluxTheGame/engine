@@ -44,6 +44,7 @@ namespace Flux
             username = user;
             id = idNumber;
             scale = 1.0f;
+            dampening = 0.8f;
 
             spriteBatch = ScreenManager.spriteBatch;
             collector = CollectorManager.First(); //For testing cursor pointing
@@ -56,14 +57,14 @@ namespace Flux
             boxSprite = ContentManager.Sprite("user_box1");
             pointerSprite = ContentManager.Sprite("user_pointer");
 
-
             //Animation testing
             Animation[] animations = {
                 new Animation(0, 10, 1),
                 new Animation(1, 10)
             };
             testAnim = new AnimSprite("test_spritesheet", new Point(45, 36), animations);
-
+            testAnim.Play(1);
+            testAnim.SetFrame(6);
 
             SetupOffsets();
         }
@@ -76,9 +77,9 @@ namespace Flux
 
         public override void Update()
         {
-            position = Vector2.Add(position, delta);
-            testAnim.Update(position);
+            velocity = Vector2.Add(velocity, Vector2.Multiply(delta, 0.3f));
             base.Update();
+            testAnim.Update(position);
         }
 
         public void GetPoints(int value) 
