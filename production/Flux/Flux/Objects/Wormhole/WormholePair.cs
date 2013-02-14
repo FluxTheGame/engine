@@ -20,7 +20,7 @@ namespace Flux
             one.position = onePosition;
 
             two = new Wormhole(!oneInward);
-            two.position = new Vector2(onePosition.X + 300, onePosition.Y);
+            two.position = ScreenManager.Opposite(onePosition);
 
             expiry = created.AddSeconds(Randomizer.RandomInt(20, 30));
         }

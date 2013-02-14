@@ -52,5 +52,12 @@ namespace Flux
             return new Vector2(window.X * 0.5f, window.Y * 0.5f);
         }
 
+        public static Vector2 Opposite(Vector2 position)
+        {
+            Vector2 opposite = new Vector2(position.X + window.X*2, position.Y);
+            if (opposite.X > world.X) opposite.X -= world.X;
+            return opposite;
+        }
+
     }
 }

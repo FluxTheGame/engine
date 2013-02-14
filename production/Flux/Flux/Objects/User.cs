@@ -45,6 +45,7 @@ namespace Flux
             id = idNumber;
             scale = 1.0f;
             dampening = 0.8f;
+            maxSpeed = 20f;
 
             spriteBatch = ScreenManager.spriteBatch;
             collector = CollectorManager.First(); //For testing cursor pointing

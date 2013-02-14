@@ -264,11 +264,7 @@ namespace Flux
 
                     Vector2 pos = ConvertLowResFieldToScreenPos(i, j);
                     sum = Vector2.Multiply(sum, drawDampening);
-
-                    if (sum.X > lowResMaxForce) sum.X = lowResMaxForce;
-                    if (sum.X < -lowResMaxForce) sum.X = -lowResMaxForce;
-                    if (sum.Y > lowResMaxForce) sum.Y = lowResMaxForce;
-                    if (sum.Y < -lowResMaxForce) sum.Y = -lowResMaxForce;
+                    sum = Vectorizer.Limit(sum, lowResMaxForce);
 
                     positions.Add(Vector2.Add(pos, sum));
                 }

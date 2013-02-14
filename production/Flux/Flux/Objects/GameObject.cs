@@ -19,6 +19,7 @@ namespace Flux
         public Vector2 position;
         public Vector2 velocity;
         public Vector2 acceleration;
+        public float maxSpeed = 15f;
         public float dampening = 1f;
 
         protected DateTime created;
@@ -40,6 +41,7 @@ namespace Flux
 
             velocity = Vector2.Add(velocity, acceleration);
             velocity = Vector2.Multiply(velocity, dampening);
+            velocity = Vectorizer.Limit(velocity, maxSpeed);
             position = Vector2.Add(position, velocity);
         }
 
