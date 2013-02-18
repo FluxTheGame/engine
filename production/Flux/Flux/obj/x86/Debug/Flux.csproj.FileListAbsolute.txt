@@ -1,19 +1,10 @@
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\box.xnb
-C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\mouse.xnb
-C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\font.xnb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.exe.config
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.exe
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.pdb
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.exe
 C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.pdb
-C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\wormhole.xnb
-C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\enemy.xnb
-C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\resource.xnb
-C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_sm.xnb
-C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_m.xnb
-C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\collector_lg.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.exe.config
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.exe
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Flux.pdb
@@ -49,3 +40,15 @@ Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Co
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_badge_wet.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_circle.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\test_spritesheet.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\fonts\user_name.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\fonts\user_points.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\chicken.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\enemy_bulger.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\collector.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\enemy_shooter.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\enemy_crazy.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_pointer.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_box1.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_badge_wet.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_circle.xnb
+C:\Users\Matt\Desktop\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\test_spritesheet.xnb

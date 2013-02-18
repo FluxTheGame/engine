@@ -21,9 +21,10 @@ namespace Flux
         private Durationizer gotPointsDuration;
         private Durationizer gotBadgeDuration;
 
-        private Texture2D pointerSprite;
         private Texture2D boxSprite;
         private Texture2D badgeSprite;
+
+        private AnimSprite pointerAnim;
 
         private SpriteFont usernameFont;
         private SpriteFont userpointsFont;
@@ -31,11 +32,8 @@ namespace Flux
         private Vector2 usernameOffset;
         private Vector2 usernameFontOffset;
         private Vector2 boxOffset;
-        private Vector2 pointerOffset;
         private Vector2 badgeOffset;
         private Vector2 pointsOffset;
-
-        private AnimSprite testAnim;
 
 
         public User(string user, int idNumber) : base ()
@@ -56,16 +54,13 @@ namespace Flux
             usernameFont = ContentManager.Font("user_name");
             userpointsFont = ContentManager.Font("user_points");
             boxSprite = ContentManager.Sprite("user_box1");
-            pointerSprite = ContentManager.Sprite("user_pointer");
 
-            //Animation testing
+            //Animations
             Animation[] animations = {
                 new Animation(0, 10, 1),
                 new Animation(1, 10)
             };
-            testAnim = new AnimSprite("test_spritesheet", new Point(45, 36), animations);
-            testAnim.Play(1);
-            testAnim.SetFrame(6);
+            pointerAnim = new AnimSprite("test_spritesheet", new Point(45, 36), animations);
 
             SetupOffsets();
         }
@@ -80,7 +75,7 @@ namespace Flux
         {
             velocity = Vector2.Add(velocity, Vector2.Multiply(delta, 0.3f));
             base.Update();
-            testAnim.Update(position);
+            pointerAnim.Update(position, CollectorAngle());
         }
 
         public void GetPoints(int value) 
@@ -100,7 +95,7 @@ namespace Flux
         public override void Draw()
         {
             spriteBatch.Begin();
-                spriteBatch.Draw(pointerSprite, position, null, Color.White, CollectorAngle() + Matherizer.ToRadians(135f), pointerOffset, scale, SpriteEffects.None, 0f);
+                //spriteBatch.Draw(pointerSprite, position, null, Color.White, CollectorAngle() + Matherizer.ToRadians(135f), pointerOffset, scale, SpriteEffects.None, 0f);
                 DrawUsername();
                 DrawNotifications();
                 DrawPointsRing();
@@ -124,7 +119,7 @@ namespace Flux
 
         protected void DrawPointsRing()
         {
-            testAnim.Draw();
+            pointerAnim.Draw();
         }
 
         protected void SetupOffsets()
@@ -135,7 +130,6 @@ namespace Flux
 
             boxOffset = new Vector2(boxSprite.Width, boxSprite.Height) * 0.5f;
             usernameFontOffset = usernameFont.MeasureString(username) * 0.5f;
-            pointerOffset = new Vector2(pointerSprite.Bounds.Width, pointerSprite.Bounds.Height) * 0.5f;
         }
 
         protected float CollectorAngle() 
