@@ -27,6 +27,8 @@ namespace Flux
 
         Server server;
 
+        KeyboardState oldState; //For detecting key presses
+
 
         public Game1()
         {
@@ -65,9 +67,9 @@ namespace Flux
             userManager = new UserManager(this);
             Components.Add(userManager);
 
-            //3D Line - temporary - consider refactoring somewhere else
             VLine.Effect = new BasicEffect(GraphicsDevice);
 
+            oldState = Keyboard.GetState();
 
             base.Initialize();
         }
@@ -118,13 +120,29 @@ namespace Flux
 
             if (keyState.IsKeyDown(Keys.Up))
             {
-                EventManager.Emit("user:bloat", o);
+                if (!oldState.IsKeyDown(Keys.Up))
+                {
+                    EventManager.Emit("user:bloat", o);
+                }
+            }
+            else if (oldState.IsKeyDown(Keys.Up))
+            {
+                EventManager.Emit("user:bloatEnd", o);
             }
 
             if (keyState.IsKeyDown(Keys.Down))
             {
-                EventManager.Emit("user:pinch", o);
+                if (!oldState.IsKeyDown(Keys.Down)) 
+                {
+                    EventManager.Emit("user:pinch", o);
+                }
             }
+            else if (oldState.IsKeyDown(Keys.Down))
+            {
+                EventManager.Emit("user:pinchEnd", o);
+            }
+
+            oldState = keyState;
 
             if (keyState.IsKeyDown(Keys.Space))
             {

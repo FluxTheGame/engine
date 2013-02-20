@@ -25,6 +25,7 @@ namespace Flux
         private Texture2D badgeSprite;
 
         private AnimSprite pointerAnim;
+        private AnimSprite stateAnim;
 
         private SpriteFont usernameFont;
         private SpriteFont userpointsFont;
@@ -35,6 +36,13 @@ namespace Flux
         private Vector2 badgeOffset;
         private Vector2 pointsOffset;
 
+        enum Pointers { Enter, Alert, Exit };
+        enum States { BloatStart, Bloat, BloatEnd, PinchStart, Pinch, PinchEnd };
+        enum Actions { Idling, Bloating, Pinching }
+
+        private int action;
+        private int lastAction;
+
 
         public User(string user, int idNumber) : base ()
         {
@@ -44,6 +52,8 @@ namespace Flux
             scale = 1.0f;
             dampening = 0.8f;
             maxSpeed = 20f;
+            action = (int)Actions.Idling;
+            lastAction = action;
 
             spriteBatch = ScreenManager.spriteBatch;
             collector = CollectorManager.First(); //For testing cursor pointing
@@ -55,14 +65,26 @@ namespace Flux
             userpointsFont = ContentManager.Font("user_points");
             boxSprite = ContentManager.Sprite("user_box1");
 
-            //Animations
-            Animation[] animations = {
-                new Animation(0, 10, 1),
-                new Animation(1, 10)
-            };
-            pointerAnim = new AnimSprite("test_spritesheet", new Point(45, 36), animations);
-
             SetupOffsets();
+
+
+            //Animations
+            Animation[] pointerAnimations = {
+                new Animation((int)Pointers.Enter, 45, (int)Pointers.Alert),
+                new Animation((int)Pointers.Alert, 12),
+                new Animation((int)Pointers.Exit, 14),
+            };
+            pointerAnim = new AnimSprite("user_pointer", new Point(87, 87), pointerAnimations);
+
+            Animation[] stateAnimations = {
+                new Animation((int)States.BloatStart, 5, (int)States.Bloat),
+                new Animation((int)States.Bloat, 9),
+                new Animation((int)States.BloatEnd, 5),
+                new Animation((int)States.PinchStart, 5, (int)States.Pinch),
+                new Animation((int)States.Pinch, 10),
+                new Animation((int)States.PinchEnd, 5),
+            };
+            stateAnim = new AnimSprite("user_bloat_pinch", new Point(75, 75), stateAnimations);
         }
 
         public void SetDelta(int x, int y)
@@ -74,8 +96,11 @@ namespace Flux
         public override void Update()
         {
             velocity = Vector2.Add(velocity, Vector2.Multiply(delta, 0.3f));
+            ApplyAction();
             base.Update();
-            pointerAnim.Update(position, CollectorAngle());
+
+            pointerAnim.Update(position, CollectorAngle() + Matherizer.ToRadians(135f));
+            stateAnim.Update(position);
         }
 
         public void GetPoints(int value) 
@@ -92,10 +117,26 @@ namespace Flux
             GetPoints(674); //TEMPORARY
         }
 
+        public void BloatStart()
+        {
+            action = (int)Actions.Bloating;
+        }
+
+        public void PinchStart()
+        {
+            action = (int)Actions.Pinching;
+        }
+
+        public void ActionEnd()
+        {
+            action = (int)Actions.Idling;
+        }
+
         public override void Draw()
         {
             spriteBatch.Begin();
-                //spriteBatch.Draw(pointerSprite, position, null, Color.White, CollectorAngle() + Matherizer.ToRadians(135f), pointerOffset, scale, SpriteEffects.None, 0f);
+                pointerAnim.Draw();
+                stateAnim.Draw();
                 DrawUsername();
                 DrawNotifications();
                 DrawPointsRing();
@@ -119,7 +160,17 @@ namespace Flux
 
         protected void DrawPointsRing()
         {
-            pointerAnim.Draw();
+            
+        }
+
+        protected void ApplyAction()
+        {
+            if (action == (int)Actions.Bloating) {
+                GridManager.Bloat(position, 80.0f, 0.025f);
+
+            } else if (action == (int)Actions.Pinching) {
+                GridManager.Pinch(position, 80.0f, 0.025f);
+            }     
         }
 
         protected void SetupOffsets()

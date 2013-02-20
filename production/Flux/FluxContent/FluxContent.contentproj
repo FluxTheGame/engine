@@ -124,8 +124,8 @@
     <Folder Include="shaders\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\test_spritesheet.png">
-      <Name>test_spritesheet</Name>
+    <Compile Include="sprites\user_bloat_pinch.png">
+      <Name>user_bloat_pinch</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
