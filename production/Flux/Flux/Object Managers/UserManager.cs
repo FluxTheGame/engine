@@ -75,13 +75,13 @@ namespace Flux
             EventManager.On("user:bloatEnd", (o) =>
             {
                 User user = UserByID((int)o["id"]);
-                if (user != null) user.ActionEnd();
+                if (user != null) user.BloatEnd();
             });
 
             EventManager.On("user:pinchEnd", (o) =>
             {
                 User user = UserByID((int)o["id"]);
-                if (user != null) user.ActionEnd();
+                if (user != null) user.PinchEnd();
             });
 
             base.Initialize();

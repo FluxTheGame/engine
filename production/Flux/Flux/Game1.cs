@@ -147,7 +147,9 @@ namespace Flux
             if (keyState.IsKeyDown(Keys.Space))
             {
                 o.Add("type", "wet");
+                o.Add("value", 582);
                 EventManager.Emit("user:getbadge", o);
+                EventManager.Emit("user:getpoints", o);
             }
 
             if (mouseState.LeftButton == ButtonState.Pressed)

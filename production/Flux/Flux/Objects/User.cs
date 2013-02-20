@@ -37,11 +37,10 @@ namespace Flux
         private Vector2 pointsOffset;
 
         enum Pointers { Enter, Alert, Exit };
-        enum States { BloatStart, Bloat, BloatEnd, PinchStart, Pinch, PinchEnd };
+        enum States { BloatStart, Bloat, BloatEnd, PinchStart, Pinch, PinchEnd, Idle };
         enum Actions { Idling, Bloating, Pinching }
 
         private int action;
-        private int lastAction;
 
 
         public User(string user, int idNumber) : base ()
@@ -53,7 +52,6 @@ namespace Flux
             dampening = 0.8f;
             maxSpeed = 20f;
             action = (int)Actions.Idling;
-            lastAction = action;
 
             spriteBatch = ScreenManager.spriteBatch;
             collector = CollectorManager.First(); //For testing cursor pointing
@@ -77,14 +75,16 @@ namespace Flux
             pointerAnim = new AnimSprite("user_pointer", new Point(87, 87), pointerAnimations);
 
             Animation[] stateAnimations = {
-                new Animation((int)States.BloatStart, 5, (int)States.Bloat),
+                new Animation((int)States.BloatStart, 6, (int)States.Bloat),
                 new Animation((int)States.Bloat, 9),
-                new Animation((int)States.BloatEnd, 5),
-                new Animation((int)States.PinchStart, 5, (int)States.Pinch),
+                new Animation((int)States.BloatEnd, 6, (int)States.Idle),
+                new Animation((int)States.PinchStart, 6, (int)States.Pinch),
                 new Animation((int)States.Pinch, 10),
-                new Animation((int)States.PinchEnd, 5),
+                new Animation((int)States.PinchEnd, 6, (int)States.Idle),
+                new Animation((int)States.Idle, 1),
             };
             stateAnim = new AnimSprite("user_bloat_pinch", new Point(75, 75), stateAnimations);
+            stateAnim.Play((int)States.Idle);
         }
 
         public void SetDelta(int x, int y)
@@ -114,22 +114,30 @@ namespace Flux
         {
             badgeSprite = ContentManager.Sprite("user_badge_"+type);
             gotBadgeDuration.Fire();
-            GetPoints(674); //TEMPORARY
         }
 
         public void BloatStart()
         {
             action = (int)Actions.Bloating;
+            stateAnim.Play((int)States.BloatStart);
         }
 
         public void PinchStart()
         {
             action = (int)Actions.Pinching;
+            stateAnim.Play((int)States.PinchStart);
         }
 
-        public void ActionEnd()
+        public void BloatEnd()
         {
             action = (int)Actions.Idling;
+            stateAnim.Play((int)States.BloatEnd);
+        }
+
+        public void PinchEnd()
+        {
+            action = (int)Actions.Idling;
+            stateAnim.Play((int)States.PinchEnd);
         }
 
         public override void Draw()

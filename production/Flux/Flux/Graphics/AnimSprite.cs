@@ -82,6 +82,7 @@ namespace Flux
         public void Play(int clip)
         {
             sequence = clip;
+            Rewind();
         }
     }
 }
