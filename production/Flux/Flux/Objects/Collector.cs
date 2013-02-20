@@ -17,16 +17,20 @@ namespace Flux
         protected int capacity = 100;
         protected int resources = 50;
         protected int normalCapacity;
+
         public int attackRadius = 300;
         public int id;
+
+        private List<User> users;
 
 
         public Collector(int idNumber): base()
         {
             id = idNumber;
             model = ContentManager.Model("collector");
-            position = new Vector2(100*id, 100*id);
+            position = new Vector2(200*id, 200*id);
             normalCapacity = capacity;
+            users = new List<User>();
         }
 
         public override void Update()
@@ -75,6 +79,10 @@ namespace Flux
         public void BeAttacked(int damage)
         {
             health -= damage;
+            foreach (User user in users)
+            {
+                user.Alert();
+            }
         }
 
         public void Attack()
@@ -89,6 +97,11 @@ namespace Flux
         {
             resources++;
             scale = ((float)capacity * 0.01f + (float)resources * 0.01f) * 0.1f;
+        }
+
+        public void AddUser(User user)
+        {
+            users.Add(user);
         }
 
         private void CollectResources()

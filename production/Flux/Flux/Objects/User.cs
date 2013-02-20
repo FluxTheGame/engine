@@ -36,7 +36,7 @@ namespace Flux
         private Vector2 badgeOffset;
         private Vector2 pointsOffset;
 
-        enum Pointers { Enter, Alert, Exit };
+        enum Pointers { Enter, Alert, Exit, Idle };
         enum States { BloatStart, Bloat, BloatEnd, PinchStart, Pinch, PinchEnd, Idle };
         enum Actions { Idling, Bloating, Pinching }
 
@@ -55,6 +55,7 @@ namespace Flux
 
             spriteBatch = ScreenManager.spriteBatch;
             collector = CollectorManager.First(); //For testing cursor pointing
+            collector.AddUser(this);
 
             gotPointsDuration = new Durationizer(3.0f);
             gotBadgeDuration = new Durationizer(4.0f);
@@ -65,12 +66,12 @@ namespace Flux
 
             SetupOffsets();
 
-
             //Animations
             Animation[] pointerAnimations = {
-                new Animation((int)Pointers.Enter, 45, (int)Pointers.Alert),
-                new Animation((int)Pointers.Alert, 12),
+                new Animation((int)Pointers.Enter, 45, (int)Pointers.Idle),
+                new Animation((int)Pointers.Alert, 12, (int)Pointers.Idle),
                 new Animation((int)Pointers.Exit, 14),
+                new Animation((int)Pointers.Idle, 1),
             };
             pointerAnim = new AnimSprite("user_pointer", new Point(87, 87), pointerAnimations);
 
@@ -140,6 +141,11 @@ namespace Flux
             stateAnim.Play((int)States.PinchEnd);
         }
 
+        public void Alert()
+        {
+            pointerAnim.Play((int)Pointers.Alert);
+        }
+
         public override void Draw()
         {
             spriteBatch.Begin();
@@ -196,6 +202,5 @@ namespace Flux
             double radians = Math.Atan2((position.Y - collector.position.Y), (position.X - collector.position.X));
             return (float)radians;
         }
-
     }
 }
