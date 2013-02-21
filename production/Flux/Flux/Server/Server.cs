@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Net.Sockets;
 using System.Threading;
@@ -17,18 +18,31 @@ namespace Flux
         private string[] gameEventNames = new string[] {"collector:burst"};
         private TcpClient tcpClient;
 
+        private const int TIMEOUT = 1; // seconds
+
         public Server()
         {
-            /*tcpClient = new TcpClient();
+            tcpClient = new TcpClient();
             try
             {
-                // fetch IP from hostname
-                //IPAddress[] ipList = Dns.GetHostAddresses("jahfer.no-ip.org");
-                // connect TCP client to node.js server
-                //tcpClient.Connect(ipList[0], 8100);
+                IAsyncResult ar = tcpClient.BeginConnect("127.0.0.1", 1337, null, null);
+                System.Threading.WaitHandle wh = ar.AsyncWaitHandle;
+                try
+                {
+                    if (!ar.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(TIMEOUT), false))
+                    {
+                        tcpClient.Close();
+                        throw new TimeoutException();
+                    }
 
-                tcpClient.Connect("172.17.153.60", 8100);
- 
+                    tcpClient.EndConnect(ar);
+                }
+                finally
+                {
+                    wh.Close();
+                }
+
+
                 // spin off listener to new thread
                 Thread clientThread = new Thread(new ParameterizedThreadStart(HandleClientComm));
                 clientThread.Start(tcpClient);
@@ -39,22 +53,23 @@ namespace Flux
             catch
             {
                 Console.WriteLine("Could not connect to TCP server!");
-            }*/
+            }
+
         }
 
         public void SendEventToServer(string eventName, OrderedDictionary o)
         {
-            /*string toSend = eventName;
+            string toSend = "/name=" + eventName;
 
-            foreach (KeyValuePair<string, string> entry in o)
+            //foreach (KeyValuePair<string, string> entry in o)
+            foreach (DictionaryEntry entry in o)
             {
                 toSend += "/" + entry.Key + "=" + entry.Value;
             }
 
             toSend += "$";
-            Console.WriteLine(toSend);
-             * */
-            //Broken currently... Cast error :(
+
+            Send(toSend);
         }
 
         private void SubscribeToGameEvents()

@@ -52,6 +52,7 @@ namespace Flux
         {
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", id);
+            o.Add("points", resources);
             EventManager.Emit("collector:burst", o);
             Die();
         }
