@@ -15,18 +15,29 @@ namespace Flux
 {
     public class Resource : GameObject
     {
+
+        public Vector2 target;
+        private float speed = 0.001f;
+
         public Resource() : base()
         {
             model = ContentManager.Model("chicken");
-            scale = 0.005f;
+            scale = 0.01f;
 
             int x = Randomizer.RandomInt(0, (int)ScreenManager.window.X);
             int y = Randomizer.RandomInt(0, (int)ScreenManager.window.Y);
             position = new Vector2(x, y);
+
+            target = position;
         }
 
         public override void Update()
         {
+
+            float distToTarget = Vector2.Distance(target, position) * this.speed;
+            Vector2 offset = (target - position) * distToTarget;
+
+            position += offset;
 
             base.Update();
         }

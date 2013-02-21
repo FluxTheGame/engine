@@ -41,10 +41,17 @@ namespace Flux
         {
             for (int i = instance.resources.Count - 1; i >= 0; i--)
             {
-                if (Vector2.Distance(instance.resources[i].position, collector.position) < collector.SuckRadius())
+                float dist = Vector2.Distance(instance.resources[i].position, collector.position);
+
+                if (dist < collector.SuckRadius())
                 {
-                    collector.Collect(instance.resources[i]);
-                    instance.resources.RemoveAt(i);
+                    instance.resources[i].target = collector.position;
+
+                    if (dist < 10)
+                    {
+                        collector.Collect(instance.resources[i]);
+                        instance.resources.RemoveAt(i);
+                    }
                 }
             }
         }
@@ -52,6 +59,11 @@ namespace Flux
         
         public override void Update(GameTime gameTime)
         {
+            foreach (Resource r in resources)
+            {
+                r.Update();
+            }
+
             //Pushes list of GameObjects to parent for general processing (Update, Draw)
             objects = resources.Cast<GameObject>().ToList();
             base.Update(gameTime);
