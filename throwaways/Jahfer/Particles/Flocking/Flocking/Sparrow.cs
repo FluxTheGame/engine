@@ -7,28 +7,24 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Flocking
 {
-    class Sparrow : Bird
+    public class Sparrow : Bird
     {
-
-        Vector2 target;
 
         public Sparrow(Vector2 boundary, Flock flock, Texture2D texture)
             : base(boundary, texture)
         {
             this.flock = flock;
             speed = 10f;
-
-            this.target = new Vector2(900, 240);
         }
 
-        public override void Update()
+        public void Update(Vector2 target)
         {
-            Flock();
+            Flock(target);
 
             base.Update();
         }
 
-        private void Flock()
+        private void Flock(Vector2 target)
         {
             foreach (Bird bird in flock.Birds.Where(b => b is Sparrow && b != this))
             {
@@ -52,17 +48,21 @@ namespace Flocking
                 }
             }
 
-            foreach (Bird raven in flock.Birds.Where(b => b is Raven && b != this))
+            /*foreach (Bird raven in flock.Birds.Where(b => b is Raven && b != this))
             {
                 float distanceRaven = Vector2.Distance(position, raven.Position);
                 if (distanceRaven < sight) // Flee
                 {
                     offSet += (position - raven.Position) * 1.5f;
                 }
-            }
+            }*/
 
-            
-            offSet += target - position;
+            if (target != null)
+            {
+                // chase target!
+                float distToTarget = Vector2.Distance(target, position) * 0.1f;
+                offSet += (target - position) * distToTarget;
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch)

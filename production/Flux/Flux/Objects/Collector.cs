@@ -17,7 +17,7 @@ namespace Flux
         protected int capacity = 100;
         protected int resources = 50;
         protected int normalCapacity;
-        public int attackRadius = 300;
+        public int attackRadius = 450;
         public int id;
 
 
