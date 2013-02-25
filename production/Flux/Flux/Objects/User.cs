@@ -14,12 +14,8 @@ namespace Flux
         public int id;
         public int points = 0; //Points the user has total
 
-        private string gotPoints; //Points notification string
         private Vector2 delta; //Amount to move the user
         private SpriteBatch spriteBatch;
-
-        private Durationizer gotPointsDuration;
-        private Durationizer gotBadgeDuration;
 
         private Texture2D boxSprite;
         private Texture2D badgeSprite;
@@ -33,8 +29,11 @@ namespace Flux
         private Vector2 usernameOffset;
         private Vector2 usernameFontOffset;
         private Vector2 boxOffset;
-        private Vector2 badgeOffset;
-        private Vector2 pointsOffset;
+
+        private Notification pointsNotification;
+        private Notification badgeNotification;
+        
+        private string gotPoints;
 
         enum Pointers { Enter, Alert, Exit, Idle };
         enum States { BloatStart, Bloat, BloatEnd, PinchStart, Pinch, PinchEnd, Idle };
@@ -57,8 +56,8 @@ namespace Flux
             collector = CollectorManager.First(); //For testing cursor pointing
             collector.AddUser(this);
 
-            gotPointsDuration = new Durationizer(3.0f);
-            gotBadgeDuration = new Durationizer(4.0f);
+            pointsNotification = new Notification(2f);
+            badgeNotification = new Notification(3f);
 
             usernameFont = ContentManager.Font("user_name");
             userpointsFont = ContentManager.Font("user_points");
@@ -102,19 +101,21 @@ namespace Flux
 
             pointerAnim.Update(position, CollectorAngle() + Matherizer.ToRadians(135f));
             stateAnim.Update(position);
+            pointsNotification.Update(position);
+            badgeNotification.Update(position);
         }
 
         public void GetPoints(int value) 
         {
             points += value;
             gotPoints = "+" + value.ToString();
-            gotPointsDuration.Fire();
+            pointsNotification.Fire();
         }
 
         public void GetBadge(string type)
         {
             badgeSprite = ContentManager.Sprite("user_badge_"+type);
-            gotBadgeDuration.Fire();
+            badgeNotification.Fire();
         }
 
         public void BloatStart()
@@ -165,11 +166,8 @@ namespace Flux
 
         protected void DrawNotifications()
         {
-            if (gotPointsDuration.IsOn())
-                spriteBatch.DrawString(userpointsFont, gotPoints, position + pointsOffset, Color.White);
-
-            if (gotBadgeDuration.IsOn())
-                spriteBatch.Draw(badgeSprite, position + badgeOffset, Color.White);
+            pointsNotification.DrawPoints(gotPoints, userpointsFont);
+            badgeNotification.DrawSprite(badgeSprite);
         }
 
         protected void DrawPointsRing()
@@ -190,8 +188,8 @@ namespace Flux
         protected void SetupOffsets()
         {
             usernameOffset = new Vector2(-90, -50) * scale;
-            badgeOffset = new Vector2(65, -40) * scale;
-            pointsOffset = new Vector2(55, 10) * scale;
+            badgeNotification.offset = new Vector2(47, -38) * scale;
+            pointsNotification.offset = new Vector2(42, 10) * scale;
 
             boxOffset = new Vector2(boxSprite.Width, boxSprite.Height) * 0.5f;
             usernameFontOffset = usernameFont.MeasureString(username) * 0.5f;

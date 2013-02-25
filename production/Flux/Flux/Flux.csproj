@@ -115,6 +115,7 @@
     <Compile Include="Graphics\Animation.cs" />
     <Compile Include="Graphics\AnimSprite.cs" />
     <Compile Include="Graphics\Camera.cs" />
+    <Compile Include="Graphics\Notification.cs" />
     <Compile Include="Helpers\Vectorizer.cs" />
     <Compile Include="Helpers\Durationizer.cs" />
     <Compile Include="Helpers\Matherizer.cs" />
