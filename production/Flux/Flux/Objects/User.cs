@@ -160,8 +160,12 @@ namespace Flux
 
         protected void DrawUsername()
         {
-            spriteBatch.DrawString(usernameFont, username, position + usernameOffset - usernameFontOffset, Color.White);
-            spriteBatch.Draw(boxSprite, position + usernameOffset - boxOffset, Color.White);
+            Vector2 fontLocation = position + usernameOffset - usernameFontOffset;
+            fontLocation.X = (int)fontLocation.X;
+            fontLocation.Y = (int)fontLocation.Y;
+            
+            spriteBatch.DrawString(usernameFont, username, fontLocation, Color.White);
+            //spriteBatch.Draw(boxSprite, position + usernameOffset - boxOffset, Color.White);
         }
 
         protected void DrawNotifications()
@@ -182,12 +186,12 @@ namespace Flux
 
             } else if (action == (int)Actions.Pinching) {
                 GridManager.Pinch(position, 80.0f, 0.025f);
-            }     
+            }
         }
 
         protected void SetupOffsets()
         {
-            usernameOffset = new Vector2(-90, -50) * scale;
+            usernameOffset = new Vector2(-40, -50) * scale;
             badgeNotification.offset = new Vector2(47, -38) * scale;
             pointsNotification.offset = new Vector2(42, 10) * scale;
 

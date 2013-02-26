@@ -36,13 +36,24 @@ namespace Flux
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 800;
             graphics.PreferMultiSampling = true;
+            graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
+
             Content.RootDirectory = "Content";
+        }
+
+        void graphics_PreparingDeviceSettings(object sender, PreparingDeviceSettingsEventArgs e)
+        {
+            PresentationParameters pp = e.GraphicsDeviceInformation.PresentationParameters;
+            pp.MultiSampleCount = 16;
+
+            return;
         }
 
        
         protected override void Initialize()
         {
             ScreenManager.Initialize(this, graphics.GraphicsDevice);
+
             ContentManager.Initialize(this);
             EventManager.Initialize();
             GridManager.Initialize(
@@ -90,7 +101,7 @@ namespace Flux
             //Add User
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 99);
-            o.Add("username", "MATTHEW");
+            o.Add("username", "DILBERT");
             EventManager.Emit("user:join", o);
             /* End for testing */
         }
@@ -107,7 +118,7 @@ namespace Flux
 
             //if (gameTime.IsRunningSlowly) Console.WriteLine("SLOWLY");
             
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
             KeyboardState keyState = Keyboard.GetState();
