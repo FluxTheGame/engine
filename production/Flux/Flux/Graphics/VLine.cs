@@ -98,9 +98,6 @@ namespace Flux
             Camera camera = ScreenManager.Camera(display);
 
             GraphicsDevice graphics = ScreenManager.Graphics(display);
-            RasterizerState rs = new RasterizerState();
-            rs.CullMode = CullMode.None;
-            graphics.RasterizerState = rs;
             graphics.BlendState = BlendState.AlphaBlend;
 
             VLine.Effect.World = Matrix.Identity;

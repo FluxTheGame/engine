@@ -15,7 +15,7 @@ namespace Flux
 
         protected int health = 100;
         protected int capacity = 100;
-        protected int resources = 50;
+        protected int resources = 0;
         protected int normalCapacity;
 
         public int attackRadius = 300;
@@ -64,8 +64,8 @@ namespace Flux
 
         public int SuckRadius()
         {
-            int radius = (int)(capacity*0.5f + resources);
-            if (radius > 100) radius = 100;
+            int radius = (int)(capacity*0.05f + resources);
+            if (radius > 3) radius = 3;
             return radius;
         }
 

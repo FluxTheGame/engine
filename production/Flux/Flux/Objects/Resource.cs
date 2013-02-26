@@ -13,33 +13,71 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Flux
 {
-    public class Resource : GameObject
+    public class Resource
     {
+        public Vector3 location;
+        private Vector3 origLocation;
+        int display = 0;
 
-        public Vector2 target;
-        private float speed = 0.001f;
+        Model model;
+        float scale = 10.0f;
+        public Vector3 target;
+        private float speed = 0.01f;
 
-        public Resource() : base()
+        public Resource()
         {
             model = ContentManager.Model("chicken");
             scale = 0.01f;
 
-            int x = Randomizer.RandomInt(0, (int)ScreenManager.window.X);
-            int y = Randomizer.RandomInt(0, (int)ScreenManager.window.Y);
-            position = new Vector2(x, y);
+            int x = Randomizer.RandomInt(0, 14);
+            int y = Randomizer.RandomInt(0, 14);
+            location = new Vector3(x, y, 0);
 
-            target = position;
+            target = location;
+            origLocation = location;
         }
 
-        public override void Update()
+        public void Update()
         {
+            Vector3 offsetFromTarget = GetIntensity(target, location);
+            location += offsetFromTarget * speed;
 
-            float distToTarget = Vector2.Distance(target, position) * this.speed;
-            Vector2 offset = (target - position) * distToTarget;
+            //Vector3 offsetFromHome = GetIntensity(target, location);
+            //slocation -= offsetFromHome * 0.005f;
+        }
 
-            position += offset;
+        private Vector3 GetIntensity(Vector3 aim, Vector3 loc)
+        {
+            float dist = Vector3.Distance(aim, loc);
 
-            base.Update();
+            float intensity = 0f;
+            if (dist > 0) intensity = 1.0f / (dist * dist); // inverse square
+
+            Vector3 offset = (aim - loc) * intensity;
+
+            return offset;
+        }
+
+        public void Draw()
+        {
+            if (model != null)
+            {
+                Camera camera = ScreenManager.Camera(display);
+                Matrix[] transforms = new Matrix[model.Bones.Count];
+                model.CopyAbsoluteBoneTransformsTo(transforms);
+
+                foreach (ModelMesh mesh in model.Meshes)
+                {
+                    foreach (BasicEffect effect in mesh.Effects)
+                    {
+                        effect.EnableDefaultLighting();
+                        effect.Projection = camera.projection;
+                        effect.View = camera.view;
+                        effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateScale(scale) * Matrix.CreateTranslation(location);
+                    }
+                    mesh.Draw();
+                }
+            }
         }
 
     }
