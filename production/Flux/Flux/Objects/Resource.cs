@@ -29,8 +29,8 @@ namespace Flux
             model = ContentManager.Model("chicken");
             scale = 0.01f;
 
-            int x = Randomizer.RandomInt(0, 14);
-            int y = Randomizer.RandomInt(0, 14);
+            int x = Randomizer.RandomInt(-6, 50);
+            int y = Randomizer.RandomInt(-4, 5);
             location = new Vector3(x, y, 0);
 
             target = location;
@@ -41,9 +41,6 @@ namespace Flux
         {
             Vector3 offsetFromTarget = GetIntensity(target, location);
             location += offsetFromTarget * speed;
-
-            //Vector3 offsetFromHome = GetIntensity(target, location);
-            //slocation -= offsetFromHome * 0.005f;
         }
 
         private Vector3 GetIntensity(Vector3 aim, Vector3 loc)
