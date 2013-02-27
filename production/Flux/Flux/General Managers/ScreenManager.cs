@@ -11,7 +11,7 @@ namespace Flux
 {
     class ScreenManager
     {
-        private static Camera[] camera = new Camera[1]; //Array of cameras
+        private static Camera[] camera = new Camera[4]; //Array of cameras
         private static GraphicsDevice graphics;
         private static int spacing = 2000;
 
@@ -23,8 +23,12 @@ namespace Flux
 
         public static void Initialize(Game game, GraphicsDevice g)
         {
-            camera[0] = new Camera(game,new Vector3(0.16f, -0.05f, 9f), new Vector3(0.16f, -0.05f, 0), Vector3.Up);
-            camera[0].display = 0;
+            for (int i = 0; i < camera.Length; i++)
+            {
+                float cameraOffsetX = Location(Vector2.Zero, i).X;
+                camera[i] = new Camera(game, new Vector3(0.16f + cameraOffsetX, -0.05f, 9f), new Vector3(0.16f + cameraOffsetX, -0.05f, 0), Vector3.Up);
+                camera[i].display = i;
+            }
 
             graphics = g;
             spriteBatch = new SpriteBatch(graphics);
