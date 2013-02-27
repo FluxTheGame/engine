@@ -14,13 +14,15 @@ namespace Flux
         public Wormhole two;
         protected DateTime expiry;
 
-        public WormholePair(bool oneInward, Vector2 onePosition) : base()
+        public WormholePair(bool oneInward, Vector2 position, int displayOne) : base()
         {
             one = new Wormhole(oneInward);
-            one.position = onePosition;
+            one.position = position;
+            one.display = displayOne;
 
             two = new Wormhole(!oneInward);
-            two.position = ScreenManager.Opposite(onePosition);
+            two.position = position;
+            two.display = ScreenManager.Opposite(displayOne);
 
             expiry = created.AddSeconds(Randomizer.RandomInt(20, 30));
         }
@@ -61,7 +63,7 @@ namespace Flux
 
         private void Transport(GameObject passenger, Wormhole destination)
         {
-            passenger.position = destination.position;
+            passenger.display = destination.display;
         }
     }
 }

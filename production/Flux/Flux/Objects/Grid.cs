@@ -299,12 +299,12 @@ namespace Flux
                     if (forceLeft.X < 0 && forceRight.X > 0)
                     {
                         //Add outward wormhole
-                        WormholeManager.Add(position, false);
+                        WormholeManager.Add(position, false, display);
 
                     } else if (forceLeft.X > 0 && forceRight.X < 0)
                     {
                         //Add inward wormhole
-                        WormholeManager.Add(position, true);
+                        WormholeManager.Add(position, true, display);
                     }
                 }
             }

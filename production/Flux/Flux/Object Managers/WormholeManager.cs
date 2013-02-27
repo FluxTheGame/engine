@@ -30,7 +30,7 @@ namespace Flux
             base.Initialize();
         }
 
-        public static void Add(Vector2 position, bool inward)
+        public static void Add(Vector2 position, bool inward, int display)
         {
             bool make = true;
             foreach (WormholePair w in instance.wormholePairs)
@@ -40,7 +40,7 @@ namespace Flux
             }
 
             if (make) {
-                WormholePair wormholePair = new WormholePair(inward, position);
+                WormholePair wormholePair = new WormholePair(inward, position, display);
                 instance.wormholePairs.Add(wormholePair);
             }
         }

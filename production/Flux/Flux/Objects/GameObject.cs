@@ -75,13 +75,25 @@ namespace Flux
 
         protected void Constrain()
         {
-            if (position.X > ScreenManager.world.X) position.X = 0;
-            if (position.X < 0) position.X = ScreenManager.world.X;
+            //if (position.X > ScreenManager.world.X) position.X = 0;
+            //if (position.X < 0) position.X = ScreenManager.world.X;
             if (!wrapY)
             {
                 if (position.Y > ScreenManager.world.Y) position.Y = ScreenManager.world.Y;
                 if (position.Y < 0) position.Y = 0;
             }
+            if (position.X > ScreenManager.window.X)
+            {
+                display++;
+                position.X = 0;
+            }
+            if (position.X < 0)
+            {
+                display--;
+                position.X = ScreenManager.window.X;
+            }
+            if (display > 3) display = 0;
+            if (display < 0) display = 3;
         }
 
         protected void CalculateBoundingSphere()

@@ -13,6 +13,8 @@ namespace Flux
     {
         private static Camera[] camera = new Camera[1]; //Array of cameras
         private static GraphicsDevice graphics;
+        private static int spacing = 2000;
+
         public static SpriteBatch spriteBatch;
         public static Vector2 window; //Size of a single window
         public static Vector2 world; //Size of entire world (4 windows)
@@ -21,7 +23,7 @@ namespace Flux
 
         public static void Initialize(Game game, GraphicsDevice g)
         {
-            camera[0] = new Camera(game,new Vector3(0, 0, 10), new Vector3(0, 0, 0), Vector3.Up);
+            camera[0] = new Camera(game,new Vector3(0.16f, -0.05f, 9f), new Vector3(0.16f, -0.05f, 0), Vector3.Up);
             camera[0].display = 0;
 
             graphics = g;
@@ -43,7 +45,7 @@ namespace Flux
         public static Vector3 Location(Vector2 position, int display)
         {
             Vector2 mid = Middle();
-            Vector3 pos = new Vector3((position.X - mid.X) * 0.01f, (position.Y - mid.Y) * -0.01f, 0.0f);
+            Vector3 pos = new Vector3((position.X - mid.X + (spacing*display)) * 0.00952f, (position.Y - mid.Y) * -0.0099f, 0.0f);
             return pos;
         }
 
@@ -52,11 +54,9 @@ namespace Flux
             return new Vector2(window.X * 0.5f, window.Y * 0.5f);
         }
 
-        public static Vector2 Opposite(Vector2 position)
+        public static int Opposite(int display)
         {
-            Vector2 opposite = new Vector2(position.X + window.X*2, position.Y);
-            if (opposite.X > world.X) opposite.X -= world.X;
-            return opposite;
+            return (display + 2) % 4;
         }
 
     }

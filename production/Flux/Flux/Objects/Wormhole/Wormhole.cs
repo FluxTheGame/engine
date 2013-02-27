@@ -23,9 +23,9 @@ namespace Flux
         public override void Update()
         {
             if (inward) 
-                GridManager.Pinch(position, 100, 0.005f);
+                GridManager.Pinch(position, 100, 0.005f, display);
             else
-                GridManager.Bloat(position, 100, 0.005f);
+                GridManager.Bloat(position, 100, 0.005f, display);
 
             base.Update();
         }

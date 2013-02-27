@@ -31,7 +31,7 @@ namespace Flux
 
             if (shootSchedule.IsOn()) {
                 float phase = shootSchedule.Phase();
-                GridManager.Bloat(position + Vector2.Normalize(velocity) * (shootDistance * phase), 80.0f*phase, 0.07f);
+                GridManager.Bloat(position + Vector2.Normalize(velocity) * (shootDistance * phase), 80.0f*phase, 0.07f, display);
             }
 
             if (accelerationSchedule.IsOn())

@@ -29,7 +29,7 @@ namespace Flux
         {
 
             if (bulgeSchedule.IsOn()) {
-                GridManager.Bloat(position, 100.0f, 0.1f);
+                GridManager.Bloat(position, 100.0f, 0.1f, display);
             }
 
             if (accelerationSchedule.IsOn())
