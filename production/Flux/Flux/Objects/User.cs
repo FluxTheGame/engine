@@ -161,8 +161,6 @@ namespace Flux
         protected void DrawUsername()
         {
             Vector2 fontLocation = position + usernameOffset - usernameFontOffset;
-            fontLocation.X = (int)fontLocation.X;
-            fontLocation.Y = (int)fontLocation.Y;
             
             spriteBatch.DrawString(usernameFont, username, fontLocation, Color.White);
             //spriteBatch.Draw(boxSprite, position + usernameOffset - boxOffset, Color.White);
