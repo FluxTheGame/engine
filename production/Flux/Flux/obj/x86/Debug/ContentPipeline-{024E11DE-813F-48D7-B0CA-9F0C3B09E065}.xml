@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>models\chicken.fbx</Source>
+      <Name>models\chicken</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\chicken.xnb</Output>
+      <Time>2013-01-23T10:47:01.003382-05:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\chicken_0.xml</Key>
+        <Value>2013-01-23T10:48:36.6176207-05:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\chicken.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\chicken_0.xml</Output>
+      <Time>2013-01-23T10:47:01.003382-05:00</Time>
+    </Item>
+    <Item>
+      <Source>models\collector.fbx</Source>
+      <Name>models\collector</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\collector.xnb</Output>
+      <Time>2013-01-23T10:48:19.5040916-05:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\collector_0.xml</Key>
+        <Value>2013-01-23T10:48:37.1168303-05:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\collector.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\collector_0.xml</Output>
+      <Time>2013-01-23T10:48:19.5040916-05:00</Time>
+    </Item>
+    <Item>
+      <Source>fonts\user_name.spritefont</Source>
+      <Name>fonts\user_name</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\fonts\user_name.xnb</Output>
+      <Time>2013-02-27T10:57:27.5589751-05:00</Time>
+    </Item>
+    <Item>
+      <Source>models\enemy_bulger.fbx</Source>
+      <Name>models\enemy_bulger</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\enemy_bulger.xnb</Output>
+      <Time>2013-01-23T10:48:19.5664928-05:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\enemy_bulger_0.xml</Key>
+        <Value>2013-02-06T11:42:43.1266647-05:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\enemy_shooter.fbx</Source>
+      <Name>models\enemy_shooter</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\enemy_shooter.xnb</Output>
+      <Time>2013-01-28T11:33:29.4371691-05:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\enemy_shooter_0.xml</Key>
+        <Value>2013-02-06T11:42:43.5010719-05:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\enemy_crazy.fbx</Source>
+      <Name>models\enemy_crazy</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\enemy_crazy.xnb</Output>
+      <Time>2013-01-30T13:45:14.4847469-05:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\enemy_crazy_0.xml</Key>
+        <Value>2013-02-06T11:42:43.6258743-05:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>sprites\user_pointer.png</Source>
+      <Name>sprites\user_pointer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_pointer.xnb</Output>
+      <Time>2013-02-20T13:48:31.6636305-05:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\user_box1.png</Source>
+      <Name>sprites\user_box1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_box1.xnb</Output>
+      <Time>2013-02-04T14:45:57.7217322-05:00</Time>
+    </Item>
+    <Item>
+      <Source>models\enemy_bulger.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\enemy_bulger_0.xml</Output>
+      <Time>2013-01-23T10:48:19.5664928-05:00</Time>
+    </Item>
+    <Item>
+      <Source>models\enemy_shooter.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\enemy_shooter_0.xml</Output>
+      <Time>2013-01-28T11:33:29.4371691-05:00</Time>
+    </Item>
+    <Item>
+      <Source>models\enemy_crazy.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\enemy_crazy_0.xml</Output>
+      <Time>2013-01-30T13:45:14.4847469-05:00</Time>
+    </Item>
+    <Item>
+      <Source>fonts\user_points.spritefont</Source>
+      <Name>fonts\user_points</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\fonts\user_points.xnb</Output>
+      <Time>2013-02-06T13:32:02.1190462-05:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\user_badge_wet.png</Source>
+      <Name>sprites\user_badge_wet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_badge_wet.xnb</Output>
+      <Time>2013-02-06T10:50:30.1808169-05:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\user_circle.png</Source>
+      <Name>sprites\user_circle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_circle.xnb</Output>
+      <Time>2013-02-20T11:22:11.7137408-05:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\user_bloat_pinch.png</Source>
+      <Name>sprites\user_bloat_pinch</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_bloat_pinch.xnb</Output>
+      <Time>2013-02-20T11:59:38.1970092-05:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{024E11DE-813F-48D7-B0CA-9F0C3B09E065}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\FluxContent\</RootDirectory>
+      <LoggerRootDirectory>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\</LoggerRootDirectory>
+      <IntermediateDirectory>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-07-16T10:44:45.1071121-04:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
