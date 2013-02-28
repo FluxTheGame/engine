@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -8,8 +9,6 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using System.Collections.Generic;
-using System.Collections.Specialized;
 
 
 namespace Flux
@@ -87,13 +86,6 @@ namespace Flux
                 }
             }
         }
-
-        //Used for Testing only - Remove
-        /*public static Collector First()
-        {
-            return instance.collectors[0];
-        }*/
-        //End used for testing
 
         public static void Remove(Collector collector)
         {
