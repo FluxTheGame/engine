@@ -22,6 +22,7 @@ namespace Flux
 
         private AnimSprite pointerAnim;
         private AnimSprite stateAnim;
+        private AnimSprite pointsAnim;
 
         private SpriteFont usernameFont;
         private SpriteFont userpointsFont;
@@ -32,11 +33,15 @@ namespace Flux
 
         private Notification pointsNotification;
         private Notification badgeNotification;
-        
-        private string gotPoints;
 
-        enum Pointers { Enter, Alert, Exit, Idle };
-        enum States { BloatStart, Bloat, BloatEnd, PinchStart, Pinch, PinchEnd, Idle };
+        private Durationizer pointsAbsorbDelay;
+
+        private string gotPoints;
+        private int pointsBuffer = 0;
+        private int pointsAbsorbRate = 7;
+
+        enum Pointers { Alert, Exit, Enter, Idle };
+        enum States { Pinch, PinchStart, PinchEnd, Bloat, BloatStart, BloatEnd, Idle };
         enum Actions { Idling, Bloating, Pinching }
 
         private int action;
@@ -56,8 +61,9 @@ namespace Flux
             collector = CollectorManager.CollectorByID(teamId);
             collector.AddUser(this);
 
-            pointsNotification = new Notification(2f);
+            pointsNotification = new Notification(2.5f);
             badgeNotification = new Notification(3f);
+            pointsAbsorbDelay = new Durationizer(0.5f);
 
             usernameFont = ContentManager.Font("user_name");
             userpointsFont = ContentManager.Font("user_points");
@@ -67,23 +73,29 @@ namespace Flux
 
             //Animations
             Animation[] pointerAnimations = {
-                new Animation((int)Pointers.Enter, 45, (int)Pointers.Idle),
-                new Animation((int)Pointers.Alert, 12, (int)Pointers.Idle),
+                new Animation((int)Pointers.Alert, 12),
                 new Animation((int)Pointers.Exit, 14),
+                new Animation((int)Pointers.Enter, 45),
                 new Animation((int)Pointers.Idle, 1),
             };
-            pointerAnim = new AnimSprite("user_pointer", new Point(87, 87), pointerAnimations);
+            pointerAnim = new AnimSprite("user_pointer", new Point(70, 70), pointerAnimations);
+            pointerAnim.Play((int)Pointers.Alert);
+            pointerAnim.SetFrame(0);
+
+            Animation[] pointsAnimations = {new Animation(0, 27)};
+            pointsAnim = new AnimSprite("user_points", new Point(69, 69), pointsAnimations);
+            pointsAnim.SetFrame(27);
 
             Animation[] stateAnimations = {
-                new Animation((int)States.BloatStart, 6, (int)States.Bloat),
-                new Animation((int)States.Bloat, 9),
-                new Animation((int)States.BloatEnd, 6, (int)States.Idle),
-                new Animation((int)States.PinchStart, 6, (int)States.Pinch),
-                new Animation((int)States.Pinch, 10),
-                new Animation((int)States.PinchEnd, 6, (int)States.Idle),
+                new Animation((int)States.Pinch, 8),
+                new Animation((int)States.PinchStart, 5, (int)States.Pinch),
+                new Animation((int)States.PinchEnd, 5, (int)States.Idle),
+                new Animation((int)States.Bloat, 8),
+                new Animation((int)States.BloatStart, 5, (int)States.Bloat),
+                new Animation((int)States.BloatEnd, 5, (int)States.Idle),
                 new Animation((int)States.Idle, 1),
             };
-            stateAnim = new AnimSprite("user_bloat_pinch", new Point(75, 75), stateAnimations);
+            stateAnim = new AnimSprite("user_bloat_pinch", new Point(70, 70), stateAnimations);
             stateAnim.Play((int)States.Idle);
         }
 
@@ -97,9 +109,12 @@ namespace Flux
         {
             velocity = Vector2.Add(velocity, Vector2.Multiply(delta, 0.3f));
             ApplyAction();
+            AbsorbPoints();
+
             base.Update();
 
-            pointerAnim.Update(position, CollectorAngle() + Matherizer.ToRadians(135f));
+            pointerAnim.Update(position, CollectorAngle() + Matherizer.ToRadians(45f));
+            pointsAnim.Update(position);
             stateAnim.Update(position);
             pointsNotification.Update(position);
             badgeNotification.Update(position);
@@ -107,9 +122,9 @@ namespace Flux
 
         public void GetPoints(int value) 
         {
-            points += value;
-            gotPoints = "+" + value.ToString();
             pointsNotification.Fire();
+            pointsAbsorbDelay.Fire();
+            pointsBuffer += value;
         }
 
         public void GetBadge(string type)
@@ -174,7 +189,10 @@ namespace Flux
 
         protected void DrawPointsRing()
         {
-            
+            float ratio = 1f - ((float)points / 10000f);
+            int frame = (int)(27 * ratio);
+            pointsAnim.SetFrame(frame);
+            pointsAnim.Draw();
         }
 
         protected void ApplyAction()
@@ -184,6 +202,24 @@ namespace Flux
 
             } else if (action == (int)Actions.Pinching) {
                 GridManager.Pinch(position, 80.0f, 0.025f, display);
+            }
+        }
+
+        protected void AbsorbPoints()
+        {
+            gotPoints = "+" + pointsBuffer.ToString();
+            if (pointsBuffer > 0 && !pointsAbsorbDelay.IsOn())
+            {
+                if (pointsBuffer >= pointsAbsorbRate)
+                {
+                    points += pointsAbsorbRate;
+                    pointsBuffer -= pointsAbsorbRate;
+                }
+                else
+                {
+                    points += pointsBuffer;
+                    pointsBuffer = 0;
+                }
             }
         }
 

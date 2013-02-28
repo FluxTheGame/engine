@@ -90,19 +90,18 @@ namespace Flux
         {
 
             /* For Testing */
-            //Add Collectors
-            /*for (int i = 1; i <= 1; i++)
-            {
-                OrderedDictionary c = new OrderedDictionary();
-                c.Add("id", i);
-                EventManager.Emit("collector:join", c);
-            }
-
+            //Add Collector
+            
+            OrderedDictionary c = new OrderedDictionary();
+            c.Add("id", 1);
+            EventManager.Emit("collector:new", c);
+            
             //Add User
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 99);
+            o.Add("teamId", 1);
             o.Add("username", "DILBERT");
-            EventManager.Emit("user:join", o);*/
+            EventManager.Emit("user:new", o);
             /* End for testing */
         }
 
@@ -153,15 +152,18 @@ namespace Flux
                 EventManager.Emit("user:pinchEnd", o);
             }
 
-            oldState = keyState;
-
             if (keyState.IsKeyDown(Keys.Space))
             {
-                o.Add("type", "wet");
-                o.Add("value", 582);
-                EventManager.Emit("user:getbadge", o);
-                EventManager.Emit("user:getpoints", o);
+                if (!oldState.IsKeyDown(Keys.Space))
+                {
+                    o.Add("type", "wet");
+                    o.Add("value", 582);
+                    EventManager.Emit("user:getbadge", o);
+                    EventManager.Emit("user:getpoints", o);
+                }
             }
+
+            oldState = keyState;
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {

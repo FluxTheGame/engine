@@ -85,13 +85,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\user_pointer.png">
-      <Name>user_pointer</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="sprites\user_box1.png">
       <Name>user_box1</Name>
       <Importer>TextureImporter</Importer>
@@ -124,8 +117,22 @@
     <Folder Include="shaders\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="sprites\user_pointer.png">
+      <Name>user_pointer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="sprites\user_bloat_pinch.png">
       <Name>user_bloat_pinch</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sprites\user_points.png">
+      <Name>user_points</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
