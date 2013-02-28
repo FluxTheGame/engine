@@ -42,18 +42,18 @@ namespace Flux
         private int action;
 
 
-        public User(string user, int idNumber) : base ()
+        public User(string user, int userId, int teamId) : base ()
         {
             delta = Vector2.Zero;
             username = user;
-            id = idNumber;
+            id = userId;
             scale = 1.0f;
             dampening = 0.8f;
             maxSpeed = 20f;
             action = (int)Actions.Idling;
 
             spriteBatch = ScreenManager.spriteBatch;
-            collector = CollectorManager.First(); //For testing cursor pointing
+            collector = CollectorManager.CollectorByID(teamId);
             collector.AddUser(this);
 
             pointsNotification = new Notification(2f);

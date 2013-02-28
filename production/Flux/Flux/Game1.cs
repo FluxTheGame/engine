@@ -91,7 +91,7 @@ namespace Flux
 
             /* For Testing */
             //Add Collectors
-            for (int i = 1; i <= 1; i++)
+            /*for (int i = 1; i <= 1; i++)
             {
                 OrderedDictionary c = new OrderedDictionary();
                 c.Add("id", i);
@@ -102,7 +102,7 @@ namespace Flux
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 99);
             o.Add("username", "DILBERT");
-            EventManager.Emit("user:join", o);
+            EventManager.Emit("user:join", o);*/
             /* End for testing */
         }
 

@@ -25,7 +25,7 @@ namespace Flux
             tcpClient = new TcpClient();
             try
             {
-                IAsyncResult ar = tcpClient.BeginConnect("127.0.0.1", 1337, null, null);
+                IAsyncResult ar = tcpClient.BeginConnect("127.0.0.1", 8100, null, null);
                 System.Threading.WaitHandle wh = ar.AsyncWaitHandle;
                 try
                 {
@@ -134,6 +134,8 @@ namespace Flux
             foreach (string message in messages) {
 
                 if (message.Length <= 3) continue; //Short message - skip
+
+                Console.WriteLine(message);
 
                 string[] items = message.Trim().Split("/".ToCharArray());
                 string eventName = items[1].Split("=".ToCharArray())[1];

@@ -1,0 +1,147 @@
+string $selected[] = `ls -sl`; // get what's selected
+
+string $objName;
+string $objGroup;
+
+float $transX;
+float $transY;
+float $transZ;
+
+float $rotX;
+float $rotY;
+float $rotZ;
+
+float $scaleX;
+float $scaleY;
+float $scaleZ;
+
+float $light1;
+float $light2;
+float $light3;
+float $light4;
+
+float $shadow;
+
+float $shader1;
+float $shader2;
+float $shader3;
+float $shader4;
+
+float $misc1;
+float $misc2;
+float $misc3;
+float $misc4;
+
+// Define File Path
+string $filePath = "Z:/2013/SP/maya_shit.csv" ;  
+$fileId = `fopen $filePath "w"`; 
+
+fprint $fileId("objName,objGroup,transX,transY,transZ,scaleX,scaleY,scaleZ,rotateX,rotateY,rotateZ,light1,light2,light3,light4,shadow,shader1,shader2,shader3,shader4,misc1,misc2,misc3,misc4\r\n");
+
+for ($obj in $selected) // loop through the selected, and for every object in the selection..
+{
+
+
+    //GET ALL INHERITED VALUES
+    //////////////////////////
+    
+    //OBJECT NAME
+    $objName = $obj;
+    
+    //OBJECT GROUP
+    $objGroup = `getAttr($obj+".objGroup")`;
+    
+    //TRANSLATIONS
+    $transX = `getAttr ( $obj + ".translateX" )`;
+    $transY = `getAttr ( $obj + ".translateY" )`;
+    $transZ = `getAttr ( $obj + ".translateZ" )`;
+    
+    //SCALE
+    $scaleX = `getAttr ( $obj + ".scaleX" )`;
+    $scaleY = `getAttr ( $obj + ".scaleY" )`;
+    $scaleZ = `getAttr ( $obj + ".scaleZ" )`;    
+    
+    //ROTATIONS
+    $rotX = `getAttr ( $obj + ".rotateX" )`;
+    $rotY = `getAttr ( $obj + ".rotateY" )`;
+    $rotZ = `getAttr ( $obj + ".rotateZ" )`;
+    
+    //LIGHTS
+    $light1 = `getAttr ($obj +".light1")`;
+    $light2 = `getAttr ($obj +".light2")`;
+    $light3 = `getAttr ($obj +".light3")`;
+    $light4 = `getAttr ($obj +".light4")`;
+    
+    //SHADOW
+    $shadow = `getAttr($obj +".shadow")`;
+    
+    //SHADERS
+    $shader1 = `getAttr ($obj +".shader1")`;
+    $shader2 = `getAttr ($obj +".shader2")`;
+    $shader3 = `getAttr ($obj +".shader3")`;
+    $shader4 = `getAttr ($obj +".shader4")`;  
+    
+    //MISCELLANEOUS
+    $misc1 = `getAttr ($obj +".misc1")`;
+    $misc2 = `getAttr ($obj +".misc2")`;
+    $misc3 = `getAttr ($obj +".misc3")`;
+    $misc4 = `getAttr ($obj +".misc4")`;      
+    
+    //ADD AN ATTRIBUTE FOR CUSTOM TYPE
+   // if(`objExists $objType`)
+   // {
+        
+        //string $obj;
+        //$objType = `addAttr -at "float" -ln "Hello" -dv 0 -keyable true $obj`;
+    //}
+    //float $objType = `addAttr ($obj+ ".tree-type") 0`;
+
+    //PRINT OBJECT NAME
+    //fprint $fileId($objName+",")
+    
+    //PRINT ALL INHERITED VALUES
+    ////////////////////////////
+    
+    fprint $fileId(
+        
+        $objName+","+
+        
+        $objGroup+","+
+                
+        $transX+","+
+        $transY+","+
+        $transZ+","+ 
+                 
+        $scaleX+","+
+        $scaleY+","+
+        $scaleZ+","+         
+                       
+        $rotX+","+
+        $rotY+","+
+        $rotZ+","+
+
+        $light1+","+
+        $light2+","+
+        $light3+","+ 
+        $light4+","+   
+        
+        $shadow+","+
+        
+        $shader1+","+
+        $shader2+","+
+        $shader3+","+ 
+        $shader4+","+ 
+        
+        $misc1+","+
+        $misc2+","+
+        $misc3+","+ 
+        $misc4+"\r\n"
+        );
+    
+    //PRINT SCALE
+    //fprint $fileId();
+    //fprint $fileId ($obj+".rotateY"+"\r\n") ;  
+}
+  
+// Close File  
+fclose $fileId ;

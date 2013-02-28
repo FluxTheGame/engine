@@ -30,10 +30,11 @@ namespace Flux
         {
             users = new List<User>();
 
-            EventManager.On("user:join", (o) =>
+            EventManager.On("user:new", (o) =>
             {
                 int id = (int)o["id"];
-                if (id > 0) users.Add(new User((string)o["username"], id));
+                int teamId = (int)o["teamId"];
+                if (id > 0) users.Add(new User((string)o["username"], id, teamId));
             });
 
             EventManager.On("user:getpoints", (o) =>

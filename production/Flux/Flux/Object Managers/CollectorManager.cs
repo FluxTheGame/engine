@@ -8,6 +8,8 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Collections.Generic;
+using System.Collections.Specialized;
 
 
 namespace Flux
@@ -28,10 +30,12 @@ namespace Flux
         public override void Initialize()
         {
             collectors = new List<Collector>();
+            collectors.Add(new Collector(0)); // start off with 0th collector
 
-            EventManager.On("collector:join", (o) =>
+            EventManager.On("collector:new", (o) =>
             {
                 int id = (int)o["id"];
+                // color c = (color)o["color"];
                 if (id > 0) collectors.Add(new Collector(id));
             });
 
@@ -57,15 +61,20 @@ namespace Flux
             {
                 if (Vector2.Distance(current.position, collectors[i].position) < 20 && current != collectors[i])
                 {
+                    OrderedDictionary o = new OrderedDictionary();
+                    o.Add("team_1", current.id);
+                    o.Add("team_2", collectors[i].id);
+                    EventManager.Emit("collector:merge", o);
+
                     current.MergeWith(collectors[i]);
                     collectors.Remove(collectors[i]);
                 }
             }
         }
 
-        public Collector CollectorByID(int id)
+        public static Collector CollectorByID(int id)
         {
-            return collectors.FirstOrDefault(c => c.id == id);
+            return instance.collectors.FirstOrDefault(c => c.id == id);
         }
 
         public static void CheckEnemyCollide(Enemy enemy)
@@ -80,10 +89,10 @@ namespace Flux
         }
 
         //Used for Testing only - Remove
-        public static Collector First()
+        /*public static Collector First()
         {
             return instance.collectors[0];
-        }
+        }*/
         //End used for testing
 
         public static void Remove(Collector collector)
