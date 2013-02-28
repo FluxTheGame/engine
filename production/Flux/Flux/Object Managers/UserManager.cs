@@ -34,7 +34,15 @@ namespace Flux
             {
                 int id = (int)o["id"];
                 int teamId = (int)o["teamId"];
-                if (id > 0) users.Add(new User((string)o["username"], id, teamId));
+                users.Add(new User((string)o["username"], id, teamId));
+            });
+
+            EventManager.On("user:disconnect", (o) =>
+            {
+                int id = (int)o["id"];
+                var user = users.FirstOrDefault(u => u.id == id);
+
+                if (user != null) users.Remove(user);
             });
 
             EventManager.On("user:getpoints", (o) =>
