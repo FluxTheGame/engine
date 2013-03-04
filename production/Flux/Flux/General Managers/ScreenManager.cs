@@ -38,6 +38,10 @@ namespace Flux
 
         public static Camera Camera(int display)
         {
+            graphics.DepthStencilState = DepthStencilState.Default;
+            graphics.RasterizerState = RasterizerState.CullCounterClockwise;
+            graphics.BlendState = BlendState.Opaque;
+
             return camera[0];
         }
 

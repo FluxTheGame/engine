@@ -19,6 +19,8 @@ namespace Flux
         private Vector2 position;
         private Animation[] animation;
 
+        public delegate void Callback();
+        private Callback callback;
         private float rotation;
         private float delay;
         private bool playing = true;
@@ -49,6 +51,7 @@ namespace Flux
                 {
                     if (animation[sequence].loop) Rewind();
                     else Finish();
+                    if (callback != null) callback();
                 }
             }
         }
@@ -79,8 +82,14 @@ namespace Flux
             else playing = false;
         }
 
+        public void WhenFinished(Callback cb)
+        {
+            callback = cb;
+        }
+
         public void Play(int clip)
         {
+            playing = true;
             sequence = clip;
             Rewind();
         }

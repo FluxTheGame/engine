@@ -74,13 +74,12 @@ namespace Flux
             //Animations
             Animation[] pointerAnimations = {
                 new Animation((int)Pointers.Alert, 12),
-                new Animation((int)Pointers.Exit, 14),
+                new Animation((int)Pointers.Exit, 14, false),
                 new Animation((int)Pointers.Enter, 45),
                 new Animation((int)Pointers.Idle, 1),
             };
             pointerAnim = new AnimSprite("user_pointer", new Point(70, 70), pointerAnimations);
             pointerAnim.Play((int)Pointers.Alert);
-            pointerAnim.SetFrame(0);
 
             Animation[] pointsAnimations = {new Animation(0, 27)};
             pointsAnim = new AnimSprite("user_points", new Point(69, 69), pointsAnimations);
@@ -88,11 +87,11 @@ namespace Flux
 
             Animation[] stateAnimations = {
                 new Animation((int)States.Pinch, 8),
-                new Animation((int)States.PinchStart, 5, (int)States.Pinch),
-                new Animation((int)States.PinchEnd, 5, (int)States.Idle),
+                new Animation((int)States.PinchStart, 5, false, (int)States.Pinch),
+                new Animation((int)States.PinchEnd, 5, false, (int)States.Idle),
                 new Animation((int)States.Bloat, 8),
-                new Animation((int)States.BloatStart, 5, (int)States.Bloat),
-                new Animation((int)States.BloatEnd, 5, (int)States.Idle),
+                new Animation((int)States.BloatStart, 5, false, (int)States.Bloat),
+                new Animation((int)States.BloatEnd, 5, false, (int)States.Idle),
                 new Animation((int)States.Idle, 1),
             };
             stateAnim = new AnimSprite("user_bloat_pinch", new Point(70, 70), stateAnimations);
@@ -160,6 +159,15 @@ namespace Flux
         public void Alert()
         {
             pointerAnim.Play((int)Pointers.Alert);
+        }
+
+        public void Disconnect()
+        {
+            pointerAnim.WhenFinished(() =>
+            {
+                UserManager.Remove(this);
+            });
+            pointerAnim.Play((int)Pointers.Exit);
         }
 
         public override void Draw()

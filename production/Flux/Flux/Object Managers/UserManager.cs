@@ -42,7 +42,7 @@ namespace Flux
                 int id = (int)o["id"];
                 var user = users.FirstOrDefault(u => u.id == id);
 
-                if (user != null) users.Remove(user);
+                if (user != null) user.Disconnect();
             });
 
             EventManager.On("user:getpoints", (o) =>
@@ -96,12 +96,15 @@ namespace Flux
             base.Initialize();
         }
 
-
         public User UserByID(int id)
         {
             return users.FirstOrDefault(u => u.id == id);
         }
 
+        public static void Remove(User user)
+        {
+            instance.users.Remove(user);
+        }
 
         public override void Update(GameTime gameTime)
         {
