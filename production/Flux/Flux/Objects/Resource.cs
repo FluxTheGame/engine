@@ -31,7 +31,8 @@ namespace Flux
 
             int x = Randomizer.RandomInt(-6, 50);
             int y = Randomizer.RandomInt(-4, 5);
-            location = new Vector3(x, y, 0);
+            int z = Randomizer.RandomInt(-5, 0);
+            location = new Vector3(x, y, z);
 
             target = location;
             origLocation = location;
@@ -43,9 +44,14 @@ namespace Flux
             location += offsetFromTarget * speed;
         }
 
+        public Vector3 NonDepthLocation()
+        {
+            return new Vector3(location.X, location.Y, 0);
+        }
+
         private Vector3 GetIntensity(Vector3 aim, Vector3 loc)
         {
-            float dist = Vector3.Distance(aim, loc);
+            float dist = Vector3.Distance(aim, NonDepthLocation());
 
             float intensity = 0f;
             if (dist > 0) intensity = 1.0f / (dist * dist); // inverse square
@@ -57,24 +63,8 @@ namespace Flux
 
         public void Draw()
         {
-            if (model != null)
-            {
-                Camera camera = ScreenManager.Camera(display);
-                Matrix[] transforms = new Matrix[model.Bones.Count];
-                model.CopyAbsoluteBoneTransformsTo(transforms);
-
-                foreach (ModelMesh mesh in model.Meshes)
-                {
-                    foreach (BasicEffect effect in mesh.Effects)
-                    {
-                        effect.EnableDefaultLighting();
-                        effect.Projection = camera.projection;
-                        effect.View = camera.view;
-                        effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateScale(scale) * Matrix.CreateTranslation(location);
-                    }
-                    mesh.Draw();
-                }
-            }
+            Camera camera = ScreenManager.Camera(display);
+            Drawer3D.Draw(model, location, scale, camera);
         }
 
     }

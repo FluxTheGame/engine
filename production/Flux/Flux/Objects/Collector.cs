@@ -62,10 +62,10 @@ namespace Flux
             CollectorManager.Remove(this);
         }
 
-        public int SuckRadius()
+        public float SuckRadius()
         {
-            int radius = (int)(capacity*0.05f + resources);
-            if (radius > 3) radius = 3;
+            float radius = (capacity*0.05f + resources);
+            if (radius > 3) radius = 3f;
             return radius;
         }
 

@@ -52,24 +52,8 @@ namespace Flux
 
         public virtual void Draw()
         {
-            if (model != null)
-            {
-                Camera camera = ScreenManager.Camera(display);
-                Matrix[] transforms = new Matrix[model.Bones.Count];
-                model.CopyAbsoluteBoneTransformsTo(transforms);
-
-                foreach (ModelMesh mesh in model.Meshes)
-                {
-                    foreach (BasicEffect effect in mesh.Effects)
-                    {
-                        effect.EnableDefaultLighting();
-                        effect.Projection = camera.projection;
-                        effect.View = camera.view;
-                        effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateScale(scale) * Matrix.CreateTranslation(Location());
-                    }
-                    mesh.Draw();
-                }
-            }
+            Camera camera = ScreenManager.Camera(display);
+            Drawer3D.Draw(model, Location(), scale, camera);
         }
 
 

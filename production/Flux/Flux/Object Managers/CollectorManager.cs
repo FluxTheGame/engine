@@ -29,7 +29,6 @@ namespace Flux
         public override void Initialize()
         {
             collectors = new List<Collector>();
-            collectors.Add(new Collector(0)); // start off with 0th collector
 
             EventManager.On("collector:new", (o) =>
             {

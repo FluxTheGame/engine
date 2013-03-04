@@ -41,7 +41,7 @@ namespace Flux
         {
             for (int i = instance.resources.Count - 1; i >= 0; i--)
             {
-                float dist = Vector3.Distance(instance.resources[i].location, collector.Location());
+                float dist = Vector3.Distance(instance.resources[i].NonDepthLocation(), collector.Location());
 
                 if (dist < collector.SuckRadius())
                 {
@@ -63,21 +63,15 @@ namespace Flux
             {
                 r.Update();
             }
-
-            //Pushes list of GameObjects to parent for general processing (Update, Draw)
-
-            //objects = resources.Cast<GameObject>().ToList();
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-
             foreach (Resource r in resources)
             {
                 r.Draw();
             }
-
             base.Draw(gameTime);
         }
 
