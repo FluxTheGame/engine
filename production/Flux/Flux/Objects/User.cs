@@ -17,7 +17,6 @@ namespace Flux
         private Vector2 delta; //Amount to move the user
         private SpriteBatch spriteBatch;
 
-        private Texture2D boxSprite;
         private Texture2D badgeSprite;
 
         private AnimSprite pointerAnim;
@@ -29,7 +28,6 @@ namespace Flux
 
         private Vector2 usernameOffset;
         private Vector2 usernameFontOffset;
-        private Vector2 boxOffset;
 
         private Notification pointsNotification;
         private Notification badgeNotification;
@@ -41,7 +39,7 @@ namespace Flux
         private int pointsAbsorbRate = 7;
 
         enum Pointers { Alert, Exit, Enter, Idle };
-        enum States { Pinch, PinchStart, PinchEnd, Bloat, BloatStart, BloatEnd, Idle };
+        enum States { Pinch, BloatStart, BloatEnd, Bloat, PinchStart, PinchEnd, Idle };
         enum Actions { Idling, Bloating, Pinching }
 
         private int action;
@@ -67,31 +65,30 @@ namespace Flux
 
             usernameFont = ContentManager.Font("user_name");
             userpointsFont = ContentManager.Font("user_points");
-            boxSprite = ContentManager.Sprite("user_box1");
 
             SetupOffsets();
 
             //Animations
             Animation[] pointerAnimations = {
-                new Animation((int)Pointers.Alert, 12),
+                new Animation((int)Pointers.Alert, 6, false, (int)Pointers.Idle),
                 new Animation((int)Pointers.Exit, 14, false),
-                new Animation((int)Pointers.Enter, 45),
+                new Animation((int)Pointers.Enter, 43, false, (int)Pointers.Idle),
                 new Animation((int)Pointers.Idle, 1),
             };
             pointerAnim = new AnimSprite("user_pointer", new Point(70, 70), pointerAnimations);
-            pointerAnim.Play((int)Pointers.Alert);
+            pointerAnim.Play((int)Pointers.Enter);
 
-            Animation[] pointsAnimations = {new Animation(0, 27)};
-            pointsAnim = new AnimSprite("user_points", new Point(69, 69), pointsAnimations);
-            pointsAnim.SetFrame(27);
+            Animation[] pointsAnimations = {new Animation(0, 26)};
+            pointsAnim = new AnimSprite("user_points", new Point(70, 70), pointsAnimations);
+            pointsAnim.SetFrame(26);
 
             Animation[] stateAnimations = {
                 new Animation((int)States.Pinch, 8),
-                new Animation((int)States.PinchStart, 5, false, (int)States.Pinch),
-                new Animation((int)States.PinchEnd, 5, false, (int)States.Idle),
+                new Animation((int)States.BloatStart, 4, false, (int)States.Bloat),
+                new Animation((int)States.BloatEnd, 4, false, (int)States.Idle),
                 new Animation((int)States.Bloat, 8),
-                new Animation((int)States.BloatStart, 5, false, (int)States.Bloat),
-                new Animation((int)States.BloatEnd, 5, false, (int)States.Idle),
+                new Animation((int)States.PinchStart, 4, false, (int)States.Pinch),
+                new Animation((int)States.PinchEnd, 4, false, (int)States.Idle),
                 new Animation((int)States.Idle, 1),
             };
             stateAnim = new AnimSprite("user_bloat_pinch", new Point(70, 70), stateAnimations);
@@ -236,8 +233,6 @@ namespace Flux
             usernameOffset = new Vector2(-40, -50) * scale;
             badgeNotification.offset = new Vector2(47, -38) * scale;
             pointsNotification.offset = new Vector2(42, 10) * scale;
-
-            boxOffset = new Vector2(boxSprite.Width, boxSprite.Height) * 0.5f;
             usernameFontOffset = usernameFont.MeasureString(username) * 0.5f;
         }
 

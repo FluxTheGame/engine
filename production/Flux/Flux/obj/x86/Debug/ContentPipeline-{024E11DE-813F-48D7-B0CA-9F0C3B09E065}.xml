@@ -96,16 +96,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_pointer.xnb</Output>
-      <Time>2013-02-28T12:15:49.4074551-05:00</Time>
-    </Item>
-    <Item>
-      <Source>sprites\user_box1.png</Source>
-      <Name>sprites\user_box1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_box1.xnb</Output>
-      <Time>2013-02-27T11:39:56.3047885-05:00</Time>
+      <Time>2013-03-04T11:25:41.8276977-05:00</Time>
     </Item>
     <Item>
       <Source>models\enemy_bulger.fbx</Source>
@@ -147,22 +138,13 @@
       <Time>2013-02-27T11:39:56.226787-05:00</Time>
     </Item>
     <Item>
-      <Source>sprites\user_circle.png</Source>
-      <Name>sprites\user_circle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_circle.xnb</Output>
-      <Time>2013-02-27T11:39:56.3203888-05:00</Time>
-    </Item>
-    <Item>
       <Source>sprites\user_bloat_pinch.png</Source>
       <Name>sprites\user_bloat_pinch</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_bloat_pinch.xnb</Output>
-      <Time>2013-02-28T13:18:20.8898551-05:00</Time>
+      <Time>2013-03-04T11:32:09.0100597-05:00</Time>
     </Item>
     <Item>
       <Source>sprites\user_points.png</Source>
@@ -171,7 +153,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\user_points.xnb</Output>
-      <Time>2013-02-28T13:28:02.0470551-05:00</Time>
+      <Time>2013-03-04T11:35:16.9270597-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

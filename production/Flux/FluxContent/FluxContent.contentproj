@@ -85,13 +85,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\user_box1.png">
-      <Name>user_box1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="fonts\user_points.spritefont">
       <SubType>Designer</SubType>
       <Name>user_points</Name>
@@ -102,13 +95,6 @@
   <ItemGroup>
     <Compile Include="sprites\user_badge_wet.png">
       <Name>user_badge_wet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="sprites\user_circle.png">
-      <Name>user_circle</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

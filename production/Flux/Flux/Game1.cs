@@ -156,11 +156,11 @@ namespace Flux
             {
                 if (!oldState.IsKeyDown(Keys.Space))
                 {
-                    /*o.Add("type", "wet");
+                    o.Add("type", "wet");
                     o.Add("value", 582);
                     EventManager.Emit("user:getbadge", o);
-                    EventManager.Emit("user:getpoints", o);*/
-                    EventManager.Emit("user:disconnect", o);
+                    EventManager.Emit("user:getpoints", o);
+                    //EventManager.Emit("user:disconnect", o);
                 }
             }
 
