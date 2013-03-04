@@ -67,5 +67,10 @@ namespace Flux
             return (display + 2) % 4;
         }
 
+        public static Vector2 AdjustedPosition(Vector2 position, int display)
+        {
+            return new Vector2(position.X + (window.X * display), position.Y);
+        }
+
     }
 }

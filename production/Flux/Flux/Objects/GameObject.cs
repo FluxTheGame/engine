@@ -59,8 +59,6 @@ namespace Flux
 
         protected void Constrain()
         {
-            //if (position.X > ScreenManager.world.X) position.X = 0;
-            //if (position.X < 0) position.X = ScreenManager.world.X;
             if (!wrapY)
             {
                 if (position.Y > ScreenManager.world.Y) position.Y = ScreenManager.world.Y;
@@ -96,7 +94,10 @@ namespace Flux
 
         public static float Distance(GameObject one, GameObject two)
         {
-            return Vector2.Distance(one.position, two.position);
+            return Vector2.Distance(
+                ScreenManager.AdjustedPosition(one.position, one.display), 
+                ScreenManager.AdjustedPosition(two.position, two.display)
+            );
         }
 
         public static bool Collides(GameObject one, GameObject two)

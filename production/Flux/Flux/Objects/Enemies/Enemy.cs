@@ -12,7 +12,7 @@ namespace Flux
     public class Enemy : GridObject
     {
 
-        protected int health = 20;
+        protected int health = 1;
         protected int wrapBuffer = 50;
 
 

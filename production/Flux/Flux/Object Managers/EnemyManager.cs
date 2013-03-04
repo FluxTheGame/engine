@@ -40,13 +40,10 @@ namespace Flux
             base.Initialize();
         }
 
-        public static void AttackClosestEnemy(Collector collector)
+        public static Enemy ClosestEnemy(Collector collector)
         {
             Enemy closest = instance.enemies[instance.Closest(collector)];
-            if (GameObject.Distance(collector, closest) <= collector.attackRadius)
-            {
-                closest.BeAttacked(1);
-            }
+            return closest;
         }
 
         public static void Remove(Enemy enemy)

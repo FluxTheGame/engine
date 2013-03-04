@@ -22,6 +22,7 @@ namespace Flux
         public int id;
 
         private List<User> users;
+        private List<Projectile> projectiles;
 
 
         public Collector(int idNumber): base()
@@ -31,6 +32,7 @@ namespace Flux
             position = new Vector2(200*id, 200*id);
             normalCapacity = capacity;
             users = new List<User>();
+            projectiles = new List<Projectile>();
         }
 
         public override void Update()
@@ -38,6 +40,7 @@ namespace Flux
             drag = capacity / normalCapacity;
 
             CollectResources();
+            UpdateProjectiles();
 
             if (resources >= capacity)
                 Burst();
@@ -46,6 +49,15 @@ namespace Flux
                 Die();
             
             base.Update();
+        }
+
+        public override void Draw()
+        {
+            foreach (Projectile projectile in projectiles)
+            {
+                projectile.Draw();
+            }
+            base.Draw();
         }
 
         public void Burst()
@@ -89,8 +101,11 @@ namespace Flux
         public void Attack()
         {
             if (resources > 0) {
-                resources--;
-                EnemyManager.AttackClosestEnemy(this);
+                Enemy enemy = EnemyManager.ClosestEnemy(this);
+                if (GameObject.Distance(this, enemy) <= this.attackRadius) {
+                    projectiles.Add(new Projectile(enemy, this));
+                    resources--;
+                }
             }
         }
 
@@ -108,6 +123,19 @@ namespace Flux
         private void CollectResources()
         {
             ResourceManager.Gather(this);
+        }
+
+        private void UpdateProjectiles()
+        {
+            for (int i = projectiles.Count - 1; i >= 0; i--)
+            {
+                projectiles[i].Update();
+            }
+        }
+
+        public void DestroyProjectile(Projectile projectile)
+        {
+            projectiles.Remove(projectile);
         }
     }
 }
