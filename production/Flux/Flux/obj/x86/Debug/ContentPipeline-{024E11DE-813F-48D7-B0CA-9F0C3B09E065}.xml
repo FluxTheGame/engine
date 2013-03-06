@@ -164,6 +164,24 @@
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\collector_attack.xnb</Output>
       <Time>2013-03-04T13:45:54.7341401-05:00</Time>
     </Item>
+    <Item>
+      <Source>masks\tree_birch01.png</Source>
+      <Name>masks\tree_birch01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\masks\tree_birch01.xnb</Output>
+      <Time>2013-03-06T10:50:07.5567673-05:00</Time>
+    </Item>
+    <Item>
+      <Source>masks\dot.png</Source>
+      <Name>masks\dot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\masks\dot.xnb</Output>
+      <Time>2013-03-06T11:37:36.0166036-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{024E11DE-813F-48D7-B0CA-9F0C3B09E065}</ContentProjectGUID>

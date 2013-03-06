@@ -30,12 +30,44 @@ namespace Flux
         {
             resources = new List<Resource>();
 
-            for (int i = 0; i < 100; i++) 
-                resources.Add(new Resource());
+            PlaceResources();
 
             base.Initialize();
         }
 
+        public void PlaceResources()
+        {
+            //Pass in an instance of "parent" - this loads a mask to position the resources in the right place.
+            //The parent object could be a tree, and we should have access to its position in 3d space.. and its bounding box
+
+            Vector3 position = new Vector3(0, 3, 0); //Position of tree
+            Vector2 size = new Vector2(3.2f, 5.3f); //Bounding box coordinates of tree
+            Texture2D mask = ContentManager.Mask("dot"); //Mask containing the positions to place resources
+
+            Color[] data = new Color[mask.Width * mask.Height];
+            mask.GetData<Color>(data);
+
+            for (int i = 0; i < 200; i++)
+            {
+                float x = Randomizer.RandomFloat(0, size.X);
+                float y = Randomizer.RandomFloat(0, size.Y);
+                Vector3 pos = new Vector3(x, y, 0);
+                Vector3 posN = Vector3.Normalize(pos);
+
+                Point maskIndex = new Point((int)(posN.X * mask.Width), (int)(posN.Y * mask.Height));
+                int index = maskIndex.Y * (int)(mask.Width-1) + maskIndex.X;
+
+
+                if (data[index] == Color.White)
+                {
+                    resources.Add(new Resource(pos));
+                }
+                else
+                {
+                    i--;
+                }
+            }
+        }
 
         public static void Gather(Collector collector)
         {

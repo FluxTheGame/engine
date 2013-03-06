@@ -32,6 +32,11 @@ namespace Flux
             return g.Content.Load<Texture2D>(@"sprites/" + name);
         }
 
+        public static Texture2D Mask(string name)
+        {
+            return g.Content.Load<Texture2D>(@"masks/" + name);
+        }
+
         public static SpriteFont Font(string name)
         {
             return g.Content.Load<SpriteFont>(@"fonts/" + name);

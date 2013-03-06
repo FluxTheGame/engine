@@ -24,15 +24,12 @@ namespace Flux
         public Vector3 target;
         private float speed = 0.01f;
 
-        public Resource()
+        public Resource(Vector3 location)
         {
             model = ContentManager.Model("chicken");
             scale = 0.01f;
 
-            int x = Randomizer.RandomInt(-6, 50);
-            int y = Randomizer.RandomInt(-4, 5);
-            int z = Randomizer.RandomInt(-5, 0);
-            location = new Vector3(x, y, z);
+            this.location = location;
 
             target = location;
             origLocation = location;
