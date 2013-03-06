@@ -53,7 +53,7 @@ namespace Flux
         public virtual void Draw()
         {
             Camera camera = ScreenManager.Camera(display);
-            Drawer3D.Draw(model, Location(), scale, camera);
+            Drawer3D.Draw(model, Location(), scale, 1f, camera);
         }
 
 

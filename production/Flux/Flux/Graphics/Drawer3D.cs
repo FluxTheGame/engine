@@ -10,7 +10,7 @@ namespace Flux
 {
     public class Drawer3D
     {
-        public static void Draw(Model model, Vector3 location, float scale, Camera camera)
+        public static void Draw(Model model, Vector3 location, float scale, float opacity, Camera camera)
         {
             if (model != null)
             {
@@ -25,6 +25,7 @@ namespace Flux
                         effect.Projection = camera.projection;
                         effect.View = camera.view;
                         effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateScale(scale) * Matrix.CreateTranslation(location);
+                        effect.Alpha = opacity;
                     }
                     mesh.Draw();
                 }

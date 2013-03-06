@@ -18,30 +18,35 @@ namespace Flux
         public Vector3 location;
         public bool active = true;
         public int display = 0;
-        public float scale = 10.0f;
+        public float scale = 0.05f;
         public Vector3 target;
 
         private Vector3 origLocation;
         private float speed = 0.01f;
         private Model model;
+        private Schedualizer respawnDelay;
 
         public Resource(Vector3 location)
         {
             model = ContentManager.Model("chicken");
-            scale = 0.01f;
+
+            respawnDelay = new Schedualizer(0, 3, 5);
 
             this.location = location;
-
-            target = location;
-            origLocation = location;
+            this.target = location;
+            this.origLocation = location;
         }
 
         public void Update()
         {
             if (active)
             {
-                Vector3 offsetFromTarget = GetIntensity(target, location);
-                location += offsetFromTarget * speed;
+                if (scale < 0.05f) scale += 0.0001f;
+                else
+                {
+                    Vector3 offsetFromTarget = GetIntensity(target, location);
+                    location += offsetFromTarget * speed;
+                }
             }
         }
 
@@ -54,6 +59,7 @@ namespace Flux
         {
             location = origLocation;
             //active = false;
+            scale = 0f;
         }
 
         private Vector3 GetIntensity(Vector3 aim, Vector3 loc)
@@ -73,7 +79,7 @@ namespace Flux
             if (active)
             {
                 Camera camera = ScreenManager.Camera(display);
-                Drawer3D.Draw(model, location, scale, camera);
+                Drawer3D.Draw(model, location, scale, 1f, camera);
             }
         }
 

@@ -40,9 +40,12 @@ namespace Flux
             //Pass in an instance of "parent" - this loads a mask to position the resources in the right place.
             //The parent object could be a tree, and we should have access to its position in 3d space.. and its bounding box
 
-            Vector3 position = new Vector3(0, 0, 0); //Position of tree
-            Vector2 size = new Vector2(3f, 3f); //Bounding box coordinates of tree
-            Texture2D mask = ContentManager.Mask("tree_birch01"); //Mask containing the positions to place resources
+            Vector3 position = new Vector3(0, 0, 0); //Position of tree model
+            Vector2 size = new Vector2(3f, 3f); //Bounding box coordinates of tree model
+
+            //Mask containing the positions to place resources
+            //Should be proportional to bounding box size to ensure accurate placement
+            Texture2D mask = ContentManager.Mask("tree_birch01");
 
             for (int i = 0; i < 50; i++)
             {
