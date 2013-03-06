@@ -16,13 +16,14 @@ namespace Flux
     public class Resource
     {
         public Vector3 location;
-        private Vector3 origLocation;
-        int display = 0;
-
-        Model model;
-        float scale = 10.0f;
+        public bool active = true;
+        public int display = 0;
+        public float scale = 10.0f;
         public Vector3 target;
+
+        private Vector3 origLocation;
         private float speed = 0.01f;
+        private Model model;
 
         public Resource(Vector3 location)
         {
@@ -37,13 +38,22 @@ namespace Flux
 
         public void Update()
         {
-            Vector3 offsetFromTarget = GetIntensity(target, location);
-            location += offsetFromTarget * speed;
+            if (active)
+            {
+                Vector3 offsetFromTarget = GetIntensity(target, location);
+                location += offsetFromTarget * speed;
+            }
         }
 
         public Vector3 NonDepthLocation()
         {
             return new Vector3(location.X, location.Y, 0);
+        }
+
+        public void Gather()
+        {
+            location = origLocation;
+            //active = false;
         }
 
         private Vector3 GetIntensity(Vector3 aim, Vector3 loc)
@@ -60,8 +70,11 @@ namespace Flux
 
         public void Draw()
         {
-            Camera camera = ScreenManager.Camera(display);
-            Drawer3D.Draw(model, location, scale, camera);
+            if (active)
+            {
+                Camera camera = ScreenManager.Camera(display);
+                Drawer3D.Draw(model, location, scale, camera);
+            }
         }
 
     }

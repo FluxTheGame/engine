@@ -11,4 +11,3 @@ Content\sprites\user_bloat_pinch.xnb
 Content\sprites\user_points.xnb
 Content\sprites\collector_attack.xnb
 Content\masks\tree_birch01.xnb
-Content\masks\dot.xnb

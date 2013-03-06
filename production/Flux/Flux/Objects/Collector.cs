@@ -113,6 +113,7 @@ namespace Flux
         {
             resources++;
             scale = ((float)capacity * 0.01f + (float)resources * 0.01f) * 0.1f;
+            resource.Gather();
         }
 
         public void AddUser(User user)
