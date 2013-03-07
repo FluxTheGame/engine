@@ -67,32 +67,7 @@ namespace Flux
             userpointsFont = ContentManager.Font("user_points");
 
             SetupOffsets();
-
-            //Animations
-            Animation[] pointerAnimations = {
-                new Animation((int)Pointers.Alert, 6, false, (int)Pointers.Idle),
-                new Animation((int)Pointers.Exit, 14, false),
-                new Animation((int)Pointers.Enter, 43, false, (int)Pointers.Idle),
-                new Animation((int)Pointers.Idle, 1),
-            };
-            pointerAnim = new AnimSprite("user_pointer", new Point(70, 70), pointerAnimations);
-            pointerAnim.Play((int)Pointers.Enter);
-
-            Animation[] pointsAnimations = {new Animation(0, 26)};
-            pointsAnim = new AnimSprite("user_points", new Point(70, 70), pointsAnimations);
-            pointsAnim.SetFrame(26);
-
-            Animation[] stateAnimations = {
-                new Animation((int)States.Pinch, 8),
-                new Animation((int)States.BloatStart, 4, false, (int)States.Bloat),
-                new Animation((int)States.BloatEnd, 4, false, (int)States.Idle),
-                new Animation((int)States.Bloat, 8),
-                new Animation((int)States.PinchStart, 4, false, (int)States.Pinch),
-                new Animation((int)States.PinchEnd, 4, false, (int)States.Idle),
-                new Animation((int)States.Idle, 1),
-            };
-            stateAnim = new AnimSprite("user_bloat_pinch", new Point(70, 70), stateAnimations);
-            stateAnim.Play((int)States.Idle);
+            SetupAnimations();
         }
 
         public void SetDelta(int x, int y)
@@ -165,6 +140,7 @@ namespace Flux
                 UserManager.Remove(this);
             });
             pointerAnim.Play((int)Pointers.Exit);
+            collector = null;
         }
 
         public override void Draw()
@@ -228,6 +204,34 @@ namespace Flux
             }
         }
 
+        protected void SetupAnimations()
+        {
+            Animation[] pointerAnimations = {
+                new Animation((int)Pointers.Alert, 6, false, (int)Pointers.Idle),
+                new Animation((int)Pointers.Exit, 14, false),
+                new Animation((int)Pointers.Enter, 43, false, (int)Pointers.Idle),
+                new Animation((int)Pointers.Idle, 1),
+            };
+            pointerAnim = new AnimSprite("user_pointer", new Point(70, 70), pointerAnimations);
+            pointerAnim.Play((int)Pointers.Enter);
+
+            Animation[] pointsAnimations = { new Animation(0, 26) };
+            pointsAnim = new AnimSprite("user_points", new Point(70, 70), pointsAnimations);
+            pointsAnim.SetFrame(26);
+
+            Animation[] stateAnimations = {
+                new Animation((int)States.Pinch, 8),
+                new Animation((int)States.BloatStart, 4, false, (int)States.Bloat),
+                new Animation((int)States.BloatEnd, 4, false, (int)States.Idle),
+                new Animation((int)States.Bloat, 8),
+                new Animation((int)States.PinchStart, 4, false, (int)States.Pinch),
+                new Animation((int)States.PinchEnd, 4, false, (int)States.Idle),
+                new Animation((int)States.Idle, 1),
+            };
+            stateAnim = new AnimSprite("user_bloat_pinch", new Point(70, 70), stateAnimations);
+            stateAnim.Play((int)States.Idle);
+        }
+
         protected void SetupOffsets()
         {
             usernameOffset = new Vector2(-40, -50) * scale;
@@ -238,8 +242,12 @@ namespace Flux
 
         protected float CollectorAngle() 
         {
-            double radians = Math.Atan2((position.Y - collector.position.Y), (position.X - collector.position.X));
-            return (float)radians;
+            if (collector != null)
+            {
+                double radians = Math.Atan2((position.Y - collector.position.Y), (position.X - collector.position.X));
+                return (float)radians;
+            }
+            return 0f;
         }
     }
 }

@@ -19,22 +19,26 @@ namespace Flux
         public bool active = true;
         public int display = 0;
         public float scale = 0.05f;
-        public Vector3 target;
+        public float targetMaxDistance;
+        public Collector collector;
 
         private Vector3 origLocation;
-        private float speed = 0.01f;
+        private float speed = 0.05f;
         private Model model;
         private Schedualizer respawnDelay;
 
         public Resource(Vector3 location)
         {
             model = ContentManager.Model("chicken");
-
             respawnDelay = new Schedualizer(0, 3, 5);
-
-            this.location = location;
-            this.target = location;
             this.origLocation = location;
+            Initialize();
+        }
+
+        public void Initialize()
+        {
+            location = origLocation;
+            collector = null;
         }
 
         public void Update()
@@ -44,9 +48,16 @@ namespace Flux
                 if (scale < 0.05f) scale += 0.0001f;
                 else
                 {
-                    Vector3 offsetFromTarget = GetIntensity(target, location);
-                    location += offsetFromTarget * speed;
+                    if (collector != null)
+                    {
+                        Vector3 offsetFromTarget = GetIntensity(collector.Location(), location);
+                        location += offsetFromTarget * speed;
+                    }
                 }
+            }
+            if (respawnDelay.IsOn())
+            {
+                active = true;
             }
         }
 
@@ -57,9 +68,15 @@ namespace Flux
 
         public void Gather()
         {
-            location = origLocation;
-            //active = false;
+            Initialize();
+            active = false;
             scale = 0f;
+        }
+
+        public void SetCollector(Collector collector)
+        {
+            this.collector = collector;
+            targetMaxDistance = collector.SuckRadius();
         }
 
         private Vector3 GetIntensity(Vector3 aim, Vector3 loc)

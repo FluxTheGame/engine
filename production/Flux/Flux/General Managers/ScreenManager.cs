@@ -40,7 +40,7 @@ namespace Flux
         {
             graphics.DepthStencilState = DepthStencilState.Default;
             graphics.RasterizerState = RasterizerState.CullCounterClockwise;
-            graphics.BlendState = BlendState.Opaque;
+            graphics.BlendState = BlendState.AlphaBlend;
 
             return camera[0];
         }

@@ -20,6 +20,7 @@ namespace Flux
 
         public int attackRadius = 300;
         public int id;
+        public bool isDying = false;
 
         private List<User> users;
         private List<Projectile> projectiles;
@@ -71,12 +72,17 @@ namespace Flux
 
         public void Die()
         {
-            CollectorManager.Remove(this);
+            foreach (User user in users)
+            {
+                user.Disconnect();
+            }
+            isDying = true;
+            //CollectorManager.Remove(this);
         }
 
         public float SuckRadius()
         {
-            float radius = (capacity*0.05f + resources);
+            float radius = (capacity + resources)*0.015f;
             if (radius > 3) radius = 3f;
             return radius;
         }
@@ -111,8 +117,11 @@ namespace Flux
 
         public void Collect(Resource resource)
         {
-            resources++;
-            scale = ((float)capacity * 0.01f + (float)resources * 0.01f) * 0.1f;
+            if (!isDying)
+            {
+                resources++;
+                scale += 0.0008f;
+            }
             resource.Gather();
         }
 

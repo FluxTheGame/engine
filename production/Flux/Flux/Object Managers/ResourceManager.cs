@@ -25,7 +25,6 @@ namespace Flux
             ResourceManager.instance = this;
         }
 
-
         public override void Initialize()
         {
             resources = new List<Resource>();
@@ -78,13 +77,12 @@ namespace Flux
 
                     if (dist < collector.SuckRadius())
                     {
-                        r.target = collector.Location();
+                        if (!collector.isDying) r.SetCollector(collector);
                         if (dist < 0.2f) collector.Collect(r);
                     }
                 }
             }
         }
-
         
         public override void Update(GameTime gameTime)
         {
