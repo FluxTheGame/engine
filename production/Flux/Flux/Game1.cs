@@ -28,6 +28,7 @@ namespace Flux
         Server server;
 
         KeyboardState oldState; //For detecting key presses
+        SpriteBatch spriteBatch;
 
 
         public Game1()
@@ -81,6 +82,7 @@ namespace Flux
             VLine.Effect = new BasicEffect(GraphicsDevice);
 
             oldState = Keyboard.GetState();
+            spriteBatch = new SpriteBatch(GraphicsDevice);
 
             base.Initialize();
         }
@@ -201,12 +203,19 @@ namespace Flux
        
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
-
             //Draw Grid
             GridManager.Draw();
 
             base.Draw(gameTime);
+
+            ScreenManager.graphics.SetRenderTarget(null);
+            ScreenManager.graphics.Clear(Color.Black);
+            ScreenManager.spriteBatch.Begin();
+            ScreenManager.spriteBatch.Draw(ScreenManager.Target(0), new Vector2(0, 0), new Rectangle(0, 0, (int)ScreenManager.window.X, (int)ScreenManager.window.Y), Color.White, 0, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0f);
+            ScreenManager.spriteBatch.Draw(ScreenManager.Target(1), new Vector2(640, 0), new Rectangle(0, 0, (int)ScreenManager.window.X, (int)ScreenManager.window.Y), Color.White, 0, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0f);
+            ScreenManager.spriteBatch.Draw(ScreenManager.Target(2), new Vector2(0, 400), new Rectangle(0, 0, (int)ScreenManager.window.X, (int)ScreenManager.window.Y), Color.White, 0, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0f);
+            ScreenManager.spriteBatch.Draw(ScreenManager.Target(3), new Vector2(640, 400), new Rectangle(0, 0, (int)ScreenManager.window.X, (int)ScreenManager.window.Y), Color.White, 0, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0f);
+            ScreenManager.spriteBatch.End();
         }
 
     }

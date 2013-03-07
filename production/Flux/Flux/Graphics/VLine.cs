@@ -97,7 +97,7 @@ namespace Flux
         {
             Camera camera = ScreenManager.Camera(display);
 
-            GraphicsDevice graphics = ScreenManager.Graphics(display);
+            GraphicsDevice graphics = ScreenManager.graphics;
             graphics.BlendState = BlendState.AlphaBlend;
 
             VLine.Effect.World = Matrix.Identity;

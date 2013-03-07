@@ -12,17 +12,18 @@ namespace Flux
     class ScreenManager
     {
         private static Camera[] camera = new Camera[4]; //Array of cameras
-        private static GraphicsDevice graphics;
-        private static int spacing = 2000;
+        private static RenderTarget2D[] target = new RenderTarget2D[4]; //Array of render targets
+        private static int spacing = 60;
 
         public static SpriteBatch spriteBatch;
         public static Vector2 window; //Size of a single window
-        public static Vector2 world; //Size of entire world (4 windows)
+        public static Vector2 world; //Size of entire world (4 grids combined), not including offset
+        public static GraphicsDevice graphics;
         public static int screens = 4;
 
 
         public static void Initialize(Game game, GraphicsDevice g)
-        {
+        {   
             for (int i = 0; i < camera.Length; i++)
             {
                 float cameraOffsetX = Location(Vector2.Zero, i).X;
@@ -30,10 +31,15 @@ namespace Flux
                 camera[i].display = i;
             }
 
+            window = new Vector2(1280, 800);
+            world = new Vector2(window.X * screens, window.Y);
             graphics = g;
             spriteBatch = new SpriteBatch(graphics);
-            window = new Vector2(game.Window.ClientBounds.Width, game.Window.ClientBounds.Height);
-            world = new Vector2(window.X * screens, window.Y);
+
+            for (int i = 0; i < target.Length; i++)
+            {
+                target[i] = new RenderTarget2D(g, (int)window.X, (int)window.Y);
+            }
         }
 
         public static Camera Camera(int display)
@@ -42,19 +48,31 @@ namespace Flux
             graphics.RasterizerState = RasterizerState.CullCounterClockwise;
             graphics.BlendState = BlendState.AlphaBlend;
 
-            return camera[0];
+            return camera[display];
         }
 
-        public static GraphicsDevice Graphics(int display)
+        public static void SetTarget(int display)
         {
-            return graphics;
+            graphics.SetRenderTarget(Target(display));
+            graphics.Clear(Color.Transparent);
+        }
+
+        public static RenderTarget2D Target(int display)
+        {
+            return target[display];
         }
 
         public static Vector3 Location(Vector2 position, int display)
         {
             Vector2 mid = Middle();
-            Vector3 pos = new Vector3((position.X - mid.X + (spacing*display)) * 0.00952f, (position.Y - mid.Y) * -0.0099f, 0.0f);
-            return pos;
+            Vector3 location = PixelsToUnits(new Vector2(position.X - mid.X, (position.Y - mid.Y)));
+            location.X += (spacing * display);
+            return location;
+        }
+
+        public static Vector3 PixelsToUnits(Vector2 pixels)
+        {
+            return new Vector3(pixels.X * 0.00952f, pixels.Y * -0.0099f, 0);
         }
 
         public static Vector2 Middle()
