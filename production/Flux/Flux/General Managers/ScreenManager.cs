@@ -23,23 +23,31 @@ namespace Flux
 
 
         public static void Initialize(Game game, GraphicsDevice g)
-        {   
-            for (int i = 0; i < camera.Length; i++)
-            {
-                float cameraOffsetX = Location(Vector2.Zero, i).X;
-                camera[i] = new Camera(game, new Vector3(0.16f + cameraOffsetX, -0.05f, 9f), new Vector3(0.16f + cameraOffsetX, -0.05f, 0), Vector3.Up);
-                camera[i].display = i;
-            }
-
+        {
             window = new Vector2(1280, 800);
             world = new Vector2(window.X * screens, window.Y);
             graphics = g;
             spriteBatch = new SpriteBatch(graphics);
 
+
             for (int i = 0; i < target.Length; i++)
             {
                 target[i] = new RenderTarget2D(g, (int)window.X, (int)window.Y);
             }
+
+
+            for (int i = 0; i < camera.Length; i++)
+            {
+                float worldOffsetX = -1 * Location(Vector2.Zero, 0).X;
+                float cameraOffsetX = Location(Vector2.Zero, i).X;
+                camera[i] = new Camera(game, new Vector3(worldOffsetX + cameraOffsetX, -0.05f, 9f), new Vector3(worldOffsetX + cameraOffsetX, -0.05f, 0), Vector3.Up);
+                camera[i].display = i;
+            }
+
+
+            Console.WriteLine("Graphics Device Viewport: " + graphics.Viewport.Width + " x " + graphics.Viewport.Height);
+            Console.WriteLine("ScreenManager Window: " + window.X + " x " + window.Y);
+            Console.WriteLine("ScreenManager World: " + world.X + " x " + world.Y);
         }
 
         public static Camera Camera(int display)
@@ -51,10 +59,18 @@ namespace Flux
             return camera[display];
         }
 
+        public static void Clear()
+        {
+            for (int i = 0; i < screens; i++)
+            {
+                graphics.SetRenderTarget(Target(i));
+                graphics.Clear(Color.GreenYellow);
+            }
+        }
+
         public static void SetTarget(int display)
         {
             graphics.SetRenderTarget(Target(display));
-            graphics.Clear(Color.Transparent);
         }
 
         public static RenderTarget2D Target(int display)

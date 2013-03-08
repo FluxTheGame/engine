@@ -13,7 +13,7 @@ namespace Flux
     {
         private static Grid[] grid = new Grid[4];
 
-        public static void Initialize(int windowX, int windowY, int scale)
+        public static void Initialize(int scale)
         {
             int fieldX = (int)ScreenManager.window.X / scale;
             int fieldY = (int)ScreenManager.window.Y / scale;

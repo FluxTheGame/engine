@@ -27,10 +27,11 @@ namespace Flux
 
             view = Matrix.CreateLookAt(pos, target, up);
             projection = Matrix.CreatePerspectiveFieldOfView(
-                MathHelper.PiOver4,
-                (float)Game.Window.ClientBounds.Width /
-                (float)Game.Window.ClientBounds.Height,
+                MathHelper.PiOver4, 
+                (float)ScreenManager.window.X / (float)ScreenManager.window.Y,
                 1, 100);
+
+            Console.WriteLine("ScreenManager Window (via Camera): " + ScreenManager.window.X + " x " + ScreenManager.window.Y);
         }
 
        

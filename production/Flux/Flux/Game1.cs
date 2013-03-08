@@ -37,6 +37,7 @@ namespace Flux
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 800;
             graphics.PreferMultiSampling = true;
+
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
 
             Content.RootDirectory = "Content";
@@ -46,6 +47,7 @@ namespace Flux
         {
             PresentationParameters pp = e.GraphicsDeviceInformation.PresentationParameters;
             pp.MultiSampleCount = 16;
+            pp.RenderTargetUsage = RenderTargetUsage.PreserveContents;
 
             return;
         }
@@ -57,11 +59,7 @@ namespace Flux
 
             ContentManager.Initialize(this);
             EventManager.Initialize();
-            GridManager.Initialize(
-                GraphicsDevice.Viewport.Width, 
-                GraphicsDevice.Viewport.Height,
-                10
-            );
+            GridManager.Initialize(10);
             server = new Server();
 
             collectorManager = new CollectorManager(this);
@@ -210,11 +208,20 @@ namespace Flux
 
             ScreenManager.graphics.SetRenderTarget(null);
             ScreenManager.graphics.Clear(Color.Black);
+
             ScreenManager.spriteBatch.Begin();
-            ScreenManager.spriteBatch.Draw(ScreenManager.Target(0), new Vector2(0, 0), new Rectangle(0, 0, (int)ScreenManager.window.X, (int)ScreenManager.window.Y), Color.White, 0, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0f);
-            ScreenManager.spriteBatch.Draw(ScreenManager.Target(1), new Vector2(640, 0), new Rectangle(0, 0, (int)ScreenManager.window.X, (int)ScreenManager.window.Y), Color.White, 0, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0f);
-            ScreenManager.spriteBatch.Draw(ScreenManager.Target(2), new Vector2(0, 400), new Rectangle(0, 0, (int)ScreenManager.window.X, (int)ScreenManager.window.Y), Color.White, 0, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0f);
-            ScreenManager.spriteBatch.Draw(ScreenManager.Target(3), new Vector2(640, 400), new Rectangle(0, 0, (int)ScreenManager.window.X, (int)ScreenManager.window.Y), Color.White, 0, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0f);
+
+            float scale = 0.25f;
+            int frameWidth = (int)(ScreenManager.window.X / 4);
+
+            for (int i = 0; i < 4; i++)
+            {
+                ScreenManager.spriteBatch.Draw(
+                    (Texture2D)ScreenManager.Target(i), new Vector2(frameWidth * i, 0), 
+                    ScreenManager.Target(i).Bounds, Color.White, 
+                    0, new Vector2(0, 0), scale, SpriteEffects.None, 0f);
+            }
+            
             ScreenManager.spriteBatch.End();
         }
 
