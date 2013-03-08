@@ -20,20 +20,21 @@ namespace Flux
         {
             wrapY = true;
             velocity = Randomizer.RandomVelocity();
-            position = new Vector2(Randomizer.RandomInt(100, 700), Randomizer.RandomInt(100, 700));
+            position = new Vector2(Randomizer.RandomFloat(0, ScreenManager.window.X), Randomizer.RandomFloat(0, ScreenManager.window.Y));
+            display = Randomizer.RandomInt(0, 4);
             dampening = 0.985f;
         }
 
         public void BeAttacked(int damage)
         {
             health -= damage;
-            Console.WriteLine("Got attacked, health: " + health);
+            Console.WriteLine("Enemy got attacked, health: " + health);
             if (health <= 0) Die();
         }
 
         public void Kamikaze(Collector collector)
         {
-            collector.BeAttacked(40);
+            collector.BeAttacked(25);
             Die();
         }
 

@@ -34,32 +34,5 @@ namespace Flux
             Console.WriteLine("ScreenManager Window (via Camera): " + ScreenManager.window.X + " x " + ScreenManager.window.Y);
         }
 
-       
-        public override void Initialize()
-        {
-            base.Initialize();
-        }
-
-       
-        public override void Update(GameTime gameTime)
-        {
-
-            /* Move camera for debugging */
-            KeyboardState keyState = Keyboard.GetState();
-            if (keyState.IsKeyDown(Keys.Left))
-            {
-                pos.X += 0.1f;
-            }
-            if (keyState.IsKeyDown(Keys.Right))
-            {
-                pos.X -= 0.1f;
-            }
-
-            view = Matrix.CreateLookAt(pos, target, up);
-            /* End */
-
-            base.Update(gameTime);
-        }
-
     }
 }

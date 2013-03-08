@@ -30,10 +30,10 @@ namespace Flux
         {
             enemies = new List<Enemy>();
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 10; i++)
             {
-                enemies.Add(new EnemyBulger());
-                enemies.Add(new EnemyShooter());
+                //enemies.Add(new EnemyBulger());
+                //enemies.Add(new EnemyShooter());
                 enemies.Add(new EnemyCrazy());
             }
 

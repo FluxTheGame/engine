@@ -32,6 +32,8 @@ namespace Flux
         KeyboardState oldState; //For detecting key presses
         SpriteBatch spriteBatch;
 
+        int camera = 0; //Default camera when not using FOUR_SCREENS
+
 
         public Game1()
         {
@@ -176,8 +178,13 @@ namespace Flux
                     EventManager.Emit("collector:attack", c);
                 }
             }
-
             oldState = keyState;
+
+            //Setting camera view when not using FOUR_SCREENS
+            if (keyState.IsKeyDown(Keys.NumPad0)) camera = 0;
+            if (keyState.IsKeyDown(Keys.NumPad1)) camera = 1;
+            if (keyState.IsKeyDown(Keys.NumPad2)) camera = 2;
+            if (keyState.IsKeyDown(Keys.NumPad3)) camera = 3;
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
@@ -198,11 +205,7 @@ namespace Flux
                 initialMousePos = Vector2.Zero;
             }
 
-            //Camera update for movement
-            Camera cam = ScreenManager.Camera(0);
-            cam.Update(gameTime);
             /* End for testing */
-
             
             base.Update(gameTime);
         }
@@ -239,8 +242,8 @@ namespace Flux
             }
 #else
             ScreenManager.spriteBatch.Draw(
-                    (Texture2D)ScreenManager.Target(0), new Vector2(0, 0), 
-                    ScreenManager.Target(0).Bounds, Color.White,
+                    (Texture2D)ScreenManager.Target(camera), new Vector2(0, 0), 
+                    ScreenManager.Target(camera).Bounds, Color.White,
                     0, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
 #endif
             

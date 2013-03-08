@@ -40,6 +40,7 @@ namespace Flux
 
         public override void Draw()
         {
+            ScreenManager.SetTarget(collector.display);
             ScreenManager.spriteBatch.Begin();
             ScreenManager.spriteBatch.Draw(sprite, position, Color.White);
             ScreenManager.spriteBatch.End();

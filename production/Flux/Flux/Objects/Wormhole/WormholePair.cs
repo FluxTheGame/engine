@@ -48,7 +48,9 @@ namespace Flux
                 WormholeManager.Remove(this);
             }
 
+            ScreenManager.SetTarget(one.display);
             one.Update();
+            ScreenManager.SetTarget(two.display);
             two.Update();
         }
 
