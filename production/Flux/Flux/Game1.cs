@@ -34,7 +34,7 @@ namespace Flux
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1280 * 4;
+            graphics.PreferredBackBufferWidth = 1280 * 2;
             graphics.PreferredBackBufferHeight = 800;
             graphics.PreferMultiSampling = true;
 
