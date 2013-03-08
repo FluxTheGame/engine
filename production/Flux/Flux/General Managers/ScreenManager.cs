@@ -38,7 +38,7 @@ namespace Flux
 
             for (int i = 0; i < camera.Length; i++)
             {
-                float worldOffsetX = -1 * Location(Vector2.Zero, 0).X;
+                float worldOffsetX = 6.255f; //  -1 * Location(Vector2.Zero, 0).X;
                 float cameraOffsetX = Location(Vector2.Zero, i).X;
                 camera[i] = new Camera(game, new Vector3(worldOffsetX + cameraOffsetX, -0.05f, 9f), new Vector3(worldOffsetX + cameraOffsetX, -0.05f, 0), Vector3.Up);
                 camera[i].display = i;

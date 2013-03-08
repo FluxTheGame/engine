@@ -34,8 +34,8 @@ namespace Flux
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1280 * 2;
-            graphics.PreferredBackBufferHeight = 800;
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 200;
             graphics.PreferMultiSampling = true;
 
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
@@ -47,7 +47,7 @@ namespace Flux
         {
             PresentationParameters pp = e.GraphicsDeviceInformation.PresentationParameters;
             pp.MultiSampleCount = 16;
-            pp.RenderTargetUsage = RenderTargetUsage.PreserveContents;
+            //pp.RenderTargetUsage = RenderTargetUsage.PreserveContents;
 
             return;
         }
@@ -217,8 +217,8 @@ namespace Flux
 
             ScreenManager.spriteBatch.Begin();
 
-            float scale = 1;
-            int frameWidth = (int)(ScreenManager.window.X);
+            float scale = 0.25f;
+            int frameWidth = (int)(ScreenManager.window.X / 4);
 
             for (int i = 0; i < 4; i++)
             {
