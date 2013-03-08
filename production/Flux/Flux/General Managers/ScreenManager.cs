@@ -32,7 +32,7 @@ namespace Flux
 
             for (int i = 0; i < target.Length; i++)
             {
-                target[i] = new RenderTarget2D(g, (int)window.X, (int)window.Y);
+                target[i] = new RenderTarget2D(g, (int)window.X, (int)window.Y, false, g.PresentationParameters.BackBufferFormat, DepthFormat.Depth24, 8, RenderTargetUsage.PreserveContents);
             }
 
 
@@ -57,15 +57,6 @@ namespace Flux
             graphics.BlendState = BlendState.AlphaBlend;
 
             return camera[display];
-        }
-
-        public static void Clear()
-        {
-            for (int i = 0; i < screens; i++)
-            {
-                graphics.SetRenderTarget(Target(i));
-                graphics.Clear(Color.GreenYellow);
-            }
         }
 
         public static void SetTarget(int display)

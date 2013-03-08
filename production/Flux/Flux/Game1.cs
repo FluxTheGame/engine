@@ -34,7 +34,7 @@ namespace Flux
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferWidth = 1280 * 4;
             graphics.PreferredBackBufferHeight = 800;
             graphics.PreferMultiSampling = true;
 
@@ -201,6 +201,12 @@ namespace Flux
        
         protected override void Draw(GameTime gameTime)
         {
+            for (int i = 0; i < 4; i++)
+            {
+                ScreenManager.SetTarget(i);
+                ScreenManager.graphics.Clear(Color.Transparent);
+            }
+
             //Draw Grid
             GridManager.Draw();
 
@@ -211,14 +217,14 @@ namespace Flux
 
             ScreenManager.spriteBatch.Begin();
 
-            float scale = 0.25f;
-            int frameWidth = (int)(ScreenManager.window.X / 4);
+            float scale = 1;
+            int frameWidth = (int)(ScreenManager.window.X);
 
             for (int i = 0; i < 4; i++)
             {
                 ScreenManager.spriteBatch.Draw(
                     (Texture2D)ScreenManager.Target(i), new Vector2(frameWidth * i, 0), 
-                    ScreenManager.Target(i).Bounds, Color.White, 
+                    ScreenManager.Target(i).Bounds, Color.White,
                     0, new Vector2(0, 0), scale, SpriteEffects.None, 0f);
             }
             
