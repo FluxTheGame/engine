@@ -1,3 +1,6 @@
+
+//#define FOUR_SCREENS
+
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -9,7 +12,6 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-
 
 namespace Flux
 {
@@ -34,8 +36,15 @@ namespace Flux
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+
             graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 200;
+
+            #if FOUR_SCREENS
+                graphics.PreferredBackBufferHeight = 200;
+            #else
+                graphics.PreferredBackBufferHeight = 800;
+            #endif
+
             graphics.PreferMultiSampling = true;
 
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
@@ -217,6 +226,7 @@ namespace Flux
 
             ScreenManager.spriteBatch.Begin();
 
+#if FOUR_SCREENS
             float scale = 0.25f;
             int frameWidth = (int)(ScreenManager.window.X / 4);
 
@@ -227,6 +237,12 @@ namespace Flux
                     ScreenManager.Target(i).Bounds, Color.White,
                     0, new Vector2(0, 0), scale, SpriteEffects.None, 0f);
             }
+#else
+            ScreenManager.spriteBatch.Draw(
+                    (Texture2D)ScreenManager.Target(0), new Vector2(0, 0), 
+                    ScreenManager.Target(0).Bounds, Color.White,
+                    0, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
+#endif
             
             ScreenManager.spriteBatch.End();
         }
