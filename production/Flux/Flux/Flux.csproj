@@ -140,6 +140,7 @@
     <Compile Include="Objects\Collector.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Objects\Ground.cs" />
     <Compile Include="Objects\Projectile.cs" />
     <Compile Include="Objects\WorldObject.cs" />
     <Compile Include="Objects\Wormhole\Wormhole.cs" />
