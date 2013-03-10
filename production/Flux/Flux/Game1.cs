@@ -22,6 +22,7 @@ namespace Flux
         Vector2 initialMousePos = Vector2.Zero;
 
         CollectorManager collectorManager;
+        WorldManager worldManager;
         EnemyManager enemyManager;
         UserManager userManager;
         ResourceManager resourceManager;
@@ -73,6 +74,9 @@ namespace Flux
 
             collectorManager = new CollectorManager(this);
             Components.Add(collectorManager);
+
+            worldManager = new WorldManager(this);
+            Components.Add(worldManager);
             
             enemyManager = new EnemyManager(this);
             Components.Add(enemyManager);
