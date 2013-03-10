@@ -22,6 +22,7 @@ namespace Flux
         Vector2 initialMousePos = Vector2.Zero;
 
         int currentDisplay = 0;
+        Ground ground;
 
         CollectorManager collectorManager;
         WorldManager worldManager;
@@ -59,7 +60,6 @@ namespace Flux
         {
             PresentationParameters pp = e.GraphicsDeviceInformation.PresentationParameters;
             pp.MultiSampleCount = 16;
-            //pp.RenderTargetUsage = RenderTargetUsage.PreserveContents;
 
             return;
         }
@@ -80,14 +80,14 @@ namespace Flux
             worldManager = new WorldManager(this);
             Components.Add(worldManager);
             
-            enemyManager = new EnemyManager(this);
+            /*enemyManager = new EnemyManager(this);
             Components.Add(enemyManager);
 
             resourceManager = new ResourceManager(this);
             Components.Add(resourceManager);
 
             wormholeManager = new WormholeManager(this);
-            Components.Add(wormholeManager);
+            Components.Add(wormholeManager);*/
 
             userManager = new UserManager(this);
             Components.Add(userManager);
@@ -103,6 +103,8 @@ namespace Flux
       
         protected override void LoadContent()
         {
+            ground = new Ground();
+
             /* For Testing */
             //Add Collector
             
@@ -217,8 +219,8 @@ namespace Flux
             }
 
             //Camera update for movement
-            Camera cam = ScreenManager.Camera(0);
-            cam.Update(gameTime);
+            ScreenManager.Update(gameTime);
+
             /* End for testing */
 
             
@@ -233,14 +235,18 @@ namespace Flux
                 ScreenManager.SetTarget(i);
                 ScreenManager.graphics.Clear(Color.Transparent);
             }
+            // Draw Ground
+            ground.Draw();
 
-            //Draw Grid
+            // Draw Grid
             GridManager.Draw();
 
             base.Draw(gameTime);
 
+
+
             ScreenManager.graphics.SetRenderTarget(null);
-            ScreenManager.graphics.Clear(Color.SkyBlue);
+            ScreenManager.graphics.Clear(Color.Black);
 
             ScreenManager.spriteBatch.Begin();
 

@@ -48,6 +48,7 @@ namespace Flux
         {
             foreach (WorldObject obj in worldObjects)
             {
+                ScreenManager.SetTarget(obj.display);
                 obj.Draw();
             }
 
@@ -100,9 +101,6 @@ namespace Flux
                     Model modelLoad;
                     switch (args["objGroup"])
                     {
-                        case "1":
-                            modelLoad = ContentManager.Model(@"env/Ground_Plane");
-                            break;
                         case "2":
                             modelLoad = ContentManager.Model(@"env/Palm_01");
                             break;

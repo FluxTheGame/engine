@@ -47,6 +47,8 @@ namespace Flux
 
         public static void Suck(GameObject passenger)
         {
+            if (instance == null) return;
+
             foreach (WormholePair w in instance.wormholePairs)
             {
                 w.Suck(passenger);

@@ -43,11 +43,14 @@ namespace Flux
                 camera[i] = new Camera(game, new Vector3(worldOffsetX + cameraOffsetX, -0.05f, 9f), new Vector3(worldOffsetX + cameraOffsetX, -0.05f, 0), Vector3.Up);
                 camera[i].display = i;
             }
+        }
 
-
-            Console.WriteLine("Graphics Device Viewport: " + graphics.Viewport.Width + " x " + graphics.Viewport.Height);
-            Console.WriteLine("ScreenManager Window: " + window.X + " x " + window.Y);
-            Console.WriteLine("ScreenManager World: " + world.X + " x " + world.Y);
+        public static void Update(GameTime gameTime)
+        {
+            foreach (Camera c in camera)
+            {
+                c.Update(gameTime);
+            }
         }
 
         public static Camera Camera(int display)

@@ -30,8 +30,6 @@ namespace Flux
                 MathHelper.PiOver4, 
                 (float)ScreenManager.window.X / (float)ScreenManager.window.Y,
                 1, 100);
-
-            Console.WriteLine("ScreenManager Window (via Camera): " + ScreenManager.window.X + " x " + ScreenManager.window.Y);
         }
 
        

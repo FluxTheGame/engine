@@ -10,7 +10,22 @@ namespace Flux
 {
     public class Drawer3D
     {
+        public static void Draw(Model model, Vector3 location, Camera camera)
+        {
+            Draw(model, location, 1, 1, camera);
+        }
+
+        public static void Draw(Model model, Vector3 location, Vector3 rotation, Camera camera)
+        {
+            Draw(model, location, rotation, 1, 1, camera);
+        }
+
         public static void Draw(Model model, Vector3 location, float scale, float opacity, Camera camera)
+        {
+            Draw(model, location, Vector3.Zero, scale, opacity, camera);
+        }
+
+        public static void Draw(Model model, Vector3 location, Vector3 rotation, float scale, float opacity, Camera camera)
         {
             if (model != null)
             {
@@ -24,7 +39,12 @@ namespace Flux
                         effect.EnableDefaultLighting();
                         effect.Projection = camera.projection;
                         effect.View = camera.view;
-                        effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateScale(scale) * Matrix.CreateTranslation(location);
+                        effect.World = transforms[mesh.ParentBone.Index] * 
+                            Matrix.CreateScale(scale) * 
+                            Matrix.CreateTranslation(location) *
+                            Matrix.CreateRotationX(MathHelper.ToRadians(rotation.X)) *
+                            Matrix.CreateRotationY(MathHelper.ToRadians(rotation.Y)) *
+                            Matrix.CreateRotationZ(MathHelper.ToRadians(rotation.Z));
                         effect.Alpha = opacity;
                     }
                     mesh.Draw();
