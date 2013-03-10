@@ -11,11 +11,12 @@ namespace Flux
 
     public class WorldObject
     {
-        static float worldScale = 0.5f;
+        static float worldScale = 1f;
         public Vector3 position;
         public Vector3 rotation;
         public Vector3 scale;
         public int display;
+        public List<int> displays;
 
         public string objectName;
         public int objectGroup = -1;
@@ -65,6 +66,10 @@ namespace Flux
 
             float.TryParse(args["shadow"], out shadow);
 
+            displays = new List<int>();
+            displays.Add(0);
+            displays.Add(1);
+
             model = mod;
 
         }//end WorldObject
@@ -88,27 +93,29 @@ namespace Flux
 
             if (model != null)
             {
-                Camera camera = ScreenManager.Camera(display);
                 Matrix[] transforms = new Matrix[model.Bones.Count];
                 model.CopyAbsoluteBoneTransformsTo(transforms);
 
                 foreach (ModelMesh mesh in model.Meshes)
                 {
+                    foreach (int d in displays) {
+                        foreach (BasicEffect effect in mesh.Effects) {
+                            Camera camera = ScreenManager.Camera(d);
+                            effect.EnableDefaultLighting();
+                            effect.Projection = camera.projection;
+                            effect.View = camera.view;
+                            effect.World = transforms[mesh.ParentBone.Index] *
+                                Matrix.CreateScale(scale * worldScale) *
+                                Matrix.CreateTranslation(Location()) *
+                                Matrix.CreateRotationX(MathHelper.ToRadians(rotation.X)) *
+                                Matrix.CreateRotationY(MathHelper.ToRadians(rotation.Y)) *
+                                Matrix.CreateRotationZ(MathHelper.ToRadians(rotation.Z));
+                        }
 
-                    foreach (BasicEffect effect in mesh.Effects)
-                    {
-                        effect.EnableDefaultLighting();
-                        effect.Projection = camera.projection;
-                        effect.View = camera.view;
-                        effect.World = transforms[mesh.ParentBone.Index] * 
-                            Matrix.CreateScale(scale * worldScale) *
-                            Matrix.CreateTranslation(Location()) * 
-                            Matrix.CreateRotationX(MathHelper.ToRadians(rotation.X)) *
-                            Matrix.CreateRotationY(MathHelper.ToRadians(rotation.Y)) * 
-                            Matrix.CreateRotationZ(MathHelper.ToRadians(rotation.Z));
+
+                        ScreenManager.SetTarget(d);
+                        mesh.Draw();
                     }
-
-                    mesh.Draw();
 
                 }
 

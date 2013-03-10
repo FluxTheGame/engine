@@ -21,6 +21,8 @@ namespace Flux
         GraphicsDeviceManager graphics;
         Vector2 initialMousePos = Vector2.Zero;
 
+        int currentDisplay = 0;
+
         CollectorManager collectorManager;
         WorldManager worldManager;
         EnemyManager enemyManager;
@@ -101,7 +103,6 @@ namespace Flux
       
         protected override void LoadContent()
         {
-
             /* For Testing */
             //Add Collector
             
@@ -181,6 +182,19 @@ namespace Flux
                 }
             }
 
+            if (keyState.IsKeyDown(Keys.D1)) 
+            {
+                currentDisplay = 0;
+            } 
+            else if (keyState.IsKeyDown(Keys.D2)) 
+            {
+                currentDisplay = 1;
+            } else if (keyState.IsKeyDown(Keys.D3)) {
+                currentDisplay = 2;
+            } else if (keyState.IsKeyDown(Keys.D4)) {
+                currentDisplay = 3;
+            }
+
             oldState = keyState;
 
             if (mouseState.LeftButton == ButtonState.Pressed)
@@ -226,7 +240,7 @@ namespace Flux
             base.Draw(gameTime);
 
             ScreenManager.graphics.SetRenderTarget(null);
-            ScreenManager.graphics.Clear(Color.Black);
+            ScreenManager.graphics.Clear(Color.SkyBlue);
 
             ScreenManager.spriteBatch.Begin();
 
@@ -243,7 +257,7 @@ namespace Flux
             }
 #else
             ScreenManager.spriteBatch.Draw(
-                    (Texture2D)ScreenManager.Target(0), new Vector2(0, 0), 
+                    (Texture2D)ScreenManager.Target(currentDisplay), new Vector2(0, 0), 
                     ScreenManager.Target(0).Bounds, Color.White,
                     0, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
 #endif
