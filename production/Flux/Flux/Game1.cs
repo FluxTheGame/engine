@@ -74,22 +74,28 @@ namespace Flux
             GridManager.Initialize(10);
             server = new Server();
 
-            collectorManager = new CollectorManager(this);
-            Components.Add(collectorManager);
-
             worldManager = new WorldManager(this);
+            worldManager.DrawOrder = 1;
             Components.Add(worldManager);
-            
-            /*enemyManager = new EnemyManager(this);
-            Components.Add(enemyManager);
 
             resourceManager = new ResourceManager(this);
+            resourceManager.DrawOrder = 2;
             Components.Add(resourceManager);
 
             wormholeManager = new WormholeManager(this);
-            Components.Add(wormholeManager);*/
+            wormholeManager.DrawOrder = 3;
+            Components.Add(wormholeManager);
+
+            collectorManager = new CollectorManager(this);
+            collectorManager.DrawOrder = 4;
+            Components.Add(collectorManager);
+
+            enemyManager = new EnemyManager(this);
+            enemyManager.DrawOrder = 5;
+            Components.Add(enemyManager);
 
             userManager = new UserManager(this);
+            userManager.DrawOrder = 6;
             Components.Add(userManager);
 
             VLine.Effect = new BasicEffect(GraphicsDevice);
@@ -238,35 +244,34 @@ namespace Flux
             // Draw Ground
             ground.Draw();
 
-            // Draw Grid
-            GridManager.Draw();
-
+            // draw game components
             base.Draw(gameTime);
 
-
+            // Draw Grid
+            GridManager.Draw();
 
             ScreenManager.graphics.SetRenderTarget(null);
             ScreenManager.graphics.Clear(Color.Black);
 
             ScreenManager.spriteBatch.Begin();
 
-#if FOUR_SCREENS
-            float scale = 0.25f;
-            int frameWidth = (int)(ScreenManager.window.X / 4);
+            #if FOUR_SCREENS
+                float scale = 0.25f;
+                int frameWidth = (int)(ScreenManager.window.X / 4);
 
-            for (int i = 0; i < 4; i++)
-            {
+                for (int i = 0; i < 4; i++)
+                {
+                    ScreenManager.spriteBatch.Draw(
+                        (Texture2D)ScreenManager.Target(i), new Vector2(frameWidth * i, 0), 
+                        ScreenManager.Target(i).Bounds, Color.White,
+                        0, new Vector2(0, 0), scale, SpriteEffects.None, 0f);
+                }
+            #else
                 ScreenManager.spriteBatch.Draw(
-                    (Texture2D)ScreenManager.Target(i), new Vector2(frameWidth * i, 0), 
-                    ScreenManager.Target(i).Bounds, Color.White,
-                    0, new Vector2(0, 0), scale, SpriteEffects.None, 0f);
-            }
-#else
-            ScreenManager.spriteBatch.Draw(
-                    (Texture2D)ScreenManager.Target(currentDisplay), new Vector2(0, 0), 
-                    ScreenManager.Target(0).Bounds, Color.White,
-                    0, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
-#endif
+                        (Texture2D)ScreenManager.Target(currentDisplay), new Vector2(0, 0), 
+                        ScreenManager.Target(0).Bounds, Color.White,
+                        0, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
+            #endif
             
             ScreenManager.spriteBatch.End();
         }

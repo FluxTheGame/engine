@@ -32,7 +32,7 @@ namespace Flux
 
             for (int i = 0; i < target.Length; i++)
             {
-                target[i] = new RenderTarget2D(g, (int)window.X, (int)window.Y, false, g.PresentationParameters.BackBufferFormat, DepthFormat.Depth24, 8, RenderTargetUsage.PreserveContents);
+                target[i] = MakeTarget();
             }
 
 
@@ -43,6 +43,13 @@ namespace Flux
                 camera[i] = new Camera(game, new Vector3(worldOffsetX + cameraOffsetX, -0.05f, 9f), new Vector3(worldOffsetX + cameraOffsetX, -0.05f, 0), Vector3.Up);
                 camera[i].display = i;
             }
+        }
+
+        public static RenderTarget2D MakeTarget()
+        {
+            return new RenderTarget2D(graphics, (int)window.X, (int)window.Y, false, 
+                graphics.PresentationParameters.BackBufferFormat, 
+                DepthFormat.Depth24, 8, RenderTargetUsage.PreserveContents);
         }
 
         public static void Update(GameTime gameTime)
@@ -60,6 +67,11 @@ namespace Flux
             graphics.BlendState = BlendState.AlphaBlend;
 
             return camera[display];
+        }
+
+        public static void PutTarget(int display, RenderTarget2D t)
+        {
+            target[display] = t;
         }
 
         public static void SetTarget(int display)
