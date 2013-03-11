@@ -88,7 +88,6 @@ Content\sprites\user_pointer.xnb
 Content\sprites\user_bloat_pinch.xnb
 Content\sprites\user_points.xnb
 Content\sprites\collector_attack.xnb
-Content\masks\tree_birch01.xnb
 Content\shaders\Swirl.xnb
 Content\tree_birch01_0.xnb
 Content\birch_0.xnb
@@ -169,3 +168,4 @@ Content\Shroom_07_0.xnb
 Content\Stick_01_0.xnb
 Content\Stick_02_0.xnb
 Content\Stick_03_0.xnb
+Content\masks\Birch_01.xnb

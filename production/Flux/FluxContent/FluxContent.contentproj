@@ -99,7 +99,13 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="masks\Birch_01.png">
+      <Name>Birch_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="sprites\user_pointer.png">
       <Name>user_pointer</Name>
@@ -124,13 +130,6 @@
   <ItemGroup>
     <Compile Include="sprites\collector_attack.png">
       <Name>collector_attack</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="masks\tree_birch01.png">
-      <Name>tree_birch01</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
