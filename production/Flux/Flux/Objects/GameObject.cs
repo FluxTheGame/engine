@@ -24,6 +24,7 @@ namespace Flux
 
         protected DateTime created;
         protected bool wrapY = false;
+        protected float originalRadius;
 
 
         public GameObject()
@@ -52,6 +53,7 @@ namespace Flux
 
         public virtual void Draw()
         {
+            ScreenManager.SetTarget(display);
             Camera camera = ScreenManager.Camera(display);
             Drawer3D.Draw(model, Location(), scale, 1f, camera);
         }
@@ -84,8 +86,7 @@ namespace Flux
             {
                 foreach (ModelMesh mesh in model.Meshes)
                 {
-                    if (sphere.Radius == 0) sphere = mesh.BoundingSphere;
-                    else sphere = BoundingSphere.CreateMerged(sphere, mesh.BoundingSphere);
+                    sphere = mesh.BoundingSphere;
                 }
                 sphere.Center = Location();
                 sphere.Radius *= scale;

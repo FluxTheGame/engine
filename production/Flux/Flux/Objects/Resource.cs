@@ -95,6 +95,7 @@ namespace Flux
         {
             if (active)
             {
+                ScreenManager.SetTarget(display);
                 Camera camera = ScreenManager.Camera(display);
                 Drawer3D.Draw(model, location, scale, 1f, camera);
             }

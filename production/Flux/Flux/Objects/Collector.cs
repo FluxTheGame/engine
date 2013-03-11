@@ -45,9 +45,6 @@ namespace Flux
 
             if (resources >= capacity)
                 Burst();
-
-            if (health <= 0)
-                Die();
             
             base.Update();
         }
@@ -67,6 +64,7 @@ namespace Flux
             o.Add("id", id);
             o.Add("points", resources);
             EventManager.Emit("collector:burst", o);
+            Console.WriteLine("Collector " + id + ":  FULL");
             Die();
         }
 
@@ -77,7 +75,7 @@ namespace Flux
                 user.Disconnect();
             }
             isDying = true;
-            //CollectorManager.Remove(this);
+            CollectorManager.Remove(this);
         }
 
         public float SuckRadius()
@@ -101,6 +99,12 @@ namespace Flux
             foreach (User user in users)
             {
                 user.Alert();
+            }
+            Console.WriteLine("Collector " + id + ":  Got Attacked, health: " + health);
+            if (health <= 0)
+            {
+                Console.WriteLine("Collector " + id + ":  DEATH");
+                Die();
             }
         }
 

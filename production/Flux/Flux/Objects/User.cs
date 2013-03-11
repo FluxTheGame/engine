@@ -145,6 +145,7 @@ namespace Flux
 
         public override void Draw()
         {
+            ScreenManager.SetTarget(display);
             spriteBatch.Begin();
                 pointerAnim.Draw();
                 stateAnim.Draw();

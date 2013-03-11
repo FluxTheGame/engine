@@ -99,7 +99,6 @@ namespace Flux
         {
             foreach (Resource r in resources)
             {
-                ScreenManager.SetTarget(r.display);
                 r.Draw();
             }
             base.Draw(gameTime);

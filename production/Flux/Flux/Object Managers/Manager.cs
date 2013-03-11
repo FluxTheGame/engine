@@ -65,7 +65,6 @@ namespace Flux
 
             foreach (GameObject obj in objects)
             {
-                ScreenManager.SetTarget(obj.display);
                 obj.Draw();
             }
 
