@@ -30,8 +30,33 @@ namespace Flux
                 MathHelper.PiOver4, 
                 (float)ScreenManager.window.X / (float)ScreenManager.window.Y,
                 1, 100);
+        }
 
-            Console.WriteLine("ScreenManager Window (via Camera): " + ScreenManager.window.X + " x " + ScreenManager.window.Y);
+       
+        public override void Initialize()
+        {
+            base.Initialize();
+        }
+
+       
+        public override void Update(GameTime gameTime)
+        {
+
+            /* Move camera for debugging */
+            KeyboardState keyState = Keyboard.GetState();
+            if (keyState.IsKeyDown(Keys.Left))
+            {
+                pos.X += 0.1f;
+            }
+            if (keyState.IsKeyDown(Keys.Right))
+            {
+                pos.X -= 0.1f;
+            }
+
+            view = Matrix.CreateLookAt(pos, target, up);
+            /* End */
+
+            base.Update(gameTime);
         }
 
     }

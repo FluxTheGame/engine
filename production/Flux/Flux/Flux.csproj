@@ -127,6 +127,7 @@
     <Compile Include="Object Managers\EnemyManager.cs" />
     <Compile Include="General Managers\EventManager.cs" />
     <Compile Include="Object Managers\Manager.cs" />
+    <Compile Include="Object Managers\WorldManager.cs" />
     <Compile Include="Object Managers\WormholeManager.cs" />
     <Compile Include="Objects\Enemies\Enemy.cs" />
     <Compile Include="Objects\Enemies\EnemyBulger.cs">
@@ -139,7 +140,9 @@
     <Compile Include="Objects\Collector.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Objects\Ground.cs" />
     <Compile Include="Objects\Projectile.cs" />
+    <Compile Include="Objects\WorldObject.cs" />
     <Compile Include="Objects\Wormhole\Wormhole.cs" />
     <Compile Include="Objects\Wormhole\WormholePair.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

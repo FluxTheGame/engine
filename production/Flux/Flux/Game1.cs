@@ -21,7 +21,11 @@ namespace Flux
         GraphicsDeviceManager graphics;
         Vector2 initialMousePos = Vector2.Zero;
 
+        int currentDisplay = 0;
+        Ground ground;
+
         CollectorManager collectorManager;
+        WorldManager worldManager;
         EnemyManager enemyManager;
         UserManager userManager;
         ResourceManager resourceManager;
@@ -32,7 +36,6 @@ namespace Flux
         KeyboardState oldState; //For detecting key presses
         SpriteBatch spriteBatch;
 
-        int camera = 0; //Default camera when not using FOUR_SCREENS
 
 
         public Game1()
@@ -58,7 +61,6 @@ namespace Flux
         {
             PresentationParameters pp = e.GraphicsDeviceInformation.PresentationParameters;
             pp.MultiSampleCount = 16;
-            //pp.RenderTargetUsage = RenderTargetUsage.PreserveContents;
 
             return;
         }
@@ -73,19 +75,28 @@ namespace Flux
             GridManager.Initialize(10);
             server = new Server();
 
-            collectorManager = new CollectorManager(this);
-            Components.Add(collectorManager);
-            
-            enemyManager = new EnemyManager(this);
-            Components.Add(enemyManager);
+            worldManager = new WorldManager(this);
+            worldManager.DrawOrder = 1;
+            Components.Add(worldManager);
 
             resourceManager = new ResourceManager(this);
+            resourceManager.DrawOrder = 2;
             Components.Add(resourceManager);
 
             wormholeManager = new WormholeManager(this);
+            wormholeManager.DrawOrder = 3;
             Components.Add(wormholeManager);
 
+            collectorManager = new CollectorManager(this);
+            collectorManager.DrawOrder = 4;
+            Components.Add(collectorManager);
+
+            enemyManager = new EnemyManager(this);
+            enemyManager.DrawOrder = 5;
+            Components.Add(enemyManager);
+
             userManager = new UserManager(this);
+            userManager.DrawOrder = 6;
             Components.Add(userManager);
 
             VLine.Effect = new BasicEffect(GraphicsDevice);
@@ -99,6 +110,7 @@ namespace Flux
       
         protected override void LoadContent()
         {
+            ground = new Ground();
 
             /* For Testing */
             //Add Collector
@@ -178,13 +190,20 @@ namespace Flux
                     EventManager.Emit("collector:attack", c);
                 }
             }
-            oldState = keyState;
+            if (keyState.IsKeyDown(Keys.D1)) 
+            {
+                currentDisplay = 0;
+            } 
+            else if (keyState.IsKeyDown(Keys.D2)) 
+            {
+                currentDisplay = 1;
+            } else if (keyState.IsKeyDown(Keys.D3)) {
+                currentDisplay = 2;
+            } else if (keyState.IsKeyDown(Keys.D4)) {
+                currentDisplay = 3;
+            }
 
-            //Setting camera view when not using FOUR_SCREENS
-            if (keyState.IsKeyDown(Keys.NumPad0)) camera = 0;
-            if (keyState.IsKeyDown(Keys.NumPad1)) camera = 1;
-            if (keyState.IsKeyDown(Keys.NumPad2)) camera = 2;
-            if (keyState.IsKeyDown(Keys.NumPad3)) camera = 3;
+            oldState = keyState;
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {

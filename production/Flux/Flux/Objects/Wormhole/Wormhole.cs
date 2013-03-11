@@ -29,5 +29,22 @@ namespace Flux
 
             base.Update();
         }
+
+        public override void Draw()
+        {
+            RenderTarget2D t = ScreenManager.MakeTarget();
+
+            ScreenManager.graphics.SetRenderTarget(t);
+            Texture2D sceneTexture = (Texture2D)ScreenManager.Target(display);
+
+            WormholeManager.SwirlShader.Parameters["Center"].SetValue(position);
+
+            ScreenManager.graphics.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.DarkSlateBlue, 1.0f, 0);
+            ScreenManager.spriteBatch.Begin(0, BlendState.Opaque, null, null, RasterizerState.CullNone, WormholeManager.SwirlShader);
+            ScreenManager.spriteBatch.Draw(sceneTexture, sceneTexture.Bounds, Color.White);
+            ScreenManager.spriteBatch.End();
+
+            ScreenManager.PutTarget(display, t);
+        }
     }
 }
