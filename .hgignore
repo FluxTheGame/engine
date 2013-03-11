@@ -677,3 +677,5 @@ production/Flux/FluxContent/obj/x86/Release/DesignTimeResolveAssemblyReferencesI
 production/Flux/FluxContent/obj/x86/Release/FluxContent.contentproj.FileListAbsolute.txt
 production/Flux/Flux/obj/x86/Release/ContentPipeline-{024E11DE-813F-48D7-B0CA-9F0C3B09E065}.xml
 production/Flux/Flux/obj/x86/Release/cachefile-{024E11DE-813F-48D7-B0CA-9F0C3B09E065}-targetpath.txt
+production/Flux/Flux/obj/x86/Release/ContentPipeline-{024E11DE-813F-48D7-B0CA-9F0C3B09E065}.xml
+production/Flux/Flux/obj/x86/Release/cachefile-{024E11DE-813F-48D7-B0CA-9F0C3B09E065}-targetpath.txt
