@@ -78,7 +78,7 @@ namespace Flux
             worldManager = new WorldManager(this);
             worldManager.DrawOrder = 1;
             Components.Add(worldManager);
-
+            
             resourceManager = new ResourceManager(this);
             resourceManager.DrawOrder = 2;
             Components.Add(resourceManager);
@@ -238,33 +238,35 @@ namespace Flux
                 ScreenManager.graphics.Clear(Color.Transparent);
             }
 
+            //Draw Ground Plane
+            ground.Draw();
+
             //Draw Grid
             GridManager.Draw();
 
             base.Draw(gameTime);
 
             ScreenManager.graphics.SetRenderTarget(null);
-            ScreenManager.graphics.Clear(Color.Black);
-
+            ScreenManager.graphics.Clear(Color.LightSkyBlue);
             ScreenManager.spriteBatch.Begin();
 
-#if FOUR_SCREENS
-            float scale = 0.25f;
-            int frameWidth = (int)(ScreenManager.window.X / 4);
+            #if FOUR_SCREENS
+                float scale = 0.25f;
+                int frameWidth = (int)(ScreenManager.window.X / 4);
 
-            for (int i = 0; i < 4; i++)
-            {
+                for (int i = 0; i < 4; i++)
+                {
+                    ScreenManager.spriteBatch.Draw(
+                        (Texture2D)ScreenManager.Target(i), new Vector2(frameWidth * i, 0), 
+                        ScreenManager.Target(i).Bounds, Color.White,
+                        0, new Vector2(0, 0), scale, SpriteEffects.None, 0f);
+                }
+            #else
                 ScreenManager.spriteBatch.Draw(
-                    (Texture2D)ScreenManager.Target(i), new Vector2(frameWidth * i, 0), 
-                    ScreenManager.Target(i).Bounds, Color.White,
-                    0, new Vector2(0, 0), scale, SpriteEffects.None, 0f);
-            }
-#else
-            ScreenManager.spriteBatch.Draw(
-                    (Texture2D)ScreenManager.Target(camera), new Vector2(0, 0), 
-                    ScreenManager.Target(camera).Bounds, Color.White,
-                    0, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
-#endif
+                        (Texture2D)ScreenManager.Target(currentDisplay), new Vector2(0, 0),
+                        ScreenManager.Target(currentDisplay).Bounds, Color.White,
+                        0, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
+            #endif
             
             ScreenManager.spriteBatch.End();
         }
