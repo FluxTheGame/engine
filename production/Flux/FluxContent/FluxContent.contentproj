@@ -99,9 +99,7 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="shaders\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="sprites\user_pointer.png">
       <Name>user_pointer</Name>
@@ -527,6 +525,13 @@
       <Name>Stick_03</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shaders\Swirl.fx">
+      <Name>Swirl</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
