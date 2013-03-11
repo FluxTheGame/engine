@@ -42,7 +42,6 @@ namespace Flux
             SwirlShader.CurrentTechnique = SwirlShader.Techniques["Plain"];
             SwirlShader.Parameters["TextureSize"].SetValue(ScreenManager.window);
             SwirlShader.Parameters["Radius"].SetValue(100.0f);
-            //SwirlShader.Parameters["Center"].SetValue(new Vector2(400.0f, 300.0f)); 
         }
 
         public static void Add(Vector2 position, bool inward, int display)
@@ -77,8 +76,8 @@ namespace Flux
 
         public override void Update(GameTime gameTime)
         {
-            double time = gameTime.TotalGameTime.TotalSeconds;
-            SwirlShader.Parameters["Angle"].SetValue((float)time * 2);
+            double time = Math.Sin(gameTime.TotalGameTime.TotalSeconds);
+            SwirlShader.Parameters["Angle"].SetValue((float)time * 5);
 
             //Pushes list of GameObjects to parent for general processing (Update, Draw)
             objects = wormholePairs.Cast<GameObject>().ToList();

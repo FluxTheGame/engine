@@ -69,7 +69,7 @@ namespace Flux
 
         public static void Gather(Collector collector)
         {
-            if (instance == null) return;
+            if (instance == null || instance.resources == null) return;
 
             foreach (Resource r in instance.resources)
             {

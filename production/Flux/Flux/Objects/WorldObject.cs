@@ -100,33 +100,8 @@ namespace Flux
 
         public virtual void Draw()
         {
-
-            if (model != null)
-            {
-                Matrix[] transforms = new Matrix[model.Bones.Count];
-                model.CopyAbsoluteBoneTransformsTo(transforms);
-
-                foreach (ModelMesh mesh in model.Meshes)
-                {
-                    foreach (BasicEffect effect in mesh.Effects) {
-                        Camera camera = ScreenManager.Camera(display);
-                        effect.EnableDefaultLighting();
-                        effect.Projection = camera.projection;
-                        effect.View = camera.view;
-                        effect.World = transforms[mesh.ParentBone.Index] *
-                            Matrix.CreateScale(Scale()) *
-                            Matrix.CreateTranslation(Location()) *
-                            Matrix.CreateRotationX(MathHelper.ToRadians(rotation.X)) *
-                            Matrix.CreateRotationY(MathHelper.ToRadians(rotation.Y)) *
-                            Matrix.CreateRotationZ(MathHelper.ToRadians(rotation.Z));
-                    }
-
-                    mesh.Draw();
-                }
-                
-
-            }
-
+            Camera c = ScreenManager.Camera(display);
+            Drawer3D.Draw(model, Location(), rotation, Scale(), 1, c);
         }
 
     }

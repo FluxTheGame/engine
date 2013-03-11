@@ -36,7 +36,6 @@ namespace Flux
 
             ScreenManager.graphics.SetRenderTarget(t);
             Texture2D sceneTexture = (Texture2D)ScreenManager.Target(display);
-            //effect.Parameters["Tex0"].SetValue(sceneTexture);
 
             WormholeManager.SwirlShader.Parameters["Center"].SetValue(position);
 
