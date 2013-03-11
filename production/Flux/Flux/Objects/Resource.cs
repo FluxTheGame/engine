@@ -52,8 +52,6 @@ namespace Flux
                     {
                         Vector3 offsetFromTarget;
 
-                        Console.WriteLine(CollectorDistance());
-
                         if (CollectorDistance() < 20f)
                         {
                             offsetFromTarget = GetIntensity(collector.Location(), location);

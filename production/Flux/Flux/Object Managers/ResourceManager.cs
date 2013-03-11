@@ -23,47 +23,44 @@ namespace Flux
         public ResourceManager(Game game) : base(game)
         {
             ResourceManager.instance = this;
-        }
-
-        public override void Initialize()
-        {
             resources = new List<Resource>();
-
-            PlaceResources();
-
-            base.Initialize();
         }
 
-        public void PlaceResources()
+        public void PlaceResources(WorldManager worldManager)
         {
-            //Pass in an instance of "parent" - this loads a mask to position the resources in the right place.
-            //The parent object could be a tree, and we should have access to its position in 3d space.. and its bounding box
-
-            Vector3 position = new Vector3(5, 0, -10); //Position of tree model
-            Vector2 size = new Vector2(3f, 3f); //Bounding box coordinates of tree model
-
-            //Mask containing the positions to place resources
-            //Should be proportional to bounding box size to ensure accurate placement
-            Texture2D mask = ContentManager.Mask("tree_birch01");
-
-            for (int i = 0; i < 50; i++)
+            List<WorldObject> trees = worldManager.Trees();
+            foreach (WorldObject tree in trees)
             {
-                float x = Randomizer.RandomFloat(0, size.X);
-                float y = Randomizer.RandomFloat(0, size.Y);
-                Vector3 pos = new Vector3(position.X + x - size.X*0.5f, position.Y + size.Y-y, position.Z);
-                Vector2 posN = new Vector2(x/size.X, y/size.Y);
 
-                Point maskIndex = new Point((int)(posN.X * mask.Width), (int)(posN.Y * mask.Height));
+                //Pass in an instance of "parent" - this loads a mask to position the resources in the right place.
+                //The parent object could be a tree, and we should have access to its position in 3d space.. and its bounding box
 
-                Color[] data = new Color[1];
-                mask.GetData<Color>(0, new Rectangle(maskIndex.X, maskIndex.Y, 1, 1), data, 0, 1);
-                int probability = Randomizer.RandomInt(1, 255);
+                Vector3 position = tree.Location(); //Position of tree model
+                Vector2 size = new Vector2(tree.box.Max.X - tree.box.Min.X, tree.box.Max.Y - tree.box.Min.Y); //Bounding box coordinates of tree model
 
-                if (probability <= data[0].R)
+                //Mask containing the positions to place resources
+                //Should be proportional to bounding box size to ensure accurate placement
+                Texture2D mask = ContentManager.Mask("Birch_01");
+
+                for (int i = 0; i < 50; i++)
                 {
-                    resources.Add(new Resource(pos));
+                    float x = Randomizer.RandomFloat(0, size.X);
+                    float y = Randomizer.RandomFloat(0, size.Y);
+                    Vector3 pos = new Vector3(position.X + x - size.X * 0.5f, position.Y + size.Y - y, position.Z);
+                    Vector2 posN = new Vector2(x / size.X, y / size.Y);
+
+                    Point maskIndex = new Point((int)(posN.X * mask.Width), (int)(posN.Y * mask.Height));
+
+                    Color[] data = new Color[1];
+                    mask.GetData<Color>(0, new Rectangle(maskIndex.X, maskIndex.Y, 1, 1), data, 0, 1);
+                    int probability = Randomizer.RandomInt(1, 255);
+
+                    if (probability <= data[0].R)
+                    {
+                        resources.Add(new Resource(pos));
+                    }
+                    else i--;
                 }
-                else i--;
             }
         }
 

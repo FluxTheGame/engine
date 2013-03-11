@@ -37,7 +37,6 @@ namespace Flux
         SpriteBatch spriteBatch;
 
 
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -80,6 +79,7 @@ namespace Flux
             Components.Add(worldManager);
             
             resourceManager = new ResourceManager(this);
+            resourceManager.PlaceResources(worldManager);
             resourceManager.DrawOrder = 2;
             Components.Add(resourceManager);
 
@@ -223,6 +223,9 @@ namespace Flux
                 }
                 initialMousePos = Vector2.Zero;
             }
+
+            //Camera update for movement
+            ScreenManager.Update(gameTime);
 
             /* End for testing */
             

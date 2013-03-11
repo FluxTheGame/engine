@@ -26,6 +26,10 @@ namespace Flux
             CSVRead();
         }
 
+        public List<WorldObject> Trees()
+        {
+            return worldObjects; //Use linq to see if object is a tree
+        }
 
         public override void Initialize()
         {
@@ -61,7 +65,7 @@ namespace Flux
             var args = new Dictionary<string, string>();
             var keys = new List<string>();
 
-            var fileStream = new StreamReader("../../../../FluxContent/csv/March_10.csv");
+            var fileStream = new StreamReader("../../../../FluxContent/csv/trees.csv");
 
             while (!fileStream.EndOfStream)
             {
@@ -101,96 +105,41 @@ namespace Flux
                     Model modelLoad;
                     switch (args["objGroup"])
                     {
-                        case "2":
-                            modelLoad = ContentManager.Model(@"env/Palm_01");
-                            break;
-                        case "3":
-                            modelLoad = ContentManager.Model(@"env/Flower_Yellow_04");
-                            break;
-                        case "4":
-                            modelLoad = ContentManager.Model(@"env/Flower_Yellow_01");
-                            break;
-                        case "5":
-                            modelLoad = ContentManager.Model(@"env/Flower_Yellow_03");
-                            break;
-                        case "6":
-                            modelLoad = ContentManager.Model(@"env/Flower_Yellow_02");
-                            break;
-                        case "7":
-                            modelLoad = ContentManager.Model(@"env/Flower_Blue_03");
-                            break;
-                        case "8":
-                            modelLoad = ContentManager.Model(@"env/Flower_Blue_02");
-                            break;
-                        case "9":
-                            modelLoad = ContentManager.Model(@"env/Flower_Blue_04");
-                            break;
-                        case "10":
-                            modelLoad = ContentManager.Model(@"env/Clover_05");
-                            break;
-                        case "11":
-                            modelLoad = ContentManager.Model(@"env/Clover_03");
-                            break;
-                        case "12":
-                            modelLoad = ContentManager.Model(@"env/Clover_02");
-                            break;
-                        case "13":
-                            modelLoad = ContentManager.Model(@"env/Clover_01");
-                            break;
-                        case "14":
-                            modelLoad = ContentManager.Model(@"env/Clover_04");
-                            break;
-                        case "15":
-                            modelLoad = ContentManager.Model(@"env/Flower_Red_01");
-                            break;
-                        case "16":
-                            modelLoad = ContentManager.Model(@"env/Flower_Red_02");
-                            break;
-                        case "17":
-                            modelLoad = ContentManager.Model(@"env/Flower_Red_03");
-                            break;
-                        case "18":
-                            modelLoad = ContentManager.Model(@"env/Cattails_01");
-                            break;
-                        case "19":
-                            modelLoad = ContentManager.Model(@"env/Cattails_02");
-                            break;
-                        case "20":
-                            modelLoad = ContentManager.Model(@"env/Cattails_04");
-                            break;
                         case "21":
-                            modelLoad = ContentManager.Model(@"env/Birch_01");
+                            args["objName"] = "Birch_01";
                             break;
                         case "22":
-                            modelLoad = ContentManager.Model(@"env/Birch_02");
+                            args["objName"] = "Birch_02";
                             break;
                         case "23":
-                            modelLoad = ContentManager.Model(@"env/Birch_03");
+                            args["objName"] = "Birch_03";
                             break;
                         case "24":
-                            modelLoad = ContentManager.Model(@"env/CherryTree_01");
+                            args["objName"] = "CherryTree_01";
                             break;
                         case "25":
-                            modelLoad = ContentManager.Model(@"env/CherryTree_01");
+                            args["objName"] = "CherryTree_01";
                             break;
                         case "26":
-                            modelLoad = ContentManager.Model(@"env/CherryTree_01");
+                            args["objName"] = "CherryTree_01";
                             break;
                         case "27":
-                            modelLoad = ContentManager.Model(@"env/OakTree_01");
+                            args["objName"] = "OakTree_01";
                             break;
                         case "28":
-                            modelLoad = ContentManager.Model(@"env/OakTree_02");
+                            args["objName"] = "OakTree_02";
                             break;
                         case "29":
-                            modelLoad = ContentManager.Model(@"env/OakTree_03");
+                            args["objName"] = "OakTree_03";
                             break;
                         default:
-                            modelLoad = ContentManager.Model("chicken");
+                            args["objName"] = "chicken";
                             break;
                     }
 
+                    modelLoad = ContentManager.Model("env/" + args["objName"]);
                     worldObjects.Add(new WorldObject(args, modelLoad));
+
                 }
 
             }

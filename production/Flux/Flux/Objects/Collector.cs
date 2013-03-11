@@ -30,7 +30,7 @@ namespace Flux
         {
             id = idNumber;
             model = ContentManager.Model("collector");
-            position = new Vector2(200*id, 200*id);
+            position = new Vector2(70*id, 70*id);
             normalCapacity = capacity;
             users = new List<User>();
             projectiles = new List<Projectile>();
