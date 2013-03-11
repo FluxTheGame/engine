@@ -34,6 +34,7 @@ namespace Flux
             normalCapacity = capacity;
             users = new List<User>();
             projectiles = new List<Projectile>();
+            dampening = 0.9f;
         }
 
         public override void Update()

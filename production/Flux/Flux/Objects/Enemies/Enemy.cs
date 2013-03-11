@@ -27,9 +27,10 @@ namespace Flux
 
         public void BeAttacked(int damage)
         {
-            health -= damage;
-            Console.WriteLine("Enemy got attacked, health: " + health);
-            if (health <= 0) Die();
+            //health -= damage;
+            Console.WriteLine("Enemy got attacked, dying");
+            Die();
+            //if (health <= 0) Die();
         }
 
         public void Kamikaze(Collector collector)

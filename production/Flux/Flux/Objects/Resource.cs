@@ -50,7 +50,19 @@ namespace Flux
                 {
                     if (collector != null)
                     {
-                        Vector3 offsetFromTarget = GetIntensity(collector.Location(), location);
+                        Vector3 offsetFromTarget;
+
+                        Console.WriteLine(CollectorDistance());
+
+                        if (CollectorDistance() < 20f)
+                        {
+                            offsetFromTarget = GetIntensity(collector.Location(), location);
+                        }
+                        else
+                        {
+                            offsetFromTarget = GetIntensity(origLocation, location);
+                        }
+
                         location += offsetFromTarget * speed;
                     }
                 }
@@ -77,6 +89,11 @@ namespace Flux
         {
             this.collector = collector;
             targetMaxDistance = collector.SuckRadius();
+        }
+
+        private float CollectorDistance()
+        {
+            return Vector3.Distance(location, collector.Location());
         }
 
         private Vector3 GetIntensity(Vector3 aim, Vector3 loc)

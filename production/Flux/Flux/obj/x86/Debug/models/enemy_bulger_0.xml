@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>C:\Users\Jahfer\Documents\Flux\production\Flux\FluxContent\models\enemy_bulger.fbx</SourceFilename>
+      <SourceFilename>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\FluxContent\models\enemy_bulger.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -4786,7 +4786,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>lambert2</Name>
       <Identity>
-        <SourceFilename>C:\Users\Jahfer\Documents\Flux\production\Flux\FluxContent\models\enemy_bulger.fbx</SourceFilename>
+        <SourceFilename>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\FluxContent\models\enemy_bulger.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -4799,7 +4799,7 @@
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>lambert3</Name>
       <Identity>
-        <SourceFilename>C:\Users\Jahfer\Documents\Flux\production\Flux\FluxContent\models\enemy_bulger.fbx</SourceFilename>
+        <SourceFilename>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\FluxContent\models\enemy_bulger.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -4812,7 +4812,7 @@
     <Resource ID="#Resource3" Type="Graphics:BasicMaterialContent">
       <Name>lambert1</Name>
       <Identity>
-        <SourceFilename>C:\Users\Jahfer\Documents\Flux\production\Flux\FluxContent\models\enemy_bulger.fbx</SourceFilename>
+        <SourceFilename>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\FluxContent\models\enemy_bulger.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
