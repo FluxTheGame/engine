@@ -15,7 +15,7 @@ namespace Flux
 {
     class Server
     {
-        private string[] gameEventNames = new string[] {"collector:burst", "collector:heartbeat"};
+        private string[] gameEventNames = new string[] {"collector:burst", "collector:heartbeat", "collector:merge"};
         private TcpClient tcpClient;
 
         private const int TIMEOUT = 1; // seconds
@@ -25,7 +25,7 @@ namespace Flux
             tcpClient = new TcpClient();
             try
             {
-                IAsyncResult ar = tcpClient.BeginConnect("127.0.0.1", 8100, null, null);
+                IAsyncResult ar = tcpClient.BeginConnect("172.17.134.254", 8100, null, null);
                 System.Threading.WaitHandle wh = ar.AsyncWaitHandle;
                 try
                 {
@@ -75,15 +75,21 @@ namespace Flux
         {
             foreach (string eventName in gameEventNames)
             {
-                EventManager.On(eventName, (o) =>
-                {
-                    SendEventToServer(eventName, o);
-                });
+                SubscribeToGameEvent(eventName);
             }
+        }
+
+        private void SubscribeToGameEvent(string eventName)
+        {
+            EventManager.On(eventName, (o) =>
+            {
+                SendEventToServer(eventName, o);
+            });
         }
 
         private void Send(String str)
         {
+            //Console.WriteLine("Sending: " + str);
             NetworkStream clientStream = tcpClient.GetStream();
             byte[] data = Encoding.ASCII.GetBytes(str);
             clientStream.Write(data, 0, data.Length);
@@ -134,7 +140,7 @@ namespace Flux
 
                 if (message.Length <= 3) continue; //Short message - skip
 
-                Console.WriteLine(message);
+                //Console.WriteLine(message);
 
                 string[] items = message.Trim().Split("/".ToCharArray());
                 string eventName = items[1].Split("=".ToCharArray())[1];

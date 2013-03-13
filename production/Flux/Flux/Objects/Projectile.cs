@@ -30,7 +30,7 @@ namespace Flux
         {
             velocity = Vector2.Normalize(target.position - position) * 8f;
 
-            if (GameObject.Distance(this, target) < 10f)
+            if (GameObject.Distance(this, target) < 20f)
             {
                 target.BeAttacked(1);
                 collector.DestroyProjectile(this);

@@ -19,7 +19,7 @@ namespace Flux
         protected int normalCapacity;
         protected Schedualizer heartbeatSchedule;
 
-        public int attackRadius = 300;
+        public int attackRadius = 500;
         public int id;
         public bool isDying = false;
 
@@ -31,9 +31,9 @@ namespace Flux
         {
             id = idNumber;
             model = ContentManager.Model("collector");
-            position = new Vector2(70*id, 70*id);
+            position = new Vector2(70*id + 100, 70*id + 100);
             normalCapacity = capacity;
-            dampening = 0.9f;
+            dampening = 0.98f;
             heartbeatSchedule = new Schedualizer(0f, 5f, 5f);
 
             users = new List<User>();
@@ -86,7 +86,7 @@ namespace Flux
         {
             foreach (User user in users)
             {
-                user.Disconnect();
+                user.collector = null;
             }
             isDying = true;
             CollectorManager.Remove(this);
@@ -101,8 +101,19 @@ namespace Flux
 
         public void MergeWith(Collector other)
         {
+            OrderedDictionary o = new OrderedDictionary();
+            o.Add("team_1", id);
+            o.Add("team_2", other.id);
+            EventManager.Emit("collector:merge", o);
+
             capacity += other.capacity;
             resources += other.resources;
+
+            foreach (User u in other.users)
+            {
+                u.collector = this;
+                users.Add(u);
+            }
 
             health = 100;
         }
@@ -126,7 +137,7 @@ namespace Flux
         {
             if (resources > 0) {
                 Enemy enemy = EnemyManager.ClosestEnemy(this);
-                if (GameObject.Distance(this, enemy) <= this.attackRadius) {
+                if (GameObject.Distance(this, enemy) <= attackRadius) {
                     projectiles.Add(new Projectile(enemy, this));
                     resources--;
                 }

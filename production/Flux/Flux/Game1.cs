@@ -110,18 +110,25 @@ namespace Flux
             ground = new Ground();
 
             /* For Testing */
-            //Add Collector
             
+            //Add Collector
             OrderedDictionary c = new OrderedDictionary();
-            c.Add("id", 1);
+            c.Add("id", 0);
+            EventManager.Emit("collector:new", c);
+            /*
+            c["id"] = 2;
+            EventManager.Emit("collector:new", c);
+
+            c["id"] = 3;
             EventManager.Emit("collector:new", c);
             
             //Add User
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 99);
-            o.Add("teamId", 1);
+            o.Add("teamId", 0);
             o.Add("username", "DILBERT");
             EventManager.Emit("user:new", o);
+            */
             /* End for testing */
         }
 

@@ -36,7 +36,7 @@ namespace Flux
 
         private string gotPoints;
         private int pointsBuffer = 0;
-        private int pointsAbsorbRate = 7;
+        private int pointsAbsorbRate = 1;
 
         enum Pointers { Alert, Exit, Enter, Idle };
         enum States { Pinch, BloatStart, BloatEnd, Bloat, PinchStart, PinchEnd, Idle };

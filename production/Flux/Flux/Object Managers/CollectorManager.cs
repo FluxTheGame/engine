@@ -34,13 +34,19 @@ namespace Flux
             {
                 int id = (int)o["id"];
                 // color c = (color)o["color"];
-                if (id > 0) collectors.Add(new Collector(id));
+                collectors.Add(new Collector(id));
             });
 
             EventManager.On("collector:attack", (o) =>
             {
                 Collector collector = CollectorByID((int)o["id"]);
                 if (collector != null) collector.Attack();
+            });
+
+            EventManager.On("collector:destroy", (o) =>
+            {
+                Collector collector = CollectorByID((int)o["id"]);
+                if (collector != null) collector.Die();
             });
 
             base.Initialize();
@@ -59,11 +65,6 @@ namespace Flux
             {
                 if (Vector2.Distance(current.position, collectors[i].position) < 20 && current != collectors[i])
                 {
-                    OrderedDictionary o = new OrderedDictionary();
-                    o.Add("team_1", current.id);
-                    o.Add("team_2", collectors[i].id);
-                    EventManager.Emit("collector:merge", o);
-
                     current.MergeWith(collectors[i]);
                     collectors.Remove(collectors[i]);
                 }
