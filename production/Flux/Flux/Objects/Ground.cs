@@ -9,13 +9,14 @@ namespace Flux
 {
     public class Ground
     {
-        public Model model;
+        public Model ground, foliage;
         Vector3 position;
         Vector3 rotation;
 
         public Ground()
         {
-            model = ContentManager.Model(@"env/Ground_Plane");
+            ground = ContentManager.Model(@"env/Ground");
+            foliage = ContentManager.Model(@"env/Planes");
             position = Vector3.Zero;
             rotation = new Vector3(0, 180, 0);
         }
@@ -31,7 +32,12 @@ namespace Flux
             {
                 ScreenManager.SetTarget(i);
                 Camera c = ScreenManager.Camera(i);
-                Drawer3D.Draw(model, Location(), rotation, c);
+                Drawer3D.Draw(ground, Location(), rotation, c);
+
+                ScreenManager.graphics.DepthStencilState = DepthStencilState.None;
+                ScreenManager.graphics.BlendState = BlendState.AlphaBlend;
+                Drawer3D.Draw(foliage, Location(), Vector3.Zero, c);
+                ScreenManager.graphics.DepthStencilState = DepthStencilState.Default;
             }
         }
     }

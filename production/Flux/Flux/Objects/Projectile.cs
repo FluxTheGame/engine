@@ -38,7 +38,7 @@ namespace Flux
             base.Update();
         }
 
-        public override void Draw()
+        public override void Draw(GameTime gameTime)
         {
             ScreenManager.SetTarget(collector.display);
             ScreenManager.spriteBatch.Begin();

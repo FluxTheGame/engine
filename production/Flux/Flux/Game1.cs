@@ -226,6 +226,7 @@ namespace Flux
 
             //Camera update for movement
             ScreenManager.Update(gameTime);
+            Light.Update(gameTime);
 
             /* End for testing */
             

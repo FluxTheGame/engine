@@ -35,10 +35,10 @@ namespace Flux
             return false;
         }
 
-        public override void Draw()
+        public override void Draw(GameTime gameTime)
         {
-            one.Draw();
-            two.Draw();
+            one.Draw(gameTime);
+            two.Draw(gameTime);
         }
 
         public override void Update()

@@ -143,7 +143,7 @@ namespace Flux
             collector = null;
         }
 
-        public override void Draw()
+        public override void Draw(GameTime gameTime)
         {
             ScreenManager.SetTarget(display);
             spriteBatch.Begin();

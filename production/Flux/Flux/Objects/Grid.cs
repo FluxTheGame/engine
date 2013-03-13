@@ -26,7 +26,7 @@ namespace Flux
         Vector2 lowResFieldSize;
         int lowResScale = 5;
         int lowResResolution = 1000;
-        float lowResThickness = 0.025f;
+        float lowResThickness = 0.03f;
         float lowResMaxForce = 20f;
 
         float drawDampening = 2f;

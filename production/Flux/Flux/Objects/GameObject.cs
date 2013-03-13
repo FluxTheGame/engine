@@ -51,7 +51,7 @@ namespace Flux
             return ScreenManager.Location(position, display);
         }
 
-        public virtual void Draw()
+        public virtual void Draw(GameTime gameTime)
         {
             ScreenManager.SetTarget(display);
             Camera camera = ScreenManager.Camera(display);

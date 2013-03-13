@@ -64,7 +64,8 @@ namespace Flux
         {
             graphics.DepthStencilState = DepthStencilState.Default;
             graphics.RasterizerState = RasterizerState.CullCounterClockwise;
-            graphics.BlendState = BlendState.AlphaBlend;
+            graphics.BlendState = BlendState.Opaque;
+            graphics.SamplerStates[0] = SamplerState.PointWrap;
 
             return camera[display];
         }

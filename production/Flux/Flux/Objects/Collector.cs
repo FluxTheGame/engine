@@ -50,13 +50,13 @@ namespace Flux
             base.Update();
         }
 
-        public override void Draw()
+        public override void Draw(GameTime gameTime)
         {
             foreach (Projectile projectile in projectiles)
             {
-                projectile.Draw();
+                projectile.Draw(gameTime);
             }
-            base.Draw();
+            base.Draw(gameTime);
         }
 
         public void Burst()

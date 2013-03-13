@@ -51,6 +51,20 @@ namespace Flux
                             Matrix.CreateRotationX(MathHelper.ToRadians(rotation.X)) *
                             Matrix.CreateRotationY(MathHelper.ToRadians(rotation.Y)) *
                             Matrix.CreateRotationZ(MathHelper.ToRadians(rotation.Z));
+
+                        effect.LightingEnabled = true; // turn on the lighting subsystem.
+
+                        effect.DirectionalLight0.DiffuseColor = Light.SunDiffuseColor; // a red light
+                        effect.DirectionalLight0.Direction = Light.SunDirection;  // coming along the x-axis
+                        effect.DirectionalLight0.SpecularColor = Light.SunSpecularColor; // with green highlights
+
+                        effect.DirectionalLight1.DiffuseColor = Color.DimGray.ToVector3();
+                        effect.DirectionalLight1.Direction = new Vector3(0, -1, 0);
+                        effect.DirectionalLight1.SpecularColor = Color.Black.ToVector3();
+
+                        //effect.AmbientLightColor = new Vector3(0.2f, 0.2f, 0.2f);
+                        //effect.EmissiveColor = new Vector3(0.2f, 0.2f, 0.2f);
+
                         effect.Alpha = opacity;
                     }
                     model.Meshes[i].Draw();

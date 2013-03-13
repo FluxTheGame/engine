@@ -35,7 +35,7 @@ namespace Flux
         {
             this.stroke = stroke;
             this.resolution = resolution;
-            color = Color.White;
+            color = Color.Black;
 
             this.points.Clear();
             this.points = points;
@@ -104,7 +104,7 @@ namespace Flux
             VLine.Effect.View = camera.view;
             VLine.Effect.Projection = camera.projection;
             VLine.Effect.VertexColorEnabled = true;
-            VLine.Effect.Alpha = 0.6f;
+            VLine.Effect.Alpha = 0.1f;
 
             List<VertexPositionColor> vpc = new List<VertexPositionColor>();
 

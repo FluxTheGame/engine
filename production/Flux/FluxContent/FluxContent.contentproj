@@ -93,6 +93,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="models\env\Ground_Plane.fbx">
+      <Name>Ground_Plane</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
     <Compile Include="sprites\user_badge_wet.png">
       <Name>user_badge_wet</Name>
       <Importer>TextureImporter</Importer>
@@ -330,11 +335,6 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
-    <Compile Include="models\env\Ground_Plane.fbx">
-      <Name>Ground_Plane</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
     <Compile Include="models\env\Leaves_01.fbx">
       <Name>Leaves_01</Name>
       <Importer>FbxImporter</Importer>
@@ -531,6 +531,18 @@
       <Name>Swirl</Name>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="models\env\Ground.fbx">
+      <Name>Ground</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="models\env\Planes.fbx">
+      <Name>Planes</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

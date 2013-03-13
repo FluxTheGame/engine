@@ -11,7 +11,7 @@ namespace Flux
     {
 
         public bool inward;
-        
+        private double startTime = 0;
 
         public Wormhole(bool suck) : base()
         {
@@ -27,16 +27,23 @@ namespace Flux
             else
                 GridManager.Bloat(position, 100, 0.005f, display);
 
+
             base.Update();
         }
 
-        public override void Draw()
+        public override void Draw(GameTime gameTime)
         {
             RenderTarget2D t = ScreenManager.MakeTarget();
 
             ScreenManager.graphics.SetRenderTarget(t);
             Texture2D sceneTexture = (Texture2D)ScreenManager.Target(display);
 
+            if (startTime == 0)
+                startTime = gameTime.TotalGameTime.TotalSeconds * 0.5;
+            double curTime = gameTime.TotalGameTime.TotalSeconds * 0.5;
+            double twirlAngle = curTime - startTime;
+
+            WormholeManager.SwirlShader.Parameters["Angle"].SetValue((float)twirlAngle);
             WormholeManager.SwirlShader.Parameters["Center"].SetValue(position);
 
             ScreenManager.graphics.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.DarkSlateBlue, 1.0f, 0);
