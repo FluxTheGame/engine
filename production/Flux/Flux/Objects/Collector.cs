@@ -32,9 +32,10 @@ namespace Flux
             model = ContentManager.Model("collector");
             position = new Vector2(70*id, 70*id);
             normalCapacity = capacity;
+            dampening = 0.9f;
+
             users = new List<User>();
             projectiles = new List<Projectile>();
-            dampening = 0.9f;
         }
 
         public override void Update()

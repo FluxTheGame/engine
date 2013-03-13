@@ -93,11 +93,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="models\env\Ground_Plane.fbx">
-      <Name>Ground_Plane</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
     <Compile Include="sprites\user_badge_wet.png">
       <Name>user_badge_wet</Name>
       <Importer>TextureImporter</Importer>
@@ -541,6 +536,23 @@
     </Compile>
     <Compile Include="models\env\Planes.fbx">
       <Name>Planes</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="models\env\Birch_01_Leaf.fbx">
+      <Name>Birch_01_Leaf</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="models\env\Cherry_01_Leaf.fbx">
+      <Name>Cherry_01_Leaf</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="models\env\Oak_01_Leaf.fbx">
+      <Name>Oak_01_Leaf</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>

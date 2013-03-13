@@ -23,7 +23,7 @@ namespace Flux
 
         public void Fire()
         {
-            if (!IsOn()) //Turn off this IF in production.. Only used for keyboard input
+            if (!IsOn())
             {
                 end = DateTime.Now;
                 end = end.AddSeconds(duration);

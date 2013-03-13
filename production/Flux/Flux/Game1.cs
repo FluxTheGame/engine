@@ -245,10 +245,10 @@ namespace Flux
             //Draw Ground Plane
             ground.Draw();
 
+            base.Draw(gameTime);
+
             //Draw Grid
             GridManager.Draw();
-
-            base.Draw(gameTime);
 
             ScreenManager.graphics.SetRenderTarget(null);
             ScreenManager.graphics.Clear(Color.LightSkyBlue);

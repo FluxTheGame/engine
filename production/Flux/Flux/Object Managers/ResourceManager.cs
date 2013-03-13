@@ -46,7 +46,7 @@ namespace Flux
                 {
                     float x = Randomizer.RandomFloat(0, size.X);
                     float y = Randomizer.RandomFloat(0, size.Y);
-                    Vector3 pos = new Vector3(position.X + x - size.X * 0.5f, position.Y + size.Y - y, position.Z);
+                    Vector3 pos = new Vector3(position.X + x - size.X * 0.5f, position.Y + size.Y - y, position.Z + Randomizer.RandomFloat(0.2f, 0.8f));
                     Vector2 posN = new Vector2(x / size.X, y / size.Y);
 
                     Point maskIndex = new Point((int)(posN.X * mask.Width), (int)(posN.Y * mask.Height));
@@ -85,6 +85,7 @@ namespace Flux
         
         public override void Update(GameTime gameTime)
         {
+            resources = resources.OrderBy(r => r.location.Z).ToList();
             foreach (Resource r in resources)
             {
                 r.Update();

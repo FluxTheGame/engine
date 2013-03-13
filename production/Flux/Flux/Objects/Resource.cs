@@ -18,7 +18,7 @@ namespace Flux
         public Vector3 location;
         public bool active = true;
         public int display = 0;
-        public float scale = 0.05f;
+        public float scale = 0.1f;
         public float targetMaxDistance;
         public Collector collector;
 
@@ -29,7 +29,7 @@ namespace Flux
 
         public Resource(Vector3 location)
         {
-            model = ContentManager.Model("chicken");
+            model = ContentManager.Model("env/Birch_01_Leaf");
             respawnDelay = new Schedualizer(0, 3, 5);
             this.origLocation = location;
             Initialize();
@@ -43,27 +43,29 @@ namespace Flux
 
         public void Update()
         {
+
+            Vector3 offsetFromTarget = Vector3.Zero;
+
+
             if (active)
             {
-                if (scale < 0.05f) scale += 0.0001f;
+                if (scale < 0.1f) scale += 0.0001f;
+                else if (collector != null)
+                {
+                    if (CollectorDistance() < 20f)
+                        offsetFromTarget = GetIntensity(collector.Location(), location);
+                    else
+                        offsetFromTarget = GetIntensity(origLocation, location);
+
+                    if (collector.isDying)
+                        collector = null;
+                }
                 else
                 {
-                    if (collector != null)
-                    {
-                        Vector3 offsetFromTarget;
-
-                        if (CollectorDistance() < 20f)
-                        {
-                            offsetFromTarget = GetIntensity(collector.Location(), location);
-                        }
-                        else
-                        {
-                            offsetFromTarget = GetIntensity(origLocation, location);
-                        }
-
-                        location += offsetFromTarget * speed;
-                    }
+                    offsetFromTarget = GetIntensity(origLocation, location);
                 }
+
+                location += offsetFromTarget * speed;
             }
             if (respawnDelay.IsOn())
             {
@@ -112,6 +114,7 @@ namespace Flux
             {
                 ScreenManager.SetTarget(display);
                 Camera camera = ScreenManager.Camera(display);
+                ScreenManager.graphics.BlendState = BlendState.AlphaBlend;
                 Drawer3D.Draw(model, location, scale, 1f, camera);
             }
         }
