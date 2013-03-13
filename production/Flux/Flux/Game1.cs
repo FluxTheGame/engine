@@ -40,7 +40,6 @@ namespace Flux
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-
             graphics.PreferredBackBufferWidth = 1280;
 
             #if FOUR_SCREENS
@@ -50,9 +49,7 @@ namespace Flux
             #endif
 
             graphics.PreferMultiSampling = true;
-
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
-
             Content.RootDirectory = "Content";
         }
 
@@ -181,8 +178,8 @@ namespace Flux
                 {
                     //o.Add("type", "wet");
                     //o.Add("value", 582);
-                    //EventManager.Emit("user:getbadge", o);
-                    //EventManager.Emit("user:getpoints", o);
+                    //EventManager.Emit("user:getBadge", o);
+                    //EventManager.Emit("user:getPoints", o);
                     //EventManager.Emit("user:disconnect", o);
 
                     OrderedDictionary c = new OrderedDictionary();

@@ -17,6 +17,7 @@ namespace Flux
         protected int capacity = 100;
         protected int resources = 0;
         protected int normalCapacity;
+        protected Schedualizer heartbeatSchedule;
 
         public int attackRadius = 300;
         public int id;
@@ -33,6 +34,7 @@ namespace Flux
             position = new Vector2(70*id, 70*id);
             normalCapacity = capacity;
             dampening = 0.9f;
+            heartbeatSchedule = new Schedualizer(0f, 5f, 5f);
 
             users = new List<User>();
             projectiles = new List<Projectile>();
@@ -47,6 +49,16 @@ namespace Flux
 
             if (resources >= capacity)
                 Burst();
+
+            if (heartbeatSchedule.IsOn())
+            {
+                OrderedDictionary o = new OrderedDictionary();
+                o.Add("id", id);
+                o.Add("health", health);
+                o.Add("capacity", capacity);
+                o.Add("fill", resources);
+                EventManager.Emit("collector:heartbeat", o);
+            }
             
             base.Update();
         }

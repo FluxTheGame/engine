@@ -15,7 +15,7 @@ namespace Flux
 {
     class Server
     {
-        private string[] gameEventNames = new string[] {"collector:burst"};
+        private string[] gameEventNames = new string[] {"collector:burst", "collector:heartbeat"};
         private TcpClient tcpClient;
 
         private const int TIMEOUT = 1; // seconds
@@ -61,7 +61,6 @@ namespace Flux
         {
             string toSend = "/name=" + eventName;
 
-            //foreach (KeyValuePair<string, string> entry in o)
             foreach (DictionaryEntry entry in o)
             {
                 toSend += "/" + entry.Key + "=" + entry.Value;

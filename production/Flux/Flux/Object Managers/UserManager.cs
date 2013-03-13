@@ -45,13 +45,13 @@ namespace Flux
                 if (user != null) user.Disconnect();
             });
 
-            EventManager.On("user:getpoints", (o) =>
+            EventManager.On("user:getPoints", (o) =>
             {
                 User user = UserByID((int)o["id"]);
                 if (user != null) user.GetPoints((int)o["value"]);
             });
 
-            EventManager.On("user:getbadge", (o) =>
+            EventManager.On("user:getBadge", (o) =>
             {
                 User user = UserByID((int)o["id"]);
                 if (user != null) user.GetBadge((string)o["type"]);
