@@ -15,7 +15,7 @@ namespace Flux
 
         private static Color SunDiffuseColorNight = Color.Black;
         private static Color SunDiffuseColorMid = Color.Goldenrod;
-        private static Color SunDiffuseColorDay = Color.White;
+        private static Color SunDiffuseColorDay = Color.PaleGoldenrod;
 
         private static Color transitionalColor;
 
