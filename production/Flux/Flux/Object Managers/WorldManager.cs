@@ -107,30 +107,39 @@ namespace Flux
                     {
                         case "21":
                             args["objName"] = "Birch_01";
+                            args["leafName"] = "Birch_01_Leaf";
                             break;
                         case "22":
                             args["objName"] = "Birch_02";
+                            args["leafName"] = "Birch_01_Leaf";
                             break;
                         case "23":
                             args["objName"] = "Birch_03";
+                            args["leafName"] = "Birch_01_Leaf";
                             break;
                         case "24":
                             args["objName"] = "CherryTree_01";
+                            args["leafName"] = "Cherry_01_Leaf";
                             break;
                         case "25":
                             args["objName"] = "CherryTree_02";
+                            args["leafName"] = "Cherry_01_Leaf";
                             break;
                         case "26":
                             args["objName"] = "CherryTree_03";
+                            args["leafName"] = "Cherry_01_Leaf";
                             break;
                         case "27":
                             args["objName"] = "OakTree_01";
+                            args["leafName"] = "Oak_01_Leaf";
                             break;
                         case "28":
                             args["objName"] = "OakTree_02";
+                            args["leafName"] = "Oak_01_Leaf";
                             break;
                         case "29":
                             args["objName"] = "OakTree_03";
+                            args["leafName"] = "Oak_01_Leaf";
                             break;
                         default:
                             args["objName"] = "chicken";

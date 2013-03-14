@@ -27,9 +27,9 @@ namespace Flux
         private Model model;
         private Schedualizer respawnDelay;
 
-        public Resource(Vector3 location)
+        public Resource(Vector3 location, string modelName)
         {
-            model = ContentManager.Model("env/Birch_01_Leaf");
+            model = ContentManager.Model(modelName);
             respawnDelay = new Schedualizer(0, 3, 5);
             this.origLocation = location;
             Initialize();

@@ -22,6 +22,7 @@ namespace Flux
         public BoundingBox box;
 
         public string objectName;
+        public string leafName;
         public int objectGroup = -1;
 
         public float[] light = new float[4];
@@ -37,6 +38,7 @@ namespace Flux
         {
 
             objectName = args["objName"];
+            leafName = args["leafName"];
 
             int.TryParse(args["objGroup"], out objectGroup);
 

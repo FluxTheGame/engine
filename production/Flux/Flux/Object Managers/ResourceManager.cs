@@ -57,7 +57,7 @@ namespace Flux
 
                     if (probability <= data[0].R)
                     {
-                        resources.Add(new Resource(pos));
+                        resources.Add(new Resource(pos, "env/" + tree.leafName));
                     }
                     else i--;
                 }
