@@ -33,7 +33,7 @@ namespace Flux
             model = ContentManager.Model("collector");
             position = new Vector2(70*id + 100, 70*id + 100);
             normalCapacity = capacity;
-            dampening = 0.98f;
+            dampening = 0.9f;
             heartbeatSchedule = new Schedualizer(0f, 5f, 5f);
 
             users = new List<User>();

@@ -245,7 +245,21 @@ namespace Flux
         {
             if (collector != null)
             {
-                double radians = Math.Atan2((position.Y - collector.position.Y), (position.X - collector.position.X));
+                Vector2 adjustedUserPos = ScreenManager.AdjustedPosition(position, display);
+                Vector2 adjustedCollPos = ScreenManager.AdjustedPosition(collector.position, collector.display);
+
+                Vector2 difference = adjustedUserPos - adjustedCollPos;
+
+                if (Math.Abs(difference.X) > ScreenManager.window.X * 2)
+                {
+                    if (difference.X < 0) 
+                        difference.X += ScreenManager.world.X;
+
+                    else if (difference.X >= 0) 
+                        difference.X -= ScreenManager.world.X;
+                }
+
+                double radians = Math.Atan2((difference.Y), (difference.X));
                 return (float)radians;
             }
             return 0f;
