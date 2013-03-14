@@ -220,3 +220,11 @@ Content\models\env\Oak_01_Leaf.xnb
 Content\Birch_01_0.xnb
 Content\Cherry_01_0.xnb
 Content\Oak_01_0.xnb
+Content\masks\Birch_02.xnb
+Content\masks\Birch_03.xnb
+Content\masks\CherryTree_01.xnb
+Content\masks\CherryTree_02.xnb
+Content\masks\CherryTree_03.xnb
+Content\masks\OakTree_01.xnb
+Content\masks\OakTree_02.xnb
+Content\masks\OakTree_03.xnb

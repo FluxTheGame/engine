@@ -1250,7 +1250,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\masks\Birch_01.xnb</Output>
-      <Time>2013-03-06T13:37:34.5134142-05:00</Time>
+      <Time>2013-03-14T13:42:55.4441434-04:00</Time>
     </Item>
     <Item>
       <Source>sprites\user_pointer.png</Source>
@@ -3963,6 +3963,78 @@
       <Options>None</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\Oak_01_0.xnb</Output>
       <Time>2013-03-13T09:59:58.8581364-04:00</Time>
+    </Item>
+    <Item>
+      <Source>masks\Birch_02.png</Source>
+      <Name>masks\Birch_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\masks\Birch_02.xnb</Output>
+      <Time>2013-03-14T13:49:08.0814034-04:00</Time>
+    </Item>
+    <Item>
+      <Source>masks\Birch_03.png</Source>
+      <Name>masks\Birch_03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\masks\Birch_03.xnb</Output>
+      <Time>2013-03-14T13:52:23.6199553-04:00</Time>
+    </Item>
+    <Item>
+      <Source>masks\CherryTree_01.png</Source>
+      <Name>masks\CherryTree_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\masks\CherryTree_01.xnb</Output>
+      <Time>2013-03-14T14:07:28.8215578-04:00</Time>
+    </Item>
+    <Item>
+      <Source>masks\CherryTree_02.png</Source>
+      <Name>masks\CherryTree_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\masks\CherryTree_02.xnb</Output>
+      <Time>2013-03-14T14:07:32.3428953-04:00</Time>
+    </Item>
+    <Item>
+      <Source>masks\CherryTree_03.png</Source>
+      <Name>masks\CherryTree_03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\masks\CherryTree_03.xnb</Output>
+      <Time>2013-03-14T14:07:35.704611-04:00</Time>
+    </Item>
+    <Item>
+      <Source>masks\OakTree_01.png</Source>
+      <Name>masks\OakTree_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\masks\OakTree_01.xnb</Output>
+      <Time>2013-03-14T14:07:39.3497346-04:00</Time>
+    </Item>
+    <Item>
+      <Source>masks\OakTree_02.png</Source>
+      <Name>masks\OakTree_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\masks\OakTree_02.xnb</Output>
+      <Time>2013-03-14T14:07:42.9508611-04:00</Time>
+    </Item>
+    <Item>
+      <Source>masks\OakTree_03.png</Source>
+      <Name>masks\OakTree_03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\masks\OakTree_03.xnb</Output>
+      <Time>2013-03-14T14:07:47.8465185-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

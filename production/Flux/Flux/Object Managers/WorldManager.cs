@@ -118,10 +118,10 @@ namespace Flux
                             args["objName"] = "CherryTree_01";
                             break;
                         case "25":
-                            args["objName"] = "CherryTree_01";
+                            args["objName"] = "CherryTree_02";
                             break;
                         case "26":
-                            args["objName"] = "CherryTree_01";
+                            args["objName"] = "CherryTree_03";
                             break;
                         case "27":
                             args["objName"] = "OakTree_01";

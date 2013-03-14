@@ -40,9 +40,9 @@ namespace Flux
 
                 //Mask containing the positions to place resources
                 //Should be proportional to bounding box size to ensure accurate placement
-                Texture2D mask = ContentManager.Mask("Birch_01");
+                Texture2D mask = ContentManager.Mask(tree.objectName);
 
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 100; i++)
                 {
                     float x = Randomizer.RandomFloat(0, size.X);
                     float y = Randomizer.RandomFloat(0, size.Y);
@@ -85,7 +85,6 @@ namespace Flux
         
         public override void Update(GameTime gameTime)
         {
-            resources = resources.OrderBy(r => r.location.Z).ToList();
             foreach (Resource r in resources)
             {
                 r.Update();
@@ -95,6 +94,7 @@ namespace Flux
 
         public override void Draw(GameTime gameTime)
         {
+            resources = resources.OrderBy(r => r.location.Z).ToList();
             foreach (Resource r in resources)
             {
                 r.Draw();
