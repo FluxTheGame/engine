@@ -57,7 +57,9 @@ namespace Flux
 
                     if (probability <= data[0].R)
                     {
-                        resources.Add(new Resource(pos, "env/" + tree.leafName));
+                        Resource r = new Resource(pos, "env/" + tree.leafName);
+                        r.display = tree.display;
+                        resources.Add(r);
                     }
                     else i--;
                 }
@@ -94,7 +96,8 @@ namespace Flux
 
         public override void Draw(GameTime gameTime)
         {
-            resources = resources.OrderBy(r => r.location.Z).ToList();
+            resources = resources.OrderBy(r => r.display).ThenBy(r => r.location.Z).ToList();
+
             foreach (Resource r in resources)
             {
                 r.Draw();

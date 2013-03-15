@@ -62,6 +62,7 @@ namespace Flux
 
         public override void Draw(GameTime gameTime)
         {
+            objects = objects.OrderBy(o => o.display).ToList();
 
             foreach (GameObject obj in objects)
             {

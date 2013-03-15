@@ -71,15 +71,17 @@ namespace Flux
 
             float.TryParse(args["shadow"], out shadow);
 
-            Matrix proj = ScreenManager.Camera(0).projection;
-            Matrix view = ScreenManager.Camera(0).view;
-            Vector3 screenPos = ScreenManager.graphics.Viewport.Project(position, proj, view, Matrix.Identity);
-
-            float div = (int)(screenPos.X / ScreenManager.window.X);
-            if (div <= 1) display = 0;
-            else if (div <= 2) display = 1;
-            else if (div <= 3) display = 2;
-            else display = 3;
+            for (int i = 0; i < 4; i++)
+            {
+                Matrix proj = ScreenManager.Camera(i).projection;
+                Matrix view = ScreenManager.Camera(i).view;
+                Vector3 screenPos = ScreenManager.graphics.Viewport.Project(position, proj, view, Matrix.Identity);
+                if (screenPos.X <= ScreenManager.window.X)
+                {
+                    display = i;
+                    break;
+                }
+            }
 
             model = mod;
             CalculateBoundingBox();
