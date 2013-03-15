@@ -115,6 +115,9 @@ namespace Flux
             OrderedDictionary c = new OrderedDictionary();
             c.Add("id", 0);
             EventManager.Emit("collector:new", c);
+
+            c["id"] = 1;
+            EventManager.Emit("collector:new", c);
             
             c["id"] = 2;
             EventManager.Emit("collector:new", c);

@@ -20,7 +20,8 @@ namespace Flux
         {
             wrapY = true;
             velocity = Randomizer.RandomVelocity();
-            position = new Vector2(Randomizer.RandomFloat(0, ScreenManager.window.X), Randomizer.RandomFloat(0, ScreenManager.window.Y));
+
+            position = new Vector2(Randomizer.RandomFloat(0, ScreenManager.window.X), -wrapBuffer);
             display = Randomizer.RandomInt(0, 4);
             dampening = 0.985f;
         }

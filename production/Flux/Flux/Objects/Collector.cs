@@ -18,10 +18,13 @@ namespace Flux
         protected int resources = 0;
         protected int normalCapacity;
         protected Schedualizer heartbeatSchedule;
+        protected float scaleRate = 0.0008f;
+        protected float targetScale;
 
         public int attackRadius = 500;
         public int id;
         public bool isDying = false;
+        public int numCollectors = 1;
 
         private List<User> users;
         private List<Projectile> projectiles;
@@ -35,6 +38,7 @@ namespace Flux
             normalCapacity = capacity;
             dampening = 0.9f;
             heartbeatSchedule = new Schedualizer(0f, 5f, 5f);
+            targetScale = scale;
 
             users = new List<User>();
             projectiles = new List<Projectile>();
@@ -58,6 +62,11 @@ namespace Flux
                 o.Add("capacity", capacity);
                 o.Add("fill", resources);
                 EventManager.Emit("collector:heartbeat", o);
+            }
+
+            if (scale < targetScale)
+            {
+                scale += scaleRate * 0.1f;
             }
             
             base.Update();
@@ -94,9 +103,7 @@ namespace Flux
 
         public float SuckRadius()
         {
-            float radius = (capacity + resources)*0.015f;
-            if (radius > 3) radius = 3f;
-            return radius;
+            return 1.2f + (0.2f*(numCollectors-1));
         }
 
         public void MergeWith(Collector other)
@@ -108,6 +115,8 @@ namespace Flux
 
             capacity += other.capacity;
             resources += other.resources;
+            targetScale += scaleRate * (other.resources * 0.5f);
+            numCollectors += other.numCollectors;
 
             foreach (User u in other.users)
             {
@@ -149,7 +158,7 @@ namespace Flux
             if (!isDying)
             {
                 resources++;
-                scale += 0.0008f;
+                targetScale += scaleRate;
             }
             resource.Gather();
         }

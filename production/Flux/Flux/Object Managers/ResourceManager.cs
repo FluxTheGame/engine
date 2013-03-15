@@ -42,7 +42,7 @@ namespace Flux
                 //Should be proportional to bounding box size to ensure accurate placement
                 Texture2D mask = ContentManager.Mask(tree.objectName);
 
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     float x = Randomizer.RandomFloat(0, size.X);
                     float y = Randomizer.RandomFloat(0, size.Y);
