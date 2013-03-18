@@ -56,10 +56,15 @@ namespace Flux
             }
         }
 
-        public void Draw()
+        public void Draw(Color tint)
         {
             Rectangle clipping = new Rectangle((int)frameSize.X * animation[sequence].frame, (int)frameSize.Y * sequence, frameSize.X, frameSize.Y);
-            spriteBatch.Draw(sprite, position, clipping, Color.White, rotation, frameOffset, 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(sprite, position, clipping, tint, rotation, frameOffset, 1f, SpriteEffects.None, 0f);
+        }
+
+        public void Draw()
+        {
+            Draw(Color.White);
         }
 
         public void SetFrame(int frame)

@@ -96,6 +96,7 @@ namespace Flux
             userManager.DrawOrder = 6;
             Components.Add(userManager);
 
+            TeamColour.Initialize();
             VLine.Effect = new BasicEffect(GraphicsDevice);
 
             oldState = Keyboard.GetState();
@@ -116,7 +117,7 @@ namespace Flux
             c.Add("id", 0);
             EventManager.Emit("collector:new", c);
 
-            c["id"] = 1;
+            /*c["id"] = 1;
             EventManager.Emit("collector:new", c);
             
             c["id"] = 2;
@@ -124,7 +125,8 @@ namespace Flux
 
             c["id"] = 3;
             EventManager.Emit("collector:new", c);
-            
+            */            
+
             //Add User
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 99);
@@ -187,14 +189,14 @@ namespace Flux
                 if (!oldState.IsKeyDown(Keys.Space))
                 {
                     //o.Add("type", "wet");
-                    //o.Add("value", 582);
+                    o.Add("value", 100);
                     //EventManager.Emit("user:getBadge", o);
-                    //EventManager.Emit("user:getPoints", o);
+                    EventManager.Emit("user:getPoints", o);
                     //EventManager.Emit("user:disconnect", o);
 
-                    OrderedDictionary c = new OrderedDictionary();
+                    /*OrderedDictionary c = new OrderedDictionary();
                     c.Add("id", 1);
-                    EventManager.Emit("collector:attack", c);
+                    EventManager.Emit("collector:attack", c);*/
                 }
             }
             if (keyState.IsKeyDown(Keys.D1)) 

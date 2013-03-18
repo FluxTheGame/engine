@@ -25,6 +25,7 @@ namespace Flux
         public int id;
         public bool isDying = false;
         public int numCollectors = 1;
+        public Color teamColour;
 
         private List<User> users;
         private List<Projectile> projectiles;
@@ -39,6 +40,7 @@ namespace Flux
             dampening = 0.9f;
             heartbeatSchedule = new Schedualizer(0f, 5f, 5f);
             targetScale = scale;
+            teamColour = TeamColour.Get();
 
             users = new List<User>();
             projectiles = new List<Projectile>();
@@ -98,6 +100,8 @@ namespace Flux
                 user.collector = null;
             }
             isDying = true;
+
+            TeamColour.Put(teamColour);
             CollectorManager.Remove(this);
         }
 

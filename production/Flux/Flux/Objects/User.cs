@@ -18,6 +18,7 @@ namespace Flux
         private SpriteBatch spriteBatch;
 
         private Texture2D badgeSprite;
+        private Texture2D teamRing;
 
         private AnimSprite pointerAnim;
         private AnimSprite stateAnim;
@@ -28,6 +29,7 @@ namespace Flux
 
         private Vector2 usernameOffset;
         private Vector2 usernameFontOffset;
+        private Vector2 teamRingOffset;
 
         private Notification pointsNotification;
         private Notification badgeNotification;
@@ -65,6 +67,7 @@ namespace Flux
 
             usernameFont = ContentManager.Font("user_name");
             userpointsFont = ContentManager.Font("user_points");
+            teamRing = ContentManager.Sprite("user_team");
 
             SetupOffsets();
             SetupAnimations();
@@ -149,18 +152,25 @@ namespace Flux
             spriteBatch.Begin();
                 pointerAnim.Draw();
                 stateAnim.Draw();
+                DrawTeamRing();
                 DrawUsername();
                 DrawNotifications();
                 DrawPointsRing();
             spriteBatch.End();
         }
 
+        protected void DrawTeamRing()
+        {
+            if (collector != null)
+            {
+                spriteBatch.Draw(teamRing, position - teamRingOffset, collector.teamColour);
+            }
+        }
+
         protected void DrawUsername()
         {
             Vector2 fontLocation = position + usernameOffset - usernameFontOffset;
-            
             spriteBatch.DrawString(usernameFont, username, fontLocation, Color.White);
-            //spriteBatch.Draw(boxSprite, position + usernameOffset - boxOffset, Color.White);
         }
 
         protected void DrawNotifications()
@@ -171,10 +181,12 @@ namespace Flux
 
         protected void DrawPointsRing()
         {
-            float ratio = 1f - ((float)points / 10000f);
+            float ratio = 1f - ((float)points / UserManager.HighestPoints());
             int frame = (int)(27 * ratio);
+            if (frame < 0) frame = 0;
             pointsAnim.SetFrame(frame);
-            pointsAnim.Draw();
+            if (collector != null) pointsAnim.Draw(collector.teamColour);
+            else pointsAnim.Draw();
         }
 
         protected void ApplyAction()
@@ -239,6 +251,7 @@ namespace Flux
             badgeNotification.offset = new Vector2(47, -38) * scale;
             pointsNotification.offset = new Vector2(42, 10) * scale;
             usernameFontOffset = usernameFont.MeasureString(username) * 0.5f;
+            teamRingOffset = new Vector2(teamRing.Width * 0.5f, teamRing.Height * 0.5f);
         }
 
         protected float CollectorAngle() 

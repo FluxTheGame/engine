@@ -101,6 +101,11 @@ namespace Flux
             return users.FirstOrDefault(u => u.id == id);
         }
 
+        public static int HighestPoints()
+        {
+            return 500;
+        }
+
         public static void Remove(User user)
         {
             instance.users.Remove(user);
