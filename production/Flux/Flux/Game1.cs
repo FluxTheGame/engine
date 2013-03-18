@@ -254,11 +254,15 @@ namespace Flux
 
             base.Draw(gameTime);
 
-            //Draw Grid
             GridManager.Draw();
 
+            //Draw Grid
             ScreenManager.graphics.SetRenderTarget(null);
-            ScreenManager.graphics.Clear(Color.LightSkyBlue);
+
+            Color c = Color.Lerp(Color.DarkSlateGray, Color.LightSkyBlue, Light.lerp);
+            ScreenManager.graphics.Clear(c);
+
+            //ScreenManager.graphics.Clear(Color.LightSkyBlue);
             ScreenManager.spriteBatch.Begin();
 
             #if FOUR_SCREENS

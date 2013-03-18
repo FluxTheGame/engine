@@ -18,11 +18,13 @@ namespace Flux
         private static Color SunDiffuseColorDay = Color.PaleGoldenrod;
 
         private static Color transitionalColor;
+        public static float lerp;
 
 
         public static void Update(GameTime gameTime)
         {
-            float lerp = (float)(Math.Cos(gameTime.TotalGameTime.TotalSeconds * 0.3f) + 1) * 0.5f; // [0..1]
+            lerp = (float)(Math.Cos(gameTime.TotalGameTime.TotalSeconds * 0.3f) + 1) * 0.5f; // [0..1]
+ 
 
             SunDirection.Y = (lerp - 1);
 
