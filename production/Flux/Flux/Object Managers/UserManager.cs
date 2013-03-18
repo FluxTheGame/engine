@@ -17,6 +17,8 @@ namespace Flux
     {
 
         public static UserManager instance;
+        public static int highestPoints = 100;
+
         List<User> users;
 
         
@@ -101,9 +103,13 @@ namespace Flux
             return users.FirstOrDefault(u => u.id == id);
         }
 
-        public static int HighestPoints()
+        protected void FindHighestPoints()
         {
-            return 500;
+            UserManager.highestPoints = 100;
+            foreach (User u in instance.users)
+            {
+                if (u.points > UserManager.highestPoints) UserManager.highestPoints = u.points;
+            }
         }
 
         public static void Remove(User user)
@@ -114,6 +120,7 @@ namespace Flux
         public override void Update(GameTime gameTime)
         {
             //Pushes list of GameObjects to parent for general processing (Update, Draw)
+            FindHighestPoints();
             objects = users.Cast<GameObject>().ToList();
             base.Update(gameTime);
         }

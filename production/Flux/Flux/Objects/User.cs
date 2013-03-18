@@ -181,7 +181,7 @@ namespace Flux
 
         protected void DrawPointsRing()
         {
-            float ratio = 1f - ((float)points / UserManager.HighestPoints());
+            float ratio = 1f - ((float)points / UserManager.highestPoints);
             int frame = (int)(27 * ratio);
             if (frame < 0) frame = 0;
             pointsAnim.SetFrame(frame);
