@@ -161,10 +161,8 @@ namespace Flux
 
         protected void DrawTeamRing()
         {
-            if (collector != null)
-            {
-                spriteBatch.Draw(teamRing, position - teamRingOffset, collector.teamColour);
-            }
+            if (collector != null) spriteBatch.Draw(teamRing, position - teamRingOffset, collector.teamColour);
+            else spriteBatch.Draw(teamRing, position - teamRingOffset, Color.White);
         }
 
         protected void DrawUsername()
