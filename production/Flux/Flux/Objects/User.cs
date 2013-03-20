@@ -181,9 +181,19 @@ namespace Flux
 
         protected void DrawPointsRing()
         {
-            float ratio = 1f - ((float)points / UserManager.highestPoints);
-            int frame = (int)(27 * ratio);
-            if (frame < 0) frame = 0;
+            float ratio = ((float)points / UserManager.highestPoints);
+            int frame = (int)(100 * ratio);
+
+            Console.WriteLine(frame);
+
+            if (frame >= 99) frame = 99;
+            if (frame >= 50)
+            {
+                frame -= 50;
+                pointsAnim.SetClip(1);
+            }
+            else pointsAnim.SetClip(0);
+
             pointsAnim.SetFrame(frame);
             if (collector != null) pointsAnim.Draw(collector.teamColour);
             else pointsAnim.Draw();
@@ -228,7 +238,10 @@ namespace Flux
             pointerAnim = new AnimSprite("user_pointer", new Point(70, 70), pointerAnimations);
             pointerAnim.Play((int)Pointers.Enter);
 
-            Animation[] pointsAnimations = { new Animation(0, 26) };
+            Animation[] pointsAnimations = { 
+                new Animation(0, 50),
+                new Animation(1, 50)
+            };
             pointsAnim = new AnimSprite("user_points", new Point(70, 70), pointsAnimations);
             pointsAnim.SetFrame(26);
 

@@ -114,13 +114,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\user_points.png">
-      <Name>user_points</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="sprites\collector_attack.png">
       <Name>collector_attack</Name>
       <Importer>TextureImporter</Importer>
@@ -616,6 +609,13 @@
   <ItemGroup>
     <Compile Include="sprites\user_team.png">
       <Name>user_team</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sprites\user_points.png">
+      <Name>user_points</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

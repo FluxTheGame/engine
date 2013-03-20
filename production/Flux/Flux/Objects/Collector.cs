@@ -129,6 +129,7 @@ namespace Flux
             }
 
             health = 100;
+            CollectorManager.Remove(other);
         }
 
         public void BeAttacked(int damage)

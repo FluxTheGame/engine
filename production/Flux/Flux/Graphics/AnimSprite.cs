@@ -73,6 +73,11 @@ namespace Flux
             playing = false;
         }
 
+        public void SetClip(int clip)
+        {
+            sequence = clip;
+        }
+
         public void Rewind()
         {
             animation[sequence].frame = 0;
@@ -95,7 +100,7 @@ namespace Flux
         public void Play(int clip)
         {
             playing = true;
-            sequence = clip;
+            SetClip(clip);
             Rewind();
         }
     }

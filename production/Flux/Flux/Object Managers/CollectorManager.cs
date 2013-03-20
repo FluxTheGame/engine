@@ -33,7 +33,6 @@ namespace Flux
             EventManager.On("collector:new", (o) =>
             {
                 int id = (int)o["id"];
-                // color c = (color)o["color"];
                 collectors.Add(new Collector(id));
             });
 
@@ -65,8 +64,9 @@ namespace Flux
             {
                 if (Vector2.Distance(current.position, collectors[i].position) < 20 && current != collectors[i])
                 {
-                    current.MergeWith(collectors[i]);
-                    collectors.Remove(collectors[i]);
+                    if (current.scale > collectors[i].scale) current.MergeWith(collectors[i]);
+                    else collectors[i].MergeWith(current);
+                    break;
                 }
             }
         }
