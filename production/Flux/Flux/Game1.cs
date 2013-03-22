@@ -40,15 +40,16 @@ namespace Flux
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 800;
 
             #if FOUR_SCREENS
-                graphics.PreferredBackBufferHeight = 200;
+                graphics.PreferredBackBufferWidth = 1280*4;
+            
             #else
-                graphics.PreferredBackBufferHeight = 800;
+                graphics.PreferredBackBufferWidth = 1280;
             #endif
 
-            graphics.PreferMultiSampling = true;
+                graphics.PreferMultiSampling = true;
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
             Content.RootDirectory = "Content";
         }
@@ -76,7 +77,8 @@ namespace Flux
             Components.Add(worldManager);
             
             resourceManager = new ResourceManager(this);
-            resourceManager.PlaceResources(worldManager);
+            resourceManager.PlaceLeaves(worldManager);
+            resourceManager.PlaceWater();
             resourceManager.DrawOrder = 2;
             Components.Add(resourceManager);
 
@@ -117,7 +119,7 @@ namespace Flux
             c.Add("id", 0);
             EventManager.Emit("collector:new", c);
 
-            c["id"] = 1;
+            /*c["id"] = 1;
             EventManager.Emit("collector:new", c);
             
             c["id"] = 2;
@@ -125,15 +127,15 @@ namespace Flux
 
             c["id"] = 3;
             EventManager.Emit("collector:new", c);
-                        
+            */ 
 
             //Add User
-            OrderedDictionary o = new OrderedDictionary();
+            /*OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 99);
             o.Add("teamId", 0);
             o.Add("username", "DILBERT");
             EventManager.Emit("user:new", o);
-            
+            */
             /* End for testing */
         }
 
@@ -268,8 +270,8 @@ namespace Flux
             ScreenManager.spriteBatch.Begin();
 
             #if FOUR_SCREENS
-                float scale = 0.25f;
-                int frameWidth = (int)(ScreenManager.window.X / 4);
+                float scale = 1f;
+                int frameWidth = (int)(ScreenManager.window.X);
 
                 for (int i = 0; i < 4; i++)
                 {

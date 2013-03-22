@@ -103,6 +103,12 @@ namespace Flux
             return new Vector2(window.X * 0.5f, window.Y * 0.5f);
         }
 
+        public static int DisplayOfLocation(Vector3 location)
+        {
+            float x = location.X + spacing * 0.5f;
+            return (int)Math.Floor(x / 60f);
+        }
+
         public static int Opposite(int display)
         {
             return (display + 2) % 4;

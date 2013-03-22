@@ -182,8 +182,6 @@ namespace Flux
             float ratio = ((float)points / UserManager.highestPoints);
             int frame = (int)(100 * ratio);
 
-            Console.WriteLine(frame);
-
             if (frame >= 99) frame = 99;
             if (frame >= 50)
             {
