@@ -75,6 +75,11 @@ namespace Flux
             target[display] = t;
         }
 
+        public static void SetTarget(RenderTarget2D target)
+        {
+            graphics.SetRenderTarget(target);
+        }
+
         public static void SetTarget(int display)
         {
             graphics.SetRenderTarget(Target(display));

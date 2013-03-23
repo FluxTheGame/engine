@@ -1,5 +1,5 @@
 
-//#define FOUR_SCREENS
+//#define PRODUCTION
 
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,7 @@ namespace Flux
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = 800;
 
-            #if FOUR_SCREENS
+            #if PRODUCTION
                 graphics.PreferredBackBufferWidth = 1280*4;
             
             #else
@@ -70,6 +70,7 @@ namespace Flux
             ContentManager.Initialize(this);
             EventManager.Initialize();
             GridManager.Initialize(10);
+            Audio.Initialize();
             server = new Server();
 
             worldManager = new WorldManager(this);
@@ -111,6 +112,7 @@ namespace Flux
         protected override void LoadContent()
         {
             ground = new Ground();
+            Audio.MultiSpeakerOutput_Load();
 
             /* For Testing */
             
@@ -119,7 +121,7 @@ namespace Flux
             c.Add("id", 0);
             EventManager.Emit("collector:new", c);
 
-            /*c["id"] = 1;
+            c["id"] = 1;
             EventManager.Emit("collector:new", c);
             
             c["id"] = 2;
@@ -127,22 +129,23 @@ namespace Flux
 
             c["id"] = 3;
             EventManager.Emit("collector:new", c);
-            */ 
+            
 
             //Add User
-            /*OrderedDictionary o = new OrderedDictionary();
+            OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 99);
             o.Add("teamId", 0);
             o.Add("username", "DILBERT");
-            EventManager.Emit("user:new", o);
-            */
+            o.Add("display", 0);
+            EventManager.Emit("user:new", o);/**/
+            
             /* End for testing */
         }
 
       
         protected override void UnloadContent()
         {
-           
+            Audio.Dispose();
         }
 
        
@@ -218,6 +221,8 @@ namespace Flux
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
+                //Audio.Play("drumloop", 3);
+
                 if (initialMousePos.Equals(Vector2.Zero))
                 {
                     initialMousePos = new Vector2(mouseState.X, mouseState.Y);
@@ -263,13 +268,13 @@ namespace Flux
             //Draw Grid
             ScreenManager.graphics.SetRenderTarget(null);
 
-            Color c = Color.Lerp(Color.DarkSlateGray, Color.LightSkyBlue, Light.lerp);
-            ScreenManager.graphics.Clear(c);
+            /*Color c = Color.Lerp(Color.DarkSlateGray, Color.LightSkyBlue, Light.lerp);
+            ScreenManager.graphics.Clear(c);*/
 
-            //ScreenManager.graphics.Clear(Color.LightSkyBlue);
+            ScreenManager.graphics.Clear(Color.LightSkyBlue);
             ScreenManager.spriteBatch.Begin();
 
-            #if FOUR_SCREENS
+            #if PRODUCTION
                 float scale = 1f;
                 int frameWidth = (int)(ScreenManager.window.X);
 

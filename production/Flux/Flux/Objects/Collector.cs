@@ -21,6 +21,8 @@ namespace Flux
         protected float scaleRate = 0.0008f;
         protected float targetScale;
 
+        public BasicEffect colorization = Drawer3D.SetDefaultLights();
+
         public int attackRadius = 500;
         public int id;
         public bool isDying = false;
@@ -41,6 +43,13 @@ namespace Flux
             heartbeatSchedule = new Schedualizer(0f, 5f, 5f);
             targetScale = scale;
             teamColour = TeamColour.Get();
+
+            /*colorization.DirectionalLight2.DiffuseColor = teamColour.ToVector3();
+            colorization.DirectionalLight2.Direction = new Vector3(0, 0, 0);
+            colorization.DirectionalLight2.SpecularColor = Color.White.ToVector3();*/
+            colorization.AmbientLightColor = teamColour.ToVector3() - new Vector3(0.2f);
+            colorization.EmissiveColor = Color.Black.ToVector3();
+
 
             users = new List<User>();
             projectiles = new List<Projectile>();
@@ -80,7 +89,10 @@ namespace Flux
             {
                 projectile.Draw(gameTime);
             }
-            base.Draw(gameTime);
+
+            ScreenManager.SetTarget(display);
+            Camera camera = ScreenManager.Camera(display);
+            Drawer3D.Draw(model, Location(), Vector3.Zero, new Vector3(scale), 1f, camera, colorization);
         }
 
         public void Burst()

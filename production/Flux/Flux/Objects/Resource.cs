@@ -16,6 +16,7 @@ namespace Flux
     public class Resource
     {
         public Vector3 location;
+        public Vector2 position;
         public bool active = true;
         public int display = 0;
         public float scale = 0.1f;
@@ -46,13 +47,19 @@ namespace Flux
 
             Vector3 offsetFromTarget = Vector3.Zero;
 
+            Matrix proj = ScreenManager.Camera(display).projection;
+            Matrix view = ScreenManager.Camera(display).view;
+            Vector3 screenPos = ScreenManager.graphics.Viewport.Project(location, proj, view, Matrix.Identity);
+            position = new Vector2(screenPos.X, screenPos.Y);
+
 
             if (active)
             {
-                if (scale < 0.1f) scale += 0.0001f;
+                // easing
+                if (scale < 0.1f) scale += (0.1f - scale) * 0.1f;
                 else if (collector != null)
                 {
-                    if (CollectorDistance() < 20f)
+                    if (CollectorDistance() < 100f)
                         offsetFromTarget = GetIntensity(collector.Location(), location);
                     else
                         offsetFromTarget = GetIntensity(origLocation, location);
@@ -66,6 +73,7 @@ namespace Flux
                 }
 
                 location += offsetFromTarget * speed;
+
             }
             if (respawnDelay.IsOn())
             {
@@ -93,17 +101,19 @@ namespace Flux
 
         private float CollectorDistance()
         {
-            return Vector3.Distance(location, collector.Location());
+            //return Vector3.Distance(location, collector.Location());
+
+            return Vector2.Distance(position, collector.position);
         }
 
         private Vector3 GetIntensity(Vector3 aim, Vector3 loc)
         {
             float dist = Vector3.Distance(aim, NonDepthLocation());
 
-            float intensity = 0f;
-            if (dist > 0) intensity = 1.0f / (dist * dist); // inverse square
+            /*float intensity = 0f;
+            if (dist > 0) intensity = 1.0f / (dist * dist); // inverse square*/
 
-            Vector3 offset = (aim - loc) * intensity;
+            Vector3 offset = (aim - loc);
 
             return offset;
         }

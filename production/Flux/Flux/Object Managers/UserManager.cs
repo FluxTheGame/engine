@@ -36,7 +36,8 @@ namespace Flux
             {
                 int id = (int)o["id"];
                 int teamId = (int)o["teamId"];
-                users.Add(new User((string)o["username"], id, teamId));
+                int display = (int)o["display"];
+                users.Add(new User((string)o["username"], id, teamId, display));
             });
 
             EventManager.On("user:disconnect", (o) =>
@@ -93,6 +94,13 @@ namespace Flux
             {
                 User user = UserByID((int)o["id"]);
                 if (user != null) user.PinchEnd();
+            });
+
+            EventManager.On("user:newTeam", (o) =>
+            {
+                User user = UserByID((int)o["id"]);
+                if (user != null)
+                    user.collector = CollectorManager.CollectorByID((int)o["teamId"]);
             });
 
             base.Initialize();

@@ -47,11 +47,12 @@ namespace Flux
         private int action;
 
 
-        public User(string user, int userId, int teamId) : base ()
+        public User(string user, int userId, int teamId, int inDisplay) : base ()
         {
             delta = Vector2.Zero;
             username = user;
             id = userId;
+            display = inDisplay;
             scale = 1.0f;
             dampening = 0.8f;
             maxSpeed = 20f;

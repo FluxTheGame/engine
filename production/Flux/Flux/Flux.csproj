@@ -107,6 +107,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audio\Audio.cs" />
+    <Compile Include="Audio\fmod.cs" />
+    <Compile Include="Audio\fmod_dsp.cs" />
+    <Compile Include="Audio\fmod_errors.cs" />
+    <Compile Include="Audio\fmod_memoryinfo.cs" />
     <Compile Include="General Managers\ContentManager.cs" />
     <Compile Include="General Managers\GridManager.cs">
       <SubType>Code</SubType>

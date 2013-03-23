@@ -15,10 +15,10 @@ namespace Flux
         protected int health = 1;
         protected int wrapBuffer = 50;
 
-
         public Enemy() : base()
         {
             wrapY = true;
+            height = 0;
             velocity = Randomizer.RandomVelocity();
 
             position = new Vector2(Randomizer.RandomFloat(0, ScreenManager.window.X), -wrapBuffer);

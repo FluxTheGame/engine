@@ -14,6 +14,7 @@ namespace Flux
         public float scale;
         public int display;
         public Model model;
+        protected int height = 50;
         public BoundingSphere sphere;
 
         public Vector2 position;
@@ -63,8 +64,8 @@ namespace Flux
         {
             if (!wrapY)
             {
-                if (position.Y > ScreenManager.world.Y) position.Y = ScreenManager.world.Y;
-                if (position.Y < 0) position.Y = 0;
+                if (position.Y > ScreenManager.world.Y - height) position.Y = ScreenManager.world.Y - height;
+                if (position.Y < height) position.Y = height;
             }
             if (position.X > ScreenManager.window.X)
             {
