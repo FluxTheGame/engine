@@ -15,6 +15,7 @@ namespace Flux
         protected bool isDying = false;
         protected int health = 1;
         protected int wrapBuffer = 50;
+        protected float rotation;
         protected AnimSprite animation;
         protected AnimSprite explosion;
 
@@ -64,7 +65,10 @@ namespace Flux
         public override void Update()
         {
             WrapY();
-            if (!isDying) animation.Update(position);
+
+            rotation = (float)Math.Atan2(velocity.X, velocity.Y) + Matherizer.ToRadians(90);
+
+            if (!isDying) animation.Update(position, rotation);
             else explosion.Update(position);
             base.Update();
         }

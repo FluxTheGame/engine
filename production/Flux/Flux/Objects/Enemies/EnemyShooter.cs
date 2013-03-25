@@ -15,28 +15,40 @@ namespace Flux
         protected Schedualizer shootSchedule;
         protected Schedualizer accelerationSchedule;
         protected float shootDistance = 300.0f;
+        protected bool wasShooting = false;
 
 
         public EnemyShooter() : base()
         {
             shootSchedule = new Schedualizer(1.0f, 5f, 10f);
             accelerationSchedule = new Schedualizer(0.0f, 3f, 6f);
-            model = ContentManager.Model("enemy_shooter");
-            scale = 0.07f;
             drag = 16.0f;
+
+            Animation[] stateAnimations = {
+                new Animation(0, 48),
+                new Animation(1, 48, false, 0),
+            };
+            animation = new AnimSprite("enemy_shooter", new Point(85, 64), stateAnimations);
         }
 
         public override void Update()
         {
 
-            if (shootSchedule.IsOn()) {
+            if (shootSchedule.IsOn())
+            {
                 float phase = shootSchedule.Phase();
-                GridManager.Bloat(position + Vector2.Normalize(velocity) * (shootDistance * phase), 80.0f*phase, 0.07f, display);
+                GridManager.Bloat(position + Vector2.Normalize(velocity) * (shootDistance * phase), 80.0f * phase, 0.07f, display);
+                if (!wasShooting) animation.Play(1);
+                wasShooting = true;
+            }
+            else
+            {
+                wasShooting = false;
             }
 
             if (accelerationSchedule.IsOn())
             {
-                acceleration = Randomizer.RandomVelocity(0.01f);
+                acceleration = Randomizer.RandomVelocity(0.02f);
             }
 
             base.Update();

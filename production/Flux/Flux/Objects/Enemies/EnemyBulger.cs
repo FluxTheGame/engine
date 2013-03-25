@@ -14,15 +14,20 @@ namespace Flux
 
         protected Schedualizer bulgeSchedule;
         protected Schedualizer accelerationSchedule;
+        protected bool wasBloating = false;
 
 
         public EnemyBulger() : base()
         {
             bulgeSchedule = new Schedualizer(0.5f, 5f, 10f);
             accelerationSchedule = new Schedualizer(0.0f, 1f, 3f);
-            model = ContentManager.Model("enemy_bulger");
-            scale = 0.025f;
             drag = 10.0f;
+
+            Animation[] stateAnimations = {
+                new Animation(0, 48),
+                new Animation(1, 48, false, 0),
+            };
+            animation = new AnimSprite("enemy_bloat", new Point(85, 64), stateAnimations);
         }
 
         public override void Update()
@@ -30,6 +35,12 @@ namespace Flux
 
             if (bulgeSchedule.IsOn()) {
                 GridManager.Bloat(position, 100.0f, 0.1f, display);
+                if (!wasBloating) animation.Play(1);
+                wasBloating = true;
+            }
+            else
+            {
+                wasBloating = false;
             }
 
             if (accelerationSchedule.IsOn())

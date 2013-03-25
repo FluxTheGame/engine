@@ -1823,6 +1823,24 @@
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\enemy_explosion.xnb</Output>
       <Time>2013-03-25T14:46:58.2656944-04:00</Time>
     </Item>
+    <Item>
+      <Source>sprites\enemy_shooter.png</Source>
+      <Name>sprites\enemy_shooter</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\enemy_shooter.xnb</Output>
+      <Time>2013-03-25T15:30:21.5779996-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\enemy_bloat.png</Source>
+      <Name>sprites\enemy_bloat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\enemy_bloat.xnb</Output>
+      <Time>2013-03-25T15:51:54.059263-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{024E11DE-813F-48D7-B0CA-9F0C3B09E065}</ContentProjectGUID>
