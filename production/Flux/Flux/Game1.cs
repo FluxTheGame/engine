@@ -121,28 +121,12 @@ namespace Flux
             c.Add("id", 0);
             EventManager.Emit("collector:new", c);
 
-            /*c["id"] = 1;
-            EventManager.Emit("collector:new", c);
-            EventManager.Emit("collector:new", c);
-
             c["id"] = 1;
             EventManager.Emit("collector:new", c);
             
             c["id"] = 2;
             EventManager.Emit("collector:new", c);
 
-            c["id"] = 3;
-            EventManager.Emit("collector:new", c);
-            */ 
-
-            //Add User
-            OrderedDictionary o = new OrderedDictionary();
-            o.Add("id", 99);
-            o.Add("teamId", 0);
-            o.Add("username", "DILBERT");
-            EventManager.Emit("user:new", o);
-            
-            /* End for testing */
             c["id"] = 3;
             EventManager.Emit("collector:new", c);
             
@@ -291,17 +275,6 @@ namespace Flux
             ScreenManager.spriteBatch.Begin();
 
             #if PRODUCTION
-                float scale = 1f;
-                int frameWidth = (int)(ScreenManager.window.X);
-            ScreenManager.graphics.SetRenderTarget(null);
-
-            Color c = Color.Lerp(Color.DarkSlateGray, Color.LightSkyBlue, Light.lerp);
-            ScreenManager.graphics.Clear(c);
-
-            //ScreenManager.graphics.Clear(Color.LightSkyBlue);
-            ScreenManager.spriteBatch.Begin();
-
-            #if FOUR_SCREENS
                 float scale = 1f;
                 int frameWidth = (int)(ScreenManager.window.X);
 
