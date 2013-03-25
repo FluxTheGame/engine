@@ -57,7 +57,7 @@ namespace Flux
             if (active)
             {
                 // easing
-                if (scale < 0.1f) scale += (0.1f - scale) * 0.1f;
+                if (scale < 0.1f) scale += (0.11f - scale) * 0.1f;
                 else if (collector != null)
                 {
                     if (CollectorDistance() < 100f)

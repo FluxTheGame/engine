@@ -108,16 +108,13 @@ namespace Flux
 
             List<VertexPositionColor> vpc = new List<VertexPositionColor>();
 
-            int count = 0;
+            if (points.Count > 0) {
 
-            foreach (Vector3 point in points)
-            {
-                vpc.Add(new VertexPositionColor(point, color));
-                count++;
-            }
+                for (int i = 0; i < points.Count; ++i)
+                {
+                    vpc.Add(new VertexPositionColor(points[i], color));
+                }
 
-            if (count > 0)
-            {
                 foreach (EffectPass pass in VLine.Effect.CurrentTechnique.Passes)
                 {
                     pass.Apply();
