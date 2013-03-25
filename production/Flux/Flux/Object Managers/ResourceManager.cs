@@ -48,31 +48,39 @@ namespace Flux
                     Vector3 pos = new Vector3(position.X + x - size.X * 0.5f, position.Y + size.Y - y, position.Z + Randomizer.RandomFloat(0.2f, 0.8f));
                     Vector2 posN = new Vector2(x / size.X, y / size.Y);
 
-                    if (!PlaceResource(pos, posN, mask, tree.leafName)) i--;
+                    if (!PlaceResource(pos, posN, mask, tree.leafName, 0.05f)) i--;
                 }
             }
         }
 
         public void PlaceWater()
         {
-            Vector3 position = new Vector3(-30, 0, -60);
-            Vector3 size = new Vector3(240, 0, 60); //Bounding box of world, XZ
-
-            Texture2D mask = ContentManager.Mask("water"); //Mask for entire world, viewing XZ
-
-            for (int i = 0; i < 1000; i++)
+            for (int j = 0; j < 3; j++)
             {
-                float x = Randomizer.RandomFloat(0, size.X);
-                float z = Randomizer.RandomFloat(0, size.Z);
-                float y = -z / 3.25f + 14f;
-                Vector3 pos = new Vector3(position.X + x, position.Y + y, position.Z + z);
-                Vector2 posN = new Vector2(x / size.X, z / size.Z);
+                Vector3 position = new Vector3(-30 + j*60, 0, -60);
+                Vector3 size = new Vector3(60, 0, 60); //Bounding box of world, XZ
 
-                if (!PlaceResource(pos, posN, mask, "Water_01")) i--;
+                Texture2D mask = ContentManager.Mask("water"); //Mask for this square (display), viewing XZ
+
+                for (int i = 0; i < 200; i++)
+                {
+                    float x = Randomizer.RandomFloat(0, size.X);
+                    float z = Randomizer.RandomFloat(0, size.Z);
+                    float y = 0f;
+
+                    if (j == 0) y = -z / 3.25f + 13.5f;
+                    if (j == 1) y = -5f;
+                    if (j == 2) y = -z / 4.5f + 8f;
+
+                    Vector3 pos = new Vector3(position.X + x, position.Y + y, position.Z + z);
+                    Vector2 posN = new Vector2(x / size.X, z / size.Z);
+
+                    if (!PlaceResource(pos, posN, mask, "Water_01", 0.02f)) i--;
+                }
             }
         }
 
-        protected bool PlaceResource(Vector3 pos, Vector2 posN, Texture2D mask, string resourceName)
+        protected bool PlaceResource(Vector3 pos, Vector2 posN, Texture2D mask, string resourceName, float speed)
         {
             Point maskIndex = new Point((int)(posN.X * mask.Width), (int)(posN.Y * mask.Height));
 
@@ -82,7 +90,7 @@ namespace Flux
 
             if (probability <= data[0].R)
             {
-                Resource r = new Resource(pos, "env/" + resourceName);
+                Resource r = new Resource(pos, "env/" + resourceName, speed);
                 r.display = ScreenManager.DisplayOfLocation(pos);
                 resources.Add(r);
                 return true;

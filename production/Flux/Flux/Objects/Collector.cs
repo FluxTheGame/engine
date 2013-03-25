@@ -107,7 +107,7 @@ namespace Flux
 
         public float SuckRadius()
         {
-            return 1.2f + (0.2f*(numCollectors-1));
+            return 1.2f;
         }
 
         public void MergeWith(Collector other)

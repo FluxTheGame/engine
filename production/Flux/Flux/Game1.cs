@@ -130,12 +130,12 @@ namespace Flux
             */ 
 
             //Add User
-            /*OrderedDictionary o = new OrderedDictionary();
+            OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 99);
             o.Add("teamId", 0);
             o.Add("username", "DILBERT");
             EventManager.Emit("user:new", o);
-            */
+            
             /* End for testing */
         }
 
