@@ -60,7 +60,7 @@ namespace Flux
                 Vector3 position = new Vector3(-30 + j*60, 0, -60);
                 Vector3 size = new Vector3(60, 0, 60); //Bounding box of world, XZ
 
-                Texture2D mask = ContentManager.Mask("water"); //Mask for this square (display), viewing XZ
+                Texture2D mask = ContentManager.Mask("water" + j); //Mask for this square (display), viewing XZ
 
                 for (int i = 0; i < 200; i++)
                 {
@@ -68,10 +68,10 @@ namespace Flux
                     float z = Randomizer.RandomFloat(0, size.Z);
                     float y = 0f;
 
-                    if (j == 0) y = -z / 3.25f + 13.5f;
+                    if (j == 0) y = -z / 3.25f + 14f;
                     if (j == 1) y = -5f;
-                    if (j == 2) y = -z / 4.5f + 8f;
-
+                    if (j == 2) y = -z / 4.5f + 9f;
+                    
                     Vector3 pos = new Vector3(position.X + x, position.Y + y, position.Z + z);
                     Vector2 posN = new Vector2(x / size.X, z / size.Z);
 

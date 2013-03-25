@@ -562,15 +562,6 @@
       <Time>2013-02-27T11:39:56.226787-05:00</Time>
     </Item>
     <Item>
-      <Source>masks\water.png</Source>
-      <Name>masks\water</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\masks\water.xnb</Output>
-      <Time>2013-03-22T11:03:50.1889106-04:00</Time>
-    </Item>
-    <Item>
       <Source>shaders\Swirl.fx</Source>
       <Name>shaders\Swirl</Name>
       <Importer>EffectImporter</Importer>
@@ -1786,6 +1777,33 @@
       <Options>None</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\water_01_0.xnb</Output>
       <Time>2013-03-25T10:57:47.4558489-04:00</Time>
+    </Item>
+    <Item>
+      <Source>masks\water0.png</Source>
+      <Name>masks\water0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\masks\water0.xnb</Output>
+      <Time>2013-03-25T11:18:18.1176447-04:00</Time>
+    </Item>
+    <Item>
+      <Source>masks\water1.png</Source>
+      <Name>masks\water1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\masks\water1.xnb</Output>
+      <Time>2013-03-25T11:12:05.1269327-04:00</Time>
+    </Item>
+    <Item>
+      <Source>masks\water2.png</Source>
+      <Name>masks\water2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\masks\water2.xnb</Output>
+      <Time>2013-03-25T11:17:08.5106447-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
