@@ -121,14 +121,14 @@ namespace Flux
             c.Add("id", 0);
             EventManager.Emit("collector:new", c);
 
-            c["id"] = 1;
+            /*c["id"] = 1;
             EventManager.Emit("collector:new", c);
             
             c["id"] = 2;
             EventManager.Emit("collector:new", c);
 
             c["id"] = 3;
-            EventManager.Emit("collector:new", c);
+            EventManager.Emit("collector:new", c);*/
             
 
             //Add User
@@ -194,14 +194,14 @@ namespace Flux
                 if (!oldState.IsKeyDown(Keys.Space))
                 {
                     //o.Add("type", "wet");
-                    o.Add("value", 100);
+                    //o.Add("value", 100);
                     //EventManager.Emit("user:getBadge", o);
-                    EventManager.Emit("user:getPoints", o);
+                    //EventManager.Emit("user:getPoints", o);
                     //EventManager.Emit("user:disconnect", o);
 
-                    /*OrderedDictionary c = new OrderedDictionary();
-                    c.Add("id", 1);
-                    EventManager.Emit("collector:attack", c);*/
+                    OrderedDictionary c = new OrderedDictionary();
+                    c.Add("id", 0);
+                    EventManager.Emit("collector:attack", c);
                 }
             }
             if (keyState.IsKeyDown(Keys.D1)) 

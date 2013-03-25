@@ -22,6 +22,8 @@ namespace Flux
             this.target = target;
             this.collector = collector;
             this.position = collector.position;
+            this.display = collector.display;
+            height = 0;
 
             this.sprite = ContentManager.Sprite("collector_attack");
         }

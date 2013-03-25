@@ -12,8 +12,12 @@ namespace Flux
     public class Enemy : GridObject
     {
 
+        protected bool isDying = false;
         protected int health = 1;
         protected int wrapBuffer = 50;
+        protected AnimSprite animation;
+        protected AnimSprite explosion;
+
 
         public Enemy() : base()
         {
@@ -24,31 +28,54 @@ namespace Flux
             position = new Vector2(Randomizer.RandomFloat(0, ScreenManager.window.X), -wrapBuffer);
             display = Randomizer.RandomInt(0, 4);
             dampening = 0.985f;
+
+            Animation[] stateAnimations = {
+                new Animation(0, 48, false)
+            };
+            explosion = new AnimSprite("enemy_explosion", new Point(85, 75), stateAnimations);
+            
         }
 
         public void BeAttacked(int damage)
         {
-            //health -= damage;
             Console.WriteLine("Enemy got attacked, dying");
             Die();
-            //if (health <= 0) Die();
         }
 
         public void Kamikaze(Collector collector)
         {
-            collector.BeAttacked(25);
-            Die();
+            if (!isDying)
+            {
+                collector.BeAttacked(25);
+                Die();
+            }
         }
 
         public void Die()
         {
-            EnemyManager.Remove(this);
+            isDying = true;
+            explosion.Play(0);
+            explosion.WhenFinished(() =>
+            {
+                EnemyManager.Remove(this);
+            });
         }
 
         public override void Update()
         {
             WrapY();
+            if (!isDying) animation.Update(position);
+            else explosion.Update(position);
             base.Update();
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            ScreenManager.SetTarget(display);
+            ScreenManager.spriteBatch.Begin();
+            if (!isDying) animation.Draw();
+            else explosion.Draw();
+            ScreenManager.spriteBatch.End();
         }
 
         protected void WrapY()

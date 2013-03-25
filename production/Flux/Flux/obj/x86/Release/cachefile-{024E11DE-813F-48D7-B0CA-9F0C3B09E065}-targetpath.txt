@@ -111,3 +111,5 @@ Content\water_01_0.xnb
 Content\masks\water0.xnb
 Content\masks\water1.xnb
 Content\masks\water2.xnb
+Content\sprites\enemy_bomb.xnb
+Content\sprites\enemy_explosion.xnb

@@ -80,7 +80,7 @@ namespace Flux
         {
             for (int i = instance.collectors.Count - 1; i >= 0; i--)
             {
-                if (GameObject.Collides(enemy, instance.collectors[i]))
+                if (GameObject.Distance(enemy, instance.collectors[i]) < 50)
                 {
                     enemy.Kamikaze(instance.collectors[i]);
                 }

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
 
 namespace Flux
 {
@@ -10,13 +13,17 @@ namespace Flux
 
         protected Schedualizer accelerationSchedule;
 
+
         public EnemyCrazy() : base()
         {
-            model = ContentManager.Model("enemy_crazy");
-            scale = 0.05f;
             velocity = Randomizer.RandomVelocity(2.0f);
             accelerationSchedule = new Schedualizer(0.0f, 0f, 2f);
             drag = 6f;
+
+            Animation[] stateAnimations = {
+                new Animation(0, 48)
+            };
+            animation = new AnimSprite("enemy_bomb", new Point(85, 64), stateAnimations);
         }
 
         public override void Update()

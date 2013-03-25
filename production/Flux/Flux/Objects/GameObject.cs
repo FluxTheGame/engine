@@ -102,10 +102,5 @@ namespace Flux
             );
         }
 
-        public static bool Collides(GameObject one, GameObject two)
-        {
-            return one.sphere.Intersects(two.sphere);
-        }
-
     }
 }

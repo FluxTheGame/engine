@@ -107,6 +107,7 @@ namespace Flux
 
         public void Die()
         {
+            Console.WriteLine("Dieing...");
             foreach (User user in users)
             {
                 user.collector = null;
@@ -162,10 +163,11 @@ namespace Flux
         public void Attack()
         {
             if (resources > 0) {
-                Enemy enemy = EnemyManager.ClosestEnemy(this);
-                if (GameObject.Distance(this, enemy) <= attackRadius) {
+                Enemy enemy = EnemyManager.InRange(this);
+                if (enemy != null) {
                     projectiles.Add(new Projectile(enemy, this));
                     resources--;
+                    Console.WriteLine("Attacking...");
                 }
             }
         }
