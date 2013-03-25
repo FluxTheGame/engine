@@ -56,7 +56,7 @@ namespace Flux
             if (active)
             {
                 // easing
-                if (scale < 0.1f) scale += (0.1f - scale) * 0.1f;
+                if (scale < 0.1f) scale += (0.11f - scale) * 0.1f;
                 else if (collector != null)
                 {
                     if (CollectorDistance() < 100f)
@@ -108,7 +108,7 @@ namespace Flux
 
         private Vector3 GetIntensity(Vector3 aim, Vector3 loc)
         {
-            float dist = Vector3.Distance(aim, NonDepthLocation());
+            //float dist = Vector3.Distance(aim, NonDepthLocation());
 
             /*float intensity = 0f;
             if (dist > 0) intensity = 1.0f / (dist * dist); // inverse square*/
