@@ -62,7 +62,7 @@ namespace Flux
 
                 Texture2D mask = ContentManager.Mask("water" + j); //Mask for this square (display), viewing XZ
 
-                for (int i = 0; i < 200; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     float x = Randomizer.RandomFloat(0, size.X);
                     float z = Randomizer.RandomFloat(0, size.Z);
@@ -75,7 +75,7 @@ namespace Flux
                     Vector3 pos = new Vector3(position.X + x, position.Y + y, position.Z + z);
                     Vector2 posN = new Vector2(x / size.X, z / size.Z);
 
-                    if (!PlaceResource(pos, posN, mask, "Water_01", 0.02f)) i--;
+                    if (!PlaceResource(pos, posN, mask, "Water_0" + Randomizer.RandomInt(1, 6), 0.02f)) i--;
                 }
             }
         }
