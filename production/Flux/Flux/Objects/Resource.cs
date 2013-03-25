@@ -24,15 +24,16 @@ namespace Flux
         public Collector collector;
 
         private Vector3 origLocation;
-        private float speed = 0.05f;
+        private float speed;
         private Model model;
         private Schedualizer respawnDelay;
 
-        public Resource(Vector3 location, string modelName)
+        public Resource(Vector3 location, string modelName, float speed = 0.05f)
         {
             model = ContentManager.Model(modelName);
             respawnDelay = new Schedualizer(0, 3, 5);
             this.origLocation = location;
+            this.speed = speed;
             Initialize();
         }
 
