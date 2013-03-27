@@ -39,10 +39,12 @@ namespace Flux
         {
             id = idNumber;
             model = ContentManager.Model("collector");
+
             position = new Vector2(
                 Randomizer.RandomInt(spawnBuffer, (int)ScreenManager.window.X - spawnBuffer), 
                 Randomizer.RandomInt(spawnBuffer, (int)ScreenManager.window.Y - spawnBuffer)
             );
+            
             display = Randomizer.RandomDisplay();
             normalCapacity = capacity;
             dampening = 0.9f;

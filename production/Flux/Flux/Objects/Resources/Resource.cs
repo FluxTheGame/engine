@@ -40,8 +40,7 @@ namespace Flux
             {
                 if (Vector2.Distance(Position(), collector.position) < 30)
                 {
-                    collector.Collect();
-                    ResourceManager.Remove(this);
+                    BeCollected();
                 }
                 else
                 {
@@ -50,12 +49,18 @@ namespace Flux
             }
         }
 
-        public virtual void MoveToCollector()
+        protected virtual void MoveToCollector()
         {
             //Override this method to implement resource movement logic
 
             Vector3 offset = (collector.Location() - location);
             location += offset * speed;
+        }
+
+        protected void BeCollected()
+        {
+            collector.Collect();
+            ResourceManager.Remove(this);
         }
 
         public Vector2 Position()

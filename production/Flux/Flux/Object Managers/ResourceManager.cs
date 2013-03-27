@@ -17,7 +17,9 @@ namespace Flux
     {
 
         public static ResourceManager instance;
+
         protected List<Resource> resources;
+        protected List<Resource> collected;
 
 
         public ResourceManager(Game game) : base(game)
