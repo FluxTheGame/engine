@@ -18,19 +18,26 @@ namespace Flux
 
         public static ResourceManager instance;
 
+        public int desired = 500;
+        public int reAddThreshold = 50;
+
         protected List<Resource> resources;
         protected List<Resource> collected;
+        protected WorldManager worldManager;
 
 
-        public ResourceManager(Game game) : base(game)
+        public ResourceManager(Game game, WorldManager worldManager) : base(game)
         {
+            this.worldManager = worldManager;
             ResourceManager.instance = this;
             resources = new List<Resource>();
         }
 
-        public void PlaceLeaves(WorldManager worldManager)
+        public void PlaceLeaves(int numToAddToWorld)
         {
             List<WorldObject> trees = worldManager.Trees();
+            int perTree = numToAddToWorld / trees.Count;
+
             foreach (WorldObject tree in trees)
             {
                 //Pass in an instance of "parent" - this loads a mask to position the resources in the right place.
@@ -43,7 +50,7 @@ namespace Flux
                 //Should be proportional to bounding box size to ensure accurate placement
                 Texture2D mask = ContentManager.Mask(tree.objectName);
 
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < perTree; i++)
                 {
                     float x = Randomizer.RandomFloat(0, size.X);
                     float y = Randomizer.RandomFloat(0, size.Y);
@@ -60,16 +67,18 @@ namespace Flux
             }
         }
 
-        public void PlaceWater()
+        public void PlaceWater(int numToAddToWorld)
         {
-            for (int j = 0; j < 1; j++)
+            int perScreen = numToAddToWorld / 3;
+
+            for (int j = 0; j < 3; j++)
             {
                 Vector3 position = new Vector3(-30 + j*60, 0, -60);
                 Vector3 size = new Vector3(60, 0, 60); //Bounding box of world, XZ
 
                 Texture2D mask = ContentManager.Mask("water" + j); //Mask for this square (display), viewing XZ
 
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < perScreen; i++)
                 {
                     float x = Randomizer.RandomFloat(0, size.X);
                     float z = Randomizer.RandomFloat(0, size.Z);
@@ -126,9 +135,22 @@ namespace Flux
         {
             instance.resources.Remove(resource);
         }
+
+        public void CheckResources() 
+        {
+            int difference = desired - resources.Count;
+
+            if (difference > reAddThreshold)
+            {
+                PlaceLeaves(difference / 2);
+                PlaceWater(difference / 2);
+            }
+        }
         
         public override void Update(GameTime gameTime)
         {
+            CheckResources();
+
             for (int i = resources.Count - 1; i >= 0; i--)
             {
                 resources[i].Update();

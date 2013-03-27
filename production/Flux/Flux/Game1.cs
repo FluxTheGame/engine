@@ -77,9 +77,7 @@ namespace Flux
             worldManager.DrawOrder = 1;
             Components.Add(worldManager);
             
-            resourceManager = new ResourceManager(this);
-            resourceManager.PlaceLeaves(worldManager);
-            resourceManager.PlaceWater();
+            resourceManager = new ResourceManager(this, worldManager);
             resourceManager.DrawOrder = 2;
             Components.Add(resourceManager);
 
