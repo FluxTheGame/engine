@@ -132,7 +132,7 @@ namespace Flux
 
         public float SuckRadius()
         {
-            return 1.2f;
+            return 100f;
         }
 
         public void MergeWith(Collector other)
@@ -191,7 +191,7 @@ namespace Flux
                 resources++;
                 targetScale += scaleRate;
             }
-            resource.Gather();
+            resource.GetCollected();
         }
 
         public void AddUser(User user)

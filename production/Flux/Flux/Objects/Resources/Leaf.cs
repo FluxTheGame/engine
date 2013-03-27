@@ -23,34 +23,6 @@ namespace Flux
 
         public override void Update()
         {
-            Vector3 offsetFromTarget = Vector3.Zero;
-
-            if (active)
-            {
-                // easing
-                if (scale < 0.1f) scale += (0.11f - scale) * 0.1f;
-                else if (collector != null)
-                {
-                    if (CollectorDistance() < 100f)
-                        offsetFromTarget = GetIntensity(collector.Location(), location);
-                    else
-                        offsetFromTarget = GetIntensity(origLocation, location);
-
-                    if (collector.isDying)
-                        collector = null;
-                }
-                else
-                {
-                    offsetFromTarget = GetIntensity(origLocation, location);
-                }
-
-                location += offsetFromTarget * speed;
-
-            }
-            if (respawnDelay.IsOn())
-            {
-                active = true;
-            }
 
             base.Update();
         }

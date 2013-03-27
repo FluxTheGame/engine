@@ -82,7 +82,7 @@ namespace Flux
 
                     if (PlaceResource(pos, posN, mask))
                     {
-                        Resource r = new Water(pos, "env/Water_0" + Randomizer.RandomInt(1, 6), 0.02f);
+                        Resource r = new Water(pos, "env/Water_0" + Randomizer.RandomInt(1, 6), 0.05f);
                         r.display = ScreenManager.DisplayOfLocation(pos);
                         resources.Add(r);
                     } else i--;
@@ -107,21 +107,7 @@ namespace Flux
 
         public static void Gather(Collector collector)
         {
-            if (instance == null || instance.resources == null) return;
-
-            foreach (Resource r in instance.resources)
-            {
-                if (r.active)
-                {
-                    float dist = Vector3.Distance(r.NonDepthLocation(), collector.Location());
-
-                    if (dist < collector.SuckRadius())
-                    {
-                        if (!collector.isDying) r.SetCollector(collector);
-                        if (dist < 0.2f) collector.Collect(r);
-                    }
-                }
-            }
+            //Gather resources for this collector
         }
         
         public override void Update(GameTime gameTime)

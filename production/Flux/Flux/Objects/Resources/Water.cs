@@ -15,12 +15,15 @@ namespace Flux
 {
     public class Water : Resource
     {
+
+
         public Water(Vector3 location, string modelName, float speed = 0.05f) : base(location, modelName, speed)
         {
         }
 
         public override void Update()
         {
+
             base.Update();
         }
     }
