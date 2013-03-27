@@ -34,7 +34,7 @@ namespace Flux
                 //Pass in an instance of "parent" - this loads a mask to position the resources in the right place.
                 //The parent object could be a tree, and we should have access to its position in 3d space.. and its bounding box
 
-                Vector3 position = tree.Location(); //Position of tree model
+                Vector3 position = tree.location; //Position of tree model
                 Vector2 size = new Vector2(tree.box.Max.X - tree.box.Min.X, tree.box.Max.Y - tree.box.Min.Y); //Bounding box coordinates of tree model
 
                 //Mask containing the positions to place resources

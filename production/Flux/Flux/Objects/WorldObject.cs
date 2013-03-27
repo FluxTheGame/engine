@@ -14,7 +14,7 @@ namespace Flux
     {
         static float WorldScale = 1;
 
-        public Vector3 position;
+        public Vector3 location;
         public Vector3 rotation;
         public Vector3 scale;
         public int display;
@@ -42,9 +42,9 @@ namespace Flux
 
             int.TryParse(args["objGroup"], out objectGroup);
 
-            float.TryParse(args["transX"], out position.X);
-            float.TryParse(args["transY"], out position.Y);
-            float.TryParse(args["transZ"], out position.Z);
+            float.TryParse(args["transX"], out location.X);
+            float.TryParse(args["transY"], out location.Y);
+            float.TryParse(args["transZ"], out location.Z);
 
             float.TryParse(args["rotateX"], out rotation.X);
             float.TryParse(args["rotateY"], out rotation.Y);
@@ -71,21 +71,9 @@ namespace Flux
 
             float.TryParse(args["shadow"], out shadow);
 
-            for (int i = 0; i < 4; i++)
-            {
-                Matrix proj = ScreenManager.Camera(i).projection;
-                Matrix view = ScreenManager.Camera(i).view;
-                Vector3 screenPos = ScreenManager.graphics.Viewport.Project(position, proj, view, Matrix.Identity);
-                if (screenPos.X <= ScreenManager.window.X)
-                {
-                    display = i;
-                    break;
-                }
-            }
-
+            display = ScreenManager.DisplayOfLocation(location);
             model = mod;
             CalculateBoundingBox();
-
         }
 
 
@@ -97,12 +85,6 @@ namespace Flux
         public Vector3 Scale()
         {
             return scale * WorldScale;
-        }
-
-        public Vector3 Location()
-        {
-            //return (position * 1.5f) + new Vector3(0, 2, 9);// * WorldScale;
-            return position;
         }
 
 
@@ -143,7 +125,7 @@ namespace Flux
         public void Draw()
         {
             Camera c = ScreenManager.Camera(display);
-            Drawer3D.Draw(model, Location(), rotation, Scale(), 1, c);
+            Drawer3D.Draw(model, location, rotation, Scale(), 1, c);
         }
 
     }
