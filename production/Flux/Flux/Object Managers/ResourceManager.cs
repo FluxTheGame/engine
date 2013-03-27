@@ -48,7 +48,12 @@ namespace Flux
                     Vector3 pos = new Vector3(position.X + x - size.X * 0.5f, position.Y + size.Y - y, position.Z + Randomizer.RandomFloat(0.2f, 0.8f));
                     Vector2 posN = new Vector2(x / size.X, y / size.Y);
 
-                    if (!PlaceResource(pos, posN, mask, tree.leafName, 0.05f)) i--;
+                    if (PlaceResource(pos, posN, mask))
+                    {
+                        Resource r = new Leaf(pos, "env/" + tree.leafName, 0.05f);
+                        r.display = ScreenManager.DisplayOfLocation(pos);
+                        resources.Add(r);
+                    } else i--;
                 }
             }
         }
@@ -75,12 +80,17 @@ namespace Flux
                     Vector3 pos = new Vector3(position.X + x, position.Y + y, position.Z + z);
                     Vector2 posN = new Vector2(x / size.X, z / size.Z);
 
-                    if (!PlaceResource(pos, posN, mask, "Water_0" + Randomizer.RandomInt(1, 6), 0.02f)) i--;
+                    if (PlaceResource(pos, posN, mask))
+                    {
+                        Resource r = new Water(pos, "env/Water_0" + Randomizer.RandomInt(1, 6), 0.02f);
+                        r.display = ScreenManager.DisplayOfLocation(pos);
+                        resources.Add(r);
+                    } else i--;
                 }
             }
         }
 
-        protected bool PlaceResource(Vector3 pos, Vector2 posN, Texture2D mask, string resourceName, float speed)
+        protected bool PlaceResource(Vector3 pos, Vector2 posN, Texture2D mask)
         {
             Point maskIndex = new Point((int)(posN.X * mask.Width), (int)(posN.Y * mask.Height));
 
@@ -90,9 +100,6 @@ namespace Flux
 
             if (probability <= data[0].R)
             {
-                Resource r = new Resource(pos, "env/" + resourceName, speed);
-                r.display = ScreenManager.DisplayOfLocation(pos);
-                resources.Add(r);
                 return true;
             }
             return false;

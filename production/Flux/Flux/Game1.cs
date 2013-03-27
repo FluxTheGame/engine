@@ -121,14 +121,14 @@ namespace Flux
             c.Add("id", 0);
             EventManager.Emit("collector:new", c);
 
-            /*c["id"] = 1;
+            c["id"] = 1;
             EventManager.Emit("collector:new", c);
             
             c["id"] = 2;
             EventManager.Emit("collector:new", c);
 
             c["id"] = 3;
-            EventManager.Emit("collector:new", c);*/
+            EventManager.Emit("collector:new", c);
             
 
             //Add User

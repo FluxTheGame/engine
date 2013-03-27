@@ -51,7 +51,7 @@ namespace Flux
         public static string ToHex(Color color, bool includeHash)
         {
             string[] argb = {
-                color.A.ToString("X2"),
+                //color.A.ToString("X2"),
                 color.R.ToString("X2"),
                 color.G.ToString("X2"),
                 color.B.ToString("X2"),

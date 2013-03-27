@@ -23,10 +23,10 @@ namespace Flux
         public float targetMaxDistance;
         public Collector collector;
 
-        private Vector3 origLocation;
-        private float speed;
-        private Model model;
-        private Schedualizer respawnDelay;
+        protected Vector3 origLocation;
+        protected float speed;
+        protected Model model;
+        protected Schedualizer respawnDelay;
 
         public Resource(Vector3 location, string modelName, float speed = 0.05f)
         {
@@ -43,43 +43,12 @@ namespace Flux
             collector = null;
         }
 
-        public void Update()
+        public virtual void Update()
         {
-
-            Vector3 offsetFromTarget = Vector3.Zero;
-
             Matrix proj = ScreenManager.Camera(display).projection;
             Matrix view = ScreenManager.Camera(display).view;
             Vector3 screenPos = ScreenManager.graphics.Viewport.Project(location, proj, view, Matrix.Identity);
-            position = new Vector2(screenPos.X, screenPos.Y);
-
-
-            if (active)
-            {
-                // easing
-                if (scale < 0.1f) scale += (0.11f - scale) * 0.1f;
-                else if (collector != null)
-                {
-                    if (CollectorDistance() < 100f)
-                        offsetFromTarget = GetIntensity(collector.Location(), location);
-                    else
-                        offsetFromTarget = GetIntensity(origLocation, location);
-
-                    if (collector.isDying)
-                        collector = null;
-                }
-                else
-                {
-                    offsetFromTarget = GetIntensity(origLocation, location);
-                }
-
-                location += offsetFromTarget * speed;
-
-            }
-            if (respawnDelay.IsOn())
-            {
-                active = true;
-            }
+            position = new Vector2(screenPos.X, screenPos.Y);     
         }
 
         public Vector3 NonDepthLocation()
@@ -100,22 +69,15 @@ namespace Flux
             targetMaxDistance = collector.SuckRadius();
         }
 
-        private float CollectorDistance()
+        protected float CollectorDistance()
         {
-            //return Vector3.Distance(location, collector.Location());
-
             return Vector2.Distance(position, collector.position);
         }
 
-        private Vector3 GetIntensity(Vector3 aim, Vector3 loc)
+        protected Vector3 GetIntensity(Vector3 aim, Vector3 loc)
         {
             float dist = Vector3.Distance(aim, NonDepthLocation());
-
-            /*float intensity = 0f;
-            if (dist > 0) intensity = 1.0f / (dist * dist); // inverse square*/
-
             Vector3 offset = (aim - loc);
-
             return offset;
         }
 

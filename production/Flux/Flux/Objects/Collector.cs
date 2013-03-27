@@ -20,6 +20,7 @@ namespace Flux
         protected Schedualizer heartbeatSchedule;
         protected float scaleRate = 0.0008f;
         protected float targetScale;
+        protected int spawnBuffer = 150;
 
         public BasicEffect colorization = Drawer3D.SetDefaultLights();
 
@@ -37,12 +38,17 @@ namespace Flux
         {
             id = idNumber;
             model = ContentManager.Model("collector");
-            position = new Vector2(70*id + 100, 70*id + 100);
+            position = new Vector2(
+                Randomizer.RandomInt(spawnBuffer, (int)ScreenManager.window.X - spawnBuffer), 
+                Randomizer.RandomInt(spawnBuffer, (int)ScreenManager.window.Y - spawnBuffer)
+            );
+            display = Randomizer.RandomDisplay();
             normalCapacity = capacity;
             dampening = 0.9f;
             heartbeatSchedule = new Schedualizer(0f, 5f, 5f);
             targetScale = scale;
             teamColour = TeamColour.Get();
+            SendHeartbeat();
 
             /*colorization.DirectionalLight2.DiffuseColor = teamColour.ToVector3();
             colorization.DirectionalLight2.Direction = new Vector3(0, 0, 0);
@@ -67,12 +73,7 @@ namespace Flux
 
             if (heartbeatSchedule.IsOn())
             {
-                OrderedDictionary o = new OrderedDictionary();
-                o.Add("id", id);
-                o.Add("health", health);
-                o.Add("capacity", capacity);
-                o.Add("fill", resources);
-                EventManager.Emit("collector:heartbeat", o);
+                SendHeartbeat();
             }
 
             if (scale < targetScale)
@@ -81,6 +82,17 @@ namespace Flux
             }
             
             base.Update();
+        }
+
+        protected void SendHeartbeat()
+        {
+            OrderedDictionary o = new OrderedDictionary();
+            o.Add("id", id);
+            o.Add("health", health);
+            o.Add("capacity", capacity);
+            o.Add("fill", resources);
+            o.Add("colour", TeamColour.ToHex(teamColour, true));
+            EventManager.Emit("collector:heartbeat", o);
         }
 
         public override void Draw(GameTime gameTime)

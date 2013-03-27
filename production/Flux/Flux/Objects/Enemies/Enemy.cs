@@ -27,7 +27,7 @@ namespace Flux
             velocity = Randomizer.RandomVelocity();
 
             position = new Vector2(Randomizer.RandomFloat(0, ScreenManager.window.X), -wrapBuffer);
-            display = Randomizer.RandomInt(0, 4);
+            display = Randomizer.RandomDisplay();
             dampening = 0.985f;
 
             Animation[] stateAnimations = {
