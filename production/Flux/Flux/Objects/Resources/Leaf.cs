@@ -25,7 +25,7 @@ namespace Flux
         {
             //Override to shake or something
             //You don't have to call base.Update.. it just makes the resource move towards the collector without restraint
-            base.Update();
+            base.MoveToCollector();
         }
     }
 }

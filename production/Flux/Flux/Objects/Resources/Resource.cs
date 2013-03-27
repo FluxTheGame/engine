@@ -57,7 +57,6 @@ namespace Flux
         protected virtual void MoveToCollector()
         {
             //Override this method to implement resource movement logic
-
             Vector3 offset = (collector.Location() - location);
             location += offset * speed;
         }

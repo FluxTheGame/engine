@@ -22,8 +22,8 @@ namespace Flux
         public int reAddThreshold = 50;
 
         protected List<Resource> resources;
-        protected List<Leaf> leafBuffer;
-        protected List<Water> waterBuffer;
+        protected List<Resource> addBuffer;
+
         protected WorldManager worldManager;
 
 
@@ -33,8 +33,10 @@ namespace Flux
             ResourceManager.instance = this;
 
             resources = new List<Resource>();
-            leafBuffer = new List<Leaf>();
-            waterBuffer = new List<Water>();
+            addBuffer = new List<Resource>();
+
+            PlaceLeaves(desired / 2);
+            PlaceWater(desired / 2);
         }
 
         public void PlaceLeaves(int numToAddToWorld)
@@ -63,9 +65,9 @@ namespace Flux
 
                     if (PlaceResource(pos, posN, mask))
                     {
-                        Leaf r = new Leaf(pos, "env/" + tree.leafName, 0.05f);
+                        Resource r = new Leaf(pos, "env/" + tree.leafName, 0.05f);
                         r.display = ScreenManager.DisplayOfLocation(pos);
-                        leafBuffer.Add(r);
+                        addBuffer.Add(r);
                     } else i--;
                 }
             }
@@ -97,9 +99,9 @@ namespace Flux
 
                     if (PlaceResource(pos, posN, mask))
                     {
-                        Water r = new Water(pos, "env/Water_0" + Randomizer.RandomInt(1, 6), 0.05f);
+                        Resource r = new Water(pos, "env/Water_0" + Randomizer.RandomInt(1, 6), 0.05f);
                         r.display = ScreenManager.DisplayOfLocation(pos);
-                        waterBuffer.Add(r);
+                        addBuffer.Add(r);
                     } else i--;
                 }
             }
@@ -142,7 +144,7 @@ namespace Flux
 
         public void AddResources() 
         {
-            int difference = desired - (resources.Count + leafBuffer.Count + waterBuffer.Count);
+            int difference = desired - (resources.Count + addBuffer.Count);
 
             if (difference > reAddThreshold)
             {
@@ -153,12 +155,12 @@ namespace Flux
 
         protected void MakeLive()
         {
-            for (int i = leafBuffer.Count - 1; i >= 0; i--)
+            for (int i = addBuffer.Count - 1; i >= 0; i--)
             {
-                if (leafBuffer[i].addDelay.IsOn())
+                if (addBuffer[i].addDelay.IsOn())
                 {
-                    resources.Add(leafBuffer[i]);
-                    leafBuffer.RemoveAt(i);
+                    resources.Add(addBuffer[i]);
+                    addBuffer.RemoveAt(i);
                 }
             }
         }
@@ -172,7 +174,6 @@ namespace Flux
             {
                 resources[i].Update();
             }
-            base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
@@ -183,7 +184,6 @@ namespace Flux
             {
                 r.Draw();
             }
-            base.Draw(gameTime);
         }
 
     }
