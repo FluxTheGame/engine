@@ -22,7 +22,8 @@ namespace Flux
         public int reAddThreshold = 50;
 
         protected List<Resource> resources;
-        protected List<Resource> collected;
+        protected List<Leaf> leafBuffer;
+        protected List<Water> waterBuffer;
         protected WorldManager worldManager;
 
 
@@ -30,7 +31,10 @@ namespace Flux
         {
             this.worldManager = worldManager;
             ResourceManager.instance = this;
+
             resources = new List<Resource>();
+            leafBuffer = new List<Leaf>();
+            waterBuffer = new List<Water>();
         }
 
         public void PlaceLeaves(int numToAddToWorld)
@@ -59,9 +63,9 @@ namespace Flux
 
                     if (PlaceResource(pos, posN, mask))
                     {
-                        Resource r = new Leaf(pos, "env/" + tree.leafName, 0.05f);
+                        Leaf r = new Leaf(pos, "env/" + tree.leafName, 0.05f);
                         r.display = ScreenManager.DisplayOfLocation(pos);
-                        resources.Add(r);
+                        leafBuffer.Add(r);
                     } else i--;
                 }
             }
@@ -93,9 +97,9 @@ namespace Flux
 
                     if (PlaceResource(pos, posN, mask))
                     {
-                        Resource r = new Water(pos, "env/Water_0" + Randomizer.RandomInt(1, 6), 0.05f);
+                        Water r = new Water(pos, "env/Water_0" + Randomizer.RandomInt(1, 6), 0.05f);
                         r.display = ScreenManager.DisplayOfLocation(pos);
-                        resources.Add(r);
+                        waterBuffer.Add(r);
                     } else i--;
                 }
             }
@@ -122,7 +126,7 @@ namespace Flux
             {
                 if (collector.display == resource.display && resource.collector == null)
                 {
-                    float distance = Vector2.Distance(collector.position, resource.Position());
+                    float distance = Vector2.Distance(collector.position, resource.position);
                     if (distance < collector.collectRadius)
                     {
                         resource.collector = collector;
@@ -136,9 +140,9 @@ namespace Flux
             instance.resources.Remove(resource);
         }
 
-        public void CheckResources() 
+        public void AddResources() 
         {
-            int difference = desired - resources.Count;
+            int difference = desired - (resources.Count + leafBuffer.Count + waterBuffer.Count);
 
             if (difference > reAddThreshold)
             {
@@ -146,10 +150,23 @@ namespace Flux
                 PlaceWater(difference / 2);
             }
         }
+
+        protected void MakeLive()
+        {
+            for (int i = leafBuffer.Count - 1; i >= 0; i--)
+            {
+                if (leafBuffer[i].addDelay.IsOn())
+                {
+                    resources.Add(leafBuffer[i]);
+                    leafBuffer.RemoveAt(i);
+                }
+            }
+        }
         
         public override void Update(GameTime gameTime)
         {
-            CheckResources();
+            AddResources();
+            MakeLive();
 
             for (int i = resources.Count - 1; i >= 0; i--)
             {

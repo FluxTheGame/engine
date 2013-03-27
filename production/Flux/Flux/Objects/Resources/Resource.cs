@@ -15,12 +15,14 @@ namespace Flux
 {
     public class Resource
     {
+        public Vector2 position;
         public Vector3 location;
         public bool active = true;
         public int display = 0;
         public float scale = 1f;
         public float opacity = 1f;
         public Collector collector;
+        public Schedualizer addDelay;
 
         protected float speed;
         protected float modelScale = 0.1f;
@@ -32,13 +34,16 @@ namespace Flux
             model = ContentManager.Model(modelName);
             this.speed = speed;
             this.location = location;
+            addDelay = new Schedualizer(0, 5, 20);
         }
 
         public virtual void Update()
         {
+            position = ScreenManager.ProjectedPosition(location, display);
+
             if (collector != null)
             {
-                if (Vector2.Distance(Position(), collector.position) < 30)
+                if (Vector2.Distance(position, collector.position) < 30)
                 {
                     BeCollected();
                 }
@@ -61,11 +66,6 @@ namespace Flux
         {
             collector.Collect();
             ResourceManager.Remove(this);
-        }
-
-        public Vector2 Position()
-        {
-            return ScreenManager.ProjectedPosition(location, display);
         }
 
         public void Draw()
