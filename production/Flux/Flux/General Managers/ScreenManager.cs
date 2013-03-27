@@ -29,12 +29,10 @@ namespace Flux
             graphics = g;
             spriteBatch = new SpriteBatch(graphics);
 
-
             for (int i = 0; i < target.Length; i++)
             {
                 target[i] = MakeTarget();
             }
-
 
             for (int i = 0; i < camera.Length; i++)
             {
@@ -122,6 +120,21 @@ namespace Flux
         public static Vector2 AdjustedPosition(Vector2 position, int display)
         {
             return new Vector2(position.X + (window.X * display), position.Y);
+        }
+
+        public static Vector2 ProjectedPosition(Vector3 location, int display) 
+        {
+            Matrix proj = Camera(display).projection;
+            Matrix view = Camera(display).view;
+            Vector3 screenPos = graphics.Viewport.Project(location, proj, view, Matrix.Identity);
+            Vector2 position = new Vector2(screenPos.X, screenPos.Y);
+
+            if (position.X > window.X) position.X = window.X;
+            if (position.X < 0) position.X = 0;
+            if (position.Y > window.Y) position.Y = window.Y;
+            if (position.Y < 0) position.Y = 0;
+
+            return position;
         }
 
     }

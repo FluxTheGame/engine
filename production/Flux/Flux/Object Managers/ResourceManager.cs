@@ -60,7 +60,7 @@ namespace Flux
 
         public void PlaceWater()
         {
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < 1; j++)
             {
                 Vector3 position = new Vector3(-30 + j*60, 0, -60);
                 Vector3 size = new Vector3(60, 0, 60); //Bounding box of world, XZ
@@ -107,14 +107,29 @@ namespace Flux
 
         public static void Gather(Collector collector)
         {
-            //Gather resources for this collector
+            foreach (Resource resource in instance.resources)
+            {
+                if (collector.display == resource.display && resource.collector == null)
+                {
+                    float distance = Vector2.Distance(collector.position, resource.Position());
+                    if (distance < collector.collectRadius)
+                    {
+                        resource.collector = collector;
+                    }
+                }
+            }
+        }
+
+        public static void Remove(Resource resource)
+        {
+            instance.resources.Remove(resource);
         }
         
         public override void Update(GameTime gameTime)
         {
-            foreach (Resource r in resources)
+            for (int i = resources.Count - 1; i >= 0; i--)
             {
-                r.Update();
+                resources[i].Update();
             }
             base.Update(gameTime);
         }

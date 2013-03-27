@@ -15,7 +15,7 @@ namespace Flux
 
         protected int health = 100;
         protected int capacity = 100;
-        protected int resources = 0;
+        protected int collected = 0;
         protected int normalCapacity;
         protected Schedualizer heartbeatSchedule;
         protected float scaleRate = 0.0008f;
@@ -25,6 +25,7 @@ namespace Flux
         public BasicEffect colorization = Drawer3D.SetDefaultLights();
 
         public int attackRadius = 500;
+        public int collectRadius = 150;
         public int id;
         public bool isDying = false;
         public int numCollectors = 1;
@@ -50,12 +51,8 @@ namespace Flux
             teamColour = TeamColour.Get();
             SendHeartbeat();
 
-            /*colorization.DirectionalLight2.DiffuseColor = teamColour.ToVector3();
-            colorization.DirectionalLight2.Direction = new Vector3(0, 0, 0);
-            colorization.DirectionalLight2.SpecularColor = Color.White.ToVector3();*/
             colorization.AmbientLightColor = teamColour.ToVector3() - new Vector3(0.2f);
             colorization.EmissiveColor = Color.Black.ToVector3();
-
 
             users = new List<User>();
             projectiles = new List<Projectile>();
@@ -68,7 +65,7 @@ namespace Flux
             CollectResources();
             UpdateProjectiles();
 
-            if (resources >= capacity)
+            if (collected >= capacity)
                 Burst();
 
             if (heartbeatSchedule.IsOn())
@@ -90,7 +87,7 @@ namespace Flux
             o.Add("id", id);
             o.Add("health", health);
             o.Add("capacity", capacity);
-            o.Add("fill", resources);
+            o.Add("fill", collected);
             o.Add("colour", TeamColour.ToHex(teamColour, true));
             EventManager.Emit("collector:heartbeat", o);
         }
@@ -111,7 +108,7 @@ namespace Flux
         {
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", id);
-            o.Add("points", resources);
+            o.Add("points", collected);
             EventManager.Emit("collector:burst", o);
             Console.WriteLine("Collector " + id + ":  FULL");
             Die();
@@ -130,11 +127,6 @@ namespace Flux
             CollectorManager.Remove(this);
         }
 
-        public float SuckRadius()
-        {
-            return 100f;
-        }
-
         public void MergeWith(Collector other)
         {
             OrderedDictionary o = new OrderedDictionary();
@@ -143,8 +135,8 @@ namespace Flux
             EventManager.Emit("collector:merge", o);
 
             capacity += other.capacity;
-            resources += other.resources;
-            targetScale += scaleRate * (other.resources * 0.5f);
+            collected += other.collected;
+            targetScale += scaleRate * (other.collected * 0.5f);
             numCollectors += other.numCollectors;
 
             foreach (User u in other.users)
@@ -174,24 +166,23 @@ namespace Flux
 
         public void Attack()
         {
-            if (resources > 0) {
+            if (collected > 0) {
                 Enemy enemy = EnemyManager.InRange(this);
                 if (enemy != null) {
                     projectiles.Add(new Projectile(enemy, this));
-                    resources--;
+                    collected--;
                     Console.WriteLine("Attacking...");
                 }
             }
         }
 
-        public void Collect(Resource resource)
+        public void Collect()
         {
             if (!isDying)
             {
-                resources++;
+                collected++;
                 targetScale += scaleRate;
             }
-            resource.GetCollected();
         }
 
         public void AddUser(User user)
