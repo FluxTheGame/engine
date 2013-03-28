@@ -157,6 +157,7 @@ namespace Flux
             KeyboardState keyState = Keyboard.GetState();
             MouseState mouseState = Mouse.GetState();
             GridManager.Update();
+            Tweenerizer.Update();
 
             /* For Testing - Accepts keyboard/mouse */
             OrderedDictionary o = new OrderedDictionary();

@@ -160,6 +160,7 @@ namespace Flux
                 if (addBuffer[i].addDelay.IsOn())
                 {
                     resources.Add(addBuffer[i]);
+                    addBuffer[i].Activate();
                     addBuffer.RemoveAt(i);
                 }
             }

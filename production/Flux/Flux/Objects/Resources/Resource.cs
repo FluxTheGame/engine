@@ -17,7 +17,7 @@ namespace Flux
     {
         public Vector2 position;
         public Vector3 location;
-        public bool active = true;
+        public bool active = false;
         public int display = 0;
         public float scale = 1f;
         public float opacity = 1f;
@@ -25,7 +25,9 @@ namespace Flux
         public Schedualizer addDelay;
 
         protected float speed;
-        protected float modelScale = 0.1f;
+        protected const float minScale = 0f;
+        protected const float maxScale = 0.1f;
+        protected float modelScale = 0f;
         protected Model model;
 
 
@@ -35,6 +37,17 @@ namespace Flux
             this.speed = speed;
             this.location = location;
             addDelay = new Schedualizer(0, 5, 20);
+        }
+
+        public void Activate()
+        {
+            active = true;
+
+            // ease interpolates minScale->maxScale, over 500 "time units"
+            Tweenerizer.Ease(EasingType.EaseIn, minScale, maxScale, 500, (ease, incr) =>
+            {
+                modelScale = ease;
+            });
         }
 
         public virtual void Update()
