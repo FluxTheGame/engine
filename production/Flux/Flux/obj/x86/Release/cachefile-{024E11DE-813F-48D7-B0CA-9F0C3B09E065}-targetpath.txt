@@ -42,6 +42,7 @@ Content\sprites\user_team.xnb
 Content\sprites\user_badge_firstComplete.xnb
 Content\sprites\user_badge_firstMerge.xnb
 Content\sprites\user_badge_join.xnb
+Content\masks\water.xnb
 Content\shaders\Swirl.xnb
 Content\audio\drumloop.xnb
 Content\tree_birch01_0.xnb
@@ -108,10 +109,3 @@ Content\Water_04_0.xnb
 Content\Water_03_0.xnb
 Content\Water_02_0.xnb
 Content\water_01_0.xnb
-Content\masks\water0.xnb
-Content\masks\water1.xnb
-Content\masks\water2.xnb
-Content\sprites\enemy_bomb.xnb
-Content\sprites\enemy_explosion.xnb
-Content\sprites\enemy_shooter.xnb
-Content\sprites\enemy_bloat.xnb
