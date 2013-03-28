@@ -6,15 +6,6 @@ Content\models\collector.xnb
 Content\models\enemy_shooter.xnb
 Content\models\enemy_crazy.xnb
 Content\models\env\Birch_01.xnb
-Content\models\env\Birch_02.xnb
-Content\models\env\Birch_03.xnb
-Content\models\env\CherryTree_01.xnb
-Content\models\env\CherryTree_02.xnb
-Content\models\env\CherryTree_03.xnb
-Content\models\env\OakTree_01.xnb
-Content\models\env\OakTree_02.xnb
-Content\models\env\OakTree_03.xnb
-Content\models\env\Oak_01.xnb
 Content\models\env\Ground.xnb
 Content\models\env\Planes.xnb
 Content\models\env\Birch_01_Leaf.xnb
@@ -51,18 +42,6 @@ Content\sprites\enemy_shooter.xnb
 Content\sprites\enemy_bloat.xnb
 Content\shaders\Swirl.xnb
 Content\audio\drumloop.xnb
-Content\tree_birch01_0.xnb
-Content\birch_0.xnb
-Content\tree_birch02_0.xnb
-Content\birch_1.xnb
-Content\tree_birch03_0.xnb
-Content\cherryblossom_0.xnb
-Content\cherryblossom_1.xnb
-Content\cherryblossom_2.xnb
-Content\oaktree_0.xnb
-Content\oaktree_1.xnb
-Content\oaktree_2.xnb
-Content\oaktree copy_0.xnb
 Content\Flower_Blue_02_0.xnb
 Content\Flower_Red_01_0.xnb
 Content\Flower_Red_02_0.xnb
@@ -115,3 +94,4 @@ Content\Water_04_0.xnb
 Content\Water_03_0.xnb
 Content\Water_02_0.xnb
 Content\water_01_0.xnb
+Content\birch1_0.xnb

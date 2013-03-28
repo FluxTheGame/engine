@@ -17,17 +17,17 @@ namespace Flux
     {
         public Vector2 position;
         public Vector3 location;
-        public bool active = false;
+        public float scale = 0f;
         public int display = 0;
-        public float scale = 1f;
         public float opacity = 1f;
+        public Vector3 rotation;
         public Collector collector;
         public Schedualizer addDelay;
 
         protected float speed;
         protected const float minScale = 0f;
-        protected const float maxScale = 0.1f;
-        protected float modelScale = 0f;
+        protected const float maxScale = 1f;
+        protected float modelScale = 0.07f;
         protected Model model;
 
 
@@ -37,17 +37,22 @@ namespace Flux
             this.speed = speed;
             this.location = location;
             addDelay = new Schedualizer(0, 5, 20);
+            rotation = Vector3.Zero;
         }
 
-        public void Activate()
+        public virtual void Activate()
         {
-            active = true;
-
-            // ease interpolates minScale->maxScale, over 500 "time units"
+            // Ease interpolates minScale->maxScale, over 500 "time units"
             Tweenerizer.Ease(EasingType.EaseIn, minScale, maxScale, 500, (ease, incr) =>
             {
-                modelScale = ease;
+                scale = ease;
             });
+        }
+
+        public virtual void AssignCollector(Collector collector)
+        {
+            this.collector = collector;
+            //Override this method to get a call whenever a collector is assigned to this resource
         }
 
         public virtual void Update()
@@ -85,7 +90,7 @@ namespace Flux
             ScreenManager.SetTarget(display);
             Camera camera = ScreenManager.Camera(display);
             ScreenManager.graphics.BlendState = BlendState.AlphaBlend;
-            Drawer3D.Draw(model, location, scale * modelScale, opacity, camera);
+            Drawer3D.Draw(model, location, rotation, scale * modelScale, opacity, camera);
         }
 
     }

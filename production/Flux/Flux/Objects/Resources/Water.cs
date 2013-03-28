@@ -16,16 +16,29 @@ namespace Flux
     public class Water : Resource
     {
 
+        protected float minOpacity = 0.2f;
+        protected float maxOpacity = 1f;
+
 
         public Water(Vector3 location, string modelName, float speed = 0.05f) : base(location, modelName, speed)
         {
+            opacity = minOpacity;
+            modelScale = 0.05f;
         }
 
         protected override void MoveToCollector()
         {
-            //Override to shake or something
-            //You don't have to call base.Update.. it just makes the resource move towards the collector without restraint
             base.MoveToCollector();
+        }
+
+        public override void AssignCollector(Collector collector)
+        {
+            Tweenerizer.Ease(EasingType.EaseInOut, minOpacity, maxOpacity, 100, (ease, incr) =>
+            {
+                opacity = ease;
+            });
+
+            base.AssignCollector(collector);
         }
     }
 }

@@ -131,7 +131,7 @@ namespace Flux
                     float distance = Vector2.Distance(collector.position, resource.position);
                     if (distance < collector.collectRadius)
                     {
-                        resource.collector = collector;
+                        resource.AssignCollector(collector);
                     }
                 }
             }

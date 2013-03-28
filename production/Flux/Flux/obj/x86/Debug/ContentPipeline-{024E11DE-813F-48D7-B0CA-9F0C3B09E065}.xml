@@ -91,140 +91,12 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\Birch_01.xnb</Output>
-      <Time>2013-03-11T09:35:47.186862-04:00</Time>
+      <Time>2013-03-28T10:46:37.7126178-04:00</Time>
       <Dependency>
         <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\Birch_01_0.xml</Key>
-        <Value>2013-03-27T15:44:11.6897488-04:00</Value>
+        <Value>2013-03-28T10:46:45.3046063-04:00</Value>
       </Dependency>
-      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\tree_birch01_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>models\env\Birch_02.fbx</Source>
-      <Name>models\env\Birch_02</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\Birch_02.xnb</Output>
-      <Time>2013-03-11T09:35:47.2180626-04:00</Time>
-      <Dependency>
-        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\Birch_02_0.xml</Key>
-        <Value>2013-03-27T15:44:13.7802426-04:00</Value>
-      </Dependency>
-      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\birch_0.xnb</Request>
-      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\tree_birch02_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>models\env\Birch_03.fbx</Source>
-      <Name>models\env\Birch_03</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\Birch_03.xnb</Output>
-      <Time>2013-03-11T09:35:47.2492632-04:00</Time>
-      <Dependency>
-        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\Birch_03_0.xml</Key>
-        <Value>2013-03-27T15:44:15.7303301-04:00</Value>
-      </Dependency>
-      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\birch_1.xnb</Request>
-      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\tree_birch03_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>models\env\CherryTree_01.fbx</Source>
-      <Name>models\env\CherryTree_01</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\CherryTree_01.xnb</Output>
-      <Time>2013-03-11T09:35:47.3272647-04:00</Time>
-      <Dependency>
-        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\CherryTree_01_0.xml</Key>
-        <Value>2013-03-27T15:44:16.6351707-04:00</Value>
-      </Dependency>
-      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\cherryblossom_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>models\env\CherryTree_02.fbx</Source>
-      <Name>models\env\CherryTree_02</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\CherryTree_02.xnb</Output>
-      <Time>2013-03-11T09:35:47.342865-04:00</Time>
-      <Dependency>
-        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\CherryTree_02_0.xml</Key>
-        <Value>2013-03-27T15:44:16.7287749-04:00</Value>
-      </Dependency>
-      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\cherryblossom_1.xnb</Request>
-    </Item>
-    <Item>
-      <Source>models\env\CherryTree_03.fbx</Source>
-      <Name>models\env\CherryTree_03</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\CherryTree_03.xnb</Output>
-      <Time>2013-03-11T09:35:47.3584653-04:00</Time>
-      <Dependency>
-        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\CherryTree_03_0.xml</Key>
-        <Value>2013-03-27T15:44:16.9003826-04:00</Value>
-      </Dependency>
-      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\cherryblossom_2.xnb</Request>
-    </Item>
-    <Item>
-      <Source>models\env\OakTree_01.fbx</Source>
-      <Name>models\env\OakTree_01</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\OakTree_01.xnb</Output>
-      <Time>2013-03-11T09:35:48.0292782-04:00</Time>
-      <Dependency>
-        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\OakTree_01_0.xml</Key>
-        <Value>2013-03-27T15:44:17.0251882-04:00</Value>
-      </Dependency>
-      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oaktree_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>models\env\OakTree_02.fbx</Source>
-      <Name>models\env\OakTree_02</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\OakTree_02.xnb</Output>
-      <Time>2013-03-11T09:35:48.0448785-04:00</Time>
-      <Dependency>
-        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\OakTree_02_0.xml</Key>
-        <Value>2013-03-27T15:44:17.1811952-04:00</Value>
-      </Dependency>
-      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oaktree_1.xnb</Request>
-    </Item>
-    <Item>
-      <Source>models\env\OakTree_03.fbx</Source>
-      <Name>models\env\OakTree_03</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\OakTree_03.xnb</Output>
-      <Time>2013-03-11T09:35:48.0604788-04:00</Time>
-      <Dependency>
-        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\OakTree_03_0.xml</Key>
-        <Value>2013-03-27T15:44:17.3060008-04:00</Value>
-      </Dependency>
-      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oaktree_2.xnb</Request>
-    </Item>
-    <Item>
-      <Source>models\env\Oak_01.fbx</Source>
-      <Name>models\env\Oak_01</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\Oak_01.xnb</Output>
-      <Time>2013-03-11T09:35:48.1072797-04:00</Time>
-      <Dependency>
-        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\Oak_01_0.xml</Key>
-        <Value>2013-03-27T15:44:17.4932092-04:00</Value>
-      </Dependency>
-      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oaktree copy_0.xnb</Request>
+      <Request>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\birch1_0.xnb</Request>
     </Item>
     <Item>
       <Source>models\env\Ground.fbx</Source>
@@ -682,262 +554,7 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\Birch_01_0.xml</Output>
-      <Time>2013-03-11T09:35:47.186862-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\29072629\Birch_01.fbm\tree_birch01.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\tree_birch01_0.xnb</Output>
-      <Time>2013-03-27T15:44:11.627346-04:00</Time>
-    </Item>
-    <Item>
-      <Source>models\env\Birch_02.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\Birch_02_0.xml</Output>
-      <Time>2013-03-11T09:35:47.2180626-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\290C262A\Birch_02.fbm\birch.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\birch_0.xnb</Output>
-      <Time>2013-03-27T15:44:13.7022391-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\290C262A\Birch_02.fbm\tree_birch02.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\tree_birch02_0.xnb</Output>
-      <Time>2013-03-27T15:44:13.7490412-04:00</Time>
-    </Item>
-    <Item>
-      <Source>models\env\Birch_03.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\Birch_03_0.xml</Output>
-      <Time>2013-03-11T09:35:47.2492632-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\2911262B\Birch_03.fbm\birch.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\birch_1.xnb</Output>
-      <Time>2013-03-27T15:44:15.6679273-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\2911262B\Birch_03.fbm\tree_birch03.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\tree_birch03_0.xnb</Output>
-      <Time>2013-03-27T15:44:15.6991287-04:00</Time>
-    </Item>
-    <Item>
-      <Source>models\env\CherryTree_01.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\CherryTree_01_0.xml</Output>
-      <Time>2013-03-11T09:35:47.3272647-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\F351285E\CherryTree_01.fbm\cherryblossom.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\cherryblossom_0.xnb</Output>
-      <Time>2013-03-27T15:44:16.5571672-04:00</Time>
-    </Item>
-    <Item>
-      <Source>models\env\CherryTree_02.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\CherryTree_02_0.xml</Output>
-      <Time>2013-03-11T09:35:47.342865-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\F356285F\CherryTree_02.fbm\cherryblossom.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\cherryblossom_1.xnb</Output>
-      <Time>2013-03-27T15:44:16.7131742-04:00</Time>
-    </Item>
-    <Item>
-      <Source>models\env\CherryTree_03.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\CherryTree_03_0.xml</Output>
-      <Time>2013-03-11T09:35:47.3584653-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\F35B2860\CherryTree_03.fbm\cherryblossom.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\cherryblossom_2.xnb</Output>
-      <Time>2013-03-27T15:44:16.8691812-04:00</Time>
-    </Item>
-    <Item>
-      <Source>models\env\OakTree_01.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\OakTree_01_0.xml</Output>
-      <Time>2013-03-11T09:35:48.0292782-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\78CB270C\OakTree_01.fbm\oaktree.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oaktree_0.xnb</Output>
-      <Time>2013-03-27T15:44:16.9939868-04:00</Time>
-    </Item>
-    <Item>
-      <Source>models\env\OakTree_02.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\OakTree_02_0.xml</Output>
-      <Time>2013-03-11T09:35:48.0448785-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\78D0270D\OakTree_02.fbm\oaktree.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oaktree_1.xnb</Output>
-      <Time>2013-03-27T15:44:17.1499938-04:00</Time>
-    </Item>
-    <Item>
-      <Source>models\env\OakTree_03.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\OakTree_03_0.xml</Output>
-      <Time>2013-03-11T09:35:48.0604788-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\78D5270E\OakTree_03.fbm\oaktree.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oaktree_2.xnb</Output>
-      <Time>2013-03-27T15:44:17.2747994-04:00</Time>
-    </Item>
-    <Item>
-      <Source>models\env\Oak_01.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\models\env\Oak_01_0.xml</Output>
-      <Time>2013-03-11T09:35:48.1072797-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\DBDF255C\Oak_01.fbm\oaktree copy.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oaktree copy_0.xnb</Output>
-      <Time>2013-03-27T15:44:17.3840043-04:00</Time>
+      <Time>2013-03-28T10:46:37.7126178-04:00</Time>
     </Item>
     <Item>
       <Source>models\env\Ground.fbx</Source>
@@ -1840,6 +1457,22 @@
       <Options>None</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\water_01_0.xnb</Output>
       <Time>2013-03-27T15:44:26.7132229-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\FBX\29072629\Birch_01.fbm\birch1.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\birch1_0.xnb</Output>
+      <Time>2013-03-28T10:46:45.0550015-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

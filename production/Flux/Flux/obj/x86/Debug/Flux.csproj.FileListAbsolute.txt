@@ -41,15 +41,6 @@ Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Co
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\enemy_shooter.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\enemy_crazy.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\Birch_01.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\Birch_02.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\Birch_03.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\CherryTree_01.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\CherryTree_02.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\CherryTree_03.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\OakTree_01.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\OakTree_02.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\OakTree_03.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\Oak_01.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\Ground.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\Planes.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\models\env\Birch_01_Leaf.xnb
@@ -86,18 +77,6 @@ Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Co
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\enemy_bloat.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\shaders\Swirl.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\drumloop.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\tree_birch01_0.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\birch_0.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\tree_birch02_0.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\birch_1.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\tree_birch03_0.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\cherryblossom_0.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\cherryblossom_1.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\cherryblossom_2.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oaktree_0.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oaktree_1.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oaktree_2.xnb
-Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oaktree copy_0.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\Flower_Blue_02_0.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\Flower_Red_01_0.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\Flower_Red_02_0.xnb
@@ -157,3 +136,4 @@ Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Re
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.exe
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Debug\Flux.pdb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\birch1_0.xnb

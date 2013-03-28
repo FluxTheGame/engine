@@ -45,6 +45,12 @@ namespace Flux
             Draw(model, location, rotation, scale, opacity, camera, null);
         }
 
+        public static void Draw(Model model, Vector3 location, Vector3 rotation, float scale, float opacity, Camera camera)
+        {
+            Vector3 s = new Vector3(scale);
+            Draw(model, location, rotation, s, opacity, camera, null);
+        }
+
         public static void Draw(Model model, Vector3 location, Vector3 rotation, Vector3 scale, float opacity, Camera camera, BasicEffect inEffect)
         {
             if (model != null)
