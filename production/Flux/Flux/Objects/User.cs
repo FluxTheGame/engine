@@ -88,7 +88,7 @@ namespace Flux
 
             base.Update();
 
-            pointerAnim.Update(position, CollectorAngle() + Matherizer.ToRadians(45f));
+            pointerAnim.Update(position, CollectorAngle() + MathHelper.ToRadians(45f));
             pointsAnim.Update(position);
             stateAnim.Update(position);
             pointsNotification.Update(position);

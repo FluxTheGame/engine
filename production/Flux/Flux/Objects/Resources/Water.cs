@@ -28,6 +28,10 @@ namespace Flux
 
         protected override void MoveToCollector()
         {
+            Vector2 difference = position - collector.position;
+            double radians = Math.Atan2((difference.Y), (difference.X));
+            rotation = new Vector3((float)MathHelper.ToDegrees((float)radians), 0, 0);
+
             base.MoveToCollector();
         }
 

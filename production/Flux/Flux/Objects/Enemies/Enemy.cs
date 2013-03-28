@@ -66,7 +66,7 @@ namespace Flux
         {
             WrapY();
 
-            rotation = (float)Math.Atan2(velocity.X, velocity.Y) + Matherizer.ToRadians(90);
+            rotation = (float)Math.Atan2(velocity.X, velocity.Y) + MathHelper.ToRadians(90);
 
             if (!isDying) animation.Update(position, rotation);
             else explosion.Update(position);

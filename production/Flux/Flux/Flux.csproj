@@ -128,7 +128,6 @@
     <Compile Include="Helpers\Tweening\TweenObject.cs" />
     <Compile Include="Helpers\Vectorizer.cs" />
     <Compile Include="Helpers\Durationizer.cs" />
-    <Compile Include="Helpers\Matherizer.cs" />
     <Compile Include="Helpers\Randomizer.cs" />
     <Compile Include="Graphics\VLine.cs" />
     <Compile Include="Helpers\Schedualizer.cs" />
