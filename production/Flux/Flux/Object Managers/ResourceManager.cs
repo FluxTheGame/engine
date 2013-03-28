@@ -18,7 +18,7 @@ namespace Flux
 
         public static ResourceManager instance;
 
-        public int desired = 500;
+        public int desired = 1000;
         public int reAddThreshold = 50;
 
         protected List<Resource> resources;
@@ -34,9 +34,6 @@ namespace Flux
 
             resources = new List<Resource>();
             addBuffer = new List<Resource>();
-
-            PlaceLeaves(desired / 2);
-            PlaceWater(desired / 2);
         }
 
         public void PlaceLeaves(int numToAddToWorld)
@@ -148,8 +145,8 @@ namespace Flux
 
             if (difference > reAddThreshold)
             {
-                PlaceLeaves(difference / 2);
-                PlaceWater(difference / 2);
+                PlaceLeaves((int)(difference * 0.75));
+                PlaceWater((int)(difference * 0.25));
             }
         }
 

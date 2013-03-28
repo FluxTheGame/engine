@@ -104,7 +104,7 @@ namespace Flux
                     Model modelLoad;
                     switch (args["objGroup"])
                     {
-                        /*case "21":
+                        case "21":
                             args["objName"] = "Birch_01";
                             args["leafName"] = "Birch_01_Leaf";
                             break;
@@ -139,7 +139,7 @@ namespace Flux
                         case "29":
                             args["objName"] = "OakTree_03";
                             args["leafName"] = "Oak_01_Leaf";
-                            break;*/
+                            break;
                         default:
                             args["objName"] = "Birch_01";
                             args["leafName"] = "Birch_01_Leaf";
