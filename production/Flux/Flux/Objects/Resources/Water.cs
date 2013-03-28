@@ -30,7 +30,7 @@ namespace Flux
         {
             Vector2 difference = position - collector.position;
             double radians = Math.Atan2((difference.Y), (difference.X));
-            rotation = new Vector3((float)MathHelper.ToDegrees((float)radians), 0, 0);
+            //rotation = new Vector3(0, 0, (float)MathHelper.ToDegrees((float)radians) - 180);
 
             base.MoveToCollector();
         }
