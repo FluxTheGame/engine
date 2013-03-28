@@ -65,12 +65,12 @@ namespace Flux
                         effect.EnableDefaultLighting();
                         effect.Projection = camera.projection;
                         effect.View = camera.view;
-                        effect.World = transforms[model.Meshes[i].ParentBone.Index] * 
-                            Matrix.CreateScale(scale) * 
-                            Matrix.CreateTranslation(location) *
+                        effect.World = transforms[model.Meshes[i].ParentBone.Index] *                            
                             Matrix.CreateRotationX(MathHelper.ToRadians(rotation.X)) *
                             Matrix.CreateRotationY(MathHelper.ToRadians(rotation.Y)) *
-                            Matrix.CreateRotationZ(MathHelper.ToRadians(rotation.Z));
+                            Matrix.CreateRotationZ(MathHelper.ToRadians(rotation.Z)) *
+                            Matrix.CreateScale(scale) * 
+                            Matrix.CreateTranslation(location);
 
                         /*effect.DirectionalLight0.DiffuseColor = Light.SunDiffuseColor; // a red light
                         effect.DirectionalLight0.Direction = Light.SunDirection;  // coming along the x-axis
