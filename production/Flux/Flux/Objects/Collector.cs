@@ -68,7 +68,7 @@ namespace Flux
             UpdateProjectiles();
 
             if (collected >= capacity)
-                Burst();
+                Burst(true);
 
             if (heartbeatSchedule.IsOn())
             {
@@ -106,11 +106,18 @@ namespace Flux
             Drawer3D.Draw(model, Location(), Vector3.Zero, new Vector3(scale), 1f, camera, colorization);
         }
 
-        public void Burst()
+        public void Burst(bool completed)
         {
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", id);
-            o.Add("points", collected);
+
+            if (completed)
+                o.Add("points", collected);
+            else
+                // only give a percentage of points
+                o.Add("points", collected * (collected / capacity));
+
+            o.Add("completed", (completed) ? 1 : 0);
             EventManager.Emit("collector:burst", o);
             Console.WriteLine("Collector " + id + ":  FULL");
             Die();
@@ -118,7 +125,7 @@ namespace Flux
 
         public void Die()
         {
-            Console.WriteLine("Dieing...");
+            Console.WriteLine("Dying...");
             foreach (User user in users)
             {
                 user.collector = null;
@@ -162,7 +169,7 @@ namespace Flux
             if (health <= 0)
             {
                 Console.WriteLine("Collector " + id + ":  DEATH");
-                Die();
+                Burst(false);
             }
         }
 

@@ -27,7 +27,7 @@ namespace Flux
      * 
      *  OR THE AWESOME WAY
      * ---------------------
-     *  Tweenerizer.Ease(EasingType.EaseInOut, minSize, maxSize, speedInMs, (ease) =>
+     *  Tweenerizer.Ease(EasingType.EaseInOut, minSize, maxSize, speedInMs, (ease, incr) =>
      *  {
      *      updatedValue = ease;
      *  });

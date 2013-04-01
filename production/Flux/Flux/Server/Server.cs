@@ -25,7 +25,7 @@ namespace Flux
             tcpClient = new TcpClient();
             try
             {
-                IAsyncResult ar = tcpClient.BeginConnect("172.17.134.254", 8100, null, null);
+                IAsyncResult ar = tcpClient.BeginConnect("localhost", 8100, null, null);
                 System.Threading.WaitHandle wh = ar.AsyncWaitHandle;
                 try
                 {

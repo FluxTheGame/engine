@@ -29,7 +29,6 @@ namespace Flux
          */
         public static void On(string evt, Callback callback)
         {
-
             Callback cb = callback;
 
             if (_e.ContainsKey(evt))
