@@ -23,6 +23,7 @@ namespace Flux
 
         int currentDisplay = 0;
         Ground ground;
+        Texture2D skybox;
 
         CollectorManager collectorManager;
         WorldManager worldManager;
@@ -118,11 +119,13 @@ namespace Flux
             audioFiles.Add("ambient.flux", "sfx/ambient/flux_v2.wav");
             Audio.Load(audioFiles);
 
-            Audio.Play("ambient.flux", 0, 0.3f);
-            Audio.Play("ambient.flux", 1, 0.3f);
-            Audio.Play("ambient.flux", 2, 0.3f);
-            Audio.Play("ambient.flux", 3, 0.3f);
+            Audio.Play("ambient.flux", 0, 0.3f, true);
+            Audio.Play("ambient.flux", 1, 0.3f, true);
+            Audio.Play("ambient.flux", 2, 0.3f, true);
+            Audio.Play("ambient.flux", 3, 0.3f, true);
 
+
+            skybox = Content.Load<Texture2D>(@"images/skybox");
 
             /* For Testing */
             
@@ -203,7 +206,7 @@ namespace Flux
             {
                 if (!oldState.IsKeyDown(Keys.Space))
                 {
-                    //o.Add("type", "wet");
+                    //o.Add("type", "join");
                     //o.Add("value", 100);
                     //EventManager.Emit("user:getBadge", o);
                     //EventManager.Emit("user:getPoints", o);
@@ -281,6 +284,8 @@ namespace Flux
 
             ScreenManager.graphics.Clear(Color.SkyBlue);
             ScreenManager.spriteBatch.Begin();
+
+            //ScreenManager.spriteBatch.Draw(skybox, new Rectangle(0, 0, (int)ScreenManager.window.X, (int)ScreenManager.window.Y), Color.White);
 
             #if PRODUCTION
                 float scale = 1f;

@@ -125,6 +125,7 @@ namespace Flux
         public void Draw()
         {
             Camera c = ScreenManager.Camera(display);
+            ScreenManager.graphics.BlendState = BlendState.AlphaBlend;
             Drawer3D.Draw(model, location, rotation, Scale(), 1, c);
         }
 

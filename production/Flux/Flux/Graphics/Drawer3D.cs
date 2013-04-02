@@ -66,13 +66,13 @@ namespace Flux
                             Matrix.CreateScale(scale) * 
                             Matrix.CreateTranslation(location);
 
-                        effect.DirectionalLight0.DiffuseColor = new Vector3(0.4f, 0.2f, 0.1f); // a red light
+                        /*effect.DirectionalLight0.DiffuseColor = new Vector3(0.4f, 0.2f, 0.1f); // a red light
                         effect.DirectionalLight0.Direction = new Vector3(-1, -1.5f, -1);  // coming along the x-axis
-                        effect.DirectionalLight0.SpecularColor = new Vector3(0.2f, 1, 0.2f); // with green highlights
+                        effect.DirectionalLight0.SpecularColor = new Vector3(0.2f, 1, 0.2f); // with green highlights*/
 
-                        effect.DirectionalLight1.DiffuseColor = Color.LightSlateGray.ToVector3();
-                        effect.DirectionalLight1.Direction = new Vector3(0, -1, -1);
-                        effect.DirectionalLight1.SpecularColor = Color.White.ToVector3();
+                        effect.DirectionalLight0.DiffuseColor = Color.LightGray.ToVector3();
+                        effect.DirectionalLight0.Direction = new Vector3(0, -1, -1);
+                        effect.DirectionalLight0.SpecularColor = Color.Black.ToVector3();
 
                         if (inEffect != null)
                         {

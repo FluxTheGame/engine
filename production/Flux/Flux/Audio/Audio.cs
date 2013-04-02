@@ -65,7 +65,7 @@ namespace Flux
             //base.Dispose(disposing);
         }
 
-        public static void Load(Dictionary<string, string> audioFileNames, bool loop = false)
+        public static void Load(Dictionary<string, string> audioFileNames)
         {
             FMOD.RESULT result;
             FMOD.Sound tmpSound;
@@ -82,7 +82,6 @@ namespace Flux
                     result = system.createSound(soundPath, (FMOD.MODE.SOFTWARE | FMOD.MODE._2D), ref tmpSound);
                     ERRCHECK(result);
                     sounds[file.Key] = tmpSound;
-                    FMOD.MODE loopAudio = (loop) ? FMOD.MODE.LOOP_NORMAL : FMOD.MODE.LOOP_OFF;
                     result = sounds[file.Key].setMode(FMOD.MODE.LOOP_OFF);
                     ERRCHECK(result);
                 }
@@ -182,7 +181,7 @@ namespace Flux
             }
         }
 
-        public static void Play(string key, int speaker, float volume = 1f)
+        public static void Play(string key, int speaker, float volume = 1f, bool loop = false)
         {
             // play audio
             FMOD.RESULT result = system.playSound(FMOD.CHANNELINDEX.FREE, sounds[key], true, ref channel);
@@ -190,6 +189,9 @@ namespace Flux
 
             result = channel.setVolume(volume);
             ERRCHECK(result);
+
+            FMOD.MODE loopAudio = (loop) ? FMOD.MODE.LOOP_NORMAL : FMOD.MODE.LOOP_OFF;
+            result = channel.setMode(loopAudio);
 
             //SPEAKER 1 (Satelite Audio, Side Specific)
             if (speaker == 0)
