@@ -28,6 +28,20 @@ namespace Flux
 
         public override void Initialize()
         {
+            base.Initialize();
+        }
+
+        protected override void LoadContent()
+        {
+            Dictionary<string, string> audioFiles = new Dictionary<string, string>();
+            audioFiles.Add("enemy.death", "sfx/enemy/enemy_death.wav");
+            audioFiles.Add("enemy.spawn1", "sfx/enemy/enemy_spawn_1.wav");
+            audioFiles.Add("enemy.spawn2", "sfx/enemy/enemy_spawn_2.wav");
+            audioFiles.Add("enemy.spawn3", "sfx/enemy/enemy_spawn_3.wav");
+
+            Audio.Load(audioFiles);
+
+
             enemies = new List<Enemy>();
 
             for (int i = 0; i < 1; i++)
@@ -37,7 +51,8 @@ namespace Flux
                 enemies.Add(new EnemyCrazy());
             }
 
-            base.Initialize();
+            
+            base.LoadContent();
         }
 
         public static Enemy InRange(Collector collector)

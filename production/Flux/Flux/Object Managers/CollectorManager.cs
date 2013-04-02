@@ -51,6 +51,24 @@ namespace Flux
             base.Initialize();
         }
 
+        protected override void LoadContent()
+        {
+            Dictionary<string, string> audioFiles = new Dictionary<string, string>();
+            audioFiles.Add("collector.complete", "sfx/collector/collector_complete.wav");
+            audioFiles.Add("collector.death", "sfx/collector/collector_death.wav");
+            audioFiles.Add("collector.merge", "sfx/collector/collector_merge.wav");
+            audioFiles.Add("collector.resource1", "sfx/collector/collector_resource_inserted_1.wav");
+            audioFiles.Add("collector.resource2", "sfx/collector/collector_resource_inserted_2.wav");
+            audioFiles.Add("collector.resource3", "sfx/collector/collector_resource_inserted_3.wav");
+            audioFiles.Add("collector.resource4", "sfx/collector/collector_resource_inserted_4.wav");
+            audioFiles.Add("collector.spawn", "sfx/collector/collector_spawn.wav");
+            audioFiles.Add("collector.weapon", "sfx/collector/collector_weapon.wav");
+
+            Audio.Load(audioFiles);
+            
+            base.LoadContent();
+        }
+
 
         public override void UpdateEach(int i)
         {

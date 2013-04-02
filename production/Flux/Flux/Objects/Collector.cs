@@ -12,7 +12,6 @@ namespace Flux
 {
     public class Collector : GridObject
     {
-
         protected int health = 100;
         protected int capacity = 100;
         protected int collected = 0;
@@ -52,6 +51,8 @@ namespace Flux
             targetScale = scale;
             teamColour = TeamColour.Get();
             SendHeartbeat();
+
+            Audio.Play("collector.spawn", display);
 
             colorization.AmbientLightColor = teamColour.ToVector3() - new Vector3(0.2f);
             colorization.EmissiveColor = Color.Black.ToVector3();
@@ -112,14 +113,20 @@ namespace Flux
             o.Add("id", id);
 
             if (completed)
+            {
                 o.Add("points", collected);
+                Audio.Play("collector.complete", display);
+            }
             else
+            {
                 // only give a percentage of points
                 o.Add("points", collected * (collected / capacity));
+                Audio.Play("collector.death", display);
+            }
 
             o.Add("completed", (completed) ? 1 : 0);
             EventManager.Emit("collector:burst", o);
-            Console.WriteLine("Collector " + id + ":  FULL");
+
             Die();
         }
 
@@ -138,6 +145,8 @@ namespace Flux
 
         public void MergeWith(Collector other)
         {
+            Audio.Play("collector.merge", display);
+
             OrderedDictionary o = new OrderedDictionary();
             o.Add("team_1", id);
             o.Add("team_2", other.id);
@@ -179,6 +188,7 @@ namespace Flux
                 Enemy enemy = EnemyManager.InRange(this);
                 if (enemy != null) {
                     projectiles.Add(new Projectile(enemy, this));
+                    Audio.Play("collector.weapon", display);
                     collected--;
                     Console.WriteLine("Attacking...");
                 }
@@ -189,6 +199,7 @@ namespace Flux
         {
             if (!isDying)
             {
+                Audio.Play("collector.resource" + ((collected % 4) + 1), display);
                 collected++;
                 targetScale += scaleRate;
             }

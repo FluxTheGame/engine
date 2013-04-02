@@ -23,6 +23,8 @@ namespace Flux
             accelerationSchedule = new Schedualizer(0.0f, 1f, 3f);
             drag = 10.0f;
 
+            Audio.Play("enemy.spawn1", display);
+
             Animation[] stateAnimations = {
                 new Animation(0, 48),
                 new Animation(1, 48, false, 0),

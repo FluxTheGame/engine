@@ -42,6 +42,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="audio\sfx\collector\collector_complete.wav">
+      <Name>collector_complete</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\collector\collector_merge.wav">
+      <Name>collector_merge</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\collector\collector_spawn.wav">
+      <Name>collector_spawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
     <Compile Include="fonts\user_name.spritefont">
       <Name>user_name</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -372,6 +387,126 @@
       <Name>OakTree_03</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="audio\sfx\ambient\flux_v2.wav">
+      <Name>flux_v2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="audio\sfx\ambient\bass_event.wav">
+      <Name>bass_event</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="audio\sfx\ambient\birds.wav">
+      <Name>birds</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\ambient\creek1.wav">
+      <Name>creek1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\ambient\creek2.wav">
+      <Name>creek2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="audio\sfx\collector\collector_death.wav">
+      <Name>collector_death</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\collector\collector_resource_inserted_1.wav">
+      <Name>collector_resource_inserted_1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\collector\collector_resource_inserted_2.wav">
+      <Name>collector_resource_inserted_2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\collector\collector_resource_inserted_3.wav">
+      <Name>collector_resource_inserted_3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\collector\collector_resource_inserted_4.wav">
+      <Name>collector_resource_inserted_4</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\collector\collector_weapon.wav">
+      <Name>collector_weapon</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="audio\sfx\cursor\cursor_in.wav">
+      <Name>cursor_in</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\cursor\cursor_out.wav">
+      <Name>cursor_out</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="audio\sfx\enemy\enemy_death.wav">
+      <Name>enemy_death</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\enemy\enemy_spawn_1.wav">
+      <Name>enemy_spawn_1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\enemy\enemy_spawn_2.wav">
+      <Name>enemy_spawn_2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\enemy\enemy_spawn_3.wav">
+      <Name>enemy_spawn_3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="audio\sfx\interactions\leaves_rustling.wav">
+      <Name>leaves_rustling</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\interactions\wind.wav">
+      <Name>wind</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\interactions\wormhole_opposite.wav">
+      <Name>wormhole_opposite</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="audio\sfx\interactions\wormhole_origin.wav">
+      <Name>wormhole_origin</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

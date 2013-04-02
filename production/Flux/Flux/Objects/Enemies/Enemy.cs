@@ -54,6 +54,8 @@ namespace Flux
 
         public void Die()
         {
+            Audio.Play("enemy.death", display);
+
             isDying = true;
             explosion.Play(0);
             explosion.WhenFinished(() =>

@@ -110,7 +110,18 @@ namespace Flux
         protected override void LoadContent()
         {
             ground = new Ground();
+
+            // Load audio
             Audio.MultiSpeakerOutput_Load();
+
+            Dictionary<string, string> audioFiles = new Dictionary<string, string>();
+            audioFiles.Add("ambient.flux", "sfx/ambient/flux_v2.wav");
+            Audio.Load(audioFiles);
+
+            Audio.Play("ambient.flux", 1);
+            Audio.Play("ambient.flux", 2);
+            Audio.Play("ambient.flux", 3);
+            Audio.Play("ambient.flux", 4);
 
             /* For Testing */
             
@@ -219,8 +230,6 @@ namespace Flux
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
-                //Audio.Play("drumloop", 3);
-
                 if (initialMousePos.Equals(Vector2.Zero))
                 {
                     initialMousePos = new Vector2(mouseState.X, mouseState.Y);

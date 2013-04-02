@@ -106,6 +106,17 @@ namespace Flux
             base.Initialize();
         }
 
+        protected override void LoadContent()
+        {
+            Dictionary<string, string> audioFiles = new Dictionary<string, string>();
+            audioFiles.Add("user.spawn", "sfx/cursor/cursor_in.wav");
+            audioFiles.Add("user.death", "sfx/cursor/cursor_out.wav");
+
+            Audio.Load(audioFiles);
+            
+            base.LoadContent();
+        }
+
         public User UserByID(int id)
         {
             return users.FirstOrDefault(u => u.id == id);

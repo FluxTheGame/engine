@@ -35,6 +35,19 @@ namespace Flux
             base.Initialize();
         }
 
+
+        protected override void LoadContent()
+        {
+            Dictionary<string, string> audioFiles = new Dictionary<string, string>();
+            audioFiles.Add("wormhole.opposite", "sfx/interactions/wormhole_opposite.wav");
+            audioFiles.Add("wormhole.origin", "sfx/interactions/wormhole_origin.wav");
+
+            Audio.Load(audioFiles);
+
+            base.LoadContent();
+        }
+
+
         private void LoadShaders()
         {
             SwirlShader = ContentManager.Shader("Swirl");

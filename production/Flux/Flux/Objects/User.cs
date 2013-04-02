@@ -72,6 +72,8 @@ namespace Flux
 
             SetupOffsets();
             SetupAnimations();
+
+            Audio.Play("user.spawn", display);
         }
 
         public void SetDelta(int x, int y)
@@ -139,6 +141,8 @@ namespace Flux
 
         public void Disconnect()
         {
+            Audio.Play("user.death", display);
+
             pointerAnim.WhenFinished(() =>
             {
                 UserManager.Remove(this);

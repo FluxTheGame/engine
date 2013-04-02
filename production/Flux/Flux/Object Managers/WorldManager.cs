@@ -36,6 +36,16 @@ namespace Flux
             base.Initialize();
         }
 
+        protected override void LoadContent()
+        {
+            Dictionary<string, string> audioFiles = new Dictionary<string, string>();
+            audioFiles.Add("env.leaves", "sfx/interactions/leaves_rustling.wav");
+            audioFiles.Add("env.wind", "sfx/interactions/wind.wav");
+
+            Audio.Load(audioFiles);
+            
+            base.LoadContent();
+        }
 
         public override void Update(GameTime gameTime)
         {

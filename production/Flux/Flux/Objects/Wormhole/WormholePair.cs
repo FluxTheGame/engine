@@ -19,10 +19,12 @@ namespace Flux
             one = new Wormhole(oneInward);
             one.position = position;
             one.display = displayOne;
+            Audio.Play("wormhole.origin", one.display);
 
             two = new Wormhole(!oneInward);
             two.position = position;
             two.display = ScreenManager.Opposite(displayOne);
+            Audio.Play("wormhole.opposite", two.display);
 
             expiry = created.AddSeconds(Randomizer.RandomInt(20, 30));
         }
