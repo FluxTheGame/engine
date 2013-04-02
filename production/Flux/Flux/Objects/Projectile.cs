@@ -37,6 +37,12 @@ namespace Flux
                 target.BeAttacked(1);
                 collector.DestroyProjectile(this);
             }
+
+            if (GameObject.Distance(this, target) > 1000)
+            {
+                collector.DestroyProjectile(this);
+            }
+
             base.Update();
         }
 

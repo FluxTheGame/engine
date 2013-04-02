@@ -80,7 +80,7 @@ namespace Flux
         {
             for (int i = collectors.Count - 1; i >= 0; i--)
             {
-                if (Vector2.Distance(current.position, collectors[i].position) < 20 && current != collectors[i])
+                if (GameObject.Distance(current, collectors[i]) < 20 && current != collectors[i])
                 {
                     if (current.scale > collectors[i].scale) current.MergeWith(collectors[i]);
                     else collectors[i].MergeWith(current);

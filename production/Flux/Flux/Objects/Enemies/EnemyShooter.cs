@@ -19,18 +19,22 @@ namespace Flux
 
 
         public EnemyShooter() : base()
-        {
-            shootSchedule = new Schedualizer(1.0f, 5f, 10f);
-            accelerationSchedule = new Schedualizer(0.0f, 3f, 6f);
+        {    
             drag = 16.0f;
-
-            Audio.Play("enemy.spawn3", display);
 
             Animation[] stateAnimations = {
                 new Animation(0, 48),
                 new Animation(1, 48, false, 0),
             };
             animation = new AnimSprite("enemy_shooter", new Point(85, 64), stateAnimations);
+        }
+
+        public override void Activate()
+        {
+            Audio.Play("enemy.spawn3", display);
+            shootSchedule = new Schedualizer(1.0f, 5f, 10f);
+            accelerationSchedule = new Schedualizer(0.0f, 3f, 6f);
+            base.Activate();
         }
 
         public override void Update()
