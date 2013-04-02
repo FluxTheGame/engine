@@ -118,10 +118,12 @@ namespace Flux
             audioFiles.Add("ambient.flux", "sfx/ambient/flux_v2.wav");
             Audio.Load(audioFiles);
 
-            Audio.Play("ambient.flux", 1);
-            Audio.Play("ambient.flux", 2);
-            Audio.Play("ambient.flux", 3);
-            Audio.Play("ambient.flux", 4);
+            Audio.Play("ambient.flux", 0, 0.3f);
+            Audio.Play("ambient.flux", 1, 0.3f);
+            Audio.Play("ambient.flux", 2, 0.3f);
+            Audio.Play("ambient.flux", 3, 0.3f);
+
+
 
             /* For Testing */
             

@@ -182,12 +182,13 @@ namespace Flux
             }
         }
 
-        public static void Play(string key, int speaker)
+        public static void Play(string key, int speaker, float volume = 1f)
         {
             // play audio
-            FMOD.RESULT result;
+            FMOD.RESULT result = system.playSound(FMOD.CHANNELINDEX.FREE, sounds[key], true, ref channel);
+            ERRCHECK(result);
 
-            result = system.playSound(FMOD.CHANNELINDEX.FREE, sounds[key], true, ref channel);
+            result = channel.setVolume(volume);
             ERRCHECK(result);
 
             //SPEAKER 1 (Satelite Audio, Side Specific)
