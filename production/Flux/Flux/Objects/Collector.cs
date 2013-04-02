@@ -24,7 +24,7 @@ namespace Flux
         public BasicEffect colorization = Drawer3D.SetDefaultLights();
 
         public int attackRadius = 500;
-        public int collectRadius = 100;
+        public int collectRadius = 500;
         public int id;
         public bool isDying = false;
         public int numCollectors = 1;
