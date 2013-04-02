@@ -1733,6 +1733,222 @@
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\oak_2.xnb</Output>
       <Time>2013-03-28T13:47:18.3246932-04:00</Time>
     </Item>
+    <Item>
+      <Source>audio\sfx\collector\collector_complete.wav</Source>
+      <Name>audio\sfx\collector\collector_complete</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\collector\collector_complete.xnb</Output>
+      <Time>2013-04-02T09:25:07.6917087-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\collector\collector_merge.wav</Source>
+      <Name>audio\sfx\collector\collector_merge</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\collector\collector_merge.xnb</Output>
+      <Time>2013-04-02T09:25:07.9569138-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\collector\collector_spawn.wav</Source>
+      <Name>audio\sfx\collector\collector_spawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\collector\collector_spawn.xnb</Output>
+      <Time>2013-04-02T09:25:08.1129168-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\ambient\flux_v2.wav</Source>
+      <Name>audio\sfx\ambient\flux_v2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\ambient\flux_v2.xnb</Output>
+      <Time>2013-04-02T09:25:07.5045051-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\ambient\bass_event.wav</Source>
+      <Name>audio\sfx\ambient\bass_event</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\ambient\bass_event.xnb</Output>
+      <Time>2013-04-02T09:24:52.5594177-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\ambient\birds.wav</Source>
+      <Name>audio\sfx\ambient\birds</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\ambient\birds.xnb</Output>
+      <Time>2013-04-02T09:24:53.7918414-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\ambient\creek1.wav</Source>
+      <Name>audio\sfx\ambient\creek1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\ambient\creek1.xnb</Output>
+      <Time>2013-04-02T09:24:55.6482771-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\ambient\creek2.wav</Source>
+      <Name>audio\sfx\ambient\creek2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\ambient\creek2.xnb</Output>
+      <Time>2013-04-02T09:24:57.6763161-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\collector\collector_death.wav</Source>
+      <Name>audio\sfx\collector\collector_death</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\collector\collector_death.xnb</Output>
+      <Time>2013-04-02T09:25:07.8321114-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\collector\collector_resource_inserted_1.wav</Source>
+      <Name>audio\sfx\collector\collector_resource_inserted_1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\collector\collector_resource_inserted_1.xnb</Output>
+      <Time>2013-04-02T09:25:07.9881144-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\collector\collector_resource_inserted_2.wav</Source>
+      <Name>audio\sfx\collector\collector_resource_inserted_2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\collector\collector_resource_inserted_2.xnb</Output>
+      <Time>2013-04-02T09:25:08.019315-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\collector\collector_resource_inserted_3.wav</Source>
+      <Name>audio\sfx\collector\collector_resource_inserted_3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\collector\collector_resource_inserted_3.xnb</Output>
+      <Time>2013-04-02T09:25:08.0505156-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\collector\collector_resource_inserted_4.wav</Source>
+      <Name>audio\sfx\collector\collector_resource_inserted_4</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\collector\collector_resource_inserted_4.xnb</Output>
+      <Time>2013-04-02T09:25:08.0661159-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\collector\collector_weapon.wav</Source>
+      <Name>audio\sfx\collector\collector_weapon</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\collector\collector_weapon.xnb</Output>
+      <Time>2013-04-02T09:25:08.1285171-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\cursor\cursor_in.wav</Source>
+      <Name>audio\sfx\cursor\cursor_in</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\cursor\cursor_in.xnb</Output>
+      <Time>2013-04-02T09:25:08.175318-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\cursor\cursor_out.wav</Source>
+      <Name>audio\sfx\cursor\cursor_out</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\cursor\cursor_out.xnb</Output>
+      <Time>2013-04-02T09:25:08.2845201-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\enemy\enemy_death.wav</Source>
+      <Name>audio\sfx\enemy\enemy_death</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\enemy\enemy_death.xnb</Output>
+      <Time>2013-04-02T09:25:08.331321-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\enemy\enemy_spawn_1.wav</Source>
+      <Name>audio\sfx\enemy\enemy_spawn_1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\enemy\enemy_spawn_1.xnb</Output>
+      <Time>2013-04-02T09:25:08.3469213-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\enemy\enemy_spawn_2.wav</Source>
+      <Name>audio\sfx\enemy\enemy_spawn_2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\enemy\enemy_spawn_2.xnb</Output>
+      <Time>2013-04-02T09:25:08.3937222-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\enemy\enemy_spawn_3.wav</Source>
+      <Name>audio\sfx\enemy\enemy_spawn_3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\enemy\enemy_spawn_3.xnb</Output>
+      <Time>2013-04-02T09:25:08.4093225-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\interactions\leaves_rustling.wav</Source>
+      <Name>audio\sfx\interactions\leaves_rustling</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\interactions\leaves_rustling.xnb</Output>
+      <Time>2013-04-02T09:25:08.9865336-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\interactions\wind.wav</Source>
+      <Name>audio\sfx\interactions\wind</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\interactions\wind.xnb</Output>
+      <Time>2013-04-02T09:25:09.3141399-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\interactions\wormhole_opposite.wav</Source>
+      <Name>audio\sfx\interactions\wormhole_opposite</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\interactions\wormhole_opposite.xnb</Output>
+      <Time>2013-04-02T09:25:09.3453405-04:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sfx\interactions\wormhole_origin.wav</Source>
+      <Name>audio\sfx\interactions\wormhole_origin</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\interactions\wormhole_origin.xnb</Output>
+      <Time>2013-04-02T09:25:09.3765411-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{024E11DE-813F-48D7-B0CA-9F0C3B09E065}</ContentProjectGUID>

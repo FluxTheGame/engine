@@ -16,8 +16,13 @@ namespace Flux
     public class EnemyManager : Manager
     {
 
+        public int desired = 18;
+        public int reAddThreshold = 6;
+
         public static EnemyManager instance;
-        List<Enemy> enemies;
+
+        protected List<Enemy> enemies;
+        protected List<Enemy> addBuffer;
 
         
         public EnemyManager(Game game) : base(game)
@@ -41,16 +46,8 @@ namespace Flux
 
             Audio.Load(audioFiles);
 
-
             enemies = new List<Enemy>();
-
-            for (int i = 0; i < 1; i++)
-            {
-                enemies.Add(new EnemyBulger());
-                enemies.Add(new EnemyShooter());
-                enemies.Add(new EnemyCrazy());
-            }
-
+            addBuffer = new List<Enemy>();
             
             base.LoadContent();
         }
@@ -72,9 +69,56 @@ namespace Flux
             instance.enemies.Remove(enemy);
         }
 
+        public void AddEnemiesType(string type, int numToAddToWorld)
+        {
+            for (int i = 0; i < numToAddToWorld; i++)
+            {
+                switch (type)
+                {
+                    case "bulger":
+                        addBuffer.Add(new EnemyBulger());
+                        break;
+
+                    case "shooter":
+                        addBuffer.Add(new EnemyShooter());
+                        break;
+
+                    case "crazy":
+                        addBuffer.Add(new EnemyCrazy());
+                        break;
+                }
+            }
+        }
+
+        public void AddEnemies()
+        {
+            int difference = desired - (enemies.Count + addBuffer.Count);
+
+            if (difference > reAddThreshold)
+            {
+                AddEnemiesType("bulger", (int)(difference * 0.4));
+                AddEnemiesType("shooter", (int)(difference * 0.4));
+                AddEnemiesType("crazy", (int)(difference * 0.2));
+            }
+        }
+
+        protected void MakeLive()
+        {
+            for (int i = addBuffer.Count - 1; i >= 0; i--)
+            {
+                if (addBuffer[i].addDelay.IsOn())
+                {
+                    enemies.Add(addBuffer[i]);
+                    addBuffer.RemoveAt(i);
+                }
+            }
+        }
 
         public override void Update(GameTime gameTime)
         {
+            AddEnemies();
+            MakeLive();
+
             //Pushes list of GameObjects to parent for general processing (Update, Draw)
             objects = enemies.Cast<GameObject>().ToList();
             base.Update(gameTime);
