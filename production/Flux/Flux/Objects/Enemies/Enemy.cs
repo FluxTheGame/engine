@@ -39,6 +39,11 @@ namespace Flux
             
         }
 
+        public virtual void Activate()
+        {
+            //Override for enemy-specific activation behavior
+        }
+
         public void BeAttacked(int damage)
         {
             Console.WriteLine("Enemy got attacked, dying");

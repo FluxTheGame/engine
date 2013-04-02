@@ -19,17 +19,20 @@ namespace Flux
 
         public EnemyBulger() : base()
         {
-            bulgeSchedule = new Schedualizer(0.5f, 5f, 10f);
-            accelerationSchedule = new Schedualizer(0.0f, 1f, 3f);
             drag = 10.0f;
-
-            Audio.Play("enemy.spawn1", display);
-
             Animation[] stateAnimations = {
                 new Animation(0, 48),
                 new Animation(1, 48, false, 0),
             };
             animation = new AnimSprite("enemy_bloat", new Point(85, 64), stateAnimations);
+        }
+
+        public override void Activate()
+        {
+            bulgeSchedule = new Schedualizer(0.5f, 5f, 10f);
+            accelerationSchedule = new Schedualizer(0.0f, 1f, 3f);
+            Audio.Play("enemy.spawn1", display);
+            base.Activate();
         }
 
         public override void Update()

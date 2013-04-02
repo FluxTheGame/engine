@@ -109,6 +109,7 @@ namespace Flux
                 if (addBuffer[i].addDelay.IsOn())
                 {
                     enemies.Add(addBuffer[i]);
+                    addBuffer[i].Activate();
                     addBuffer.RemoveAt(i);
                 }
             }
