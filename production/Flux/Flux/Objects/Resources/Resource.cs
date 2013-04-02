@@ -36,7 +36,7 @@ namespace Flux
             model = ContentManager.Model(modelName);
             this.speed = speed;
             this.location = location;
-            addDelay = new Schedualizer(0, 5, 20);
+            addDelay = new Schedualizer(0, 1, 30);
             rotation = Vector3.Zero;
         }
 

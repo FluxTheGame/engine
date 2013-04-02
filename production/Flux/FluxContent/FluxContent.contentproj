@@ -453,13 +453,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\skybox.png">
-      <Name>skybox</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="audio\sfx\cursor\cursor_in.wav">
       <Name>cursor_in</Name>
       <Importer>WavImporter</Importer>
@@ -514,6 +507,9 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

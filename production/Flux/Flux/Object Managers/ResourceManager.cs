@@ -18,8 +18,8 @@ namespace Flux
 
         public static ResourceManager instance;
 
-        public int desired = 1000;
-        public int reAddThreshold = 50;
+        public int desired = 3000;
+        public int reAddThreshold = 200;
 
         protected List<Resource> resources;
         protected List<Resource> addBuffer;

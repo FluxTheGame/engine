@@ -125,7 +125,7 @@ namespace Flux
             Audio.Play("ambient.flux", 3, 0.3f, true);
 
 
-            skybox = Content.Load<Texture2D>(@"images/skybox");
+            //skybox = Content.Load<Texture2D>(@"images/skybox");
 
             /* For Testing */
             

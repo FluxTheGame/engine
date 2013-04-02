@@ -37,9 +37,11 @@ namespace Flux
             {
                 base.MoveToCollector();
             }
-            //Override to shake or something
-            //You don't have to call base.Update.. it just makes the resource move towards the collector without restraint
-            //base.MoveToCollector();
+            else if (collector.isDying)
+            {
+                intensity -= 0.25f;
+                if (intensity < 0) collector = null;
+            }
         }
     }
 }

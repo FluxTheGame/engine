@@ -13,7 +13,7 @@ namespace Flux
     public class Collector : GridObject
     {
         protected int health = 100;
-        protected int capacity = 100;
+        protected int capacity = 200;
         protected int collected = 0;
         protected int normalCapacity;
         protected Schedualizer heartbeatSchedule;
@@ -24,7 +24,7 @@ namespace Flux
         public BasicEffect colorization = Drawer3D.SetDefaultLights();
 
         public int attackRadius = 500;
-        public int collectRadius = 150;
+        public int collectRadius = 100;
         public int id;
         public bool isDying = false;
         public int numCollectors = 1;
