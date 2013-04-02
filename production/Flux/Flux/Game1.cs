@@ -57,7 +57,7 @@ namespace Flux
         void graphics_PreparingDeviceSettings(object sender, PreparingDeviceSettingsEventArgs e)
         {
             PresentationParameters pp = e.GraphicsDeviceInformation.PresentationParameters;
-            pp.MultiSampleCount = 16;
+            //pp.MultiSampleCount = 16;
 
             return;
         }
@@ -122,7 +122,6 @@ namespace Flux
             Audio.Play("ambient.flux", 1, 0.3f);
             Audio.Play("ambient.flux", 2, 0.3f);
             Audio.Play("ambient.flux", 3, 0.3f);
-
 
 
             /* For Testing */
@@ -280,7 +279,7 @@ namespace Flux
             /*Color c = Color.Lerp(Color.DarkSlateGray, Color.LightSkyBlue, Light.lerp);
             ScreenManager.graphics.Clear(c);*/
 
-            ScreenManager.graphics.Clear(Color.LightSkyBlue);
+            ScreenManager.graphics.Clear(Color.SkyBlue);
             ScreenManager.spriteBatch.Begin();
 
             #if PRODUCTION

@@ -25,7 +25,6 @@ namespace Flux
         {
             lerp = (float)(Math.Cos(gameTime.TotalGameTime.TotalSeconds * 0.3f) + 1) * 0.5f; // [0..1]
  
-
             SunDirection.Y = (lerp - 1);
 
             // how much daylight do we want compared to night?

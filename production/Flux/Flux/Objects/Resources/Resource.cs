@@ -90,7 +90,7 @@ namespace Flux
             ScreenManager.SetTarget(display);
             Camera camera = ScreenManager.Camera(display);
             ScreenManager.graphics.BlendState = BlendState.AlphaBlend;
-            Drawer3D.Draw(model, location, rotation, scale * modelScale, opacity, camera);
+            Drawer3D.Draw(model, location, rotation, new Vector3(scale * modelScale), opacity, camera);
         }
 
     }

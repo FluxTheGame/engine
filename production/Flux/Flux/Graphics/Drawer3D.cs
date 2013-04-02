@@ -45,12 +45,6 @@ namespace Flux
             Draw(model, location, rotation, scale, opacity, camera, null);
         }
 
-        public static void Draw(Model model, Vector3 location, Vector3 rotation, float scale, float opacity, Camera camera)
-        {
-            Vector3 s = new Vector3(scale);
-            Draw(model, location, rotation, s, opacity, camera, null);
-        }
-
         public static void Draw(Model model, Vector3 location, Vector3 rotation, Vector3 scale, float opacity, Camera camera, BasicEffect inEffect)
         {
             if (model != null)
@@ -72,13 +66,13 @@ namespace Flux
                             Matrix.CreateScale(scale) * 
                             Matrix.CreateTranslation(location);
 
-                        /*effect.DirectionalLight0.DiffuseColor = Light.SunDiffuseColor; // a red light
-                        effect.DirectionalLight0.Direction = Light.SunDirection;  // coming along the x-axis
-                        effect.DirectionalLight0.SpecularColor = Light.SunSpecularColor; // with green highlights
+                        effect.DirectionalLight0.DiffuseColor = new Vector3(0.4f, 0.2f, 0.1f); // a red light
+                        effect.DirectionalLight0.Direction = new Vector3(-1, -1.5f, -1);  // coming along the x-axis
+                        effect.DirectionalLight0.SpecularColor = new Vector3(0.2f, 1, 0.2f); // with green highlights
 
-                        effect.DirectionalLight1.DiffuseColor = Color.DimGray.ToVector3();
-                        effect.DirectionalLight1.Direction = new Vector3(0, -1, 0);
-                        effect.DirectionalLight1.SpecularColor = Color.Black.ToVector3();*/
+                        effect.DirectionalLight1.DiffuseColor = Color.LightSlateGray.ToVector3();
+                        effect.DirectionalLight1.Direction = new Vector3(0, -1, -1);
+                        effect.DirectionalLight1.SpecularColor = Color.White.ToVector3();
 
                         if (inEffect != null)
                         {
