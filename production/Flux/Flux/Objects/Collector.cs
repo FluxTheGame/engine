@@ -229,12 +229,7 @@ namespace Flux
 
         public void SetupAnimations()
         {
-            collectorAnim = new AnimSet(
-                new Spritesheet[] {
-                    new Spritesheet("collector_intro", 52, new Point(350, 600), 1),
-                    new Spritesheet("collector_static", 3, new Point(350, 600), -1, 0, false)
-                }
-            );
+            
         }
     }
 }

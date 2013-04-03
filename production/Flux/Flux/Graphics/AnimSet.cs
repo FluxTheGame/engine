@@ -22,7 +22,7 @@ namespace Flux
 
         public void Update(Vector2 position, float rotation = 0f)
         {
-            spritesheets[sheet].animSprite.Update(position, rotation);
+            
         }
 
         public void Draw()
@@ -32,19 +32,12 @@ namespace Flux
 
         public void Draw(Color tint)
         {
-            spritesheets[sheet].animSprite.Draw(tint);
+            //Draw!
         }
 
         public void Play(int sheet)
         {
-            this.sheet = sheet;
-            spritesheets[sheet].Play(() =>
-            {
-                if (spritesheets[sheet].next >= 0)
-                {
-                    sheet = spritesheets[sheet].next;
-                }
-            });
+            
         }
     }
 }
