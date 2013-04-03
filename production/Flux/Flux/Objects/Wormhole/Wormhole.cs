@@ -15,7 +15,6 @@ namespace Flux
 
         public Wormhole(bool suck) : base()
         {
-            model = ContentManager.Model("chicken");
             inward = suck;
             scale = 0.08f;
         }

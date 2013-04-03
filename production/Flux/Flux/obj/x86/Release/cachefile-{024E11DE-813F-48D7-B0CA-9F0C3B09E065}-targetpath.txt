@@ -133,3 +133,5 @@ Content\cherry_1.xnb
 Content\oak_0.xnb
 Content\oak_1.xnb
 Content\oak_2.xnb
+Content\sprites\collector_intro.xnb
+Content\sprites\collector_static.xnb

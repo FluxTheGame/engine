@@ -20,7 +20,8 @@ namespace Flux
         private Animation[] animation;
 
         public delegate void Callback();
-        private Callback callback;
+        private Callback animDone;
+        private Callback sheetDone;
         private float rotation;
         private float delay;
         private bool playing = true;
@@ -51,7 +52,7 @@ namespace Flux
                 {
                     if (animation[sequence].loop) Rewind();
                     else Finish();
-                    if (callback != null) callback();
+                    if (animDone != null) animDone();
                 }
             }
         }
@@ -89,19 +90,28 @@ namespace Flux
             {
                 Play(animation[sequence].next);
             }
-            else playing = false;
+            else
+            {
+                playing = false;
+                if (sheetDone != null) sheetDone();
+            }
         }
 
         public void WhenFinished(Callback cb)
         {
-            callback = cb;
+            animDone = cb;
         }
 
-        public void Play(int clip)
+        public void WhenSheetFinished(Callback cb)
+        {
+            sheetDone = cb;
+        }
+
+        public void Play(int clip, bool rewind = true)
         {
             playing = true;
             SetClip(clip);
-            Rewind();
+            if (rewind) Rewind();
         }
     }
 }

@@ -13,9 +13,7 @@ namespace Flux
 
         public float scale;
         public int display;
-        public Model model;
         protected int height = 50;
-        public BoundingSphere sphere;
 
         public Vector2 position;
         public Vector2 velocity;
@@ -36,9 +34,13 @@ namespace Flux
             created = DateTime.Now;
         }
 
+        public virtual void Draw(GameTime gameTime)
+        {
+            //Override to implement draw behavior
+        }
+
         public virtual void Update()
         {
-            CalculateBoundingSphere();
             Constrain();
 
             velocity = Vector2.Add(velocity, acceleration);
@@ -50,13 +52,6 @@ namespace Flux
         public virtual Vector3 Location()
         {
             return ScreenManager.Location(position, display);
-        }
-
-        public virtual void Draw(GameTime gameTime)
-        {
-            ScreenManager.SetTarget(display);
-            Camera camera = ScreenManager.Camera(display);
-            Drawer3D.Draw(model, Location(), scale, 1f, camera);
         }
 
 
@@ -81,18 +76,6 @@ namespace Flux
             if (display < 0) display = 3;
         }
 
-        protected void CalculateBoundingSphere()
-        {
-            if (model != null)
-            {
-                foreach (ModelMesh mesh in model.Meshes)
-                {
-                    sphere = mesh.BoundingSphere;
-                }
-                sphere.Center = Location();
-                sphere.Radius *= scale;
-            }
-        }
 
         public static float Distance(GameObject one, GameObject two)
         {
