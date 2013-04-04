@@ -17,6 +17,8 @@ namespace Flux
 
         public static WormholeManager instance;
         public static Effect SwirlShader;
+        public static EffectParameter ShaderPosition;
+        public static EffectParameter ShaderAngle;
 
         protected List<WormholePair> wormholePairs;
 
@@ -55,6 +57,8 @@ namespace Flux
             SwirlShader.CurrentTechnique = SwirlShader.Techniques["Plain"];
             SwirlShader.Parameters["TextureSize"].SetValue(ScreenManager.window);
             SwirlShader.Parameters["Radius"].SetValue(100.0f);
+            ShaderPosition = SwirlShader.Parameters["Center"];
+            ShaderAngle = SwirlShader.Parameters["Angle"];
         }
 
         public static void Add(Vector2 position, bool inward, int display)

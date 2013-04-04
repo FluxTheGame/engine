@@ -24,6 +24,15 @@ namespace Flux
 
         public int attackRadius = 500;
         public int collectRadius = 100;
+        protected int normalCapacity;
+        protected Schedualizer heartbeatSchedule;
+        protected float scaleRate = 0.0008f;
+        protected float targetScale;
+        protected int spawnBuffer = 150;
+        protected AnimSet collectorAnim;
+
+        public int attackRadius = 500;
+        public int collectRadius = 100;
         public int id;
         public bool isDying = false;
         public int numCollectors = 1;
@@ -72,12 +81,31 @@ namespace Flux
 
             if (heartbeatSchedule.IsOn())
             {
+        {
+            drag = capacity / normalCapacity;
+
+            CollectResources();
+            UpdateProjectiles();
+            //collectorAnim.Update(position);
+
+            if (collected >= capacity)
+                Burst(true);
+
+            if (heartbeatSchedule.IsOn())
+            {
                 SendHeartbeat();
             }
 
             if (scale < targetScale)
             {
                 scale += scaleRate;
+            }
+            
+            base.Update();
+
+            if (scale < targetScale)
+            {
+                scale += scaleRate * 0.1f;
             }
             
             base.Update();
@@ -103,7 +131,17 @@ namespace Flux
 
             ScreenManager.SetTarget(display);
             ScreenManager.spriteBatch.Begin();
+            collectorAnim.Draw();
             collectorAnim.Draw(teamColour, scale);
+            ScreenManager.spriteBatch.End();
+        }
+
+        public void Burst(bool completed)
+        {
+
+            ScreenManager.SetTarget(display);
+            ScreenManager.spriteBatch.Begin();
+            //collectorAnim.Draw();
             ScreenManager.spriteBatch.End();
         }
 
@@ -236,6 +274,11 @@ namespace Flux
             collectorAnim = new AnimSprite("collector_intro", new Point(350, 600), collectorAnimations);
             collectorAnim.frameOffset.Y = 435;
             collectorAnim.Play(0);
+        }
+    }
+        public void SetupAnimations()
+        {
+            
         }
     }
 }
