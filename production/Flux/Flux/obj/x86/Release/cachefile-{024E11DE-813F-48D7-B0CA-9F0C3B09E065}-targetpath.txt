@@ -135,3 +135,5 @@ Content\oak_1.xnb
 Content\oak_2.xnb
 Content\sprites\collector_static.xnb
 Content\sprites\collector_intro.xnb
+Content\sprites\collector_portal.xnb
+Content\sprites\collector_outro_01.xnb

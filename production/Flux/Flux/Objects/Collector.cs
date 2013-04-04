@@ -17,10 +17,12 @@ namespace Flux
         protected int collected = 0;
         protected int normalCapacity;
         protected Schedualizer heartbeatSchedule;
-        protected float scaleRate = 0.002f;
+        protected float scaleRate = 0.0005f;
         protected float targetScale;
         protected int spawnBuffer = 150;
+
         protected AnimSet collectorAnim;
+        protected AnimSprite portalAnim;
 
         public int attackRadius = 500;
         public int collectRadius = 100;
@@ -31,6 +33,8 @@ namespace Flux
 
         private List<User> users;
         private List<Projectile> projectiles;
+
+        enum States { Intro, Static, Outro1, Outro2, Outro3 };
 
 
         public Collector(int idNumber): base()
@@ -65,7 +69,9 @@ namespace Flux
 
             CollectResources();
             UpdateProjectiles();
+
             collectorAnim.Update(position);
+            portalAnim.Update(position);
 
             if (collected >= capacity)
                 Burst(true);
@@ -103,44 +109,57 @@ namespace Flux
 
             ScreenManager.SetTarget(display);
             ScreenManager.spriteBatch.Begin();
-            collectorAnim.Draw(teamColour, scale);
+                portalAnim.Draw(Color.White, scale);
+                collectorAnim.Draw(teamColour, scale);
             ScreenManager.spriteBatch.End();
         }
 
         public void Burst(bool completed)
         {
-            OrderedDictionary o = new OrderedDictionary();
-            o.Add("id", id);
-
-            if (completed)
+            if (!isDying)
             {
-                o.Add("points", collected);
-                Audio.Play("collector.complete", display);
-            }
-            else
-            {
-                // only give a percentage of points
-                o.Add("points", collected * (collected / capacity));
-                Audio.Play("collector.death", display);
-            }
+                OrderedDictionary o = new OrderedDictionary();
+                o.Add("id", id);
 
-            o.Add("completed", (completed) ? 1 : 0);
-            EventManager.Emit("collector:burst", o);
+                if (completed)
+                {
+                    o.Add("points", collected);
+                    Audio.Play("collector.complete", display);
+                }
+                else
+                {
+                    // only give a percentage of points
+                    o.Add("points", collected * (collected / capacity));
+                    Audio.Play("collector.death", display);
+                }
 
-            Die();
+                o.Add("completed", (completed) ? 1 : 0);
+                EventManager.Emit("collector:burst", o);
+
+                Die();
+            }
         }
 
         public void Die()
         {
-            Console.WriteLine("Dying...");
-            foreach (User user in users)
+            if (!isDying)
             {
-                user.collector = null;
-            }
-            isDying = true;
+                Console.WriteLine("Dying...");
+                foreach (User user in users)
+                {
+                    user.collector = null;
+                }
+                isDying = true;
 
-            TeamColour.Put(teamColour);
-            CollectorManager.Remove(this);
+                portalAnim.WhenFinished(() =>
+                {
+                    TeamColour.Put(teamColour);
+                    CollectorManager.Remove(this);
+                });
+
+                collectorAnim.Play((int)States.Outro1);
+                portalAnim.Play(0);
+            }
         }
 
         public void MergeWith(Collector other)
@@ -231,12 +250,22 @@ namespace Flux
         public void SetupAnimations()
         {
             Spritesheet[] collectorAnimations = {
-                new Spritesheet("collector_intro", new Point(350, 600), 0, 48, false, 1, true),
-                new Spritesheet("collector_static", new Point(350, 600), 1, 3, false, -1, false) 
+                new Spritesheet("collector_intro", new Point(350, 600), (int)States.Intro, 48, false, (int)States.Static, true),
+                new Spritesheet("collector_static", new Point(350, 600), (int)States.Static, 3, false, -1, false),
+                new Spritesheet("collector_outro_01", new Point(350, 600), (int)States.Outro1, 18, false, -1, true), 
             };
 
             collectorAnim = new AnimSet(collectorAnimations);
-            collectorAnim.Play(0);
+            collectorAnim.frameOffset = new Vector2(0, 135);
+            collectorAnim.Play((int)States.Intro);
+
+            Animation[] portalAnimations = {
+                new Animation(0, 47, false)
+            };
+
+            portalAnim = new AnimSprite("collector_portal", new Point(570, 200), portalAnimations);
+            portalAnim.frameOffset.Y += 450;
+            portalAnim.Play(0);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Flux
         protected Spritesheet[] spritesheets;
         protected int sheet = 0;
         protected AnimSprite anim;
+        public Vector2 frameOffset;
 
 
         public AnimSet(Spritesheet[] spritesheets)
@@ -53,8 +54,8 @@ namespace Flux
             };
 
             anim = new AnimSprite(spritesheets[sheet].sheet, spritesheets[sheet].frameSize, animation);
-            Console.WriteLine(spritesheets[sheet].sheet);
 
+            anim.frameOffset += frameOffset;
             anim.SetFrame(0);
             if (spritesheets[sheet].autoplay) anim.Play(0);
         }
