@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System.Diagnostics;
 
 namespace Flux
 {
@@ -16,14 +16,10 @@ namespace Flux
 
         public WormholePair(bool oneInward, Vector2 position, int displayOne) : base()
         {
-            one = new Wormhole(oneInward);
-            one.position = position;
-            one.display = displayOne;
+            one = new Wormhole(oneInward, position, displayOne);
             Audio.Play("wormhole.origin", one.display);
 
-            two = new Wormhole(!oneInward);
-            two.position = position;
-            two.display = ScreenManager.Opposite(displayOne);
+            two = new Wormhole(!oneInward, position, ScreenManager.Opposite(displayOne));
             Audio.Play("wormhole.opposite", two.display);
 
             expiry = created.AddSeconds(Randomizer.RandomInt(20, 30));
@@ -50,9 +46,7 @@ namespace Flux
                 WormholeManager.Remove(this);
             }
 
-            ScreenManager.SetTarget(one.display);
             one.Update();
-            ScreenManager.SetTarget(two.display);
             two.Update();
         }
 
