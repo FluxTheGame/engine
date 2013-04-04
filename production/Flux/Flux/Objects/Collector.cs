@@ -20,11 +20,10 @@ namespace Flux
         protected float scaleRate = 0.0008f;
         protected float targetScale;
         protected int spawnBuffer = 150;
-
-        public BasicEffect colorization = Drawer3D.SetDefaultLights();
+        protected AnimSet collectorAnim;
 
         public int attackRadius = 500;
-        public int collectRadius = 500;
+        public int collectRadius = 100;
         public int id;
         public bool isDying = false;
         public int numCollectors = 1;
@@ -37,7 +36,6 @@ namespace Flux
         public Collector(int idNumber): base()
         {
             id = idNumber;
-            model = ContentManager.Model("collector");
 
             position = new Vector2(
                 Randomizer.RandomInt(spawnBuffer, (int)ScreenManager.window.X - spawnBuffer), 
@@ -50,12 +48,11 @@ namespace Flux
             heartbeatSchedule = new Schedualizer(0f, 5f, 5f);
             targetScale = scale;
             teamColour = TeamColour.Get();
+
+            SetupAnimations();
             SendHeartbeat();
 
             Audio.Play("collector.spawn", display);
-
-            colorization.AmbientLightColor = teamColour.ToVector3() - new Vector3(0.2f);
-            colorization.EmissiveColor = Color.Black.ToVector3();
 
             users = new List<User>();
             projectiles = new List<Projectile>();
@@ -67,6 +64,7 @@ namespace Flux
 
             CollectResources();
             UpdateProjectiles();
+            //collectorAnim.Update(position);
 
             if (collected >= capacity)
                 Burst(true);
@@ -103,8 +101,9 @@ namespace Flux
             }
 
             ScreenManager.SetTarget(display);
-            Camera camera = ScreenManager.Camera(display);
-            Drawer3D.Draw(model, Location(), Vector3.Zero, new Vector3(scale), 1f, camera, colorization);
+            ScreenManager.spriteBatch.Begin();
+            //collectorAnim.Draw();
+            ScreenManager.spriteBatch.End();
         }
 
         public void Burst(bool completed)
@@ -226,6 +225,11 @@ namespace Flux
         public void DestroyProjectile(Projectile projectile)
         {
             projectiles.Remove(projectile);
+        }
+
+        public void SetupAnimations()
+        {
+            
         }
     }
 }

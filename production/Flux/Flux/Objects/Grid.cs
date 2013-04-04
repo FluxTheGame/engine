@@ -139,7 +139,6 @@ namespace Flux
         public void Draw()
         {
             ScreenManager.SetTarget(display);
-            //DrawHighRes();
             DrawLowRes();
         }
 

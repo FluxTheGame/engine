@@ -51,9 +51,9 @@ namespace Flux
         {
             objects = objects.OrderBy(o => o.display).ToList();
 
-            foreach (GameObject obj in objects)
+            for (int i=0; i<objects.Count; ++i)
             {
-                obj.Draw(gameTime);
+                objects[i].Draw(gameTime);
             }
 
             base.Draw(gameTime);
