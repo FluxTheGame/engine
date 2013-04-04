@@ -64,7 +64,7 @@ namespace Flux
 
             CollectResources();
             UpdateProjectiles();
-            collectorAnim.Update(position);
+            //collectorAnim.Update(position);
 
             if (collected >= capacity)
                 Burst(true);
@@ -102,7 +102,7 @@ namespace Flux
 
             ScreenManager.SetTarget(display);
             ScreenManager.spriteBatch.Begin();
-            collectorAnim.Draw();
+            //collectorAnim.Draw();
             ScreenManager.spriteBatch.End();
         }
 

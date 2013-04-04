@@ -17,6 +17,7 @@ namespace Flux
 
         public static SpriteBatch spriteBatch;
         public static Vector2 window; //Size of a single window
+        public static Rectangle screenRect;
         public static Vector2 world; //Size of entire world (4 grids combined), not including offset
         public static GraphicsDevice graphics;
         public static int screens = 4;
@@ -25,6 +26,7 @@ namespace Flux
         public static void Initialize(Game game, GraphicsDevice g)
         {
             window = new Vector2(1280, 800);
+            screenRect = new Rectangle(0, 0, (int)window.X, (int)window.Y);
             world = new Vector2(window.X * screens, window.Y);
             graphics = g;
             spriteBatch = new SpriteBatch(graphics);
