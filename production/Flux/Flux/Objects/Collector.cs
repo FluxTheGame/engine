@@ -17,10 +17,10 @@ namespace Flux
         protected int collected = 0;
         protected int normalCapacity;
         protected Schedualizer heartbeatSchedule;
-        protected float scaleRate = 0.0008f;
+        protected float scaleRate = 0.002f;
         protected float targetScale;
         protected int spawnBuffer = 150;
-        protected AnimSet collectorAnim;
+        protected AnimSprite collectorAnim;
 
         public int attackRadius = 500;
         public int collectRadius = 100;
@@ -46,6 +46,7 @@ namespace Flux
             normalCapacity = capacity;
             dampening = 0.9f;
             heartbeatSchedule = new Schedualizer(0f, 5f, 5f);
+            scale = 0.3f;
             targetScale = scale;
             teamColour = TeamColour.Get();
 
@@ -76,7 +77,7 @@ namespace Flux
 
             if (scale < targetScale)
             {
-                scale += scaleRate * 0.1f;
+                scale += scaleRate;
             }
             
             base.Update();
@@ -102,7 +103,7 @@ namespace Flux
 
             ScreenManager.SetTarget(display);
             ScreenManager.spriteBatch.Begin();
-            collectorAnim.Draw();
+            collectorAnim.Draw(teamColour, scale);
             ScreenManager.spriteBatch.End();
         }
 
@@ -229,7 +230,12 @@ namespace Flux
 
         public void SetupAnimations()
         {
-            
+            Animation[] collectorAnimations = {
+                new Animation(0, 52),
+            };
+            collectorAnim = new AnimSprite("collector_intro", new Point(350, 600), collectorAnimations);
+            collectorAnim.frameOffset.Y = 435;
+            collectorAnim.Play(0);
         }
     }
 }

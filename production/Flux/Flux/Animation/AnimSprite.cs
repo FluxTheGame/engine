@@ -14,18 +14,21 @@ namespace Flux
         private SpriteBatch spriteBatch;
         private Schedualizer frameSchedule;
         private Point frameSize;
-        private Vector2 frameOffset;
         private Texture2D sprite;
         private Vector2 position;
         private Animation[] animation;
 
         public delegate void Callback();
+        public Vector2 frameOffset;
+
         private Callback animDone;
         private Callback sheetDone;
         private float rotation;
         private float delay;
         private bool playing = true;
         private int sequence = 0;
+        private int rowOffset = 0;
+        private int cols;
 
 
         public AnimSprite(string spriteName, Point frameSize, Animation[] animation)
@@ -35,6 +38,7 @@ namespace Flux
             frameSchedule = new Schedualizer(0.0f, delay, delay);
             sprite = ContentManager.Sprite(spriteName);
             frameOffset = new Vector2(frameSize.X, frameSize.Y) * 0.5f;
+            cols = sprite.Width / frameSize.X;
 
             this.animation = animation;
             this.frameSize = frameSize;
@@ -54,13 +58,23 @@ namespace Flux
                     else Finish();
                     if (animDone != null) animDone();
                 }
+                else if (animation[sequence].frame >= cols)
+                {
+                    int overshoot = animation[sequence].frame - cols + 1;
+                    rowOffset = (int)Math.Ceiling((double)overshoot / (double)cols);
+                }
             }
+        }
+
+        public void Draw(Color tint, float scale)
+        {
+            Rectangle clipping = new Rectangle((int)frameSize.X * (animation[sequence].frame - cols * rowOffset), (int)frameSize.Y * (sequence + rowOffset), frameSize.X, frameSize.Y);
+            spriteBatch.Draw(sprite, position, clipping, tint, rotation, frameOffset, scale, SpriteEffects.None, 0f);
         }
 
         public void Draw(Color tint)
         {
-            Rectangle clipping = new Rectangle((int)frameSize.X * animation[sequence].frame, (int)frameSize.Y * sequence, frameSize.X, frameSize.Y);
-            spriteBatch.Draw(sprite, position, clipping, tint, rotation, frameOffset, 1f, SpriteEffects.None, 0f);
+            Draw(tint, 1f);
         }
 
         public void Draw()

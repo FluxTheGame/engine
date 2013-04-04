@@ -1950,15 +1950,6 @@
       <Time>2013-04-03T13:07:56.1303447-04:00</Time>
     </Item>
     <Item>
-      <Source>sprites\collector_intro.png</Source>
-      <Name>sprites\collector_intro</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\collector_intro.xnb</Output>
-      <Time>2013-04-03T13:13:19.2742467-04:00</Time>
-    </Item>
-    <Item>
       <Source>sprites\collector_static.png</Source>
       <Name>sprites\collector_static</Name>
       <Importer>TextureImporter</Importer>
@@ -1966,6 +1957,18 @@
       <Options>None</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\collector_static.xnb</Output>
       <Time>2013-04-03T13:29:14.0035734-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\collector_intro.png</Source>
+      <Name>sprites\collector_intro</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\collector_intro.xnb</Output>
+      <Time>2013-04-03T13:13:19.2742467-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

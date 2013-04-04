@@ -11,13 +11,9 @@ namespace Flux
     public class AnimSet
     {
 
-        private Spritesheet[] spritesheets;
-        private int sheet;
-
-
-        public AnimSet(Spritesheet[] spritesheets)
+        public AnimSet()
         {
-            this.spritesheets = spritesheets;
+            
         }
 
         public void Update(Vector2 position, float rotation = 0f)
@@ -27,12 +23,7 @@ namespace Flux
 
         public void Draw()
         {
-            Draw(Color.White);
-        }
-
-        public void Draw(Color tint)
-        {
-            //Draw!
+            
         }
 
         public void Play(int sheet)
