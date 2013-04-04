@@ -20,7 +20,7 @@ namespace Flux
         protected float scaleRate = 0.002f;
         protected float targetScale;
         protected int spawnBuffer = 150;
-        protected AnimSet collectorAnim;
+        protected AnimSprite collectorAnim;
 
         public int attackRadius = 500;
         public int collectRadius = 100;
@@ -230,12 +230,11 @@ namespace Flux
 
         public void SetupAnimations()
         {
-            Spritesheet[] collectorAnimations = {
-                new Spritesheet("collector_intro", new Point(350, 600), 0, 48, false, 1, true),
-                new Spritesheet("collector_static", new Point(350, 600), 1, 3, false, -1, false) 
+            Animation[] collectorAnimations = {
+                new Animation(0, 52),
             };
-
-            collectorAnim = new AnimSet(collectorAnimations);
+            collectorAnim = new AnimSprite("collector_intro", new Point(350, 600), collectorAnimations);
+            collectorAnim.frameOffset.Y = 435;
             collectorAnim.Play(0);
         }
     }
