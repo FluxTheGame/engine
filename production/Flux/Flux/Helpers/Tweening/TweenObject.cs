@@ -50,13 +50,14 @@ namespace Flux
         {
             timestep += 0.01f;
 
+            bool lastIter = false;
+            if ((timestep - speed) >= 0) lastIter = true;
+
             float ease = tweenFunc(start, end, timestep, speed);
             callback(ease, ease-lastVal);
             lastVal = ease;
 
-            if (ease >= end - 0.001) return true;
-
-            return false;
+            return lastIter;
         }
     }
 }

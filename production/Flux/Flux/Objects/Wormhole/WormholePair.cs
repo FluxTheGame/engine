@@ -22,7 +22,14 @@ namespace Flux
             two = new Wormhole(!oneInward, position, ScreenManager.Opposite(displayOne));
             Audio.Play("wormhole.opposite", two.display);
 
-            expiry = created.AddSeconds(Randomizer.RandomInt(20, 30));
+            float lifespan = Randomizer.RandomInt(20, 30);
+            expiry = created.AddSeconds(lifespan);
+
+            Tweenerizer.Ease(EasingType.EaseOut, 0, 5, lifespan*100, (ease, incr) =>
+            {
+                one.twirlAngle = ease;
+                two.twirlAngle = ease;
+            });
         }
 
         public bool Make(Vector2 position) {

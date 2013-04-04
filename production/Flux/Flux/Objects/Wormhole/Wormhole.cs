@@ -14,6 +14,9 @@ namespace Flux
         Color[] bits = new Color[(int)(ScreenManager.window.X * ScreenManager.window.Y)];
         public bool inward;
         private double startTime = 0;
+
+        public float twirlAngle = 0;
+
         private RenderTarget2D scene;
         private RenderTarget2D rt =
             new RenderTarget2D(ScreenManager.graphics, (int)ScreenManager.window.X, (int)ScreenManager.window.Y, false,
@@ -41,16 +44,16 @@ namespace Flux
 
         public override void Draw(GameTime gameTime)
         {
-            if (startTime == 0)
+            /*if (startTime == 0)
                 startTime = gameTime.TotalGameTime.TotalSeconds * 0.5;
 
             double curTime = gameTime.TotalGameTime.TotalSeconds * 0.5;
-            double twirlAngle = curTime - startTime;
+            double twirlAngle = curTime - startTime;*/
 
-            WormholeManager.ShaderAngle.SetValue((float)twirlAngle);
+            WormholeManager.ShaderAngle.SetValue(twirlAngle);
             WormholeManager.ShaderPosition.SetValue(position);
 
-            Shaderizer.Draw2D(0, WormholeManager.SwirlShader);
+            Shaderizer.Draw2D(display, WormholeManager.SwirlShader);
 
             /*scene = ScreenManager.Target(display);
 

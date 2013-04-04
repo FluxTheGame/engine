@@ -140,6 +140,12 @@ namespace Flux
         {
             ScreenManager.SetTarget(display);
             DrawLowRes();
+
+            /*GridManager.BlurShader.CurrentTechnique = GridManager.BlurShader.Techniques["BlurHorizontal"];
+            RenderTarget2D tex = Shaderizer._drawShader(ScreenManager.Target(display), Shaderizer.tmpTarget, GridManager.BlurShader, true);
+
+            GridManager.BlurShader.CurrentTechnique = GridManager.BlurShader.Techniques["BlurVertical"];
+            Shaderizer._drawShader(tex, ScreenManager.Target(display), GridManager.BlurShader, true);*/
         }
 
         public void DrawHighRes()

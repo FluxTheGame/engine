@@ -12,9 +12,14 @@ namespace Flux
     class GridManager
     {
         private static Grid[] grid = new Grid[4];
+        public static Effect BlurShader;
 
         public static void Initialize(int scale)
         {
+            BlurShader = ContentManager.Shader("Blur");
+            BlurShader.Parameters["TextureSize"].SetValue(ScreenManager.window);
+            BlurShader.Parameters["BlurAmt"].SetValue(0.001f);
+
             int fieldX = (int)ScreenManager.window.X / scale;
             int fieldY = (int)ScreenManager.window.Y / scale;
 

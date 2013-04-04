@@ -105,7 +105,7 @@ namespace Flux
                 return EaseOut(start, halfEnd, timestep * 2);
             }
 
-            return EaseIn(start + halfEnd, end, (timestep * 2) - duration);
+            return EaseIn(start + halfEnd, halfEnd, (timestep * 2) - duration);
         }
     }
 }
