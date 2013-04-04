@@ -53,7 +53,7 @@ namespace Flux
             }
             else//if the resources are in range to be collected
             {
-                //sinAngle += 5f + intensity;
+                sinAngle += 5f + intensity;
                 rotation = new Vector3(10 * ((float)Math.Sin((double)(Math.PI * (sinAngle + 30) / 180))) , 0f , offset + (45 * ((float)Math.Sin((double)(Math.PI * sinAngle / 180)))));
 
             }
