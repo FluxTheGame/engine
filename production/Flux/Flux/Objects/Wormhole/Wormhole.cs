@@ -49,7 +49,10 @@ namespace Flux
 
             WormholeManager.ShaderAngle.SetValue((float)twirlAngle);
             WormholeManager.ShaderPosition.SetValue(position);
-            scene = ScreenManager.Target(display);
+
+            Shaderizer.Draw2D(0, WormholeManager.SwirlShader);
+
+            /*scene = ScreenManager.Target(display);
 
             ScreenManager.graphics.SetRenderTarget(rt);
             ScreenManager.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque, null, null, RasterizerState.CullNone, WormholeManager.SwirlShader);
@@ -57,7 +60,7 @@ namespace Flux
 
             ScreenManager.graphics.SetRenderTarget(scene);
             ScreenManager.spriteBatch.Draw(rt, ScreenManager.screenRect, Color.White);
-            ScreenManager.spriteBatch.End();
+            ScreenManager.spriteBatch.End();*/
         }
     }
 }
