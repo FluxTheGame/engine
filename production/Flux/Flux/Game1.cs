@@ -134,14 +134,14 @@ namespace Flux
             c.Add("id", 0);
             EventManager.Emit("collector:new", c);
 
-            c["id"] = 1;
+            /*c["id"] = 1;
             EventManager.Emit("collector:new", c);
             
             c["id"] = 2;
             EventManager.Emit("collector:new", c);
 
             c["id"] = 3;
-            EventManager.Emit("collector:new", c);
+            EventManager.Emit("collector:new", c);*/
 
             //Add User
             OrderedDictionary o = new OrderedDictionary();
@@ -149,7 +149,7 @@ namespace Flux
             o.Add("teamId", 0);
             o.Add("username", "DILBERT");
             o.Add("display", 0);
-            EventManager.Emit("user:new", o);/**/
+            EventManager.Emit("user:new", o);
             
             /* End for testing */
         }

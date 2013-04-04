@@ -28,7 +28,7 @@ namespace Flux
 
         public GameObject()
         {
-            scale = 0.1f;
+            scale = 1f;
             position = ScreenManager.Middle();
             display = 0;
             created = DateTime.Now;

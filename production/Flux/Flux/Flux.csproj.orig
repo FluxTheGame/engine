@@ -107,7 +107,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animation\Spritesheet.cs" />
     <Compile Include="Audio\Audio.cs" />
     <Compile Include="Audio\fmod.cs" />
     <Compile Include="Audio\fmod_dsp.cs" />
@@ -126,7 +125,6 @@
     <Compile Include="Graphics\Light.cs" />
     <Compile Include="Graphics\Notification.cs" />
     <Compile Include="Graphics\TeamColour.cs" />
-    <Compile Include="Helpers\Shaderizer.cs" />
     <Compile Include="Helpers\Tweening\Tweenerizer.cs" />
     <Compile Include="Helpers\Tweening\TweenObject.cs" />
     <Compile Include="Helpers\Vectorizer.cs" />
