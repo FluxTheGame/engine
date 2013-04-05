@@ -37,10 +37,6 @@ namespace Flux
 
         public void Draw()
         {
-            /*RasterizerState rs = new RasterizerState();
-            rs.CullMode = CullMode.None;
-            ScreenManager.graphics.RasterizerState = rs;*/
-
             for (int i = 0; i < ScreenManager.screens; i++)
             {
                 ScreenManager.SetTarget(i);
