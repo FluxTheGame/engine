@@ -21,12 +21,12 @@ namespace Flux
         public delegate void Callback();
         public Vector2 frameOffset;
         public int currentFrame;
+        public int sequence = 0;
 
         private Callback animDone;
         private float rotation;
         private float delay;
         private bool playing = true;
-        private int sequence = 0;
         private int rowOffset = 0;
         private int cols;
 

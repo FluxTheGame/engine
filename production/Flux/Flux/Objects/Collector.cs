@@ -253,6 +253,8 @@ namespace Flux
                 new Spritesheet("collector_intro", new Point(350, 600), (int)States.Intro, 48, false, (int)States.Static, true),
                 new Spritesheet("collector_static", new Point(350, 600), (int)States.Static, 3, false, -1, false),
                 new Spritesheet("collector_outro_01", new Point(350, 600), (int)States.Outro1, 18, false, -1, true), 
+                new Spritesheet("collector_outro_02", new Point(350, 600), (int)States.Outro2, 18, false, -1, true), 
+                new Spritesheet("collector_outro_03", new Point(350, 600), (int)States.Outro3, 18, false, -1, true), 
             };
 
             collectorAnim = new AnimSet(collectorAnimations);
