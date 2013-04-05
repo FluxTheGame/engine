@@ -57,7 +57,6 @@ namespace Flux
                     ScreenManager.graphics.DrawUserPrimitives(PrimitiveType.TriangleStrip, skyboxVerts, 0, 2);
                 }
 
-
                 Drawer3D.Draw(ground, Location(), rotation, c);
 
                 ScreenManager.graphics.DepthStencilState = DepthStencilState.None;
