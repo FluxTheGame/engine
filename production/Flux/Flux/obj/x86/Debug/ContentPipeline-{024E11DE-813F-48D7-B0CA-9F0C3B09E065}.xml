@@ -1949,6 +1949,54 @@
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\interactions\wormhole_origin.xnb</Output>
       <Time>2013-04-02T09:25:09.3765411-04:00</Time>
     </Item>
+    <Item>
+      <Source>sprites\collector_intro.png</Source>
+      <Name>sprites\collector_intro</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\collector_intro.xnb</Output>
+      <Time>2013-04-03T13:13:19.2742467-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\collector_static.png</Source>
+      <Name>sprites\collector_static</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\collector_static.xnb</Output>
+      <Time>2013-04-03T13:29:14.0035734-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\collector_portal.png</Source>
+      <Name>sprites\collector_portal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\collector_portal.xnb</Output>
+      <Time>2013-04-04T15:01:14.7983078-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\collector_outro_01.png</Source>
+      <Name>sprites\collector_outro_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\collector_outro_01.xnb</Output>
+      <Time>2013-04-04T15:27:13.5295373-04:00</Time>
+    </Item>
+    <Item>
+      <Source>shaders\Blur.fx</Source>
+      <Name>shaders\Blur</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\shaders\Blur.xnb</Output>
+      <Time>2013-04-05T09:30:58.0809617-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{024E11DE-813F-48D7-B0CA-9F0C3B09E065}</ContentProjectGUID>

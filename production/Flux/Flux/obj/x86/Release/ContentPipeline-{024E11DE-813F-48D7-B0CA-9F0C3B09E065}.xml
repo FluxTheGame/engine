@@ -1988,6 +1988,33 @@
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\collector_outro_01.xnb</Output>
       <Time>2013-04-04T15:27:13.5295373-04:00</Time>
     </Item>
+    <Item>
+      <Source>shaders\Blur.fx</Source>
+      <Name>shaders\Blur</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\shaders\Blur.xnb</Output>
+      <Time>2013-04-05T09:30:58.0809617-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\collector_outro_02.png</Source>
+      <Name>sprites\collector_outro_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\collector_outro_02.xnb</Output>
+      <Time>2013-04-05T10:40:43.167196-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\collector_outro_03.png</Source>
+      <Name>sprites\collector_outro_03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\collector_outro_03.xnb</Output>
+      <Time>2013-04-05T10:40:47.2166009-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{024E11DE-813F-48D7-B0CA-9F0C3B09E065}</ContentProjectGUID>

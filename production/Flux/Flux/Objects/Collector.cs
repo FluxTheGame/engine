@@ -13,6 +13,7 @@ namespace Flux
     public class Collector : GridObject
     {
         protected int health = 100;
+        protected int damage = 0;
         protected int capacity = 200;
         protected int collected = 0;
         protected int normalCapacity;
@@ -72,6 +73,14 @@ namespace Flux
 
             collectorAnim.Update(position);
             portalAnim.Update(position);
+
+            if (!isDying && collectorAnim.sheet == (int)States.Static)
+            {
+                if (health <= 40) damage = 2;
+                else if (health <= 70) damage = 1;
+                else damage = 0;
+                collectorAnim.SetFrame(damage);
+            }
 
             if (collected >= capacity)
                 Burst(true);
@@ -157,7 +166,7 @@ namespace Flux
                     CollectorManager.Remove(this);
                 });
 
-                collectorAnim.Play((int)States.Outro1);
+                collectorAnim.Play((int)States.Outro1 + damage);
                 portalAnim.Play(0);
             }
         }
