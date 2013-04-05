@@ -279,13 +279,8 @@ namespace Flux
             //Draw Grid
             ScreenManager.graphics.SetRenderTarget(null);
 
-            /*Color c = Color.Lerp(Color.DarkSlateGray, Color.LightSkyBlue, Light.lerp);
-            ScreenManager.graphics.Clear(c);*/
-
             ScreenManager.graphics.Clear(Color.SkyBlue);
             ScreenManager.spriteBatch.Begin();
-
-            //ScreenManager.spriteBatch.Draw(skybox, new Rectangle(0, 0, (int)ScreenManager.window.X, (int)ScreenManager.window.Y), Color.White);
 
             #if PRODUCTION
                 float scale = 1f;

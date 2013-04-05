@@ -17,6 +17,9 @@ namespace Flux
         private static Color SunDiffuseColorMid = Color.Goldenrod;
         private static Color SunDiffuseColorDay = Color.PaleGoldenrod;
 
+        public static Color SkyGradientTop = new Color(147, 210, 216);
+        public static Color SkyGradientBottom = new Color(162, 208, 148);
+
         private static Color transitionalColor;
         public static float lerp;
 
