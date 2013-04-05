@@ -215,10 +215,13 @@ namespace Flux
             if (collected > 0) {
                 Enemy enemy = EnemyManager.InRange(this);
                 if (enemy != null) {
-                    projectiles.Add(new Projectile(enemy, this));
-                    Audio.Play("collector.weapon", display);
-                    collected--;
-                    Console.WriteLine("Attacking...");
+                    if (!enemy.isDying)
+                    {
+                        projectiles.Add(new Projectile(enemy, this));
+                        Audio.Play("collector.weapon", display);
+                        collected--;
+                        Console.WriteLine("Attacking...");
+                    }
                 }
             }
         }
