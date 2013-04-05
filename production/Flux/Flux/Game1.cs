@@ -213,8 +213,8 @@ namespace Flux
                     //EventManager.Emit("user:disconnect", o);
 
                     OrderedDictionary c = new OrderedDictionary();
-                    c.Add("id", 1);
-                    EventManager.Emit("collector:new", c);
+                    c.Add("id", 0);
+                    EventManager.Emit("collector:attack", c);
                 }
             }
             if (keyState.IsKeyDown(Keys.D1)) 

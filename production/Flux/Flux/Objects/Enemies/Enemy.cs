@@ -33,7 +33,7 @@ namespace Flux
             addDelay = new Schedualizer(0, 1, 60);
 
             Animation[] stateAnimations = {
-                new Animation(0, 48, false)
+                new Animation(0, 40, false)
             };
             explosion = new AnimSprite("enemy_explosion", new Point(100, 75), stateAnimations);
             
