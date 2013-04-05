@@ -140,3 +140,4 @@ Content\sprites\collector_outro_01.xnb
 Content\shaders\Blur.xnb
 Content\sprites\collector_outro_02.xnb
 Content\sprites\collector_outro_03.xnb
+Content\sprites\collector_poof.xnb

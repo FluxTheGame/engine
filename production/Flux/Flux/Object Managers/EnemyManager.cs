@@ -98,7 +98,7 @@ namespace Flux
             {
                 AddEnemiesType("bulger", (int)(difference * 0.3));
                 AddEnemiesType("shooter", (int)(difference * 0.3));
-                AddEnemiesType("crazy", (int)(difference * 1));
+                AddEnemiesType("crazy", (int)(difference * 0.4));
             }
         }
 

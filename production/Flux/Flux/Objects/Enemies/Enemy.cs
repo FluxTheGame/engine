@@ -35,7 +35,7 @@ namespace Flux
             Animation[] stateAnimations = {
                 new Animation(0, 48, false)
             };
-            explosion = new AnimSprite("enemy_explosion", new Point(85, 75), stateAnimations);
+            explosion = new AnimSprite("enemy_explosion", new Point(100, 75), stateAnimations);
             
         }
 
