@@ -17,7 +17,6 @@ namespace Flux
         private static Dictionary<string, string> audioFiles = new Dictionary<string, string>();
         public static FMOD.System system = null;
 
-
         //SOUND FX
         private static FMOD.Sound sound1 = null;
         private static FMOD.Sound sound2 = null;
@@ -131,7 +130,7 @@ namespace Flux
 
         }
 
-        private void timer_Tick(object sender, System.EventArgs e)
+        public static void Update()
         {
             FMOD.RESULT result;
             uint ms = 0;

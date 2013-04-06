@@ -233,7 +233,7 @@ namespace Flux
         {
             if (!isDying)
             {
-                //Audio.Play("collector.resource" + ((collected % 4) + 1), display);
+                Audio.Play("collector.resource" + ((collected % 4) + 1), display);
                 collected++;
                 targetScale += scaleRate;
             }
