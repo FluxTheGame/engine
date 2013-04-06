@@ -77,6 +77,7 @@ Content\sprites\collector_static.xnb
 Content\sprites\collector_portal.xnb
 Content\sprites\collector_outro_01.xnb
 Content\shaders\Swirl.xnb
+Content\shaders\Blur.xnb
 Content\birch1_0.xnb
 Content\Flower_Blue_02_0.xnb
 Content\Flower_Red_01_0.xnb
@@ -137,4 +138,3 @@ Content\cherry_1.xnb
 Content\oak_0.xnb
 Content\oak_1.xnb
 Content\oak_2.xnb
-Content\shaders\Blur.xnb
