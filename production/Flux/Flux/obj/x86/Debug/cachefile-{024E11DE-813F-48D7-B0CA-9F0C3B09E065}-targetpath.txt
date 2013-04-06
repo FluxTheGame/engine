@@ -133,3 +133,8 @@ Content\audio\sfx\interactions\leaves_rustling.xnb
 Content\audio\sfx\interactions\wind.xnb
 Content\audio\sfx\interactions\wormhole_opposite.xnb
 Content\audio\sfx\interactions\wormhole_origin.xnb
+Content\sprites\collector_intro.xnb
+Content\sprites\collector_static.xnb
+Content\sprites\collector_portal.xnb
+Content\sprites\collector_outro_01.xnb
+Content\shaders\Blur.xnb

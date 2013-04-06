@@ -72,10 +72,6 @@ Content\sprites\enemy_bomb.xnb
 Content\sprites\enemy_explosion.xnb
 Content\sprites\enemy_shooter.xnb
 Content\sprites\enemy_bloat.xnb
-Content\sprites\collector_intro.xnb
-Content\sprites\collector_static.xnb
-Content\sprites\collector_portal.xnb
-Content\sprites\collector_outro_01.xnb
 Content\shaders\Swirl.xnb
 Content\birch1_0.xnb
 Content\Flower_Blue_02_0.xnb
@@ -137,4 +133,11 @@ Content\cherry_1.xnb
 Content\oak_0.xnb
 Content\oak_1.xnb
 Content\oak_2.xnb
+Content\sprites\collector_static.xnb
+Content\sprites\collector_intro.xnb
+Content\sprites\collector_portal.xnb
+Content\sprites\collector_outro_01.xnb
 Content\shaders\Blur.xnb
+Content\sprites\collector_outro_02.xnb
+Content\sprites\collector_outro_03.xnb
+Content\sprites\collector_poof.xnb

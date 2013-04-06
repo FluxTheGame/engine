@@ -66,7 +66,7 @@ namespace Flux
             bool make = true;
             foreach (WormholePair w in instance.wormholePairs)
             {
-                make = w.Make(position);
+                make = w.Make(position, display);
                 if (!make) break;
             }
 

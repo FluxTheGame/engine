@@ -13,6 +13,7 @@ namespace Flux
     public class Collector : GridObject
     {
         protected int health = 100;
+        protected int damage = 0;
         protected int capacity = 200;
         protected int collected = 0;
         protected int normalCapacity;
@@ -23,6 +24,7 @@ namespace Flux
 
         protected AnimSet collectorAnim;
         protected AnimSprite portalAnim;
+        protected AnimSprite poofAnim;
 
         public int attackRadius = 500;
         public int collectRadius = 100;
@@ -72,6 +74,7 @@ namespace Flux
 
             collectorAnim.Update(position);
             portalAnim.Update(position);
+            poofAnim.Update(position);
 
             if (collected >= capacity)
                 Burst(true);
@@ -85,8 +88,15 @@ namespace Flux
             {
                 scale += scaleRate;
             }
-            
-            base.Update();
+
+            if (!isDying && collectorAnim.sheet == (int)States.Static)
+            {
+                if (health <= 40) damage = 2;
+                else if (health <= 70) damage = 1;
+                else damage = 0;
+                collectorAnim.SetFrame(damage);
+                base.Update();
+            }
         }
 
         protected void SendHeartbeat()
@@ -111,6 +121,7 @@ namespace Flux
             ScreenManager.spriteBatch.Begin();
                 portalAnim.Draw(Color.White, scale);
                 collectorAnim.Draw(teamColour, scale);
+                poofAnim.Draw();
             ScreenManager.spriteBatch.End();
         }
 
@@ -157,13 +168,14 @@ namespace Flux
                     CollectorManager.Remove(this);
                 });
 
-                collectorAnim.Play((int)States.Outro1);
+                collectorAnim.Play((int)States.Outro1 + damage);
                 portalAnim.Play(0);
             }
         }
 
         public void MergeWith(Collector other)
         {
+            poofAnim.Play(0);
             Audio.Play("collector.merge", display);
 
             OrderedDictionary o = new OrderedDictionary();
@@ -206,10 +218,13 @@ namespace Flux
             if (collected > 0) {
                 Enemy enemy = EnemyManager.InRange(this);
                 if (enemy != null) {
-                    projectiles.Add(new Projectile(enemy, this));
-                    Audio.Play("collector.weapon", display);
-                    collected--;
-                    Console.WriteLine("Attacking...");
+                    if (!enemy.isDying)
+                    {
+                        projectiles.Add(new Projectile(enemy, this));
+                        Audio.Play("collector.weapon", display);
+                        collected--;
+                        Console.WriteLine("Attacking...");
+                    }
                 }
             }
         }
@@ -261,6 +276,7 @@ namespace Flux
             collectorAnim.frameOffset = new Vector2(0, 135);
             collectorAnim.Play((int)States.Intro);
 
+
             Animation[] portalAnimations = {
                 new Animation(0, 47, false)
             };
@@ -268,6 +284,13 @@ namespace Flux
             portalAnim = new AnimSprite("collector_portal", new Point(570, 200), portalAnimations);
             portalAnim.frameOffset.Y += 450;
             portalAnim.Play(0);
+
+
+            Animation[] poofAnimations = {
+                new Animation(0, 30, false)
+            };
+
+            poofAnim = new AnimSprite("collector_poof", new Point(200, 150), poofAnimations);
         }
     }
 }

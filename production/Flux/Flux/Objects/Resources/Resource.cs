@@ -61,7 +61,7 @@ namespace Flux
 
             if (collector != null)
             {
-                if (Vector2.Distance(position, collector.position) < 30)
+                if (Vector2.Distance(ScreenManager.AdjustedPosition(position, display), ScreenManager.AdjustedPosition(collector.position, collector.display)) < 30)
                 {
                     BeCollected();
                 }
@@ -77,7 +77,8 @@ namespace Flux
             //Override this method to implement resource movement logic
             if (!collector.isDying)
             {
-                Vector3 offset = (collector.Location() - location);
+                Vector3 collectorLocation = collector.Location();
+                Vector3 offset = ((collectorLocation + new Vector3(0, 0, -0.25f)) - location);
                 location += offset * speed;
             }
             else

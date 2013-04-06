@@ -175,3 +175,8 @@ Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Co
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\interactions\wind.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\interactions\wormhole_opposite.xnb
 Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\audio\sfx\interactions\wormhole_origin.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\collector_intro.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\collector_static.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\collector_portal.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\sprites\collector_outro_01.xnb
+Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Debug\Content\shaders\Blur.xnb

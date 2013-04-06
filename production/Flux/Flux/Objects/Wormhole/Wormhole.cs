@@ -11,13 +11,8 @@ namespace Flux
     public class Wormhole : GameObject
     {
         Stopwatch stopwatch = new Stopwatch();
-        Color[] bits = new Color[(int)(ScreenManager.window.X * ScreenManager.window.Y)];
         public bool inward;
-        private double startTime = 0;
-
         public float twirlAngle = 0;
-
-        private RenderTarget2D scene;
         private RenderTarget2D rt =
             new RenderTarget2D(ScreenManager.graphics, (int)ScreenManager.window.X, (int)ScreenManager.window.Y, false,
                 ScreenManager.graphics.PresentationParameters.BackBufferFormat,
@@ -52,7 +47,6 @@ namespace Flux
 
             WormholeManager.ShaderAngle.SetValue(twirlAngle);
             WormholeManager.ShaderPosition.SetValue(position);
-
             Shaderizer.Draw2D(display, WormholeManager.SwirlShader);
         }
     }
