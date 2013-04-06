@@ -12,13 +12,13 @@ namespace Flux
     public class Enemy : GridObject
     {
 
-        protected bool isDying = false;
         protected int health = 1;
         protected int wrapBuffer = 50;
         protected float rotation;
         protected AnimSprite animation;
         protected AnimSprite explosion;
         public Schedualizer addDelay;
+        public bool isDying = false;
 
 
         public Enemy() : base()
@@ -33,9 +33,9 @@ namespace Flux
             addDelay = new Schedualizer(0, 1, 60);
 
             Animation[] stateAnimations = {
-                new Animation(0, 48, false)
+                new Animation(0, 40, false)
             };
-            explosion = new AnimSprite("enemy_explosion", new Point(85, 75), stateAnimations);
+            explosion = new AnimSprite("enemy_explosion", new Point(100, 75), stateAnimations);
             
         }
 
@@ -46,15 +46,18 @@ namespace Flux
 
         public void BeAttacked(int damage)
         {
-            Console.WriteLine("Enemy got attacked, dying");
-            Die();
+            if (!isDying)
+            {
+                Console.WriteLine("Enemy got attacked, dying");
+                Die();
+            }
         }
 
         public void Kamikaze(Collector collector)
         {
             if (!isDying)
             {
-                collector.BeAttacked(25);
+                collector.BeAttacked(35);
                 Die();
             }
         }

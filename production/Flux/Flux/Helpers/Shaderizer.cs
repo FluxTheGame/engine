@@ -29,7 +29,7 @@ namespace Flux
 
         public static void _renderTexture(int display, RenderTarget2D tex)
         {
-            if (display != null) ScreenManager.SetTarget(display);
+            if (display >= 0) ScreenManager.SetTarget(display);
             else ScreenManager.graphics.SetRenderTarget(null);
 
             ScreenManager.spriteBatch.Draw(tex, ScreenManager.screenRect, Color.White);

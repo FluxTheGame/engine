@@ -24,7 +24,7 @@ namespace Flux
                 new Animation(0, 48),
                 new Animation(1, 48, false, 0),
             };
-            animation = new AnimSprite("enemy_bloat", new Point(85, 64), stateAnimations);
+            animation = new AnimSprite("enemy_bloat", new Point(85, 62), stateAnimations);
         }
 
         public override void Activate()

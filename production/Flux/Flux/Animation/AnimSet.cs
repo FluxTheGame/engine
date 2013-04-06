@@ -12,8 +12,8 @@ namespace Flux
     {
 
         protected Spritesheet[] spritesheets;
-        protected int sheet = 0;
-        protected AnimSprite anim;
+        public AnimSprite anim;
+        public int sheet = 0;
         public Vector2 frameOffset;
 
 
@@ -43,6 +43,11 @@ namespace Flux
         public void Draw(Color tint, float scale)
         {
             anim.Draw(tint, scale);
+        }
+
+        public void SetFrame(int frame)
+        {
+            anim.SetFrame(frame);
         }
 
         public void Play(int sheet)

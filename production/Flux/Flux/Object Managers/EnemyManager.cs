@@ -96,9 +96,9 @@ namespace Flux
 
             if (difference > reAddThreshold)
             {
-                AddEnemiesType("bulger", (int)(difference * 0.4));
-                AddEnemiesType("shooter", (int)(difference * 0.4));
-                AddEnemiesType("crazy", (int)(difference * 0.2));
+                AddEnemiesType("bulger", (int)(difference * 0.3));
+                AddEnemiesType("shooter", (int)(difference * 0.3));
+                AddEnemiesType("crazy", (int)(difference * 0.4));
             }
         }
 

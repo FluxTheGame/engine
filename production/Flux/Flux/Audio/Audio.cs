@@ -17,7 +17,6 @@ namespace Flux
         private static Dictionary<string, string> audioFiles = new Dictionary<string, string>();
         public static FMOD.System system = null;
 
-
         //SOUND FX
         private static FMOD.Sound sound1 = null;
         private static FMOD.Sound sound2 = null;
@@ -113,27 +112,13 @@ namespace Flux
             system.setSpeakerMode(FMOD.SPEAKERMODE._7POINT1);
             ERRCHECK(result);
 
-            result = system.init(32, FMOD.INITFLAGS.NORMAL, (IntPtr)null);
+            result = system.init(256, FMOD.INITFLAGS.NORMAL, (IntPtr)null);
             ERRCHECK(result);
-
-
-            //LOAD IN PATHS OF AUDIO FILES
-            string sound1Path = "../../../../FluxContent/audio/drumloop.wav";
-
-            FMOD.Sound tmpSound = null;
-
-            //RUN FOR EACH SOUND FILE
-            result = system.createSound(sound1Path, (FMOD.MODE.SOFTWARE | FMOD.MODE._2D), ref tmpSound);
-            ERRCHECK(result);
-            sounds["drumloop"] = tmpSound;
-            result = sounds["drumloop"].setMode(FMOD.MODE.LOOP_OFF);
-            ERRCHECK(result);
-
         }
 
-        private void timer_Tick(object sender, System.EventArgs e)
+        public static void Update()
         {
-            FMOD.RESULT result;
+            /*FMOD.RESULT result;
             uint ms = 0;
             uint lenms = 0;
             bool playing = false;
@@ -173,11 +158,15 @@ namespace Flux
                 }
 
                 system.getChannelsPlaying(ref channelsplaying);
-            }
+            }*/
 
             if (system != null)
             {
                 system.update();
+            }
+            else
+            {
+                Console.WriteLine("Fmod error! System is null");
             }
         }
 
@@ -239,7 +228,7 @@ namespace Flux
             if (result != FMOD.RESULT.OK)
             {
                 //timer.Stop();
-                //MessageBox.Show("FMOD error! " + result + " - " + FMOD.Error.String(result));
+                Console.WriteLine("FMOD error! " + result + " - " + FMOD.Error.String(result));
                 //Environment.Exit(-1);
             }
 

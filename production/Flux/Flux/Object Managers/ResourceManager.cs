@@ -62,7 +62,7 @@ namespace Flux
 
                     if (PlaceResource(pos, posN, mask))
                     {
-                        Resource r = new Leaf(pos, "env/" + tree.leafName, tree.location, 0.05f); //PAUL LOOK HERE
+                        Resource r = new Leaf(pos, "env/" + tree.leafName, tree.location, 0.05f);
                         r.display = ScreenManager.DisplayOfLocation(pos);
                         addBuffer.Add(r);
                     } else i--;

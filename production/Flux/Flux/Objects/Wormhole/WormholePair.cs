@@ -32,9 +32,10 @@ namespace Flux
             });
         }
 
-        public bool Make(Vector2 position) {
-            if (Vector2.Distance(one.position, position) > 200 &&
-                Vector2.Distance(two.position, position) > 200) {
+        public bool Make(Vector2 position, int display) {
+            if (Vector2.Distance(ScreenManager.AdjustedPosition(one.position, one.display), ScreenManager.AdjustedPosition(position, display)) > 200 &&
+                Vector2.Distance(ScreenManager.AdjustedPosition(two.position, two.display), ScreenManager.AdjustedPosition(position, display)) > 200)
+            {
                 return true;
             }
             return false;
