@@ -23,12 +23,28 @@ namespace Flux
         private Random random = new Random();
         private float xOffset;
 
-        public Leaf(Vector3 location, string modelName, float speed = 0.05f) : base(location, modelName, speed)
+        public Leaf(Vector3 location, string modelName, Vector3 root, float speed = 0.05f) : base(location, modelName, speed)
         {
             sinAngle = 0f;
             intensity = 0f;
             spin = 0f;
             xOffset = (float)random.Next(0, 20);
+
+
+            rotation = new Vector3(0, 0, GetRadiationAngle(root));
+        }
+
+        private float GetRadiationAngle(Vector3 root)
+        {
+            Vector3 segment = location - root;
+            float mag = segment.Length();
+
+            double angleInRad = Math.Atan2(segment.Y, segment.X);
+            float angle = MathHelper.ToDegrees((float)angleInRad) - 90;
+
+            Console.WriteLine(angle);
+
+            return angle;
         }
 
         protected override void MoveToCollector()
