@@ -21,6 +21,8 @@ namespace Flux
 
         public override void Update()
         {
+            if (disabled) return;
+
             Vector2 force = GridManager.GetForce(position, 100.0f, display);
             force = Vector2.Divide(force, drag);
             velocity = Vector2.Add(velocity, force);

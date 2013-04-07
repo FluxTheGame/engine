@@ -39,6 +39,7 @@ namespace Flux
 
         public override void Update()
         {
+            if (disabled) return;
 
             if (shootSchedule.IsOn())
             {

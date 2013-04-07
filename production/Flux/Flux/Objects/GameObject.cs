@@ -14,6 +14,7 @@ namespace Flux
         public float scale;
         public int display;
         protected int height = 50;
+        public bool disabled = false;
 
         public Vector2 position;
         public Vector2 velocity;
@@ -41,6 +42,8 @@ namespace Flux
 
         public virtual void Update()
         {
+            if (disabled) return;
+
             Constrain();
 
             velocity = Vector2.Add(velocity, acceleration);

@@ -39,16 +39,18 @@ namespace Flux
     class Tweenerizer
     {
         // Callback for tweening
+
         public delegate void Callback(
             float ease /*incremented value between start and end*/,
-            float incr /*amount value was last incremented by*/);
+            float incr /*amount value was last incremented by*/
+        );
 
         private static List<TweenObject> tweens = new List<TweenObject>();
 
         // What you should be calling
-        public static void Ease(EasingType type, float start, float end, float speed, Callback callback)
+        public static void Ease(EasingType type, float start, float end, float speed, Callback callback, Action onComplete = null)
         {
-            tweens.Add(new TweenObject(type, start, end, callback, speed));
+            tweens.Add(new TweenObject(type, start, end, callback, speed, onComplete));
         }
 
         public static void Update()
