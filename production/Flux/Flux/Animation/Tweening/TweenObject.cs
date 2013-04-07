@@ -15,16 +15,18 @@ namespace Flux
         private float lastVal = 0;
         // generic description of tweening function
         private Func<float, float, float, float, float> tweenFunc;
+        private Action handleOnComplete;
 
         private float timestep = 0;
 
-        public TweenObject(EasingType type, float start, float end, Tweenerizer.Callback callback, float speed=1000)
+        public TweenObject(EasingType type, float start, float end, Tweenerizer.Callback callback, float speed = 1000, Action onComplete = null)
         {
             tweenType = type;
             this.start = start;
             this.end = end;
             this.callback = callback;
             this.speed = speed / 1000;
+            handleOnComplete = onComplete;
 
             switch (tweenType)
             {
@@ -50,14 +52,17 @@ namespace Flux
         {
             timestep += 0.01f;
 
-            bool lastIter = false;
-            if ((timestep - speed) >= 0) lastIter = true;
-
             float ease = tweenFunc(start, end, timestep, speed);
             callback(ease, ease-lastVal);
             lastVal = ease;
 
-            return lastIter;
+            if ((timestep - speed) >= 0)
+            {
+                if (handleOnComplete != null) handleOnComplete();
+                return true;
+            }
+
+            return false;
         }
     }
 }
