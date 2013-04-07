@@ -43,10 +43,9 @@ namespace Flux
         public virtual void Activate()
         {
             // Ease interpolates minScale->maxScale, over 500 "time units"
-            Tweenerizer.Ease(EasingType.EaseIn, minScale, maxScale, 500, (ease, incr) =>
-            {
-                scale = ease;
-            });
+            Tweenerizer.Ease(EasingType.EaseIn, minScale, maxScale, 500,
+                // update parameters with new easing values
+                (ease, incr) => scale = ease);
         }
 
         public virtual void AssignCollector(Collector collector)

@@ -76,6 +76,8 @@ namespace Flux
 
         public override void Update()
         {
+            if (disabled) return;
+
             WrapY();
 
             rotation = (float)Math.Atan2(velocity.X, velocity.Y) + MathHelper.ToRadians(90);
@@ -89,7 +91,7 @@ namespace Flux
         {
             ScreenManager.SetTarget(display);
             ScreenManager.spriteBatch.Begin();
-            if (!isDying) animation.Draw();
+            if (!isDying) animation.Draw(Color.White, scale);
             else explosion.Draw();
             ScreenManager.spriteBatch.End();
         }

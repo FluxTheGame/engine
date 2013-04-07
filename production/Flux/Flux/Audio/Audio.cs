@@ -112,7 +112,7 @@ namespace Flux
             system.setSpeakerMode(FMOD.SPEAKERMODE._7POINT1);
             ERRCHECK(result);
 
-            result = system.init(256, FMOD.INITFLAGS.NORMAL, (IntPtr)null);
+            result = system.init(512, FMOD.INITFLAGS.NORMAL, (IntPtr)null);
             ERRCHECK(result);
         }
 

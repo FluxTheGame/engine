@@ -34,6 +34,8 @@ namespace Flux
 
         public override void Update()
         {
+            if (disabled) return;
+
             if (accelerationSchedule.IsOn())
             {
                 acceleration = Randomizer.RandomVelocity(0.05f);

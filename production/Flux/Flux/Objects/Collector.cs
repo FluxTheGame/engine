@@ -67,6 +67,8 @@ namespace Flux
 
         public override void Update()
         {
+            if (disabled) return;
+
             drag = capacity / normalCapacity;
 
             CollectResources();

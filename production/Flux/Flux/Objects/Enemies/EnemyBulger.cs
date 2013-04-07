@@ -37,6 +37,7 @@ namespace Flux
 
         public override void Update()
         {
+            if (disabled) return;
 
             if (bulgeSchedule.IsOn()) {
                 GridManager.Bloat(position, 100.0f, 0.1f, display);

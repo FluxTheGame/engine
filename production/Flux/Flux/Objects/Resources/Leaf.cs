@@ -42,8 +42,6 @@ namespace Flux
             double angleInRad = Math.Atan2(segment.Y, segment.X);
             float angle = MathHelper.ToDegrees((float)angleInRad) - 90;
 
-            Console.WriteLine(angle);
-
             return angle;
         }
 

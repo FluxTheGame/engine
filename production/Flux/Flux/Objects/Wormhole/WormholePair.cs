@@ -58,13 +58,36 @@ namespace Flux
             two.Update();
         }
 
+        private void TriggerSuction(GameObject passenger, Wormhole endpoint)
+        {
+            float max = passenger.scale;
+            passenger.disabled = true;
+            Tweenerizer.Ease(EasingType.EaseIn, 0, 1, 300,
+                // update with easing
+                (ease, incr) => passenger.scale = max - (ease * max),
+                // on complete
+                () => {
+                    // move to new display
+                    Transport(passenger, endpoint);
+                    // scale back up
+                    Tweenerizer.Ease(EasingType.EaseOut, 0, 1, 300,
+                        (ease, incr) => passenger.scale = (ease * max));
+                    // it's aliiiiive!
+                    passenger.disabled = false;
+                });
+        }
+
         public void Suck(GameObject passenger)
         {
             if (one.inward && GameObject.Distance(one, passenger) < 20f)
-                Transport(passenger, two);
+            {
+                TriggerSuction(passenger, two);
+            }
 
             else if (two.inward && GameObject.Distance(two, passenger) < 20f)
-                Transport(passenger, one);
+            {
+                TriggerSuction(passenger, one);
+            }
         }
 
         private void Transport(GameObject passenger, Wormhole destination)
