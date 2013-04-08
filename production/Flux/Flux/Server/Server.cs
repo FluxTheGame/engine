@@ -144,6 +144,8 @@ namespace Flux
 
                 string[] items = message.Trim().Split("/".ToCharArray());
                 string eventName = items[1].Split("=".ToCharArray())[1];
+
+                bool idIsOkay = false;
                 
                 //Create the event data object
                 OrderedDictionary o = new OrderedDictionary();
@@ -156,11 +158,27 @@ namespace Flux
 
                         try
                         {
+
                             int number = Convert.ToInt32(keyValue[1]);
+
+                            if (!idIsOkay && keyValue[0] == "id" && number < 0)
+                            {
+                                Console.WriteLine("Invalid User ID: " + number);
+                                return;
+                            }
+
+                            idIsOkay = true;
+
                             o.Add(keyValue[0], number);
                         }
                         catch
                         {
+                            if (keyValue[0] == "id")
+                            {
+                                Console.WriteLine("Invalid User ID: " + keyValue[1]);
+                                return;
+                            }
+
                             o.Add(keyValue[0], keyValue[1]);
                         }
                     }
