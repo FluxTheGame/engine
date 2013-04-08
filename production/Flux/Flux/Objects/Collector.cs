@@ -14,7 +14,7 @@ namespace Flux
     {
         protected int health = 100;
         protected int damage = 0;
-        protected int capacity = 200;
+        protected int capacity = 300;
         protected int collected = 0;
         protected int normalCapacity;
         protected Schedualizer heartbeatSchedule;
@@ -185,9 +185,9 @@ namespace Flux
             o.Add("team_2", other.id);
             EventManager.Emit("collector:merge", o);
 
-            capacity += other.capacity;
-            collected += other.collected;
-            targetScale += scaleRate * (other.collected * 0.5f);
+            capacity += (int)(other.capacity * 0.5);
+            collected += (int)(other.collected * 0.5);
+            targetScale += (other.scale * 0.3f);
             numCollectors += other.numCollectors;
 
             foreach (User u in other.users)
