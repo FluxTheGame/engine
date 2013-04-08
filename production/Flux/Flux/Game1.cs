@@ -124,7 +124,7 @@ namespace Flux
             Audio.MultiSpeakerOutput_Load();
 
             Dictionary<string, string> audioFiles = new Dictionary<string, string>();
-            audioFiles.Add("ambient.flux", "sfx/ambient/flux_v2.wav");
+            audioFiles.Add("ambient.flux", "sfx/ambient/flux_v2.1.wav");
             Audio.Load(audioFiles);
 
             Audio.Play("ambient.flux", 0, 0.3f, true);

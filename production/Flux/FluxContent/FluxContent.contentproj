@@ -390,13 +390,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="audio\sfx\ambient\flux_v2.wav">
-      <Name>flux_v2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="audio\sfx\ambient\bass_event.wav">
       <Name>bass_event</Name>
       <Importer>WavImporter</Importer>
@@ -509,13 +502,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\skybox2.png">
-      <Name>skybox2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="sprites\collector_intro.png">
       <Name>collector_intro</Name>
       <Importer>TextureImporter</Importer>
@@ -584,6 +570,13 @@
       <Name>noise</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="audio\sfx\ambient\flux_v2.1.wav">
+      <Name>flux_v2.1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
