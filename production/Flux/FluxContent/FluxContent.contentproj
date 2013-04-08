@@ -509,7 +509,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="images\" />
+    <Compile Include="images\skybox2.png">
+      <Name>skybox2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="sprites\collector_intro.png">
@@ -564,6 +568,20 @@
   <ItemGroup>
     <Compile Include="sprites\collector_poof.png">
       <Name>collector_poof</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shaders\BeautyRender.fx">
+      <Name>BeautyRender</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\noise.png">
+      <Name>noise</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

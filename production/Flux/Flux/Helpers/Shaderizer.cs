@@ -13,7 +13,7 @@ namespace Flux
                 ScreenManager.graphics.PresentationParameters.BackBufferFormat,
                 DepthFormat.Depth24, 8, RenderTargetUsage.PreserveContents);
 
-        public static RenderTarget2D _drawShader(RenderTarget2D source, RenderTarget2D rt, Effect shader, bool end = false)
+        public static RenderTarget2D _drawShader(RenderTarget2D source, RenderTarget2D rt, Effect shader, bool end = true)
         {
             // set target
             ScreenManager.graphics.SetRenderTarget(rt);
@@ -38,7 +38,7 @@ namespace Flux
 
         public static void Draw2D(int display, Effect shader)
         {
-            RenderTarget2D tex = _drawShader(ScreenManager.Target(display), tmpTarget, shader);
+            RenderTarget2D tex = _drawShader(ScreenManager.Target(display), tmpTarget, shader, false);
             _renderTexture(display, tex);
         }
     }

@@ -31,6 +31,8 @@ namespace Flux
         UserManager userManager;
         ResourceManager resourceManager;
         WormholeManager wormholeManager;
+        Effect beautyPass;
+        Texture2D noiseTexture;
 
         Server server;
 
@@ -101,6 +103,12 @@ namespace Flux
             TeamColour.Initialize();
             VLine.Effect = new BasicEffect(GraphicsDevice);
 
+            beautyPass = ContentManager.Shader("BeautyRender");
+            noiseTexture = Content.Load<Texture2D>(@"images/noise");
+            beautyPass.CurrentTechnique = beautyPass.Techniques["Pretty"];
+            beautyPass.Parameters["TextureSize"].SetValue(ScreenManager.window);
+            beautyPass.Parameters["NoiseMap"].SetValue(noiseTexture);
+
             oldState = Keyboard.GetState();
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -123,7 +131,6 @@ namespace Flux
             Audio.Play("ambient.flux", 1, 0.3f, true);
             Audio.Play("ambient.flux", 2, 0.3f, true);
             Audio.Play("ambient.flux", 3, 0.3f, true);
-
 
             //skybox = Content.Load<Texture2D>(@"images/skybox");
 
@@ -278,30 +285,48 @@ namespace Flux
             GridManager.Draw();
 
             //Draw Grid
-            ScreenManager.graphics.SetRenderTarget(null);
 
+            ScreenManager.graphics.SetRenderTarget(null);
             ScreenManager.graphics.Clear(Color.SkyBlue);
-            ScreenManager.spriteBatch.Begin();
+            //ScreenManager.spriteBatch.Begin();
 
             #if PRODUCTION
-                float scale = 1f;
-                int frameWidth = (int)(ScreenManager.window.X);
 
+                //ScreenManager.spriteBatch.Begin();
                 for (int i = 0; i < 4; i++)
                 {
+                    RenderTarget2D tex = Shaderizer._drawShader(ScreenManager.Target(i), Shaderizer.tmpTarget, beautyPass, false);
+
+                    ScreenManager.graphics.SetRenderTarget(null);
                     ScreenManager.spriteBatch.Draw(
-                        (Texture2D)ScreenManager.Target(i), new Vector2(frameWidth * i, 0), 
-                        ScreenManager.Target(i).Bounds, Color.White,
-                        0, new Vector2(0, 0), scale, SpriteEffects.None, 0f);
+                        tex, new Vector2(0, 0), 
+                        ScreenManager.Target(i).Bounds, Color.White);
+                    ScreenManager.spriteBatch.End();
                 }
-            #else
+
+
+            /*float scale = 1f;
+            int frameWidth = (int)(ScreenManager.window.X);
+
+            for (int i = 0; i < 4; i++)
+            {
                 ScreenManager.spriteBatch.Draw(
+                    (Texture2D)ScreenManager.Target(i), new Vector2(frameWidth * i, 0), 
+                    ScreenManager.Target(i).Bounds, Color.White,
+                    0, new Vector2(0, 0), scale, SpriteEffects.None, 0f);
+            }*/
+#else
+            RenderTarget2D tex = Shaderizer._drawShader(ScreenManager.Target(currentDisplay), Shaderizer.tmpTarget, beautyPass, false);
+            Shaderizer._renderTexture(-1, tex);
+
+                //Shaderizer.Draw2D(currentDisplay, WormholeManager.SwirlShader);
+                /*ScreenManager.spriteBatch.Draw(
                         (Texture2D)ScreenManager.Target(currentDisplay), new Vector2(0, 0),
                         ScreenManager.Target(currentDisplay).Bounds, Color.White,
-                        0, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
-            #endif
-            
-            ScreenManager.spriteBatch.End();
+                        0, new Vector2(0, 0), 1, SpriteEffects.None, 0f);*/
+#endif
+
+            //ScreenManager.spriteBatch.End();
         }
 
     }
