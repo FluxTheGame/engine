@@ -22,13 +22,26 @@ namespace Flux
             two = new Wormhole(!oneInward, position, ScreenManager.Opposite(displayOne));
             Audio.Play("wormhole.opposite", two.display);
 
-            float lifespan = Randomizer.RandomInt(20, 30);
+            float lifespan = Randomizer.RandomInt(10, 20);
             expiry = created.AddSeconds(lifespan);
 
-            Tweenerizer.Ease(EasingType.EaseOut, 0, 5, lifespan*100, (ease, incr) =>
+            Tweenerizer.Ease(EasingType.EaseInOut, 0, 5, lifespan * 500, (ease, incr) =>
             {
-                one.twirlAngle = ease;
-                two.twirlAngle = ease;
+                one.twirlAngle =  ease;
+                two.twirlAngle = -ease;
+            },
+            // on complete
+            () =>
+            {
+                Tweenerizer.Ease(EasingType.EaseInOut, 0, 5, lifespan * 500, (ease, incr) =>
+                {
+                    one.twirlAngle =  5-ease;
+                    two.twirlAngle = -5-ease;
+                },
+                () =>
+                {
+                    WormholeManager.Remove(this);
+                });
             });
         }
 
@@ -49,11 +62,6 @@ namespace Flux
 
         public override void Update()
         {
-            if (DateTime.Now.CompareTo(expiry) > 0)
-            {
-                WormholeManager.Remove(this);
-            }
-
             one.Update();
             two.Update();
         }
