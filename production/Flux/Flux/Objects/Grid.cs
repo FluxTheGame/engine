@@ -24,9 +24,9 @@ namespace Flux
 
         //Low res copy
         Vector2 lowResFieldSize;
-        int lowResScale = 5;
+        float lowResScale = 4.18f;
         int lowResResolution = 1000;
-        float lowResThickness = 0.03f;
+        float lowResThickness = 0.008f;
         float lowResMaxForce = 20f;
 
         float drawDampening = 2f;

@@ -104,7 +104,7 @@ namespace Flux
             VLine.Effect.View = camera.view;
             VLine.Effect.Projection = camera.projection;
             VLine.Effect.VertexColorEnabled = true;
-            VLine.Effect.Alpha = 0.1f;
+            VLine.Effect.Alpha = 0.25f;
 
             List<VertexPositionColor> vpc = new List<VertexPositionColor>();
 

@@ -36,7 +36,7 @@ namespace Flux
                 Tweenerizer.Ease(EasingType.EaseInOut, 0, 5, lifespan * 500, (ease, incr) =>
                 {
                     one.twirlAngle =  5-ease;
-                    two.twirlAngle = -5-ease;
+                    two.twirlAngle = -5+ease;
                 },
                 () =>
                 {
