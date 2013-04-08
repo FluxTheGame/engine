@@ -9,16 +9,18 @@ namespace Flux
 {
     public class Ground
     {
-        public Model ground, foliage;
+        public Model ground, foliage, water;
         Vector3 position;
         Vector3 rotation;
         VertexPositionColor[] skyboxVerts;
-        static BasicEffect Effect = new BasicEffect(ScreenManager.graphics);
+        static BasicEffect skyboxEffect = new BasicEffect(ScreenManager.graphics);
+        static BasicEffect waterEffect = new BasicEffect(ScreenManager.graphics);
 
         public Ground()
         {
             ground = ContentManager.Model(@"env/Ground");
             foliage = ContentManager.Model(@"env/Planes");
+            water = ContentManager.Model(@"env/Water");
             position = Vector3.Zero;
             rotation = new Vector3(0, 180, 0);
 
@@ -42,18 +44,21 @@ namespace Flux
                 ScreenManager.SetTarget(i);
                 Camera c = ScreenManager.Camera(i);
 
-                Effect.World = Matrix.Identity;
-                Effect.View = c.view;
-                Effect.Projection = c.projection;
-                Effect.VertexColorEnabled = true;
+                skyboxEffect.World = Matrix.Identity;
+                skyboxEffect.View = c.view;
+                skyboxEffect.Projection = c.projection;
+                skyboxEffect.VertexColorEnabled = true;
 
-                foreach (EffectPass pass in Effect.CurrentTechnique.Passes)
+                foreach (EffectPass pass in skyboxEffect.CurrentTechnique.Passes)
                 {
                     pass.Apply();
                     ScreenManager.graphics.DrawUserPrimitives(PrimitiveType.TriangleStrip, skyboxVerts, 0, 2);
                 }
 
+                waterEffect.AmbientLightColor = Color.SteelBlue.ToVector3();
+
                 Drawer3D.Draw(ground, Location(), rotation, c);
+                Drawer3D.Draw(water, Location(), rotation, new Vector3(1), 0.4f, c, waterEffect);
 
                 ScreenManager.graphics.DepthStencilState = DepthStencilState.None;
                 ScreenManager.graphics.BlendState = BlendState.AlphaBlend;

@@ -2,7 +2,6 @@ Content\audio\sfx\collector\collector_complete.xnb
 Content\audio\sfx\collector\collector_merge.xnb
 Content\audio\sfx\collector\collector_spawn.xnb
 Content\audio\drumloop.xnb
-Content\audio\sfx\ambient\flux_v2.xnb
 Content\audio\sfx\ambient\bass_event.xnb
 Content\audio\sfx\ambient\birds.xnb
 Content\audio\sfx\ambient\creek1.xnb
@@ -76,6 +75,9 @@ Content\sprites\collector_intro.xnb
 Content\sprites\collector_static.xnb
 Content\sprites\collector_portal.xnb
 Content\sprites\collector_outro_01.xnb
+Content\sprites\collector_outro_02.xnb
+Content\sprites\collector_outro_03.xnb
+Content\sprites\collector_poof.xnb
 Content\shaders\Swirl.xnb
 Content\shaders\Blur.xnb
 Content\birch1_0.xnb
@@ -138,3 +140,8 @@ Content\cherry_1.xnb
 Content\oak_0.xnb
 Content\oak_1.xnb
 Content\oak_2.xnb
+Content\images\noise.xnb
+Content\shaders\BeautyRender.xnb
+Content\audio\sfx\ambient\flux_v2.1.xnb
+Content\Palm_03_0.xnb
+Content\models\env\Water.xnb

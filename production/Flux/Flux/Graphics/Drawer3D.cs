@@ -91,8 +91,10 @@ namespace Flux
                             //effect.EmissiveColor = new Vector3(0.2f, 0.2f, 0.2f);
                         }
 
-
-
+                        if (opacity < 1)
+                        {
+                            ScreenManager.graphics.BlendState = BlendState.AlphaBlend;
+                        }
                         effect.Alpha = opacity;
                     }
                     model.Meshes[i].Draw();
