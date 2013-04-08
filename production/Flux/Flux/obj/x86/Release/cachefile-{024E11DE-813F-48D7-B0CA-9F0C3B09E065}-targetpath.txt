@@ -2,7 +2,6 @@ Content\audio\sfx\collector\collector_complete.xnb
 Content\audio\sfx\collector\collector_merge.xnb
 Content\audio\sfx\collector\collector_spawn.xnb
 Content\audio\drumloop.xnb
-Content\audio\sfx\ambient\flux_v2.xnb
 Content\audio\sfx\ambient\bass_event.xnb
 Content\audio\sfx\ambient\birds.xnb
 Content\audio\sfx\ambient\creek1.xnb
@@ -23,6 +22,7 @@ Content\audio\sfx\interactions\leaves_rustling.xnb
 Content\audio\sfx\interactions\wind.xnb
 Content\audio\sfx\interactions\wormhole_opposite.xnb
 Content\audio\sfx\interactions\wormhole_origin.xnb
+Content\audio\sfx\ambient\flux_v2.1.xnb
 Content\fonts\user_name.xnb
 Content\fonts\user_points.xnb
 Content\models\chicken.xnb
@@ -76,8 +76,13 @@ Content\sprites\collector_intro.xnb
 Content\sprites\collector_static.xnb
 Content\sprites\collector_portal.xnb
 Content\sprites\collector_outro_01.xnb
+Content\sprites\collector_outro_02.xnb
+Content\sprites\collector_outro_03.xnb
+Content\sprites\collector_poof.xnb
+Content\images\noise.xnb
 Content\shaders\Swirl.xnb
 Content\shaders\Blur.xnb
+Content\shaders\BeautyRender.xnb
 Content\birch1_0.xnb
 Content\Flower_Blue_02_0.xnb
 Content\Flower_Red_01_0.xnb

@@ -33,7 +33,7 @@ float4 PixelShaderFunc(float2 TextureCoordinate : TEXCOORD0) : COLOR0
 	float4 color = tex2D(TextureSampler, TextureCoordinate);
 
     //float4 midColor = color;
-    float3 midColor = lerp(color, Blend(color, float3(0.415,0.526,0.706), BlendSoftLight), 0.35);
+    float3 midColor = lerp(color, Blend(color, float3(0.415,0.526,0.706), BlendSoftLight), 0.15);
 
 	float4 mapSample = tex2D(NoiseMapSampler, TextureCoordinate);
     mapSample.a = 0.02;
