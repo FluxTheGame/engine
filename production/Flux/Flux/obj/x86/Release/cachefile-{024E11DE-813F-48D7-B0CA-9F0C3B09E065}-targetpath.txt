@@ -143,3 +143,4 @@ Content\cherry_1.xnb
 Content\oak_0.xnb
 Content\oak_1.xnb
 Content\oak_2.xnb
+Content\Palm_03_0.xnb
