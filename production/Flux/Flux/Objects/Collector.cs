@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System.Timers;
 
 
 namespace Flux
@@ -21,6 +21,9 @@ namespace Flux
         protected float scaleRate = 0.0005f;
         protected float targetScale;
         protected int spawnBuffer = 150;
+        protected bool isPlayingAudio = false;
+
+        protected Timer audioTimeout = new Timer(250);
 
         protected AnimSet collectorAnim;
         protected AnimSprite portalAnim;
@@ -59,10 +62,17 @@ namespace Flux
             SetupAnimations();
             SendHeartbeat();
 
+            audioTimeout.Elapsed += new ElapsedEventHandler(audioTimeout_Elapsed);
+
             Audio.Play("collector.spawn", display);
 
             users = new List<User>();
             projectiles = new List<Projectile>();
+        }
+
+        private void audioTimeout_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            isPlayingAudio = false;
         }
 
         public override void Update()
@@ -236,7 +246,12 @@ namespace Flux
         {
             if (!isDying)
             {
-                Audio.Play("collector.resource" + ((collected % 4) + 1), display);
+                if (!isPlayingAudio)
+                {
+                    Audio.Play("collector.resource" + ((collected % 4) + 1), display);
+                    isPlayingAudio = true;
+                    audioTimeout.Start();
+                }
                 collected++;
                 targetScale += scaleRate;
             }
