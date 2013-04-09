@@ -19,6 +19,7 @@ namespace Flux
 
         public static Color SkyGradientTop = new Color(147, 210, 216);
         public static Color SkyGradientBottom = new Color(162, 208, 148);
+        //public static Color SkyGradientBottom = new Color(134, 164, 77);
 
         private static Color transitionalColor;
         public static float lerp;
@@ -26,7 +27,7 @@ namespace Flux
 
         public static void Update(GameTime gameTime)
         {
-            lerp = (float)(Math.Cos(gameTime.TotalGameTime.TotalSeconds * 0.3f) + 1) * 0.5f; // [0..1]
+            /*lerp = (float)(Math.Cos(gameTime.TotalGameTime.TotalSeconds * 0.3f) + 1) * 0.5f; // [0..1]
  
             SunDirection.Y = (lerp - 1);
 
@@ -42,7 +43,7 @@ namespace Flux
             else
             {
                 SunDiffuseColor = Color.Lerp(SunDiffuseColorNight, transitionalColor, amt).ToVector3();
-            }
+            }*/
         }
     }
 }

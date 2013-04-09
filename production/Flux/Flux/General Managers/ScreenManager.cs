@@ -67,6 +67,8 @@ namespace Flux
             graphics.BlendState = BlendState.Opaque;
             //graphics.SamplerStates[0] = SamplerState.PointWrap;
 
+            if (display > 3) display = 3;
+
             return camera[display];
         }
 

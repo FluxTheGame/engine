@@ -119,6 +119,7 @@ namespace Flux
         protected override void LoadContent()
         {
             ground = new Ground();
+            CloudManager.LoadContent();
 
             // Load audio
             Audio.MultiSpeakerOutput_Load();
@@ -181,6 +182,7 @@ namespace Flux
             GridManager.Update();
             Tweenerizer.Update();
             Audio.Update();
+            CloudManager.Update();
 
             /* For Testing - Accepts keyboard/mouse */
             OrderedDictionary o = new OrderedDictionary();
@@ -279,6 +281,7 @@ namespace Flux
 
             //Draw Ground Plane
             ground.Draw();
+            CloudManager.Draw(gameTime);
 
             base.Draw(gameTime);
 

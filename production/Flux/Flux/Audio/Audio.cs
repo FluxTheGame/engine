@@ -1,4 +1,6 @@
-﻿using System;
+﻿//#define NO_AUDIO
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -118,48 +120,6 @@ namespace Flux
 
         public static void Update()
         {
-            /*FMOD.RESULT result;
-            uint ms = 0;
-            uint lenms = 0;
-            bool playing = false;
-            bool paused = false;
-            int channelsplaying = 0;
-
-            if (channel != null)
-            {
-                FMOD.Sound currentsound = null;
-
-                result = channel.isPlaying(ref playing);
-                if ((result != FMOD.RESULT.OK) && (result != FMOD.RESULT.ERR_INVALID_HANDLE) && (result != FMOD.RESULT.ERR_CHANNEL_STOLEN))
-                {
-                    ERRCHECK(result);
-                }
-
-                result = channel.getPaused(ref paused);
-                if ((result != FMOD.RESULT.OK) && (result != FMOD.RESULT.ERR_INVALID_HANDLE) && (result != FMOD.RESULT.ERR_CHANNEL_STOLEN))
-                {
-                    ERRCHECK(result);
-                }
-
-                result = channel.getPosition(ref ms, FMOD.TIMEUNIT.MS);
-                if ((result != FMOD.RESULT.OK) && (result != FMOD.RESULT.ERR_INVALID_HANDLE) && (result != FMOD.RESULT.ERR_CHANNEL_STOLEN))
-                {
-                    ERRCHECK(result);
-                }
-
-                channel.getCurrentSound(ref currentsound);
-                if (currentsound != null)
-                {
-                    result = currentsound.getLength(ref lenms, FMOD.TIMEUNIT.MS);
-                    if ((result != FMOD.RESULT.OK) && (result != FMOD.RESULT.ERR_INVALID_HANDLE) && (result != FMOD.RESULT.ERR_CHANNEL_STOLEN))
-                    {
-                        ERRCHECK(result);
-                    }
-                }
-
-                system.getChannelsPlaying(ref channelsplaying);
-            }*/
-
             if (system != null)
             {
                 system.update();
@@ -172,6 +132,10 @@ namespace Flux
 
         public static void Play(string key, int speaker, float volume = 1f, bool loop = false)
         {
+            #if NO_AUDIO
+                return;
+            #endif
+
             // play audio
             FMOD.RESULT result = system.playSound(FMOD.CHANNELINDEX.FREE, sounds[key], true, ref channel);
             ERRCHECK(result);
