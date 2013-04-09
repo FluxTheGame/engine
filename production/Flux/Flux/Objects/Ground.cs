@@ -26,9 +26,9 @@ namespace Flux
 
             skyboxVerts = new VertexPositionColor[4];
 
-            skyboxVerts[0] = new VertexPositionColor(new Vector3(-40, -8, -40), Light.SkyGradientBottom);
+            skyboxVerts[0] = new VertexPositionColor(new Vector3(-40, -1, -40), Light.SkyGradientBottom);
             skyboxVerts[1] = new VertexPositionColor(new Vector3(-40, 21, -40),  Light.SkyGradientTop);
-            skyboxVerts[2] = new VertexPositionColor(new Vector3(220, -8, -40), Light.SkyGradientBottom);
+            skyboxVerts[2] = new VertexPositionColor(new Vector3(220, -1, -40), Light.SkyGradientBottom);
             skyboxVerts[3] = new VertexPositionColor(new Vector3(220, 21, -40),  Light.SkyGradientTop);
         }
 
