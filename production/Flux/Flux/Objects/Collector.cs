@@ -232,6 +232,8 @@ namespace Flux
             }
 
             health = 100;
+
+            TeamColour.Put(other.teamColour);
             CollectorManager.Remove(other);
         }
 
@@ -325,7 +327,7 @@ namespace Flux
             };
 
             portalAnim = new AnimSprite("collector_portal", new Point(570, 200), portalAnimations);
-            portalAnim.frameOffset.Y += 450;
+            portalAnim.frameOffset.Y += 620;
             portalAnim.Play(0);
 
 

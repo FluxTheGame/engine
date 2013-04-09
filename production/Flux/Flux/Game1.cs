@@ -146,7 +146,7 @@ namespace Flux
 
             /* For Testing */
             
-            //Add Collector
+            //Add CollectorZ:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\Object Managers\WormholeManager.cs
             OrderedDictionary c = new OrderedDictionary();
             c.Add("id", 0);
             EventManager.Emit("collector:new", c);
@@ -232,8 +232,8 @@ namespace Flux
                     //EventManager.Emit("user:disconnect", o);
 
                     OrderedDictionary c = new OrderedDictionary();
-                    c.Add("id", 0);
-                    EventManager.Emit("collector:attack", c);
+                    c.Add("id", 1);
+                    EventManager.Emit("collector:new", c);
                 }
             }
             if (keyState.IsKeyDown(Keys.D1)) 

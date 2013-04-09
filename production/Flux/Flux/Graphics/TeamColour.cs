@@ -40,12 +40,18 @@ namespace Flux
             {
                 c = Color.White;   
             }
+
+            Console.WriteLine(c);
+
             return c;
         }
 
         public static void Put(Color c)
         {
-            colours.Add(c);
+            if (c != Color.White)
+            {
+                colours.Add(c);
+            }
         }
 
         public static string ToHex(Color color, bool includeHash)
