@@ -16,7 +16,7 @@ namespace Flux
     public class Water : Resource
     {
 
-        protected float minOpacity = 0.2f;
+        protected float minOpacity = 0f;
         protected float maxOpacity = 1f;
 
 
