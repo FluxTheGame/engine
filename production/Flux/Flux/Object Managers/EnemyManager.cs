@@ -16,8 +16,8 @@ namespace Flux
     public class EnemyManager : Manager
     {
 
-        public int desired = 18;
-        public int reAddThreshold = 6;
+        public int desired = 20;
+        public int reAddThreshold = 5;
 
         public static EnemyManager instance;
 

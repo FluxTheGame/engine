@@ -40,7 +40,7 @@ namespace Flux
         private List<User> users;
         private List<Projectile> projectiles;
 
-        enum States { Intro, Static, Outro1, Outro2, Outro3 };
+        enum States { Intro, Static, Outro1, Outro2, Outro3, Exploding };
 
 
         public Collector(int idNumber): base()
@@ -134,10 +134,9 @@ namespace Flux
             ScreenManager.SetTarget(display);
             ScreenManager.spriteBatch.Begin();
                 portalAnim.Draw(Color.White, scale * 0.7f);
+                if (explodeAnim.playing) explodeAnim.Draw(Color.White, scale * 1.5f);
                 collectorAnim.Draw(teamColour, scale);
-                
                 if (poofAnim.playing) poofAnim.Draw();
-                if (explodeAnim.playing) explodeAnim.Draw();
             ScreenManager.spriteBatch.End();
         }
 
@@ -178,6 +177,8 @@ namespace Flux
                     CollectorManager.Remove(this);
                 });
 
+                collectorAnim.Play((int)States.Exploding);
+                collectorAnim.frameOffset = new Vector2(50, 137);
                 explodeAnim.Play(0);
             }
         }
@@ -311,6 +312,7 @@ namespace Flux
                 new Spritesheet("collector_outro_01", new Point(350, 600), (int)States.Outro1, 18, false, -1, true), 
                 new Spritesheet("collector_outro_02", new Point(350, 600), (int)States.Outro2, 18, false, -1, true), 
                 new Spritesheet("collector_outro_03", new Point(350, 600), (int)States.Outro3, 18, false, -1, true), 
+                new Spritesheet("collector_explosion", new Point(450, 600), (int)States.Exploding, 32, false, -1, true),
             };
 
             collectorAnim = new AnimSet(collectorAnimations);
@@ -341,6 +343,7 @@ namespace Flux
 
             explodeAnim = new AnimSprite("collector_explosion_particles", new Point(500, 500), explodeAnimations);
             explodeAnim.playing = false;
+            explodeAnim.frameOffset.Y += 100;
         }
     }
 }
