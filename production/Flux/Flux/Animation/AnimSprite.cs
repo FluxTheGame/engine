@@ -104,6 +104,7 @@ namespace Flux
         public void Rewind()
         {
             animation[sequence].frame = 0;
+            rowOffset = 0;
         }
 
         public void Finish()

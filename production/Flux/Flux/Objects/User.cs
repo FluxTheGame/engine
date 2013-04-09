@@ -155,12 +155,14 @@ namespace Flux
         {
             ScreenManager.SetTarget(display);
             spriteBatch.Begin();
-                pointerAnim.Draw();
-                stateAnim.Draw();
-                DrawTeamRing();
-                DrawUsername();
-                DrawNotifications();
-                DrawPointsRing();
+
+            pointerAnim.Draw();
+            stateAnim.Draw();
+            DrawTeamRing();
+            DrawUsername();
+            DrawNotifications();
+            DrawPointsRing();
+
             spriteBatch.End();
         }
 

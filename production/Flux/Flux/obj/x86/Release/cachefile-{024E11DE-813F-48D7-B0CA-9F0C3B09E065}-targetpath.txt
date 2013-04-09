@@ -153,3 +153,9 @@ Content\models\env\Clouds_06.xnb
 Content\sprites\projectile.xnb
 Content\sprites\collector_explosion.xnb
 Content\sprites\collector_explosion_particles.xnb
+Content\sprites\wormhole_blow_intro.xnb
+Content\sprites\wormhole_blow_outro.xnb
+Content\sprites\wormhole_blow_static.xnb
+Content\sprites\wormhole_suck_intro.xnb
+Content\sprites\wormhole_suck_outro.xnb
+Content\sprites\wormhole_suck_static.xnb

@@ -133,10 +133,12 @@ namespace Flux
 
             ScreenManager.SetTarget(display);
             ScreenManager.spriteBatch.Begin();
-                portalAnim.Draw(Color.White, scale * 0.7f);
-                if (explodeAnim.playing) explodeAnim.Draw(Color.White, scale * 1.5f);
-                collectorAnim.Draw(teamColour, scale);
-                if (poofAnim.playing) poofAnim.Draw();
+
+            portalAnim.Draw(Color.White, scale * 0.7f);
+            if (explodeAnim.playing) explodeAnim.Draw(Color.White, scale * 1.5f);
+            collectorAnim.Draw(teamColour, scale);
+            if (poofAnim.playing) poofAnim.Draw();
+
             ScreenManager.spriteBatch.End();
         }
 
