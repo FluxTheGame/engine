@@ -121,7 +121,7 @@ namespace Flux
 
             ScreenManager.SetTarget(display);
             ScreenManager.spriteBatch.Begin();
-                portalAnim.Draw(Color.White, scale);
+                portalAnim.Draw(Color.White, scale * 0.7f);
                 collectorAnim.Draw(teamColour, scale);
                 poofAnim.Draw();
             ScreenManager.spriteBatch.End();
@@ -187,6 +187,7 @@ namespace Flux
 
             capacity += (int)(other.capacity * 0.5);
             collected += (int)(other.collected * 0.5);
+            collectRadius += (int)(other.collectRadius * 0.5f);
             targetScale += (other.scale * 0.3f);
             numCollectors += other.numCollectors;
 
