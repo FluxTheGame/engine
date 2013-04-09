@@ -15,6 +15,7 @@ namespace Flux
         private static RenderTarget2D[] target = new RenderTarget2D[4]; //Array of render targets
         private static int spacing = 60;
 
+        public static Viewport tmpViewport;
         public static SpriteBatch spriteBatch;
         public static Vector2 window; //Size of a single window
         public static Rectangle screenRect;
@@ -30,6 +31,8 @@ namespace Flux
             world = new Vector2(window.X * screens, window.Y);
             graphics = g;
             spriteBatch = new SpriteBatch(graphics);
+
+            tmpViewport = new Viewport(screenRect);
 
             for (int i = 0; i < target.Length; i++)
             {
@@ -130,13 +133,14 @@ namespace Flux
         {
             Matrix proj = Camera(display).projection;
             Matrix view = Camera(display).view;
-            Vector3 screenPos = graphics.Viewport.Project(location, proj, view, Matrix.Identity);
+            Vector3 screenPos = tmpViewport.Project(location, proj, view, Matrix.Identity);
+
             Vector2 position = new Vector2(screenPos.X, screenPos.Y);
 
-            if (position.X > window.X) position.X = window.X;
+            /*if (position.X > window.X) position.X = window.X;
             if (position.X < 0) position.X = 0;
             if (position.Y > window.Y) position.Y = window.Y;
-            if (position.Y < 0) position.Y = 0;
+            if (position.Y < 0) position.Y = 0;*/
 
             return position;
         }

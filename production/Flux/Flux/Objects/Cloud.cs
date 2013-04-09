@@ -31,14 +31,14 @@ namespace Flux
             int div = (int)Math.Round((location.X + 6) / 60);
 
             Camera c = ScreenManager.Camera(div);
-            Vector3 screenPos = ScreenManager.graphics.Viewport.Unproject(location, c.projection, c.view, Matrix.Identity);
+            Vector3 screenPos = ScreenManager.tmpViewport.Project(location, c.projection, c.view, Matrix.Identity);
 
             float normalized = screenPos.X - 60 * div;
 
             if (normalized > 7 && normalized < 53)
             {
                 screenPos.X += 46;
-                location.X = ScreenManager.graphics.Viewport.Project(screenPos, c.projection, c.view, Matrix.Identity).X;
+                location.X = ScreenManager.tmpViewport.Project(screenPos, c.projection, c.view, Matrix.Identity).X;
             }
         }
 
