@@ -58,10 +58,14 @@ namespace Flux
                 new Animation(0, spritesheets[sheet].totalFrames, spritesheets[sheet].loop)
             };
 
-            anim = new AnimSprite(spritesheets[sheet].sheet, spritesheets[sheet].frameSize, animation);
+            Vector2 pos = Vector2.Zero;
+            if (anim != null) pos = anim.position;
 
+            anim = new AnimSprite(spritesheets[sheet].sheet, spritesheets[sheet].frameSize, animation, spritesheets[sheet].sprite);
             anim.frameOffset += frameOffset;
             anim.SetFrame(0);
+            anim.position = pos;
+
             if (spritesheets[sheet].autoplay) anim.Play(0);
         }
     }

@@ -142,14 +142,14 @@ namespace Flux
             c.Add("id", 0);
             EventManager.Emit("collector:new", c);
 
-            c["id"] = 1;
+            /*c["id"] = 1;
             EventManager.Emit("collector:new", c);
 
             c["id"] = 2;
             EventManager.Emit("collector:new", c);
 
             c["id"] = 3;
-            EventManager.Emit("collector:new", c);
+            EventManager.Emit("collector:new", c);*/
 
             //Add User
             OrderedDictionary o = new OrderedDictionary();
@@ -223,8 +223,8 @@ namespace Flux
                     //EventManager.Emit("user:disconnect", o);
 
                     OrderedDictionary c = new OrderedDictionary();
-                    c.Add("id", 0);
-                    EventManager.Emit("collector:attack", c);
+                    c.Add("id", 1);
+                    EventManager.Emit("collector:new", c);
                 }
             }
             if (keyState.IsKeyDown(Keys.D1)) 
@@ -303,7 +303,7 @@ namespace Flux
                     ScreenManager.graphics.SetRenderTarget(null);
                     ScreenManager.spriteBatch.Draw(
                         tex, new Vector2(0, 0), 
-                        ScreenManager.Target(i).Bounds, Color.White);
+                        ScreenManager.screenRect, Color.White);
                     ScreenManager.spriteBatch.End();
                 }
 

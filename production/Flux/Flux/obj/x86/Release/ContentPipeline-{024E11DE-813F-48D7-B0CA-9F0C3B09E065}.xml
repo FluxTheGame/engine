@@ -623,15 +623,6 @@
       <Time>2013-03-04T11:32:09.0100597-05:00</Time>
     </Item>
     <Item>
-      <Source>sprites\collector_attack.png</Source>
-      <Name>sprites\collector_attack</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\collector_attack.xnb</Output>
-      <Time>2013-03-04T13:45:54.7341401-05:00</Time>
-    </Item>
-    <Item>
       <Source>masks\Birch_01.png</Source>
       <Name>masks\Birch_01</Name>
       <Importer>TextureImporter</Importer>
@@ -2058,6 +2049,173 @@
       <Options>None</Options>
       <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\Palm_03_0.xnb</Output>
       <Time>2013-04-08T12:09:10.0761253-04:00</Time>
+    </Item>
+    <Item>
+      <Source>models\env\Water.fbx</Source>
+      <Name>models\env\Water</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\models\env\Water.xnb</Output>
+      <Time>2013-04-08T14:25:19.6979796-04:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Water_0.xml</Key>
+        <Value>2013-04-08T14:25:49.7298088-04:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\env\Water.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Water_0.xml</Output>
+      <Time>2013-04-08T14:25:19.6979796-04:00</Time>
+    </Item>
+    <Item>
+      <Source>models\env\Clouds_01.fbx</Source>
+      <Name>models\env\Clouds_01</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\models\env\Clouds_01.xnb</Output>
+      <Time>2013-04-09T09:28:00.9315832-04:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Clouds_01_0.xml</Key>
+        <Value>2013-04-09T09:39:19.7318368-04:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\env\Clouds_02.fbx</Source>
+      <Name>models\env\Clouds_02</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\models\env\Clouds_02.xnb</Output>
+      <Time>2013-04-09T09:28:00.9471835-04:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Clouds_02_0.xml</Key>
+        <Value>2013-04-09T09:39:19.9970419-04:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\env\Clouds_03.fbx</Source>
+      <Name>models\env\Clouds_03</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\models\env\Clouds_03.xnb</Output>
+      <Time>2013-04-09T09:28:00.9471835-04:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Clouds_03_0.xml</Key>
+        <Value>2013-04-09T09:39:20.0906437-04:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\env\Clouds_04.fbx</Source>
+      <Name>models\env\Clouds_04</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\models\env\Clouds_04.xnb</Output>
+      <Time>2013-04-09T09:28:00.9627838-04:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Clouds_04_0.xml</Key>
+        <Value>2013-04-09T09:39:20.1686452-04:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\env\Clouds_05.fbx</Source>
+      <Name>models\env\Clouds_05</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\models\env\Clouds_05.xnb</Output>
+      <Time>2013-04-09T09:28:00.9783841-04:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Clouds_05_0.xml</Key>
+        <Value>2013-04-09T09:39:20.2466467-04:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\env\Clouds_06.fbx</Source>
+      <Name>models\env\Clouds_06</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\models\env\Clouds_06.xnb</Output>
+      <Time>2013-04-09T09:28:00.9939844-04:00</Time>
+      <Dependency>
+        <Key>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Clouds_06_0.xml</Key>
+        <Value>2013-04-09T09:39:20.3246482-04:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\env\Clouds_01.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Clouds_01_0.xml</Output>
+      <Time>2013-04-09T09:28:00.9315832-04:00</Time>
+    </Item>
+    <Item>
+      <Source>models\env\Clouds_02.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Clouds_02_0.xml</Output>
+      <Time>2013-04-09T09:28:00.9471835-04:00</Time>
+    </Item>
+    <Item>
+      <Source>models\env\Clouds_03.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Clouds_03_0.xml</Output>
+      <Time>2013-04-09T09:28:00.9471835-04:00</Time>
+    </Item>
+    <Item>
+      <Source>models\env\Clouds_04.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Clouds_04_0.xml</Output>
+      <Time>2013-04-09T09:28:00.9627838-04:00</Time>
+    </Item>
+    <Item>
+      <Source>models\env\Clouds_05.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Clouds_05_0.xml</Output>
+      <Time>2013-04-09T09:28:00.9783841-04:00</Time>
+    </Item>
+    <Item>
+      <Source>models\env\Clouds_06.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\obj\x86\Release\models\env\Clouds_06_0.xml</Output>
+      <Time>2013-04-09T09:28:00.9939844-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\projectile.png</Source>
+      <Name>sprites\projectile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\projectile.xnb</Output>
+      <Time>2013-04-09T09:51:28.3132153-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\collector_explosion.png</Source>
+      <Name>sprites\collector_explosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\collector_explosion.xnb</Output>
+      <Time>2013-04-09T10:26:06.1333799-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\collector_explosion_particles.png</Source>
+      <Name>sprites\collector_explosion_particles</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\bin\x86\Release\Content\sprites\collector_explosion_particles.xnb</Output>
+      <Time>2013-04-09T11:03:27.7719024-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

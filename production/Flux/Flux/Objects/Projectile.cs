@@ -25,7 +25,7 @@ namespace Flux
             this.display = collector.display;
             height = 0;
 
-            this.sprite = ContentManager.Sprite("collector_attack");
+            this.sprite = ContentManager.Sprite("projectile");
         }
 
         public override void Update()
@@ -48,9 +48,11 @@ namespace Flux
 
         public override void Draw(GameTime gameTime)
         {
+            float rotation = (float)Math.Atan2(velocity.Y, velocity.X) + MathHelper.ToRadians(90);
+
             ScreenManager.SetTarget(collector.display);
             ScreenManager.spriteBatch.Begin();
-            ScreenManager.spriteBatch.Draw(sprite, position, Color.White);
+            ScreenManager.spriteBatch.Draw(sprite, position, null, Color.White, rotation, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             ScreenManager.spriteBatch.End();
         }
     }

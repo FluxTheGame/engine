@@ -45,7 +45,7 @@ namespace Flux
             EventManager.On("collector:destroy", (o) =>
             {
                 Collector collector = CollectorByID((int)o["id"]);
-                if (collector != null) collector.Die();
+                if (collector != null) collector.PortalDie();
             });
 
             base.Initialize();
