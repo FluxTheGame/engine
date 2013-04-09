@@ -12,6 +12,7 @@ namespace Flux
     {
         public Wormhole one;
         public Wormhole two;
+        public bool dying = false;
         protected DateTime expiry;
 
         public WormholePair(bool oneInward, Vector2 position, int displayOne) : base()
@@ -24,25 +25,6 @@ namespace Flux
 
             float lifespan = Randomizer.RandomInt(10, 20);
             expiry = created.AddSeconds(lifespan);
-
-            Tweenerizer.Ease(EasingType.EaseInOut, 0, 5, lifespan * 500, (ease, incr) =>
-            {
-                one.twirlAngle =  ease;
-                two.twirlAngle = -ease;
-            },
-            // on complete
-            () =>
-            {
-                Tweenerizer.Ease(EasingType.EaseInOut, 0, 5, lifespan * 500, (ease, incr) =>
-                {
-                    one.twirlAngle =  5-ease;
-                    two.twirlAngle = -5+ease;
-                },
-                () =>
-                {
-                    WormholeManager.Remove(this);
-                });
-            });
         }
 
         public bool Make(Vector2 position, int display) {
@@ -62,6 +44,19 @@ namespace Flux
 
         public override void Update()
         {
+            if (DateTime.Now > expiry)
+            {
+                one.Collapse();
+                two.Collapse();
+
+                dying = true;
+
+                if (DateTime.Now > expiry.AddSeconds(2))
+                {
+                    WormholeManager.Remove(this);
+                }
+            }
+
             one.Update();
             two.Update();
         }
@@ -87,14 +82,17 @@ namespace Flux
 
         public void Suck(GameObject passenger)
         {
-            if (one.inward && GameObject.Distance(one, passenger) < 20f)
+            if (!dying)
             {
-                TriggerSuction(passenger, two);
-            }
+                if (one.inward && GameObject.Distance(one, passenger) < 20f)
+                {
+                    TriggerSuction(passenger, two);
+                }
 
-            else if (two.inward && GameObject.Distance(two, passenger) < 20f)
-            {
-                TriggerSuction(passenger, one);
+                else if (two.inward && GameObject.Distance(two, passenger) < 20f)
+                {
+                    TriggerSuction(passenger, one);
+                }
             }
         }
 

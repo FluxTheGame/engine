@@ -10,18 +10,12 @@ namespace Flux
 {
     public class Wormhole : GameObject
     {
-        Stopwatch stopwatch = new Stopwatch();
 
         public AnimSet wormholeAnim;
         public bool inward;
-        public float twirlAngle = 0;
+        public bool dying = false;
 
         enum States { BloatIntro, BloatStatic, BloatOutro, SuckIntro, SuckStatic, SuckOutro };
-
-        private RenderTarget2D rt =
-            new RenderTarget2D(ScreenManager.graphics, (int)ScreenManager.window.X, (int)ScreenManager.window.Y, false,
-                ScreenManager.graphics.PresentationParameters.BackBufferFormat,
-                DepthFormat.Depth24, 8, RenderTargetUsage.PreserveContents);
 
         public Wormhole(bool suck, Vector2 position, int display) : base()
         {
@@ -30,6 +24,16 @@ namespace Flux
             this.position = position;
             this.display = display;
             SetupAnimations();
+        }
+
+        public void Collapse()
+        {
+            if (!dying)
+            {
+                dying = true;
+                if (inward) wormholeAnim.Play((int)States.SuckOutro);
+                else wormholeAnim.Play((int)States.BloatOutro);
+            }
         }
 
         public override void Update()
@@ -46,21 +50,10 @@ namespace Flux
 
         public override void Draw(GameTime gameTime)
         {
-            /*if (startTime == 0)
-                startTime = gameTime.TotalGameTime.TotalSeconds * 0.5;
-
-            double curTime = gameTime.TotalGameTime.TotalSeconds * 0.5;
-            double twirlAngle = curTime - startTime;*/
-
             ScreenManager.SetTarget(display);
-
             ScreenManager.spriteBatch.Begin();
             wormholeAnim.Draw();
             ScreenManager.spriteBatch.End();
-
-            WormholeManager.ShaderAngle.SetValue(twirlAngle);
-            WormholeManager.ShaderPosition.SetValue(position);
-            Shaderizer.Draw2D(display, WormholeManager.SwirlShader);
         }
 
         protected void SetupAnimations()
