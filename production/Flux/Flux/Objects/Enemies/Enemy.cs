@@ -30,7 +30,7 @@ namespace Flux
             position = new Vector2(Randomizer.RandomFloat(0, ScreenManager.window.X), -wrapBuffer);
             display = Randomizer.RandomDisplay();
             dampening = 0.985f;
-            addDelay = new Schedualizer(0, 1, 60);
+            addDelay = new Schedualizer(0, 1, 40);
 
             Animation[] stateAnimations = {
                 new Animation(0, 40, false)

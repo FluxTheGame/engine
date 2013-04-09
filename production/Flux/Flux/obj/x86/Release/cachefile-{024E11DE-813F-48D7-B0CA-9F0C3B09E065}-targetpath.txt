@@ -50,7 +50,6 @@ Content\models\env\OakTree_02.xnb
 Content\models\env\OakTree_03.xnb
 Content\sprites\user_pointer.xnb
 Content\sprites\user_bloat_pinch.xnb
-Content\sprites\collector_attack.xnb
 Content\masks\Birch_01.xnb
 Content\masks\Birch_02.xnb
 Content\masks\Birch_03.xnb
@@ -144,3 +143,13 @@ Content\oak_0.xnb
 Content\oak_1.xnb
 Content\oak_2.xnb
 Content\Palm_03_0.xnb
+Content\models\env\Water.xnb
+Content\models\env\Clouds_01.xnb
+Content\models\env\Clouds_02.xnb
+Content\models\env\Clouds_03.xnb
+Content\models\env\Clouds_04.xnb
+Content\models\env\Clouds_05.xnb
+Content\models\env\Clouds_06.xnb
+Content\sprites\projectile.xnb
+Content\sprites\collector_explosion.xnb
+Content\sprites\collector_explosion_particles.xnb

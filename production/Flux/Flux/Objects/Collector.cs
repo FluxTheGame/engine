@@ -28,6 +28,7 @@ namespace Flux
         protected AnimSet collectorAnim;
         protected AnimSprite portalAnim;
         protected AnimSprite poofAnim;
+        protected AnimSprite explodeAnim;
 
         public int attackRadius = 500;
         public int collectRadius = 100;
@@ -87,6 +88,7 @@ namespace Flux
             collectorAnim.Update(position);
             portalAnim.Update(position);
             poofAnim.Update(position);
+            explodeAnim.Update(position);
 
             if (collected >= capacity)
                 Burst(true);
@@ -133,7 +135,9 @@ namespace Flux
             ScreenManager.spriteBatch.Begin();
                 portalAnim.Draw(Color.White, scale * 0.7f);
                 collectorAnim.Draw(teamColour, scale);
-                poofAnim.Draw();
+                
+                if (poofAnim.playing) poofAnim.Draw();
+                if (explodeAnim.playing) explodeAnim.Draw();
             ScreenManager.spriteBatch.End();
         }
 
@@ -148,34 +152,43 @@ namespace Flux
                 {
                     o.Add("points", collected);
                     Audio.Play("collector.complete", display);
+                    PortalDie();
                 }
                 else
                 {
                     // only give a percentage of points
                     o.Add("points", collected * (collected / capacity));
                     Audio.Play("collector.death", display);
+                    ExplodeDie();
                 }
 
                 o.Add("completed", (completed) ? 1 : 0);
                 EventManager.Emit("collector:burst", o);
-
-                Die();
             }
         }
 
-        public void Die()
+        public void ExplodeDie() 
         {
             if (!isDying)
             {
-                Console.WriteLine("Dying...");
-                foreach (User user in users)
-                {
-                    user.collector = null;
-                }
-                isDying = true;
+                Die();
 
-                portalAnim.WhenFinished(() =>
-                {
+                explodeAnim.WhenFinished(() => {
+                    TeamColour.Put(teamColour);
+                    CollectorManager.Remove(this);
+                });
+
+                explodeAnim.Play(0);
+            }
+        }
+
+        public void PortalDie()
+        {
+            if (!isDying)
+            {
+                Die();
+
+                portalAnim.WhenFinished(() => {
                     TeamColour.Put(teamColour);
                     CollectorManager.Remove(this);
                 });
@@ -183,6 +196,16 @@ namespace Flux
                 collectorAnim.Play((int)States.Outro1 + damage);
                 portalAnim.Play(0);
             }
+        }
+
+        protected void Die()
+        {
+            Console.WriteLine("Dying...");
+            foreach (User user in users)
+            {
+                user.collector = null;
+            }
+            isDying = true;
         }
 
         public void MergeWith(Collector other)
@@ -309,6 +332,15 @@ namespace Flux
             };
 
             poofAnim = new AnimSprite("collector_poof", new Point(200, 150), poofAnimations);
+            poofAnim.playing = false;
+
+
+            Animation[] explodeAnimations = {
+                new Animation(0, 48, false)
+            };
+
+            explodeAnim = new AnimSprite("collector_explosion_particles", new Point(500, 500), explodeAnimations);
+            explodeAnim.playing = false;
         }
     }
 }

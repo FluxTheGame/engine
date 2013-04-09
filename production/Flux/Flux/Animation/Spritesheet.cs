@@ -11,6 +11,7 @@ namespace Flux
     public class Spritesheet : Animation
     {
 
+        public Texture2D sprite;
         public string sheet;
         public Point frameSize;
         public bool autoplay;
@@ -21,6 +22,7 @@ namespace Flux
             this.sheet = sheet;
             this.frameSize = frameSize;
             this.autoplay = autoplay;
+            this.sprite = ContentManager.Sprite(sheet);
         }
     }
 }

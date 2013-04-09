@@ -15,30 +15,32 @@ namespace Flux
         private Schedualizer frameSchedule;
         private Point frameSize;
         private Texture2D sprite;
-        private Vector2 position;
         private Animation[] animation;
 
         public delegate void Callback();
         public Vector2 frameOffset;
         public int currentFrame;
         public int sequence = 0;
+        public bool playing = true;
+        public Vector2 position;
 
         private Callback animDone;
         private float rotation;
         private float delay;
-        private bool playing = true;
         private int rowOffset = 0;
         private int cols;
 
 
-        public AnimSprite(string spriteName, Point frameSize, Animation[] animation)
+        public AnimSprite(string spriteName, Point frameSize, Animation[] animation, Texture2D sprite = null)
         {
+            if (sprite == null) this.sprite = ContentManager.Sprite(spriteName);
+            else this.sprite = sprite;
+            
             delay = 1 / 24f;
             spriteBatch = ScreenManager.spriteBatch;
             frameSchedule = new Schedualizer(0.0f, delay, delay);
-            sprite = ContentManager.Sprite(spriteName);
             frameOffset = new Vector2(frameSize.X, frameSize.Y) * 0.5f;
-            cols = sprite.Width / frameSize.X;
+            cols = this.sprite.Width / frameSize.X;
 
             this.animation = animation;
             this.frameSize = frameSize;
