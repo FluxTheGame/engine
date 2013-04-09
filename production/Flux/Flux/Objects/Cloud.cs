@@ -16,7 +16,7 @@ namespace Flux
         public Cloud(Model m, int id)
         {
             model = m;
-            location = new Vector3(Randomizer.RandomFloat(-6, 200), Randomizer.RandomFloat(1, 3), Randomizer.RandomFloat(-20, -35)/*(id*-2)-1*/);
+            location = new Vector3(Randomizer.RandomFloat(-6, 200), Randomizer.RandomFloat(1, 5), Randomizer.RandomFloat(-20, -35)/*(id*-2)-1*/);
             //location = Vector3.Zero;
         }
 
@@ -49,7 +49,7 @@ namespace Flux
             {
                 ScreenManager.SetTarget(i);
                 Camera c = ScreenManager.Camera(i);
-                Drawer3D.Draw(model, location, new Vector3(0,90,0), new Vector3(0.1f), 1, c);
+                Drawer3D.Draw(model, location, new Vector3(0,90,0), new Vector3(0.1f), 0.6f, c, CloudManager.cloudLighting);
             }
         }
     }

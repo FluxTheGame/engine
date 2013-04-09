@@ -12,8 +12,12 @@ namespace Flux
         public static Model[] models = new Model[6];
         public static Cloud[] clouds = new Cloud[6];
 
+        public static BasicEffect cloudLighting = new BasicEffect(ScreenManager.graphics);
+
         public static void LoadContent()
         {
+            cloudLighting.AmbientLightColor = Color.White.ToVector3();
+
             for (int i = 0; i < 6; i++) {
 
                 models[i] = ContentManager.Model(@"env/Clouds_0" + (i+1));
