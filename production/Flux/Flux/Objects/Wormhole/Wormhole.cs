@@ -58,6 +58,13 @@ namespace Flux
 
         protected void SetupAnimations()
         {
+            wormholeAnim = new AnimSet(WormholeAnimations());
+            if (inward) wormholeAnim.Play((int)States.SuckIntro);
+            else wormholeAnim.Play((int)States.BloatIntro);
+        }
+
+        public static Spritesheet[] WormholeAnimations()
+        {
             Spritesheet[] wormholeAnimations = {
                 new Spritesheet("wormhole_blow_intro", new Point(400, 400), (int)States.BloatIntro, 39, false, (int)States.BloatStatic, true),
                 new Spritesheet("wormhole_blow_static", new Point(400, 400), (int)States.BloatStatic, 75, true, -1, true),
@@ -66,10 +73,7 @@ namespace Flux
                 new Spritesheet("wormhole_suck_static", new Point(400, 400), (int)States.SuckStatic, 75, true, -1, true),
                 new Spritesheet("wormhole_suck_outro", new Point(400, 400), (int)States.SuckOutro, 42, false, -1, true),
             };
-
-            wormholeAnim = new AnimSet(wormholeAnimations);
-            if (inward) wormholeAnim.Play((int)States.SuckIntro);
-            else wormholeAnim.Play((int)States.BloatIntro);
+            return wormholeAnimations;
         }
     }
 }

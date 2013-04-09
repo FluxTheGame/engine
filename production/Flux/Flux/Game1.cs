@@ -142,16 +142,18 @@ namespace Flux
             Audio.Play("ambient.flux", 2, 0.3f, true);
             Audio.Play("ambient.flux", 3, 0.3f, true);
 
-            //skybox = Content.Load<Texture2D>(@"images/skybox");
+            //Preload spritesheets to reduce lag on first-time load
+            Wormhole.WormholeAnimations();
+
+
 
             /* For Testing */
-            
-            //Add CollectorZ:\Senior Project\SeniorProjectDevelopment\production\Flux\Flux\Object Managers\WormholeManager.cs
+            //Add Collector
             OrderedDictionary c = new OrderedDictionary();
-            c.Add("id", 0);
+            /*c.Add("id", 0);
             EventManager.Emit("collector:new", c);
 
-            /*c["id"] = 1;
+            c["id"] = 1;
             EventManager.Emit("collector:new", c);
 
             c["id"] = 2;
@@ -161,6 +163,7 @@ namespace Flux
             EventManager.Emit("collector:new", c);*/
 
             //Add User
+            
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 99);
             o.Add("teamId", 0);
@@ -170,7 +173,6 @@ namespace Flux
             
             /* End for testing */
         }
-
       
         protected override void UnloadContent()
         {
