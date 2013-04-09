@@ -310,16 +310,8 @@ namespace Flux
 
         public void SetupAnimations()
         {
-            Spritesheet[] collectorAnimations = {
-                new Spritesheet("collector_intro", new Point(350, 600), (int)States.Intro, 48, false, (int)States.Static, true),
-                new Spritesheet("collector_static", new Point(350, 600), (int)States.Static, 3, false, -1, false),
-                new Spritesheet("collector_outro_01", new Point(350, 600), (int)States.Outro1, 18, false, -1, true), 
-                new Spritesheet("collector_outro_02", new Point(350, 600), (int)States.Outro2, 18, false, -1, true), 
-                new Spritesheet("collector_outro_03", new Point(350, 600), (int)States.Outro3, 18, false, -1, true), 
-                new Spritesheet("collector_explosion", new Point(450, 600), (int)States.Exploding, 32, false, -1, true),
-            };
-
-            collectorAnim = new AnimSet(collectorAnimations);
+            
+            collectorAnim = new AnimSet(CollectorAnimations());
             collectorAnim.frameOffset = new Vector2(0, 135);
             collectorAnim.Play((int)States.Intro);
 
@@ -348,6 +340,19 @@ namespace Flux
             explodeAnim = new AnimSprite("collector_explosion_particles", new Point(500, 500), explodeAnimations);
             explodeAnim.playing = false;
             explodeAnim.frameOffset.Y += 100;
+        }
+
+        public static Spritesheet[] CollectorAnimations()
+        {
+            Spritesheet[] collectorAnimations = {
+                new Spritesheet("collector_intro", new Point(350, 600), (int)States.Intro, 48, false, (int)States.Static, true),
+                new Spritesheet("collector_static", new Point(350, 600), (int)States.Static, 3, false, -1, false),
+                new Spritesheet("collector_outro_01", new Point(350, 600), (int)States.Outro1, 18, false, -1, true), 
+                new Spritesheet("collector_outro_02", new Point(350, 600), (int)States.Outro2, 18, false, -1, true), 
+                new Spritesheet("collector_outro_03", new Point(350, 600), (int)States.Outro3, 18, false, -1, true), 
+                new Spritesheet("collector_explosion", new Point(450, 600), (int)States.Exploding, 32, false, -1, true),
+            };
+            return collectorAnimations;
         }
     }
 }

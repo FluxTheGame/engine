@@ -144,15 +144,15 @@ namespace Flux
 
             //Preload spritesheets to reduce lag on first-time load
             Wormhole.WormholeAnimations();
-
+            Collector.CollectorAnimations();
 
 
             /* For Testing */
             //Add Collector
             OrderedDictionary c = new OrderedDictionary();
-            /*c.Add("id", 0);
+            c.Add("id", 0);
             EventManager.Emit("collector:new", c);
-
+            /*
             c["id"] = 1;
             EventManager.Emit("collector:new", c);
 
