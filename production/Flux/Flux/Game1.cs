@@ -1,5 +1,5 @@
 
-//#define PRODUCTION
+#define PRODUCTION
 
 using System;
 using System.Collections.Generic;
@@ -20,6 +20,8 @@ namespace Flux
     {
         GraphicsDeviceManager graphics;
         Vector2 initialMousePos = Vector2.Zero;
+
+        RenderTarget2D[] tmpTargets = new RenderTarget2D[4];
 
         int currentDisplay = 0;
         Ground ground;
@@ -46,7 +48,7 @@ namespace Flux
             graphics.PreferredBackBufferHeight = 800;
 
             #if PRODUCTION
-                graphics.PreferredBackBufferWidth = 1280*4;
+                graphics.PreferredBackBufferWidth = 1280 * 4;
             
             #else
                 graphics.PreferredBackBufferWidth = 1280;
@@ -111,6 +113,13 @@ namespace Flux
 
             oldState = Keyboard.GetState();
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            for (int i=0; i<4; i++)
+            {
+                tmpTargets[i] = new RenderTarget2D(ScreenManager.graphics, 1280, 800, false,
+                ScreenManager.graphics.PresentationParameters.BackBufferFormat,
+                DepthFormat.Depth24, 8, RenderTargetUsage.PreserveContents);
+            }
 
             base.Initialize();
         }
@@ -295,29 +304,27 @@ namespace Flux
 
             #if PRODUCTION
 
-                //ScreenManager.spriteBatch.Begin();
-                for (int i = 0; i < 4; i++)
-                {
-                    RenderTarget2D tex = Shaderizer._drawShader(ScreenManager.Target(i), Shaderizer.tmpTarget, beautyPass, false);
+                float scale = 1;
+                int frameWidth = (int)(ScreenManager.window.X * scale);
+                ScreenManager.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque, null, null, RasterizerState.CullNone, beautyPass);
 
-                    ScreenManager.graphics.SetRenderTarget(null);
-                    ScreenManager.spriteBatch.Draw(
-                        tex, new Vector2(0, 0), 
-                        ScreenManager.Target(i).Bounds, Color.White);
-                    ScreenManager.spriteBatch.End();
+                for (int i = 0; i < 2; i++)
+                {
+                    ScreenManager.graphics.SetRenderTarget(tmpTargets[i]);
+                    // draw texture with shader applied
+                    ScreenManager.spriteBatch.Draw(ScreenManager.Target(i), ScreenManager.screenRect, Color.White);
                 }
 
+                ScreenManager.graphics.SetRenderTarget(null);
 
-            /*float scale = 1f;
-            int frameWidth = (int)(ScreenManager.window.X);
-
-            for (int i = 0; i < 4; i++)
-            {
-                ScreenManager.spriteBatch.Draw(
-                    (Texture2D)ScreenManager.Target(i), new Vector2(frameWidth * i, 0), 
-                    ScreenManager.Target(i).Bounds, Color.White,
-                    0, new Vector2(0, 0), scale, SpriteEffects.None, 0f);
-            }*/
+                for (int i = 0; i < 4; i++)
+                {
+                    ScreenManager.spriteBatch.Draw(
+                        ScreenManager.Target(i), new Vector2(frameWidth * i, 0),
+                        ScreenManager.Target(i).Bounds, Color.White,
+                        0, new Vector2(0, 0), scale, SpriteEffects.None, 0f);
+                }
+                ScreenManager.spriteBatch.End();
 #else
             RenderTarget2D tex = Shaderizer._drawShader(ScreenManager.Target(currentDisplay), Shaderizer.tmpTarget, beautyPass, false);
             Shaderizer._renderTexture(-1, tex);

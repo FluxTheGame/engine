@@ -9,7 +9,7 @@ namespace Flux
 {
     class Shaderizer
     {
-        public static RenderTarget2D tmpTarget = new RenderTarget2D(ScreenManager.graphics, (int)ScreenManager.window.X, (int)ScreenManager.window.Y, false,
+        public static RenderTarget2D tmpTarget = new RenderTarget2D(ScreenManager.graphics, 1280, 800, false,
                 ScreenManager.graphics.PresentationParameters.BackBufferFormat,
                 DepthFormat.Depth24, 8, RenderTargetUsage.PreserveContents);
 
