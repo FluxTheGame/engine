@@ -13,10 +13,10 @@ namespace Flux
         float velocity = Randomizer.RandomFloat(0.002f, 0.007f);
         Model model;
 
-        public Cloud(Model m, int id)
+        public Cloud(Model m, Vector3 loc)
         {
             model = m;
-            location = new Vector3(Randomizer.RandomFloat(-6, 200), Randomizer.RandomFloat(1, 5), Randomizer.RandomFloat(-20, -35)/*(id*-2)-1*/);
+            location = loc;
             //location = Vector3.Zero;
         }
 
@@ -24,21 +24,17 @@ namespace Flux
         {
             location.X += velocity;
 
-            if (location.X > 200)
-                location.X = -7f;
+            int display = ScreenManager.DisplayOfLocation(location);
 
-            // The most random calculations in the entire codebase...probably
-            int div = (int)Math.Round((location.X + 6) / 60);
-
-            Camera c = ScreenManager.Camera(div);
-            Vector3 screenPos = ScreenManager.tmpViewport.Project(location, c.projection, c.view, Matrix.Identity);
-
-            float normalized = screenPos.X - 60 * div;
-
-            if (normalized > 7 && normalized < 53)
+            if (display == 3)
             {
-                screenPos.X += 46;
-                location.X = ScreenManager.tmpViewport.Project(screenPos, c.projection, c.view, Matrix.Identity).X;
+                Camera c = ScreenManager.Camera(display);
+                Vector3 screenPos = ScreenManager.tmpViewport.Project(location, c.projection, c.view, Matrix.Identity);
+
+                if (screenPos.X > 1280)
+                {
+                    location.X = -50;
+                }
             }
         }
 
