@@ -227,15 +227,15 @@ namespace Flux
             {
                 if (!oldState.IsKeyDown(Keys.Space))
                 {
-                    //o.Add("type", "join");
+                    o.Add("type", "theOcho");
                     //o.Add("value", 100);
-                    //EventManager.Emit("user:getBadge", o);
+                    EventManager.Emit("user:getBadge", o);
                     //EventManager.Emit("user:getPoints", o);
                     //EventManager.Emit("user:disconnect", o);
 
-                    OrderedDictionary c = new OrderedDictionary();
+                    /*OrderedDictionary c = new OrderedDictionary();
                     c.Add("id", 1);
-                    EventManager.Emit("collector:new", c);
+                    EventManager.Emit("collector:new", c);*/
                 }
             }
             if (keyState.IsKeyDown(Keys.D1)) 

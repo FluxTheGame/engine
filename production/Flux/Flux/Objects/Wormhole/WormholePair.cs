@@ -20,7 +20,8 @@ namespace Flux
             one = new Wormhole(oneInward, position, displayOne);
             Audio.Play("wormhole.origin", one.display);
 
-            two = new Wormhole(!oneInward, position, ScreenManager.Opposite(displayOne));
+            Vector2 opposite = new Vector2(ScreenManager.window.X - position.X, position.Y);
+            two = new Wormhole(!oneInward, opposite, ScreenManager.Opposite(displayOne));
             Audio.Play("wormhole.opposite", two.display);
 
             float lifespan = Randomizer.RandomInt(10, 20);
@@ -99,6 +100,7 @@ namespace Flux
         private void Transport(GameObject passenger, Wormhole destination)
         {
             passenger.display = destination.display;
+            passenger.position = destination.position;
         }
     }
 }

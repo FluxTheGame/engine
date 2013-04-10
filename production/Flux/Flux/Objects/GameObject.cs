@@ -68,17 +68,18 @@ namespace Flux
             if (position.X > ScreenManager.window.X)
             {
                 display++;
-                position.X = 0;
+                position.X = 5;
+                velocity.X += 1;
             }
             if (position.X < 0)
             {
                 display--;
-                position.X = ScreenManager.window.X;
+                position.X = ScreenManager.window.X - 5;
+                velocity.X -= 1;
             }
             if (display > 3) display = 0;
             if (display < 0) display = 3;
         }
-
 
         public static float Distance(GameObject one, GameObject two)
         {

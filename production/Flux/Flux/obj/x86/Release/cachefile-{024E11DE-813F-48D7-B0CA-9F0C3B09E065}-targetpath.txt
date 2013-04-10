@@ -159,3 +159,6 @@ Content\sprites\wormhole_blow_static.xnb
 Content\sprites\wormhole_suck_intro.xnb
 Content\sprites\wormhole_suck_outro.xnb
 Content\sprites\wormhole_suck_static.xnb
+Content\sprites\user_badge_bumperCrop.xnb
+Content\sprites\user_badge_theOcho.xnb
+Content\sprites\user_badge_triggerHappy.xnb
