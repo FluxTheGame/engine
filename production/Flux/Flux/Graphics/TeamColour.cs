@@ -18,7 +18,7 @@ namespace Flux
         {
             colours = new List<Color>();
             string[] hexes = new string[] {
-                "f93424", /*"79ab4c", "388bb7",*/ "6a4d8d", "fa8c41", "d3e172", "6ecdd1", "96407d",
+                "f93424", "FF0080", "4f4bfb", "6a4d8d", "fa8c41", "d3e172", "6ecdd1", "96407d",
                 "f1eb4f", "2b7d57", "a11a16", "e0627a", "b8e3dc", "8a9eb6", "fac251"
             };
 
