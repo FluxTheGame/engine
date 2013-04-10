@@ -179,6 +179,7 @@ namespace Flux
                     CollectorManager.Remove(this);
                 });
 
+                Audio.Play("collector.bass", 4);
                 collectorAnim.Play((int)States.Exploding);
                 collectorAnim.frameOffset = new Vector2(50, 137);
                 explodeAnim.Play(0);

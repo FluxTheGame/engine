@@ -63,6 +63,7 @@ namespace Flux
             audioFiles.Add("collector.resource4", "sfx/collector/collector_resource_inserted_4.wav");
             audioFiles.Add("collector.spawn", "sfx/collector/collector_spawn.wav");
             audioFiles.Add("collector.weapon", "sfx/collector/collector_weapon.wav");
+            audioFiles.Add("collector.bass", "sfx/ambient/bass_event.wav");
 
             Audio.Load(audioFiles);
             

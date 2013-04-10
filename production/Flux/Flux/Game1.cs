@@ -141,6 +141,7 @@ namespace Flux
             Audio.Play("ambient.flux", 1, 0.3f, true);
             Audio.Play("ambient.flux", 2, 0.3f, true);
             Audio.Play("ambient.flux", 3, 0.3f, true);
+            Audio.Play("ambient.flux", 4, 0.3f, true);
 
             //Preload spritesheets to reduce lag on first-time load
             Wormhole.WormholeAnimations();
@@ -185,9 +186,6 @@ namespace Flux
        
         protected override void Update(GameTime gameTime)
         {
-
-            //if (gameTime.IsRunningSlowly) Console.WriteLine("SLOWLY");
-            
             if (Keyboard.GetState().IsKeyDown(Keys.Escape) || Mouse.GetState().MiddleButton == ButtonState.Pressed)
                 this.Exit();
 
