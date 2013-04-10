@@ -158,6 +158,10 @@ namespace Flux
 
                         try
                         {
+                            if (keyValue[0] == "username")
+                            {
+                                throw new Exception("Username must be a string!");
+                            }
 
                             int number = Convert.ToInt32(keyValue[1]);
 

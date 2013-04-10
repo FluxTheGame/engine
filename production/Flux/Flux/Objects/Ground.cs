@@ -55,10 +55,10 @@ namespace Flux
                     ScreenManager.graphics.DrawUserPrimitives(PrimitiveType.TriangleStrip, skyboxVerts, 0, 2);
                 }
 
-                waterEffect.AmbientLightColor = Color.SteelBlue.ToVector3();
+                waterEffect.AmbientLightColor = new Vector3(0,0,1);
 
                 Drawer3D.Draw(ground, Location(), rotation, c);
-                Drawer3D.Draw(water, Location(), rotation, new Vector3(1), 0.4f, c, waterEffect);
+                Drawer3D.Draw(water, Location(), rotation, new Vector3(1), 0.2f, c, waterEffect);
 
                 ScreenManager.graphics.DepthStencilState = DepthStencilState.None;
                 ScreenManager.graphics.BlendState = BlendState.AlphaBlend;
