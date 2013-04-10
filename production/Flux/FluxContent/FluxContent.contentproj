@@ -580,38 +580,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="models\env\Clouds_01.fbx">
-      <Name>Clouds_01</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-    <Compile Include="models\env\Clouds_02.fbx">
-      <Name>Clouds_02</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-    <Compile Include="models\env\Clouds_03.fbx">
-      <Name>Clouds_03</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-    <Compile Include="models\env\Clouds_04.fbx">
-      <Name>Clouds_04</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-    <Compile Include="models\env\Clouds_05.fbx">
-      <Name>Clouds_05</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-    <Compile Include="models\env\Clouds_06.fbx">
-      <Name>Clouds_06</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="sprites\projectile.png">
       <Name>projectile</Name>
       <Importer>TextureImporter</Importer>
@@ -662,6 +630,33 @@
       <Name>wormhole_suck_static</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="models\env\clouds_1.fbx">
+      <Name>clouds_1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="models\env\clouds_2.fbx">
+      <Name>clouds_2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="models\env\clouds_3.fbx">
+      <Name>clouds_3</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="models\env\clouds_4.fbx">
+      <Name>clouds_4</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="models\env\clouds_5.fbx">
+      <Name>clouds_5</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
