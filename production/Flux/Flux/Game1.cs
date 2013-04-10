@@ -1,5 +1,5 @@
 
-//#define PRODUCTION
+#define PRODUCTION
 
 using System;
 using System.Collections.Generic;
@@ -149,6 +149,8 @@ namespace Flux
 
             /* For Testing */
             //Add Collector
+#if PRODUCTION
+#else
             OrderedDictionary c = new OrderedDictionary();
             c.Add("id", 0);
             EventManager.Emit("collector:new", c);
@@ -170,6 +172,7 @@ namespace Flux
             o.Add("username", "DILBERT");
             o.Add("display", 0);
             EventManager.Emit("user:new", o);
+#endif
             
             /* End for testing */
         }
@@ -185,7 +188,7 @@ namespace Flux
 
             //if (gameTime.IsRunningSlowly) Console.WriteLine("SLOWLY");
             
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape) || Mouse.GetState().MiddleButton == ButtonState.Pressed)
                 this.Exit();
 
             KeyboardState keyState = Keyboard.GetState();
@@ -196,6 +199,8 @@ namespace Flux
             CloudManager.Update();
 
             /* For Testing - Accepts keyboard/mouse */
+#if PRODUCTION
+#else
             OrderedDictionary o = new OrderedDictionary();
             o.Add("id", 99);
 
@@ -271,6 +276,7 @@ namespace Flux
                 }
                 initialMousePos = Vector2.Zero;
             }
+#endif
 
             //Camera update for movement
             ScreenManager.Update(gameTime);
