@@ -101,6 +101,7 @@ Content\shaders\Swirl.xnb
 Content\shaders\Blur.xnb
 Content\shaders\BeautyRender.xnb
 Content\birch1_0.xnb
+Content\ATTN RUSS Tree Texture_0.xnb
 Content\Flower_Red_03_0.xnb
 Content\Flower_Red_01_0.xnb
 Content\Clover_one_04_0.xnb

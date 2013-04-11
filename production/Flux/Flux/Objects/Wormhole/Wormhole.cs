@@ -39,9 +39,9 @@ namespace Flux
         public override void Update()
         {
             if (inward) 
-                GridManager.Pinch(position, 100, 0.005f, display);
+                GridManager.Pinch(position, 150, 0.005f, display);
             else
-                GridManager.Bloat(position, 100, 0.005f, display);
+                GridManager.Bloat(position, 150, 0.005f, display);
 
             wormholeAnim.Update(position);
 
