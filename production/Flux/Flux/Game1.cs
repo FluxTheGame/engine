@@ -27,7 +27,6 @@ namespace Flux
 
         int currentDisplay = 0;
         Ground ground;
-        Texture2D skybox;
 
         CollectorManager collectorManager;
         WorldManager worldManager;
@@ -41,6 +40,7 @@ namespace Flux
         Server server;
 
         KeyboardState oldState; //For detecting key presses
+        MouseState oldMouseState; //For detecting mouse presses
         SpriteBatch spriteBatch;
 
 
@@ -179,19 +179,22 @@ namespace Flux
        
         protected override void Update(GameTime gameTime)
         {
+
             KeyboardState keyState = Keyboard.GetState();
+            MouseState mouseState = Mouse.GetState();
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape) || Mouse.GetState().MiddleButton == ButtonState.Pressed)
                 this.Exit();
 
-            /*if (keyState.IsKeyDown(Keys.Space) && !oldState.IsKeyDown(Keys.Space))
+            if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
             {
                 gamePaused = !gamePaused;
+
             }
 
-            if (gamePaused) return;*/
+            oldMouseState = mouseState;
+            if (gamePaused)  return;
 
-            MouseState mouseState = Mouse.GetState();
             GridManager.Update();
             Tweenerizer.Update();
             Audio.Update();
@@ -281,8 +284,8 @@ namespace Flux
 
             /* End for testing */
 
-            base.Update(gameTime);
             oldState = keyState;
+            base.Update(gameTime);
         }
 
        
