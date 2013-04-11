@@ -87,9 +87,9 @@ namespace Flux
                     float z = Randomizer.RandomFloat(0, size.Z);
                     float y = 0f;
 
-                    if (j == 0) y = -z / 3.25f + 14f;
-                    if (j == 1) y = -5f;
-                    if (j == 2) y = -z / 4.5f + 9f;
+                    if (j == 0) y = -z / 3.25f + 13.9f;
+                    if (j == 1) y = -4.75f;
+                    if (j == 2) y = -z / 4.7f + 8.15f;
                     
                     Vector3 pos = new Vector3(position.X + x, position.Y + y, position.Z + z);
                     Vector2 posN = new Vector2(x / size.X, z / size.Z);
