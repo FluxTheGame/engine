@@ -189,7 +189,7 @@ namespace Flux
             if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
             {
                 gamePaused = !gamePaused;
-
+                Audio.Pause(gamePaused);
             }
 
             oldMouseState = mouseState;

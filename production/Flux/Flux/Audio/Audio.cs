@@ -27,6 +27,7 @@ namespace Flux
         //MUSIC
         
         private static FMOD.Channel channel = null;
+        private static List<int> channelIDs;
 
         public static void Initialize()
         {
@@ -40,6 +41,8 @@ namespace Flux
             // constructor
             MultiSpeakerOutput_Load();
             Load(audioFiles);
+
+            channelIDs = new List<int>();
         }
 
         public static void Dispose()
@@ -130,11 +133,21 @@ namespace Flux
             }
         }
 
+        public static void Pause(bool paused)
+        {
+            foreach (int c in channelIDs)
+            {
+                system.getChannel(c, ref channel);
+                channel.setPaused(paused);
+            }
+        }
+
         public static void Play(string key, int speaker, float volume = 1f, bool loop = false)
         {
             #if NO_AUDIO
                 return;
             #endif
+
 
             // play audio
             FMOD.RESULT result = system.playSound(FMOD.CHANNELINDEX.FREE, sounds[key], true, ref channel);
@@ -142,6 +155,11 @@ namespace Flux
 
             result = channel.setVolume(volume);
             ERRCHECK(result);
+
+            int index = 0;
+            channel.getIndex(ref index);
+            channelIDs.Add(index);
+
 
             FMOD.MODE loopAudio = (loop) ? FMOD.MODE.LOOP_NORMAL : FMOD.MODE.LOOP_OFF;
             result = channel.setMode(loopAudio);
@@ -182,6 +200,7 @@ namespace Flux
             }
 
             result = channel.setPaused(false);
+
             ERRCHECK(result);
 
         }
