@@ -39,6 +39,11 @@ namespace Flux
             
         }
 
+        protected void CheckCollision()
+        {
+            CollectorManager.CheckEnemyCollide(this);
+        }
+
         public virtual void Activate()
         {
             //Override for enemy-specific activation behavior
@@ -77,6 +82,8 @@ namespace Flux
         public override void Update()
         {
             if (disabled) return;
+
+            CheckCollision();
 
             WrapY();
 

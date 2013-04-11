@@ -41,14 +41,7 @@ namespace Flux
                 acceleration = Randomizer.RandomVelocity(0.05f);
             }
 
-            CheckCollision();
-
             base.Update();
-        }
-
-        protected void CheckCollision()
-        {
-            CollectorManager.CheckEnemyCollide(this);
         }
     }
 }

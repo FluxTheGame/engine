@@ -1,5 +1,5 @@
 
-#define PRODUCTION
+//#define PRODUCTION
 
 using System;
 using System.Collections.Generic;
@@ -20,6 +20,8 @@ namespace Flux
     {
         GraphicsDeviceManager graphics;
         Vector2 initialMousePos = Vector2.Zero;
+
+        bool gamePaused = false;
 
         RenderTarget2D[] tmpTargets = new RenderTarget2D[4];
 
@@ -168,7 +170,7 @@ namespace Flux
             //Add User
             
             OrderedDictionary o = new OrderedDictionary();
-            o.Add("id", 99);
+            o.Add("id", 0);
             o.Add("teamId", 0);
             o.Add("username", "DILBERT");
             o.Add("display", 0);
@@ -186,10 +188,18 @@ namespace Flux
        
         protected override void Update(GameTime gameTime)
         {
+            KeyboardState keyState = Keyboard.GetState();
+
             if (Keyboard.GetState().IsKeyDown(Keys.Escape) || Mouse.GetState().MiddleButton == ButtonState.Pressed)
                 this.Exit();
 
-            KeyboardState keyState = Keyboard.GetState();
+            /*if (keyState.IsKeyDown(Keys.Space) && !oldState.IsKeyDown(Keys.Space))
+            {
+                gamePaused = !gamePaused;
+            }
+
+            if (gamePaused) return;*/
+
             MouseState mouseState = Mouse.GetState();
             GridManager.Update();
             Tweenerizer.Update();
@@ -200,7 +210,7 @@ namespace Flux
 #if PRODUCTION
 #else
             OrderedDictionary o = new OrderedDictionary();
-            o.Add("id", 99);
+            o.Add("id", 0);
 
             if (keyState.IsKeyDown(Keys.Up))
             {
@@ -230,9 +240,10 @@ namespace Flux
             {
                 if (!oldState.IsKeyDown(Keys.Space))
                 {
-                    o.Add("type", "theOcho");
+                    //o.Add("type", "theOcho");
                     //o.Add("value", 100);
-                    EventManager.Emit("user:getBadge", o);
+                    EventManager.Emit("collector:attack", o);
+                    //EventManager.Emit("user:getBadge", o);
                     //EventManager.Emit("user:getPoints", o);
                     //EventManager.Emit("user:disconnect", o);
 
@@ -281,8 +292,9 @@ namespace Flux
             Light.Update(gameTime);
 
             /* End for testing */
-            
+
             base.Update(gameTime);
+            oldState = keyState;
         }
 
        
