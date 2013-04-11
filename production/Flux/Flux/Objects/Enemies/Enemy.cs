@@ -62,7 +62,7 @@ namespace Flux
         {
             if (!isDying)
             {
-                collector.BeAttacked(35);
+                collector.BeAttacked(21);
                 Die();
             }
         }

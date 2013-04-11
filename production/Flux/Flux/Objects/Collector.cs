@@ -106,7 +106,7 @@ namespace Flux
             if (!isDying && collectorAnim.sheet == (int)States.Static)
             {
                 if (health <= 40) damage = 2;
-                else if (health <= 70) damage = 1;
+                else if (health <= 80) damage = 1;
                 else damage = 0;
                 collectorAnim.SetFrame(damage);
                 base.Update();
@@ -158,7 +158,7 @@ namespace Flux
                 else
                 {
                     // only give a percentage of points
-                    o.Add("points", collected * (collected / capacity));
+                    o.Add("points", (int)(collected * 0.5f));
                     Audio.Play("collector.death", display);
                     ExplodeDie();
                 }
@@ -260,7 +260,7 @@ namespace Flux
                     if (!enemy.isDying)
                     {
                         projectiles.Add(new Projectile(enemy, this));
-                        Audio.Play("collector.weapon", display);
+                        Audio.Play("collector.weapon", display, 0.6f);
                         collected -= 10;
                         if (collected < 0) collected = 0;
 

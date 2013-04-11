@@ -1,5 +1,5 @@
 
-//#define PRODUCTION
+#define PRODUCTION
 
 using System;
 using System.Collections.Generic;

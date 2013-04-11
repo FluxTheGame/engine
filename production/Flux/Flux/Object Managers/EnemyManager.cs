@@ -16,7 +16,7 @@ namespace Flux
     public class EnemyManager : Manager
     {
 
-        public int desired = 20;
+        public int desired = 15;
         public int reAddThreshold = 5;
 
         public static EnemyManager instance;
@@ -96,9 +96,9 @@ namespace Flux
 
             if (difference > reAddThreshold)
             {
-                AddEnemiesType("bulger", (int)(difference * 0.3));
-                AddEnemiesType("shooter", (int)(difference * 0.3));
-                AddEnemiesType("crazy", (int)(difference * 0.3));
+                AddEnemiesType("bulger", (int)(difference * 0.33));
+                AddEnemiesType("shooter", (int)(difference * 0.33));
+                AddEnemiesType("crazy", (int)(difference * 0.33));
             }
         }
 
