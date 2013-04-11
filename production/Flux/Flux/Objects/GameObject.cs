@@ -68,13 +68,13 @@ namespace Flux
             if (position.X > ScreenManager.window.X)
             {
                 display++;
-                position.X = 5;
+                position.X = 15;
                 velocity.X += 1;
             }
             if (position.X < 0)
             {
                 display--;
-                position.X = ScreenManager.window.X - 5;
+                position.X = ScreenManager.window.X - 15;
                 velocity.X -= 1;
             }
             if (display > 3) display = 0;

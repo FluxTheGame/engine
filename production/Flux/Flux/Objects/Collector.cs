@@ -204,7 +204,6 @@ namespace Flux
 
         protected void Die()
         {
-            Console.WriteLine("Dying...");
             foreach (User user in users)
             {
                 user.collector = null;
@@ -247,10 +246,8 @@ namespace Flux
             {
                 user.Alert();
             }
-            Console.WriteLine("Collector " + id + ":  Got Attacked, health: " + health);
             if (health <= 0)
             {
-                Console.WriteLine("Collector " + id + ":  DEATH");
                 Burst(false);
             }
         }
@@ -265,6 +262,7 @@ namespace Flux
                         projectiles.Add(new Projectile(enemy, this));
                         Audio.Play("collector.weapon", display);
                         collected -= 10;
+                        if (collected < 0) collected = 0; 
                     }
                 }
             }
