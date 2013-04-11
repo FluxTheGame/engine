@@ -205,10 +205,10 @@ namespace Flux
         protected void ApplyAction()
         {
             if (action == (int)Actions.Bloating) {
-                GridManager.Bloat(position, 80.0f, 0.025f, display);
+                GridManager.Bloat(position, 120.0f, 0.025f, display);
 
             } else if (action == (int)Actions.Pinching) {
-                GridManager.Pinch(position, 80.0f, 0.025f, display);
+                GridManager.Pinch(position, 120.0f, 0.025f, display);
             }
         }
 
