@@ -52,7 +52,7 @@ namespace Flux
 
             ScreenManager.SetTarget(collector.display);
             ScreenManager.spriteBatch.Begin();
-            ScreenManager.spriteBatch.Draw(sprite, position, null, Color.White, rotation, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            ScreenManager.spriteBatch.Draw(sprite, position, null, Color.White, rotation, new Vector2(-0, -20), 1f, SpriteEffects.None, 0f);
             ScreenManager.spriteBatch.End();
         }
     }
