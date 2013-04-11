@@ -39,7 +39,7 @@ namespace Flux
             EventManager.On("collector:attack", (o) =>
             {
                 Collector collector = CollectorByID((int)o["id"]);
-                if (collector != null) collector.Attack();
+                if (collector != null) collector.Attack((int)o["userId"]);
             });
 
             EventManager.On("collector:destroy", (o) =>

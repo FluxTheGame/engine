@@ -252,7 +252,7 @@ namespace Flux
             }
         }
 
-        public void Attack()
+        public void Attack(int userID)
         {
             if (collected > 0) {
                 Enemy enemy = EnemyManager.InRange(this);
@@ -262,7 +262,11 @@ namespace Flux
                         projectiles.Add(new Projectile(enemy, this));
                         Audio.Play("collector.weapon", display);
                         collected -= 10;
-                        if (collected < 0) collected = 0; 
+                        if (collected < 0) collected = 0;
+
+                        OrderedDictionary o = new OrderedDictionary();
+                        o.Add("id", userID);
+                        EventManager.Emit("user:shoot", o);
                     }
                 }
             }

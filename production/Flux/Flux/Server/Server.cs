@@ -15,7 +15,7 @@ namespace Flux
 {
     class Server
     {
-        private string[] gameEventNames = new string[] {"collector:burst", "collector:heartbeat", "collector:merge"};
+        private string[] gameEventNames = new string[] {"collector:burst", "collector:heartbeat", "collector:merge", "user:shoot"};
         private TcpClient tcpClient;
 
         private const int TIMEOUT = 1; // seconds

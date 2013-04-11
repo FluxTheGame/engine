@@ -233,6 +233,7 @@ namespace Flux
                 {
                     //o.Add("type", "theOcho");
                     //o.Add("value", 100);
+                    o.Add("userId", 0);
                     EventManager.Emit("collector:attack", o);
                     //EventManager.Emit("user:getBadge", o);
                     //EventManager.Emit("user:getPoints", o);
