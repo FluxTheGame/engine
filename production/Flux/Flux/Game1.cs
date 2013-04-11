@@ -157,15 +157,6 @@ namespace Flux
             OrderedDictionary c = new OrderedDictionary();
             c.Add("id", 0);
             EventManager.Emit("collector:new", c);
-            /*
-            c["id"] = 1;
-            EventManager.Emit("collector:new", c);
-
-            c["id"] = 2;
-            EventManager.Emit("collector:new", c);
-
-            c["id"] = 3;
-            EventManager.Emit("collector:new", c);*/
 
             //Add User
             
@@ -246,10 +237,6 @@ namespace Flux
                     //EventManager.Emit("user:getBadge", o);
                     //EventManager.Emit("user:getPoints", o);
                     //EventManager.Emit("user:disconnect", o);
-
-                    /*OrderedDictionary c = new OrderedDictionary();
-                    c.Add("id", 1);
-                    EventManager.Emit("collector:new", c);*/
                 }
             }
             if (keyState.IsKeyDown(Keys.D1)) 

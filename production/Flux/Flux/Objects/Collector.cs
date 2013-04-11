@@ -265,7 +265,6 @@ namespace Flux
                         projectiles.Add(new Projectile(enemy, this));
                         Audio.Play("collector.weapon", display);
                         collected -= 10;
-                        Console.WriteLine("Attacking...");
                     }
                 }
             }

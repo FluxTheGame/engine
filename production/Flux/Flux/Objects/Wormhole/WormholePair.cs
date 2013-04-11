@@ -29,8 +29,8 @@ namespace Flux
         }
 
         public bool Make(Vector2 position, int display) {
-            if (Vector2.Distance(ScreenManager.AdjustedPosition(one.position, one.display), ScreenManager.AdjustedPosition(position, display)) > 200 &&
-                Vector2.Distance(ScreenManager.AdjustedPosition(two.position, two.display), ScreenManager.AdjustedPosition(position, display)) > 200)
+            if (Vector2.Distance(ScreenManager.AdjustedPosition(one.position, one.display), ScreenManager.AdjustedPosition(position, display)) > 400 &&
+                Vector2.Distance(ScreenManager.AdjustedPosition(two.position, two.display), ScreenManager.AdjustedPosition(position, display)) > 400)
             {
                 return true;
             }
