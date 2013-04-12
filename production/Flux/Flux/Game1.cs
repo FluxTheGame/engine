@@ -189,11 +189,11 @@ namespace Flux
             if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
             {
                 gamePaused = !gamePaused;
-                Audio.Pause(gamePaused);
+                Audio.Mute(gamePaused);
             }
 
             oldMouseState = mouseState;
-            if (gamePaused)  return;
+            //if (gamePaused)  return;
 
             GridManager.Update();
             Tweenerizer.Update();

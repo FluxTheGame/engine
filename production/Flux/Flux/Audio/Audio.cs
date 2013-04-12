@@ -28,6 +28,7 @@ namespace Flux
         
         private static FMOD.Channel channel = null;
         private static List<int> channelIDs;
+        private static bool isMuted = false;
 
         public static void Initialize()
         {
@@ -133,12 +134,14 @@ namespace Flux
             }
         }
 
-        public static void Pause(bool paused)
+        public static void Mute(bool muted)
         {
+            isMuted = muted;
+
             foreach (int c in channelIDs)
             {
                 system.getChannel(c, ref channel);
-                channel.setPaused(paused);
+                channel.setMute(muted);
             }
         }
 
@@ -198,6 +201,8 @@ namespace Flux
                 result = channel.setSpeakerMix(0, 0, 1.0f, 0, 0, 0, 0, 0);
                 ERRCHECK(result);
             }
+
+            if (isMuted) channel.setMute(isMuted);
 
             result = channel.setPaused(false);
 
