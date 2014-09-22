@@ -1,8 +1,0 @@
-C:\Users\Jahfer\Desktop\Flock\Flocking\Flocking\bin\x86\Debug\Content\bird.xnb
-C:\Users\Jahfer\Desktop\Flock\Flocking\Flocking\bin\x86\Debug\Flocking.exe
-C:\Users\Jahfer\Desktop\Flock\Flocking\Flocking\bin\x86\Debug\Flocking.pdb
-C:\Users\Jahfer\Desktop\Flock\Flocking\Flocking\obj\x86\Debug\Flocking.csprojResolveAssemblyReference.cache
-C:\Users\Jahfer\Desktop\Flock\Flocking\Flocking\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Jahfer\Desktop\Flock\Flocking\Flocking\obj\x86\Debug\Flocking.exe
-C:\Users\Jahfer\Desktop\Flock\Flocking\Flocking\obj\x86\Debug\Flocking.pdb
-C:\Users\Jahfer\Desktop\Flock\Flocking\Flocking\bin\x86\Debug\Content\chicken.xnb

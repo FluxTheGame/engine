@@ -1,9 +1,0 @@
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Matt\3dSpriteBatch\3dSpriteBatch\3dSpriteBatch\bin\x86\Debug\Content\collector_m.xnb
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Matt\3dSpriteBatch\3dSpriteBatch\3dSpriteBatch\bin\x86\Debug\Content\chicken.xnb
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Matt\3dSpriteBatch\3dSpriteBatch\3dSpriteBatch\bin\x86\Debug\3dSpriteBatch.exe
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Matt\3dSpriteBatch\3dSpriteBatch\3dSpriteBatch\bin\x86\Debug\3dSpriteBatch.pdb
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Matt\3dSpriteBatch\3dSpriteBatch\3dSpriteBatch\obj\x86\Debug\ResolveAssemblyReference.cache
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Matt\3dSpriteBatch\3dSpriteBatch\3dSpriteBatch\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Matt\3dSpriteBatch\3dSpriteBatch\3dSpriteBatch\obj\x86\Debug\3dSpriteBatch.exe
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Matt\3dSpriteBatch\3dSpriteBatch\3dSpriteBatch\obj\x86\Debug\3dSpriteBatch.pdb
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Matt\3dSpriteBatch\3dSpriteBatch\3dSpriteBatch\bin\x86\Debug\Content\collector_t.xnb

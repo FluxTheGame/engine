@@ -1,4 +1,0 @@
-Content\box.xnb
-Content\mouse.xnb
-Content\object.xnb
-Content\font.xnb

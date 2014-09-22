@@ -1,197 +1,0 @@
-TNodeJs
-v5
-r1
-cCheck dependencies
-cProcessInfoPlistFile "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/Info.plist" Info.plist
-cCpResource CinderApp.icns ./build/Debug/NodeJs.app/Contents/Resources/CinderApp.icns
-cProcessPCH++ /var/folders/mz/k98g495x5ssgsw32rny_fbp00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/NodeJs_Prefix-gdxqbhbylmnkrsbywataoshjibzj/NodeJs_Prefix.pch.pth NodeJs_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC ./build/NodeJs.build/Debug/NodeJs.build/Objects-normal/i386/NodeJsApp.o "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/../src/NodeJsApp.cpp" normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cLd "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/MacOS/NodeJs" normal i386
-cTouch "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app"
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
-c000000005023F9EB00000000000000AA
-t1344535019
-s170
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Accelerate.framework/Accelerate
-c000000005010275C00000000000024F0
-t1343235932
-s9456
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
-c000000005010275D0000000000024C14
-t1343235933
-s150548
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/AudioUnit.framework/AudioUnit
-c000000005010275D00000000000060B4
-t1343235933
-s24756
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
-c000000005010275D00000000000001E5
-t1343235933
-s485
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreAudio.framework/CoreAudio
-c000000005010275D000000000000E920
-t1343235933
-s59680
-
-N/System/Library/Frameworks/Carbon.framework/Carbon
-c0000000050121A4E00000000000069F0
-t1343363662
-s27120
-
-N/System/Library/Frameworks/Cocoa.framework/Cocoa
-c0000000050121A4E0000000000006730
-t1343363662
-s26416
-
-N/System/Library/Frameworks/CoreVideo.framework/CoreVideo
-c0000000050121A520000000000081CB0
-t1343363666
-s531632
-
-N/System/Library/Frameworks/OpenGL.framework/OpenGL
-c0000000050121A5B000000000002DAF0
-t1343363675
-s187120
-
-N/System/Library/Frameworks/QTKit.framework/QTKit
-c0000000050121A5E00000000004A2D90
-t1343363678
-s4861328
-
-N/System/Library/Frameworks/QuickTime.framework/QuickTime
-c0000000050121B600000000000322E20
-t1343363936
-s3288608
-
-N/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/../src/NodeJsApp.cpp
-c000000005036CA2000000000000001FD
-t1345767968
-s509
-
-N/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app
-t2
-s0
-
-N/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/Info.plist
-t2
-s0
-
-N/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/MacOS/NodeJs
-t2
-s0
-
-N/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/PkgInfo
-t2
-s0
-
-N/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/Resources/CinderApp.icns
-t2
-s0
-
-N/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/Objects-normal/i386/NodeJs.LinkFileList
-c000000005036CB7B000000000000007A
-t1345768315
-s122
-
-N/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/Objects-normal/i386/NodeJsApp.o
-t2
-s0
-
-N/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/CinderApp.icns
-c000000005036CA20000000000001BEB5
-t1345767968
-s114357
-
-N/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/NodeJs_Prefix.pch
-c000000005036CA200000000000000093
-t1345767968
-s147
-i<Cocoa/Cocoa.h>
-
-N/var/folders/mz/k98g495x5ssgsw32rny_fbp00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/NodeJs_Prefix-gdxqbhbylmnkrsbywataoshjibzj/NodeJs_Prefix.pch.pth
-t2
-s0
-
-NInfo.plist
-c000000005036CA20000000000000034C
-t1345767968
-s844
-
-CBuild AST from "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/../src/NodeJsApp.cpp"
-r0
-
-CCheck dependencies
-r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies01c011fb02e7b541^f4f914fb02e7b541^---0#1#0#--18"Check dependencies36"64BD4B6F-FCB1-4EE6-9FB7-DA66EC50F268-
-
-CCompileC ./build/NodeJs.build/Debug/NodeJs.build/Objects-normal/i386/NodeJsApp.o "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/../src/NodeJsApp.cpp" normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s367461115.166401
-e367461117.004159
-r1
-xCompileC
-x./build/NodeJs.build/Debug/NodeJs.build/Objects-normal/i386/NodeJsApp.o
-x/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/../src/NodeJsApp.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection78"Compile /Users/jahferh/Senior Project/Cinder/NodeJs/xcode/../src/NodeJsApp.cpp36af2afb02e7b541^a11001fd02e7b541^---0#0#0#-19%DVTDocumentLocation2@88"file://localhost/Users/jahferh/Senior%20Project/Cinder/NodeJs/xcode/../src/NodeJsApp.cpp0000000000000000^2752"CompileC ./build/NodeJs.build/Debug/NodeJs.build/Objects-normal/i386/NodeJsApp.o ../src/NodeJsApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wno-newline-eof -Wc++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -Wno-sign-conversion -iquote "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/NodeJs-generated-files.hmap" "-I/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/NodeJs-own-target-headers.hmap" "-I/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/NodeJs-all-target-headers.hmap" -iquote "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/NodeJs-project-headers.hmap" -iquote../../../../Documents/cinder_0.8.4_mac/include -iquote../include "-I/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/build/Debug/include" -I../../../../Documents/cinder_0.8.4_mac/boost "-I/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/DerivedSources/i386" "-I/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/DerivedSources" "-F/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/build/Debug" -include /var/folders/mz/k98g495x5ssgsw32rny_fbp00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/NodeJs_Prefix-gdxqbhbylmnkrsbywataoshjibzj/NodeJs_Prefix.pch -MMD -MT dependencies -MF "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/Objects-normal/i386/NodeJsApp.d" --serialize-diagnostics "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/Objects-normal/i386/NodeJsApp.dia" -c "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/../src/NodeJsApp.cpp" -o "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/Objects-normal/i386/NodeJsApp.o"36"B90EE7B2-088F-4739-9F1D-49D68591DE50-
-
-CCpResource CinderApp.icns ./build/Debug/NodeJs.app/Contents/Resources/CinderApp.icns
-s367461115.098950
-e367461115.101831
-r1
-xCpResource
-xCinderApp.icns
-x./build/Debug/NodeJs.app/Contents/Resources/CinderApp.icns
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection63"Copy ./build/Debug/NodeJs.app/Contents/Resources/CinderApp.icns166e19fb02e7b541^828e1afb02e7b541^---0#0#0#-19%DVTDocumentLocation2@126"file://localhost/Users/jahferh/Senior%20Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/Resources/CinderApp.icns000000000080d041^419"CpResource CinderApp.icns ./build/Debug/NodeJs.app/Contents/Resources/CinderApp.icns    cd "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/CinderApp.icns" "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/Resources"36"2B0CCCA1-2F82-4FF7-99FF-A1DC86369D08-
-
-CLd "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/MacOS/NodeJs" normal i386
-s367461117.010635
-e367461117.732136
-r1
-xLd
-x/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/MacOS/NodeJs
-xnormal
-xi386
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection101"Link /Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/MacOS/NodeJs10cb02fd02e7b541^116dbbfd02e7b541^---0#0#0#--1047"Ld ./build/Debug/NodeJs.app/Contents/MacOS/NodeJs normal i386    cd "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode"    setenv MACOSX_DEPLOYMENT_TARGET 10.5    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk "-L/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/build/Debug" "-F/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/build/Debug" -filelist "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/Objects-normal/i386/NodeJs.LinkFileList" -mmacosx-version-min=10.5 ../../../../Documents/cinder_0.8.4_mac/lib/libcinder_d.a -lcurl -framework Cocoa -framework OpenGL -framework Carbon -framework CoreVideo -framework QTKit -framework QuickTime -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -o "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/MacOS/NodeJs"36"4EA3F540-D147-4B6C-BB05-DF6EA1209776-
-
-CProcessInfoPlistFile "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/Info.plist" Info.plist
-s367461115.087606
-e367461115.091220
-r1
-xProcessInfoPlistFile
-x/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/Info.plist
-xInfo.plist
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Process Info.plist1b8316fb02e7b541^9d6817fb02e7b541^---0#0#0#-19%DVTDocumentLocation2@78"file://localhost/Users/jahferh/Senior%20Project/Cinder/NodeJs/xcode/Info.plist0000000000000000^420"ProcessInfoPlistFile ./build/Debug/NodeJs.app/Contents/Info.plist Info.plist    cd "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode"    builtin-infoPlistUtility Info.plist -genpkginfo "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/PkgInfo" -expandbuildsettings -platform macosx -o "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app/Contents/Info.plist"36"4B03435E-3537-451E-8873-7CC5DCEFEF24-
-
-CProcessPCH++ /Users/jahferh/Library/Developer/Xcode/DerivedData/NodeJs-aandcqkbusthgodbtihjozrievhs/Index/PrecompiledHeaders/NodeJs_Prefix-bgvwtpddbjphjycomblgmsbqlnaq_ast/NodeJs_Prefix.pch.pth NodeJs_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.astbuilder
-r0
-
-CProcessPCH++ /var/folders/mz/k98g495x5ssgsw32rny_fbp00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/NodeJs_Prefix-gdxqbhbylmnkrsbywataoshjibzj/NodeJs_Prefix.pch.pth NodeJs_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s367461115.115160
-e367461115.159544
-r1
-xProcessPCH++
-x/var/folders/mz/k98g495x5ssgsw32rny_fbp00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/NodeJs_Prefix-gdxqbhbylmnkrsbywataoshjibzj/NodeJs_Prefix.pch.pth
-xNodeJs_Prefix.pch
-xnormal
-xi386
-xc++
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection28"Precompile NodeJs_Prefix.pchcdb01dfb02e7b541^12d828fb02e7b541^---0#0#0#-19%DVTDocumentLocation2@85"file://localhost/Users/jahferh/Senior%20Project/Cinder/NodeJs/xcode/NodeJs_Prefix.pch0000000000000000^2781"ProcessPCH++ /var/folders/mz/k98g495x5ssgsw32rny_fbp00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/NodeJs_Prefix-gdxqbhbylmnkrsbywataoshjibzj/NodeJs_Prefix.pch.pth NodeJs_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode"    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++-header -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wno-newline-eof -Wc++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -Wno-sign-conversion -iquote "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/NodeJs-generated-files.hmap" "-I/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/NodeJs-own-target-headers.hmap" "-I/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/NodeJs-all-target-headers.hmap" -iquote "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/NodeJs-project-headers.hmap" -iquote../../../../Documents/cinder_0.8.4_mac/include -iquote../include "-I/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/build/Debug/include" -I../../../../Documents/cinder_0.8.4_mac/boost "-I/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/DerivedSources/i386" "-I/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/NodeJs.build/Debug/NodeJs.build/DerivedSources" "-F/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/build/Debug" --serialize-diagnostics /var/folders/mz/k98g495x5ssgsw32rny_fbp00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/NodeJs_Prefix-gdxqbhbylmnkrsbywataoshjibzj/NodeJs_Prefix.pch.dia -c "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/NodeJs_Prefix.pch" -o /var/folders/mz/k98g495x5ssgsw32rny_fbp00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/NodeJs_Prefix-gdxqbhbylmnkrsbywataoshjibzj/NodeJs_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/mz/k98g495x5ssgsw32rny_fbp00000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/NodeJs_Prefix-gdxqbhbylmnkrsbywataoshjibzj/NodeJs_Prefix.pch.d36"470EB9ED-F856-407A-A9F3-779500B2044E-
-
-CTouch "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app"
-s367461117.745072
-e367461117.754528
-r1
-xTouch
-x/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"Touch /Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app60c8befd02e7b541^9e28c1fd02e7b541^---0#0#0#--189"Touch ./build/Debug/NodeJs.app    cd "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode"    /usr/bin/touch -c "/Users/jahferh/Senior Project/Cinder/NodeJs/xcode/./build/Debug/NodeJs.app"36"A18512BA-CA47-4299-8890-BA6C0A978852-
-

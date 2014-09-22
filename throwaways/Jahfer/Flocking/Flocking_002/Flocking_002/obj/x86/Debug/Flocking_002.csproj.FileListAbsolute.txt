@@ -1,7 +1,0 @@
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\Flocking\Flocking_002\Flocking_002\bin\x86\Debug\Content\Models\Chicken_001.xnb
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\Flocking\Flocking_002\Flocking_002\bin\x86\Debug\Flocking_002.exe
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\Flocking\Flocking_002\Flocking_002\bin\x86\Debug\Flocking_002.pdb
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\Flocking\Flocking_002\Flocking_002\obj\x86\Debug\ResolveAssemblyReference.cache
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\Flocking\Flocking_002\Flocking_002\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\Flocking\Flocking_002\Flocking_002\obj\x86\Debug\Flocking_002.exe
-Z:\Senior Project\SeniorProjectDevelopment\throwaways\Jahfer\Flocking\Flocking_002\Flocking_002\obj\x86\Debug\Flocking_002.pdb
